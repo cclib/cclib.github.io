@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Changelog &mdash; cclib 1.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="cclib 1.1 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">cclib 1.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="changes-since-cclib-1-0-1">
+<h2>Changes since cclib-1.0.1<a class="headerlink" href="#changes-since-cclib-1-0-1" title="Permalink to this headline">¶</a></h2>
+<p><strong>Feaures</strong></p>
+<ul class="simple">
+<li>Add progress info for all parsers</li>
+<li>Support ONIOM calculations in Gaussian (Karen Hemelsoet)</li>
+<li>New attribute atomcharges extracts Mulliken and Lowdin atomic charges if present</li>
+<li>New attribute atomspins extracts Mulliken and Lowdin atomic spin densities if present</li>
+<li>New thermodynamic attributes: freeenergy, temperature, enthalpy (Edward Holland)</li>
+<li>Extract PES information: scanenergies, scancoords, scanparm, scannames (Edward Holland)</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul class="simple">
+<li>Handle coupled cluster energies in Gaussian 09 (Björn Dahlgren)</li>
+<li>Vibrational displacement vectors missing for Gaussian 09 (Björn Dahlgren)</li>
+<li>Fix problem parsing vibrational frequencies in some GAMESS-US files</li>
+<li>Fix missing final scfenergy in ADF geometry optimisations</li>
+<li>Fix missing final scfenergy for ORCA where a specific number of SCF cycles has been specified</li>
+<li>ORCA scfenergies not parsed if COSMO solvent effects included</li>
+<li>Allow spin unrestricted calculations to use the fragment MO overlaps correctly for the MPA and CDA calculations</li>
+<li>Handle Gaussian MO energies that are printed as a row of asterisks (Jerome Kieffer)</li>
+<li>Add more explicit license notices, and allow LGPL versions after 2.1</li>
+<li>Support Firefly calculations where nmo != nbasis (Pavel Solntsev)</li>
+<li>Fix problem parsing vibrational frequency information in recent GAMESS (US) files (Chengju Wang)</li>
+<li>Apply patch from Chengju Wang to handle GAMESS calculations with more than 99 atoms</li>
+<li>Handle Gaussian files with more than 99 atoms having pseudopotentials (Björn Baumeier)</li>
+</ul>
+</div>
+<div class="section" id="changes-since-cclib-1-0">
+<h2>Changes since cclib-1.0<a class="headerlink" href="#changes-since-cclib-1-0" title="Permalink to this headline">¶</a></h2>
+<p><strong>Feaures</strong></p>
+<ul class="simple">
+<li>New attribute atommasses - atomic masses in Dalton</li>
+<li>Added support for Gaussian geometry optimisations that change the number of linearly independent basis functions over the course of the calculation</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul class="simple">
+<li>Handle triplet PM3 calculations in Gaussian03 (Greg Magoon)</li>
+<li>Some Gaussian09 calculations were missing atomnos (Marius Retegan)</li>
+<li>Handle multiple pseudopotentials in Gaussian03 (Tiago Silva)</li>
+<li>Handle Gaussian calculations with &gt;999 basis functions</li>
+<li>ADF versions &gt; 2007 no longer print overlap info by default</li>
+<li>Handle parsing Firefly calculations that fail</li>
+<li>Fix parsing of ORCA calculation (Marius Retegan)</li>
+</ul>
+</div>
+<div class="section" id="changes-since-cclib-0-9">
+<h2>Changes since cclib-0.9<a class="headerlink" href="#changes-since-cclib-0-9" title="Permalink to this headline">¶</a></h2>
+<p><strong>Feaures</strong></p>
+<ul class="simple">
+<li>Handle PBC calculations from Gaussian</li>
+<li>Updates to handle Gaussian09</li>
+<li>Support TDDFT calculations from ADF</li>
+<li>A number of improvements for GAMESS support</li>
+<li>ccopen now supports any file-like object with a read() method, so it can parse across HTTP</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul class="simple">
+<li>Many many additional files parsed thanks to bugs reported by users</li>
+</ul>
+</div>
+<div class="section" id="changes-since-cclib-0-8">
+<h2>Changes since cclib-0.8<a class="headerlink" href="#changes-since-cclib-0-8" title="Permalink to this headline">¶</a></h2>
+<p><strong>Feaures</strong></p>
+<ul class="simple">
+<li>New parser: cclib can now parse ORCA files</li>
+<li>Added option to use setuptools instead of distutils.core for installing</li>
+<li>Improved handling of CI and TD-DFT data: TD-DFT data extracted from GAMESS and etsecs standardised across all parsers</li>
+<li>Test suite changed to include output from only the newest program versions</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul class="simple">
+<li>A small number of parsing errors were fixed</li>
+</ul>
+</div>
+<div class="section" id="changes-since-cclib-0-7">
+<h2>Changes since cclib-0.7<a class="headerlink" href="#changes-since-cclib-0-7" title="Permalink to this headline">¶</a></h2>
+<p><strong>Feaures</strong></p>
+<ul class="simple">
+<li>New parser: cclib can now parse Molpro files</li>
+<li>Separation of parser and data objects: Parsed data is now returned is a ccData object that can be pickled, and converted to and from JSON</li>
+<li>Parsers: multiple files can be parsed with one parse command</li>
+<li>NumPy support: Dropped Numeric support in favour of NumPy</li>
+<li>API addition: &#8216;charge&#8217; for molecular charge</li>
+<li>API addition: &#8216;mult&#8217; for spin multiplicity</li>
+<li>API addition: &#8216;atombasis&#8217; for indices of atom orbitals on each atom</li>
+<li>API addition: &#8216;nocoeffs&#8217; for Natural Orbital (NO) coefficients</li>
+<li>GAMESS-US parser: added &#8216;etoscs&#8217; (CIS calculations)</li>
+<li>Jaguar parser: added &#8216;mpenergies&#8217; (LMP2 calcualtions)</li>
+<li>Jaguar parser: added &#8216;etenergies&#8217; and &#8216;etoscs&#8217; (CIS calculations)</li>
+<li>New method: Lowdin Population Analysis (LPA)</li>
+<li>Tests: unittests can be run from the Python interpreter, and for a single parser; the number of &#8220;passed&#8221; tests is also counted and shown</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul class="simple">
+<li>Several parsing errors were fixed</li>
+<li>Fixed some methods to work with different numbers of alpha and beta MO coefficients in mocoeffs (MPA, CSPA, OPA)</li>
+</ul>
+</div>
+<div class="section" id="changes-since-cclib-0-6-1">
+<h2>Changes since cclib-0.6.1<a class="headerlink" href="#changes-since-cclib-0-6-1" title="Permalink to this headline">¶</a></h2>
+<p><strong>Feaures</strong></p>
+<ul class="simple">
+<li>New parser: cclib can now parse Jaguar files</li>
+<li>ccopen: Can handle log files which have been compressed into .zip, .bz2 or .gz files.</li>
+<li>API addition: &#8216;gbasis&#8217; holds the Gaussian basis set</li>
+<li>API addition: &#8216;coreelectrons&#8217; contains the number of core electrons in each atom&#8217;s pseudopotential</li>
+<li>API addition: &#8216;mpenergies&#8217; holds the Moller-Plesset corrected molecular electronic energies</li>
+<li>API addition: &#8216;vibdisps&#8217; holds the Cartesian displacement vectors</li>
+<li>API change: &#8216;mocoeffs&#8217; is now a list of rank 2 arrays, rather than a rank 3 array</li>
+<li>API change: &#8216;moenergies&#8217; is now a list of rank 1 arrays, rather than rank 2 array</li>
+<li>GAMESS-UK parser: added &#8216;vibramans&#8217;</li>
+<li>New method: Charge Decomposition Analysis (CDA) for studying electron donation, back donation, and repulsion between fragments in a molecule</li>
+<li>New method: Fragment Analysis for studing bonding interactions between two or more fragments in a molecule</li>
+<li>New method: Ability to calculate the electron density or wavefunction</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li><dl class="first docutils">
+<dt>GAMESS parser:</dt>
+<dd><ul class="first last simple">
+<li>Failed to parse frequency calculation with imaginary frequencies</li>
+<li>Rotations and translations now not included in frequencies</li>
+<li>Failed to parse a DFT calculation</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>GAMESS-UK parser:</dt>
+<dd><ul class="first last simple">
+<li>&#8216;atomnos&#8217; not being extracted</li>
+<li>Rotations and translations now not included in frequencies</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">bridge to OpenBabel: No longer dependent on pyopenbabel</p>
+</li>
+</ul>
+</div>
+<div class="section" id="changes-since-cclib-0-6-0">
+<h2>Changes since cclib-0.6.0<a class="headerlink" href="#changes-since-cclib-0-6-0" title="Permalink to this headline">¶</a></h2>
+<p><strong>Bugfixes</strong></p>
+<ul class="simple">
+<li>cclib: The &#8220;import cclib.parsers&#8221; statement failed due to references to Molpro and Jaguar parsers which are not present</li>
+<li>Gaussian parser: Failed to parse single point calculations where the input coords are a z-matrix, and symmetry is turned off.</li>
+</ul>
+</div>
+<div class="section" id="changes-since-cclib-0-6b">
+<h2>Changes since cclib-0.6b<a class="headerlink" href="#changes-since-cclib-0-6b" title="Permalink to this headline">¶</a></h2>
+<p><strong>Feaures</strong></p>
+<ul class="simple">
+<li>ADF parser: If some MO eigenvalues are not present, the parser does not fail, but uses values of 99999 instead and A symmetry</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul class="simple">
+<li>ADF parser: The following bugs have been fixed P/D orbitals for single atoms not handled correctly Problem parsing homos in unrestricted calculations Problem skipping the Create sections in certain calculations</li>
+<li>Gaussian parser: The following bugs have been fixed Parser failed if standard orientation not found</li>
+<li>ccget: aooverlaps not included when using &#8211;list option</li>
+</ul>
+</div>
+<div class="section" id="changes-since-cclib-0-5">
+<h2>Changes since cclib-0.5<a class="headerlink" href="#changes-since-cclib-0-5" title="Permalink to this headline">¶</a></h2>
+<p><strong>Feaures</strong></p>
+<ul class="simple">
+<li>New parser: GAMESS-UK parser</li>
+<li>API addition: the .clean() method; the .clean() method of a parser clears all of the parsed attributes. This is useful if you need to reparse during the course of a calculation.</li>
+<li>Function rename: guesstype() has been renamed to ccopen()</li>
+<li>Speed up: Calculation of Overlap Density of States has been sped up by two orders of magnitude</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul>
+<li><p class="first">ccopen: Minor problems fixed with identification of log files</p>
+</li>
+<li><p class="first">ccget: Passing multiple filenames now works on Windows too</p>
+</li>
+<li><dl class="first docutils">
+<dt>ADF parser: The following bugs have been fixed</dt>
+<dd><ul class="first last simple">
+<li>Problem with parsing SFOs in certain log files</li>
+<li>Handling of molecules with orbitals of E symmetry</li>
+<li>Couldn&#8217;t find the HOMO in log files from new versions of ADF</li>
+<li>Parser used to miss attributes if SCF not converged</li>
+<li>For a symmetrical molecule, mocoeffs were in the wrong order and the homo was not identified correctly if degenerate</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Gaussian parser: The following bugs have been fixed</dt>
+<dd><ul class="first last simple">
+<li>SCF values was not extracting the dEnergy value</li>
+<li>Was extracting Depolar P instead of Raman activity</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="changes-since-cclib-0-5b">
+<h2>Changes since cclib-0.5b<a class="headerlink" href="#changes-since-cclib-0-5b" title="Permalink to this headline">¶</a></h2>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li>(src/scripts/ccget): Added handling of multiple filenames. It&#8217;s now possible to use ccget as follows: <tt class="docutils literal"><span class="pre">ccget</span> <span class="pre">*.log</span></tt>. This is a good way of checking out whether cclib is able to parse all of the files in a given directory. Also possible is: <tt class="docutils literal"><span class="pre">ccget</span> <span class="pre">homos</span> <span class="pre">*.log</span></tt>.</li>
+<li>Change of license: Changed license from GPL to LGPL</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul class="simple">
+<li>src/cclib/parser/gamessparser.py: gamessparser was dying on GAMESS VERSION = 12 DEC 2003 gopts, as it was unable to parse the scftargets.</li>
+<li>src/cclib/parser/gamessparser.py: Remove assertion to catch instances where scftargets is unset. This occurs in the case of failed calculations (e.g. wrong multiplicity).</li>
+<li>src/cclib/parser/adfparser.py: Fixed one of the errors with the Mo5Obdt2-c2v-opt.adfout example, which had to do with the SFOs being made of more than two combinations of atoms (4, because of rotation in c2v point group). At least one error is still present with atomcoords. It looks like non-coordinate integers are being parsed as well, which makes some of the atomcoords list have more than the 3 values for x,y,z.</li>
+<li>src/cclib/parser/adfparser.py: Hopefully fixed the last error in Mo5Obdt2-c2v-opt. Problem was that it was adding line.split()[5:], but sometimes there was more than 3 fields left, so it was changed to [5:8]. Need to check actual parsed values to make sure it is parsed correctly.</li>
+<li>data/Gaussian, logfiledist, src/cclib/parser/gaussianparser.py, test/regression.py: Bug fix: Mo4OSibdt2-opt.log has no atomcoords despite being a geo-opt. This was due to the fact that the parser was extracting &#8220;Input orientation&#8221; and not &#8220;Standard orientation&#8221;. It&#8217;s now changed to &#8220;Standard orientation&#8221; which works for all of the files in the repository.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#changes-since-cclib-1-0-1">Changes since cclib-1.0.1</a></li>
+<li><a class="reference internal" href="#changes-since-cclib-1-0">Changes since cclib-1.0</a></li>
+<li><a class="reference internal" href="#changes-since-cclib-0-9">Changes since cclib-0.9</a></li>
+<li><a class="reference internal" href="#changes-since-cclib-0-8">Changes since cclib-0.8</a></li>
+<li><a class="reference internal" href="#changes-since-cclib-0-7">Changes since cclib-0.7</a></li>
+<li><a class="reference internal" href="#changes-since-cclib-0-6-1">Changes since cclib-0.6.1</a></li>
+<li><a class="reference internal" href="#changes-since-cclib-0-6-0">Changes since cclib-0.6.0</a></li>
+<li><a class="reference internal" href="#changes-since-cclib-0-6b">Changes since cclib-0.6b</a></li>
+<li><a class="reference internal" href="#changes-since-cclib-0-5">Changes since cclib-0.5</a></li>
+<li><a class="reference internal" href="#changes-since-cclib-0-5b">Changes since cclib-0.5b</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/changelog.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">cclib 1.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, cclib Development Team.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
