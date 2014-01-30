@@ -41,7 +41,7 @@ If you need further help, find a bug, need new features or have any question, pl
 About cclib
 -----------
 
-The code behind cclib was started as a collaboration between Noel O'Boyle, Adam Tenderholt and Karol M. Langner (see page about Developers_ for details) and is licensed under the LGPL_. Other developers are encouraged to contribute to this open source project -- send an email to the `developers mailing list`_. Application that use cclib include GaussSum_ and QMForge_.
+The code behind cclib was started as a collaboration between Noel O'Boyle, Adam Tenderholt and Karol M. Langner (see page about Development_ for details) and is licensed under the LGPL_. Other developers are encouraged to contribute to this open source project -- send an email to the `developers mailing list`_. Application that use cclib include GaussSum_ and QMForge_.
 
 If you use cclib in your scientific work, please support our work by adding a reference to the following article:
 
@@ -58,7 +58,7 @@ If you use cclib in your scientific work, please support our work by adding a re
 .. _`calculation methods`: methods.html
 .. _`installation page`: installation.html
 .. _tutorial: tutorial.html
-.. _developers: developers.html
+.. _development: development.html
 
 .. _ADF: http://www.scm.com
 .. _Firefly: http://classic.chem.msu.su/gran/gamess/
