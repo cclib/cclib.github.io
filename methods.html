@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Calculation methods &mdash; cclib 1.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="cclib 1.1 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">cclib 1.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="calculation-methods">
+<h1>Calculation methods<a class="headerlink" href="#calculation-methods" title="Permalink to this headline">¶</a></h1>
+<p>The following methods in cclib allow further analysis of calculation output. There may also be more <a class="reference external" href="methods_dev.html">methods in the development version</a> of cclib.</p>
+<div class="section" id="c-squred-population-analysis-cspa">
+<h2>C squred population analysis (CSPA)<a class="headerlink" href="#c-squred-population-analysis-cspa" title="Permalink to this headline">¶</a></h2>
+<p><strong>CSPA</strong> can be used to determine and interpret the electron density of a molecule. The contribution of the a-th atomic orbital to the i-th molecular orbital can be written in terms of the molecular orbital coefficients:</p>
+<div>
+<math xmlns="http://www.w3.org/1998/Math/MathML" mode="display">
+<mtable>
+<mtr>
+<mtd><msub><mo>Φ</mo>
+<mrow><mi>a</mi><mi>i</mi></mrow></msub><mo>=</mo><mfrac>
+<mrow><msubsup><mi>c</mi>
+<mrow><mi>a</mi><mi>i</mi></mrow><mn>2</mn></msubsup></mrow>
+<mrow><munder><mo>∑</mo><mi>k</mi></munder><msubsup><mi>c</mi>
+<mrow><mi>k</mi><mi>i</mi></mrow><mn>2</mn></msubsup></mrow></mfrac></mtd></mtr></mtable></math>
+</div>
+<p>The CSPA class available from cclib.method performs C-squared population analysis and can be used as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">CSPA</span>
+<span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">Gaussian</span>
+
+<span class="n">p</span><span class="o">=</span><span class="n">Gaussian</span><span class="p">(</span><span class="s">&quot;mycalc.out&quot;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+<span class="n">m</span><span class="o">=</span><span class="n">CSPA</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>After the calculate() method is called, the following attributes are available:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">aoresults</span></tt> is a Numeric array[3] with spin, molecular orbital, and atomic/fragment orbitals as the axes (aoresults[0][45][0] gives the contribution of the 1st atomic/fragment orbital to the 46th alpha/restricted molecular orbital)</li>
+<li><tt class="docutils literal"><span class="pre">fragresults</span></tt> is a Numeric array[3] with spin, molecular orbital, and atoms as the axes (atomresults[1][23][4] gives the contribution of the 5th atomic/fragment orbital to the 24th beta molecular orbital)</li>
+<li><tt class="docutils literal"><span class="pre">fragcharges</span></tt> is a Numeric array[1] with the number of (partial) electrons in each atom (atomcharges[2] gives the number of electrons on the 3rd atom)</li>
+</ul>
+<div class="section" id="custom-fragments">
+<h3>Custom fragments<a class="headerlink" href="#custom-fragments" title="Permalink to this headline">¶</a></h3>
+<p>Calling the calculate method without an argument treats each atom as a fragment in the population analysis. An optional argument can be passed - a list of lists - containing the atomic orbital numbers to be included in each fragment. Calling with this additional argument is useful if one is more interested in the contributions of certain orbitals, such as metal d, to the molecular orbitals. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">CSPA</span>
+<span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">Gaussian</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Gaussian</span><span class="p">(</span><span class="s">&quot;mycalc.out&quot;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">CSPA</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">calculate</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span> <span class="c">#fragment one is made from basis functions 0-4</span>
+                                         <span class="c">#fragment two is made from basis functions 5&amp;6</span>
+                                         <span class="c">#fragment three is made from basis functions 7-9</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="custom-progress">
+<h3>Custom progress<a class="headerlink" href="#custom-progress" title="Permalink to this headline">¶</a></h3>
+<p>The CSPA class also can take a progress class as an argument so that the progress of the calculation can be monitored:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">CSPA</span>
+<span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">Gaussian</span>
+<span class="kn">from</span> <span class="nn">cclib.progress</span> <span class="kn">import</span> <span class="n">TextProgress</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">progress</span><span class="o">=</span><span class="n">TextProgress</span><span class="p">()</span>
+<span class="n">p</span><span class="o">=</span><span class="n">Gaussian</span><span class="p">(</span><span class="s">&quot;mycalc.out&quot;</span><span class="p">,</span><span class="n">progress</span><span class="p">,</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+<span class="n">m</span><span class="o">=</span><span class="n">CSPA</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">progress</span><span class="p">,</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="mulliken-population-analysis-mpa">
+<h2>Mulliken population analysis (MPA)<a class="headerlink" href="#mulliken-population-analysis-mpa" title="Permalink to this headline">¶</a></h2>
+<p>MPA can be used to determine and interpret the electron density of a molecule. The contribution of the a-th atomic orbital to the i-th molecular orbital in this method is written in terms of the molecular orbital coefficients, c, and the overlap matrix, S:</p>
+<div>
+<math xmlns="http://www.w3.org/1998/Math/MathML" mode="display">
+<mtable>
+<mtr>
+<mtd><msub><mo>Φ</mo>
+<mrow><mi>a</mi><mi>i</mi></mrow></msub><mo>=</mo><munder><mo>∑</mo><mi>b</mi></munder><msub><mi>c</mi>
+<mrow><mi>a</mi><mi>i</mi></mrow></msub><msub><mi>c</mi>
+<mrow><mi>b</mi><mi>i</mi></mrow></msub><msub><mi>S</mi>
+<mrow><mi>a</mi><mi>b</mi></mrow></msub></mtd></mtr></mtable></math>
+</div>
+<p>The MPA class available from cclib.method performs Mulliken population analysis and can be used as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">MPA</span>
+<span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
+
+<span class="n">d</span><span class="o">=</span><span class="n">ccopen</span><span class="p">(</span><span class="s">&quot;mycalc.out&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="n">m</span><span class="o">=</span><span class="n">MPA</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>After the calculate() method is called, the following attributes are available:</p>
+<ul class="simple">
+<li>aoresults: a three dimensional array with spin, molecular orbital, and atomic orbitals as the axes, so that aoresults[0][45][0] gives the contribution of the 1st atomic orbital to the 46th alpha/restricted molecular orbital,</li>
+<li>fragresults: a three dimensional array with spin, molecular orbital, and atoms as the axes, so that fragresults[1][23][4] gives the contribution of the 5th fragment orbitals to the 24th beta molecular orbital)</li>
+<li>fragcharges: a vector with the number of (partial) electrons in each fragment, so that fragcharges[2] gives the number of electrons in the 3rd fragment.</li>
+</ul>
+<div class="section" id="id1">
+<h3>Custom fragments<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The calculate method chooses atoms as the fragments by default, and optionally accepts a list of lists containing the atomic orbital numbers (e.g. [[0,1,2],[3,4,5,6],...]) of arbitrary fragments. Calling it in this way is useful if one is more interested in the contributions of groups of atoms or even certain orbitals or orbital groups, such as metal d, to the molecular orbitals. In this case, fragresults and fragcharges reflect the chosen groups of atomic orbitals instead of atoms.</p>
+</div>
+<div class="section" id="id2">
+<h3>Custom progress<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The Mulliken class also can take a progress class as an argument so that the progress of the calculation can be monitored:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Mulliken</span>
+<span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">Gaussian</span>
+<span class="kn">from</span> <span class="nn">cclib.progress</span> <span class="kn">import</span> <span class="n">TextProgress</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">progress</span><span class="o">=</span><span class="n">TextProgress</span><span class="p">()</span>
+<span class="n">d</span><span class="o">=</span><span class="n">Gaussian</span><span class="p">(</span><span class="s">&quot;mycalc.out&quot;</span><span class="p">,</span><span class="n">progress</span><span class="p">,</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+<span class="n">m</span><span class="o">=</span><span class="n">Mulliken</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">progress</span><span class="p">,</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="lowdin-population-analysis">
+<h2>Löwdin Population Analysis<a class="headerlink" href="#lowdin-population-analysis" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="overlap-population-analysis">
+<h2>Overlap Population Analysis<a class="headerlink" href="#overlap-population-analysis" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="density-matrix-calculation">
+<h2>Density Matrix calculation<a class="headerlink" href="#density-matrix-calculation" title="Permalink to this headline">¶</a></h2>
+<p>The Density class from cclib.method can be used to calculate the density matrix:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">Gaussian</span>
+<span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Density</span>
+
+<span class="n">parser</span><span class="o">=</span><span class="n">Gaussian</span><span class="p">(</span><span class="s">&quot;myfile.out&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+<span class="n">d</span><span class="o">=</span><span class="n">Density</span><span class="p">(</span><span class="n">parser</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>After calculate() is called, the density attribute is available. It is simply a Numeric array with two axes, and follows the standard definition of the density matrix.</p>
+</div>
+<div class="section" id="mayer-s-bond-orders">
+<h2>Mayer&#8217;s Bond Orders<a class="headerlink" href="#mayer-s-bond-orders" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="charge-decomposition-analysis">
+<h2>Charge Decomposition Analysis<a class="headerlink" href="#charge-decomposition-analysis" title="Permalink to this headline">¶</a></h2>
+<p>The Charge Decomposition Analysis (CDA) as developed by Gernot Frenking et al. is used to study the donor-acceptor interactions of a molecule in terms of two user-specified fragments.</p>
+<p>The CDA class available from cclib.method performs this analysis:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
+<span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">CDA</span>
+
+<span class="n">molecule</span> <span class="o">=</span> <span class="n">ccopen</span><span class="p">(</span><span class="s">&quot;molecule.log&quot;</span><span class="p">)</span>
+<span class="n">frag1</span> <span class="o">=</span> <span class="n">ccopen</span><span class="p">(</span><span class="s">&quot;fragment1.log&quot;</span><span class="p">)</span>
+<span class="n">frag2</span> <span class="o">=</span> <span class="n">ccopen</span><span class="p">(</span><span class="s">&quot;fragment2.log&quot;</span><span class="p">)</span>
+
+<span class="c"># if using CDA from an interactive session, it&#39;s best</span>
+<span class="c"># to parse the files at the same time in case they aren&#39;t</span>
+<span class="c"># parsed immediately---go get a drink!</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">molecule</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">frag1</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">frag2</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+<span class="n">cda</span> <span class="o">=</span> <span class="n">CDA</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">cda</span><span class="o">.</span><span class="n">calculate</span><span class="p">([</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>After calculate() finishes, there should be the donations, bdonations (back donation), and repulsions attributes to the cda instance. These attributes are simply lists of 1-dimensional Numeric arrays corresponding to the restricted or alpha/beta molecular orbitals of the entire molecule. Additionally, the CDA method involves transforming the atomic basis functions of the molecule into a basis using the molecular orbitals of the fragments so the attributes mocoeffs and fooverlaps are created and can be used in population analyses such as Mulliken or C-squared (see Fragment Analysis for more details).</p>
+<p>There is also a script provided by cclib that performs the CDA from a command-line:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cda molecule.log fragment1.log fragment2.log
+Charge decomposition analysis of molecule.log
+
+ MO#      d       b       r
+-----------------------------
+   1:  -0.000  -0.000  -0.000
+   2:  -0.000   0.002   0.000
+   3:  -0.001  -0.000   0.000
+   4:  -0.001  -0.026  -0.006
+   5:  -0.006   0.082   0.230
+   6:  -0.040   0.075   0.214
+   7:   0.001  -0.001   0.022
+   8:   0.001  -0.001   0.022
+   9:   0.054   0.342  -0.740
+  10:   0.087  -0.001  -0.039
+  11:   0.087  -0.001  -0.039
+------ HOMO - LUMO gap ------
+  12:   0.000   0.000   0.000
+  13:   0.000   0.000   0.000
+......
+</pre></div>
+</div>
+<div class="section" id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Only molecular orbitals with non-zero occupancy will have a non-zero value.</li>
+<li>The absolute values of the calculated terms have no physical meaning and only the relative magnitudes, especially for the donation and back donation terms, are of any real value (Frenking, et al.)</li>
+<li>The atom coordinates in molecules and fragments must be the same, which is usually accomplished with an argument in the QM program (the NoSymm keyword in Gaussian, for instance).</li>
+<li>The current implementation has some subtle differences than the code from the Frenking group. The CDA class in cclib follows the formula outlined in one of Frenking&#8217;s CDA papers, but contains an extra factor of 2 to give results that agree with those from the original CDA program. It also doesn&#8217;t include negligible terms (on the order of 10^-6) that result from overlap between MOs on the same fragment that appears to be included in the Frenking code. Contact atenderholt (at) gmail (dot) com for discussion and more information.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="electron-density-calculation">
+<h2>Electron Density Calculation<a class="headerlink" href="#electron-density-calculation" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Calculation methods</a><ul>
+<li><a class="reference internal" href="#c-squred-population-analysis-cspa">C squred population analysis (CSPA)</a><ul>
+<li><a class="reference internal" href="#custom-fragments">Custom fragments</a></li>
+<li><a class="reference internal" href="#custom-progress">Custom progress</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mulliken-population-analysis-mpa">Mulliken population analysis (MPA)</a><ul>
+<li><a class="reference internal" href="#id1">Custom fragments</a></li>
+<li><a class="reference internal" href="#id2">Custom progress</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lowdin-population-analysis">Löwdin Population Analysis</a></li>
+<li><a class="reference internal" href="#overlap-population-analysis">Overlap Population Analysis</a></li>
+<li><a class="reference internal" href="#density-matrix-calculation">Density Matrix calculation</a></li>
+<li><a class="reference internal" href="#mayer-s-bond-orders">Mayer&#8217;s Bond Orders</a></li>
+<li><a class="reference internal" href="#charge-decomposition-analysis">Charge Decomposition Analysis</a><ul>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#electron-density-calculation">Electron Density Calculation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/methods.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">cclib 1.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, cclib Development Team.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
