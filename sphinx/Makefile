@@ -18,7 +18,7 @@ I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
 default: html copy
 copy:
-	cp -r _build/html/* ../.
+	cp -rvf _build/html/* ../.
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
