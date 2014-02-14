@@ -19,13 +19,12 @@ Developers
 Websites related to cclib
 =========================
 
-* The official `cclib repository on github`_
+* The official `cclib organization on github`_
 * The `cclib project page on Sourceforge`_ (inactive now)
-* The `cclib entry on Freecode`_
 * The `cclib entry on Ohloh`_
 * The `cclib entry on Cheeseshop`_
 
-.. _`cclib repository on github`: https://github.com/cclib/cclib
+.. _`cclib organization on github`: https://github.com/cclib
 .. _`cclib project page on Sourceforge`: http://sourceforge.net/projects/cclib/
 .. _`cclib entry on Freecode`: http://freecode.com/projects/cclib
 .. _`cclib entry on Ohloh`: https://www.ohloh.net/p/cclib
