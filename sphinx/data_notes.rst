@@ -95,48 +95,36 @@ The attribute '''coreelectrons''' contains the number of core electrons in each 
 etenergies
 ----------
 
-The attribute '''etenergies''' is a rank 1 array that contains the energies of electronic transitions from a reference state to the excited states of the molecule, in cm<sup>-1</sup>. There should be as many elements to this array as there are excited states calculated. Any type of excited state calculation should provide output that can be parsed into this attribute.
+This is a rank 1 array that contains the energies of electronic transitions from a reference state to the excited states of the molecule, in ``cm<sup>-1</sup>``. There should be as many elements to this array as there are excited states calculated. Any type of excited state calculation should provide output that can be parsed into this attribute.
 
-== Availability ==
+Availability:
 
 * '''Configuration Interaction''' (CIS): Gaussian
 * '''Time-dependent DFT''' (TD-DFT): Gaussian
 * '''Time-dependent Hartree-Fock''' (TD-HF): Gaussian
 
-== Availability (development version) ==
+Availability (development version):
 
 * '''Configuration Interaction''' (CIS): Gaussian, GAMESS, Jaguar
 * '''Time-dependent DFT''' (TD-DFT): Gaussian
 * '''Time-dependent Hartree-Fock''' (TD-HF): Gaussian
-
-== Related attributes ==
-
-* [[etoscs]]
-* [[etsecs]]
-* [[etsyms]]
 
 etoscs
 ------
 
 The attribute '''etoscs''' is a rank 1 array that contains the oscillator strengths of transitions from the reference (ground) state to the excited electornic states of the of the molecule. As for [[etenergies]] and other attributes related to excited states, there should as many elements in this array as there are excited states in the calculation.
 
-== Availability ==
+Availability:
 
 * '''Configuration Interaction''' (CIS): Gaussian
 * '''Time-dependent DFT''' (TD-DFT): Gaussian
 * '''Time-dependent Hartree-Fock''' (TD-HF): Gaussian
 
-== Availability ==
+Availability:
 
 * '''Configuration Interaction''' (CIS): GAMESS, Gaussian, Jaguar
 * '''Time-dependent DFT''' (TD-DFT): Gaussian
 * '''Time-dependent Hartree-Fock''' (TD-HF): Gaussian
-
-== Related attributes ==
-
-* [[etenergies]]
-* [[etsecs]]
-* [[etsyms]]
 
 etsecs
 ------
@@ -151,23 +139,17 @@ In these tuples, the value of alpha/beta is 0 or 1, respectively. For a restrict
 
 The excitation coefficient is always converted to its unnormalized value by cclib - so the sum of the squared coefficients of all alpha and beta excitations should be unity. It is important to keep in mind, however, that only the square of the excitation coefficient has a physical meaning, and its sign depends on the numerical procedures used by each program.
 
-== Availability ==
+Availability:
 
 * '''Configuration Interaction''' (CIS): Gaussian
 * '''Time-dependent DFT''' (TD-DFT): Gaussian
 * '''Time-dependent Hartree-Fock''' (TD-HF): Gaussian
 
-== Availability (development version) ==
+Availability (development version):
 
 * '''Configuration Interaction''' (CIS): GAMESS, Gaussian, Jaguar
 * '''Time-dependent DFT''' (TD-DFT): GAMESS, Gaussian
 * '''Time-dependent Hartree-Fock''' (TD-HF): Gaussian
-
-== Related attributes ==
-
-* [[etenergies]]
-* [[etoscs]]
-* [[etsyms]]
 
 etsyms
 ------
@@ -176,22 +158,17 @@ The attributes '''etsyms''' is a list containing the symmetries (strings) of the
 
 Note that while the symmetry descriptions start with the string ''Singlet'' or ''Triplet'', the exact format differs between programs.
 
-== Availability ==
+Availability:
 
 * '''Configuration Interaction''' (CIS): Gaussian
 * '''Time-dependent DFT''' (TD-DFT): Gaussian
 * '''Time-dependent Hartree-Fock''' (TD-HF): Gaussian
 
-== Availability ==
+Availability:
 
 * '''Configuration Interaction''' (CIS): GAMESS, Gaussian, Jaguar
 * '''Time-dependent DFT''' (TD-DFT): Gaussian
 * '''Time-dependent Hartree-Fock''' (TD-HF): Gaussian
-
-== Related attributes ==
-
-* [[etenergies]]
-* [[etoscs]]
 
 fonames
 -------
@@ -200,7 +177,7 @@ ADF uses symmetry-adapted fragment orbitals (SFOs) as its basis. These SFOs are 
 
 The difficulty in handling the basis for a molecule with symmetry and the availability of extra information in the fragment calculations makes using [[aonames]] (as specified for the other formats) inappropriate, except for certain circumstances. Therefore, an extra member called fonames is available for the adfparser.
 
-== Examples ==
+Some examples:
 
 '''C1+C4_1S+1S''' - Orbitals from carbon 1 and carbon 4 can interact, and their ''1S'' orbitals mix in a positive manner
 
@@ -208,29 +185,25 @@ The difficulty in handling the basis for a molecule with symmetry and the availa
 
 '''bdt1_37A''' - Molecular orbital 37A from the fragment bdt1
 
-== Logfile requirements ==
-
-'''ADF:''' There are no required inputfile options for fonames to be suppored; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the '''Symmetry NOSYM''' option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that '''Eigval 99999 99999''' be put into an '''Eprint''' block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.
+**ADF**: There are no required inputfile options for fonames to be suppored; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the '''Symmetry NOSYM''' option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that '''Eigval 99999 99999''' be put into an '''Eprint''' block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.
 
 fooverlaps
 ----------
 
 Fooverlaps is a 2-dimensional Numeric array that holds numerical values for the spacial overlap between basis functions. It is very similar to [[aooverlaps]], but differs because of the way ADF performs the calculation (see below for more details). The matrix indices correspond to the fragment orbitals; see the examples listed for [[aonames]].
 
-== Background ==
+**Background**
 
 ADF uses symmetry-adapted fragment orbitals (SFOs) as its basis. These SFOs are generally orthonormal linear combinations of atomic orbitals. This makes it difficult to determine which individual atomic orbitals form the basis in calculations that have any symmetry. In addition, ADF allows "fragment" calculations which use the molecular orbitals of the fragments (FOs, or fragment orbitals) for building up the calculated molecular orbitals.
 
 The difficulty in handling the basis for a molecule with symmetry and the availability of extra information in the fragment calculations makes using aooverlaps (as specified for the other formats) inappropriate, except for certain circumstances. Therefore, an extra member called fooverlaps is available for the ADF parser.
 
-== Logfile requirements ==
-
-'''ADF:''' There are no required inputfile options for fooverlaps to be suppored; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the '''Symmetry NOSYM''' option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that '''Eigval 99999 99999''' be put into an '''Eprint''' block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.
+**ADF**: There are no required inputfile options for fooverlaps to be suppored; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the '''Symmetry NOSYM''' option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that '''Eigval 99999 99999''' be put into an '''Eprint''' block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.
 
 gbasis
 ------
 
-'''gbasis''' stores information about the Gaussian basis functions that were used in the calculation. The information is stored per atom using the same conventions as [http://pyquante.sf.net PyQuante]. Specifically, ''gbasis'' is a list (per atom) of lists (per Gaussian basis function) of tuples of length 2 consisting of orbital type (e.g. 'S', 'P' or 'D') and a list (per contracted GTO) of tuples of size 2 consisting of the exponent and coefficient. Confused? Well, here's ''gbasis'' for a molecule consisting of a single C atom with a STO-3G basis:
+This attribute stores information about the Gaussian basis functions that were used in the calculation. The information is stored per atom using the same conventions as [http://pyquante.sf.net PyQuante]. Specifically, ''gbasis'' is a list (per atom) of lists (per Gaussian basis function) of tuples of length 2 consisting of orbital type (e.g. 'S', 'P' or 'D') and a list (per contracted GTO) of tuples of size 2 consisting of the exponent and coefficient. Confused? Well, here's ''gbasis'' for a molecule consisting of a single C atom with a STO-3G basis:
 
     [ # per atom
     [
@@ -252,17 +225,13 @@ gbasis
     ]
     ]
 
-== Notes ==
-
 For different programs, you need to include different keywords in order for ''gbasis'' to be parsed:
 * Gaussian - GFINPUT (note that GFPRINT gives equivalent information in a different format. At the moment, GFPRINT output will cause parsing errors but it may be supported or at least ignored in the future).
 * GAMESS - no special keywords are required, but the basis is only available for symmetry inequivalent atoms. There does not seem to be any way to get GAMESS to say which atoms are related through symmetry. As a result, if you want to get basis set info for every atom, you need to reduce the symmetry to C<sub>1</sub>.
 * GAMESS UK - As for GAMESS
 * Jaguar - for more information see the [http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223 manual].
 
-== Development notes ==
-
-It also needs to be noted whether any D and F functions are pure (5D, 7F) or Cartesian (6D, 10F). PyQuante can only handle Cartesian functions, but we should extract this information in any case. We will need to extend the PyQuante basis set format to include this.
+**Development note**: It also needs to be noted whether any D and F functions are pure (5D, 7F) or Cartesian (6D, 10F). PyQuante can only handle Cartesian functions, but we should extract this information in any case. We will need to extend the PyQuante basis set format to include this.
 
 geotargets
 ----------
@@ -307,8 +276,6 @@ hessian
 
 The attribute '''hessian''' is an array of rank 1 that contains the elements of [http://en.wikipedia.org/wiki/Hessian_matrix hessian] or the force constant matrix. Only the lower triangular part of the 3Nx3N matrix is stored (this may change in the future, maybe also only the force-constant , unwighted matrix will be parsed).
 
-== Availability ==
-
 * currently available only in '''Molpro'''
 
 homos
@@ -321,15 +288,13 @@ mocoeffs
 
 '''mocoeffs''' is a list of rank 2 arrays containing the molecular orbital coefficients. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations. For the array(s) in the list, the first axis corresponds to molecular orbitals, and the second corresponds to basis functions.
 
-=== Examples ===
+Examples:
 
 mocoeffs[0][2,5] -- The coefficient of the 6th basis function of the 3rd alpha molecular orbital
 
 mocoeffs[1][:,0] -- An array of the 1st basis function coefficients for the every beta molecular orbital
 
 Note: For restricted calculation, '''mocoeffs''' is still a list, but it only contains a single rank 2 array so you access the matrix with mocoeffs[0].
-
-== Notes ==
 
 * GAMESS UK - need to use FORMAT HIGH if you want information on all of the eigenvalues to be available (see the [http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000 manual] for more info). Unfortunately, for unrestricted calculations FORMAT HIGH does not increase the number of orbitals for which the molecular orbital coefficents are printed. Note that there may be more orbital information on the alpha orbitals compared to the beta orbitals, and as a result, the extra beta molecular orbital coefficients for which information is not available will be padded out with zeros.
 
@@ -338,8 +303,6 @@ moenergies
 
 '''moenergies''' is a list of rank 1 arrays containing the molecular orbital energies in eV. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations.
 
-== Notes ==
-
 * GAMESS-UK - need to use FORMAT HIGH if you want information on all of the eigenvalues to be available (see the [http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000 manual] for more information).
 
 * Jaguar - the first ten virtual orbitals are printed by default; in order to print more of them, use the ''ipvirt'' keyword in the input file, with ''ipvirt=-1'' printing all virtual orbitals (see the [http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675 manual] for more information).
@@ -347,11 +310,9 @@ moenergies
 mosyms
 ------
 
-== Definition ==
-
 For unrestricted calculations, '''mosyms''' is a list of two lists (i.e. [ [''alpha_syms''] [''beta_syms''] ]) containing strings for the orbital symmetries arranged in order of energy. In a restricted calculation, it takes the form [ [''syms''] ]. The symmetry labels are normalised to use standard labels (see examples below).
 
-== Examples ==
+Examples:
 
 {| border="1" cellspacing="0" cellpadding="5" align="center" style="text-align:center"
 |+
@@ -388,8 +349,7 @@ For unrestricted calculations, '''mosyms''' is a list of two lists (i.e. [ [''al
 * GAMESS-UK - to get the list, 'grep "data yr" input.m' if you have access to the source. Note that for E, it's split into "e1+" and "e1-" for instance.
 * Jaguar - to get the list, look at the examples in schrodinger/jaguar-vwhatever/samples if you have access to Jaguar. Note that for E, it's written as E1pp/Ap, for instance.
 
-== Developers ==
-
+Developers:
 * The use of a function with doctests for each of these cases is recommended, to make sure that the conversion is robust. There is a prototype called normalisesym() in logfileparser.py which should be overwritten in the subclasses if necessary (there is a unittest to make sure that this has been done).
 * The character tables [http://www.mpip-mainz.mpg.de/~gelessus/group.html here] may be useful in determining the correspondance between the labels used by the comp chem package and the commonly-used symbols.
 
@@ -397,8 +357,6 @@ mpenergies
 ----------
 
 The attribute '''mpenergies''' holds the total molecule energies including Möller-Plesset correlation energy corrections in a two-dimensional array. The array's shape is (n,L), where ''n'' is 1 for single point calculations and larger for optimizations, and ''L'' is the order at which the correction is truncated. The order of elements is ascending, so a single point MP5 calculation will yield mpenergies as ''[[E<sub>MP2</sub>, E<sub>MP3</sub>, E<sub>MP4</sub>, E<sub>MP5</sub>]]''.
-
-== Availability ==
 
 * '''ADF''': does not perform such calculations.
 * '''GAMESS''': second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calcualtions in PC-GAMESS (use ''mplevl=n'' in the ''$contrl'' section).
@@ -426,7 +384,7 @@ nmo
 
 The '''nmo''' attribute gives the number of molecular orbitals in the calculation. It is an integer and is typically equal to ''[[nbasis]]'', but may be less than this if a linear dependency was identified between the basis functions.
 
-=== Commands to get information on all orbitals ===
+Commands to get information on all orbitals:
 
 * GAMESS-UK only usually prints information on the 5 lowest virtual orbitals. "FORMAT HIGH" should make it do this for all of the orbitals, although GAMESS-UK 7.0 has a bug that means that this only works for restricted calculations.
 * Jaguar - the first ten virtual orbitals are printed by default; in order to print more of them, use the ''ipvirt'' keyword in the input file, with ''ipvirt=-1'' printing all virtual orbitals (see the [http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675 manual] for more information).
@@ -435,8 +393,6 @@ scfenergies
 -----------
 
 The attribute '''scfenergies''' is an array containing the converged SCF energies of the calculation, in eV. For an optimization log file, there will be as many elements in this array as there were optimization steps.
-
-== Notes ==
 
 * '''Molpro''': typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.
 
@@ -447,17 +403,17 @@ Target values for criteria for determining whether the SCF has converged, whose 
 
 The criteria vary from program to program, and depending on the program they may be constant for the whole of a geometry optimisation or they may be different for each geometry optimisation cycle. A more complete description follows.
 
-=== Gaussian ===
+Gaussian:
 
 * The RMS change in the density matrix elements. Default is 1.0E-4 (1.0E-8 for geo opts).
 * The maximum change in the density matrix elements. Default is 1.0E-2 (1.0E-6 for geo opts).
 * The change in energy. Default is 5.0E-05 (1.0E-06 for geo opts).
 
-=== GAMESS ===
+GAMESS:
 
 * Maximum and root-mean-square (RMS) density matrix change: starts from 5.0E-05 by default and changes over the course of a geometry optimisation. ROHF calcualtions use SQCDF instead of the standard RMS change.
 
-=== Jaguar 4.2 ===
+Jaguar 4.2:
 
 The Jaguar 4.2 targets depend on whether it is a geometry optimisation or not:
 * For geometry optimisation and hyper/polarisability, the rms change in the density matrix elements is used as a criterion (controlled by the ''dconv'' keyword). Default is 5.0E6.
@@ -465,7 +421,7 @@ The Jaguar 4.2 targets depend on whether it is a geometry optimisation or not:
 
 (Note sure how correct this is - but it's taken from the manual)
 
-=== ADF ===
+ADF:
 
 * Maximum element A < target criterion
 * Norm A < 10 * target criterion
@@ -485,7 +441,7 @@ The value of the target criterion depends on the calculation:
 
 (There is some information in the ADF manual [http://www.scm.com/Doc/Doc2005.01/ADF/ADFUsersGuide/page124.html#keyscheme%20SCF here].)
 
-=== GAMESS-UK ===
+GAMESS-UK:
 
 According to http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node6.html, SCF convergence is determined by convergence of the elements of density matrix. The default value is 1E-5, but it appears to be 1E-7 for geoopts.
 
@@ -493,8 +449,6 @@ scfvalues
 ---------
 
 The attribute '''scfvalues''' is a list (one element for each step in a geometry optimisation) of Numeric arrays of dimension ''n x m'', where ''n'' is the number of SCF cycles required for convergence and ''m'' is the number of SCF convergence target criteria.
-
-== Notes ==
 
 For some packages, you may need to include a directive to make sure that SCF convergence information is printed to the log file:
 * Gaussian requires the [http://www.gaussian.com/g_tech/g_ur/k_route.htm route section] to start with #P
