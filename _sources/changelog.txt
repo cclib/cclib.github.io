@@ -1,3 +1,6 @@
+.. index::
+    single: development; changelog
+
 Changelog
 =========
 

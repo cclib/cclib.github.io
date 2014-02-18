@@ -165,12 +165,18 @@ To ensure source code quality, or at least consistency, we use the following too
 Testing
 =======
 
+.. index::
+    single: testing; unit tests
+
 Unit tests
 ~~~~~~~~~~
 
 In order to check whether our parsers extract information in the correct format, with the correct units, we have unit tests that parse a series of basic data files (see below) of the same calculation undertaken with different programs. Running testall.py in the test directory runs the whole test suite, but it is also possible to individually run the tests for GeoOpts (testGeoOpt.py), Single Point calculations, and so on.
 
 Note that no change should be commited to the repository if it increases the number of failed tests (unless you are adding new tests, of course). 
+
+.. index::
+    single: testing; regressions
 
 Regression tests
 ~~~~~~~~~~~~~~~~
@@ -183,6 +189,9 @@ New regression tests are added by creating a function testMyFileName_out followi
 
 Test data
 ~~~~~~~~~
+
+.. index::
+    single: testing; test data
 
 The test directory (not included in the release version at the moment) contains all of the tests that help keep cclib working, and keep us sane. In general we use two types of data files for testing:
 

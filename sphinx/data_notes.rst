@@ -200,6 +200,9 @@ The difficulty in handling the basis for a molecule with symmetry and the availa
 
 **ADF**: There are no required inputfile options for fooverlaps to be suppored; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the '''Symmetry NOSYM''' option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that '''Eigval 99999 99999''' be put into an '''Eprint''' block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.
 
+.. index::
+    single: basis sets; gbasis (attribute)
+
 gbasis
 ------
 
@@ -233,6 +236,9 @@ For different programs, you need to include different keywords in order for ''gb
 
 **Development note**: It also needs to be noted whether any D and F functions are pure (5D, 7F) or Cartesian (6D, 10F). PyQuante can only handle Cartesian functions, but we should extract this information in any case. We will need to extend the PyQuante basis set format to include this.
 
+.. index::
+    single: geomtry optimization; geotargets (attribute)
+
 geotargets
 ----------
 
@@ -262,6 +268,9 @@ For OPTXYZ, tol defaults to 0.001, and the criteria appears to be simply the max
 
 For more info, see http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node12.html.
 
+.. index::
+    single: geomtry optimization; geovalues (attribute)
+
 geovalues
 ---------
 
@@ -278,10 +287,16 @@ The attribute '''hessian''' is an array of rank 1 that contains the elements of 
 
 * currently available only in '''Molpro'''
 
+.. index::
+    single: molecular orbitals; homos (attribute)
+
 homos
 -----
 
 The attribute '''homos''' is a 1D array that holds the indexes of the highest occupied molecular orbitals (HOMOs), which contains one element for restricted and two elements for unrestricted calculations. These indexes can be applied to other attributes describing molecular orbitals, such as [[moenergies]] and [[mocoeffs]].
+
+.. index::
+    single: molecular orbitals; mocoeffs (attribute)
 
 mocoeffs
 --------
@@ -298,6 +313,9 @@ Note: For restricted calculation, '''mocoeffs''' is still a list, but it only co
 
 * GAMESS UK - need to use FORMAT HIGH if you want information on all of the eigenvalues to be available (see the [http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000 manual] for more info). Unfortunately, for unrestricted calculations FORMAT HIGH does not increase the number of orbitals for which the molecular orbital coefficents are printed. Note that there may be more orbital information on the alpha orbitals compared to the beta orbitals, and as a result, the extra beta molecular orbital coefficients for which information is not available will be padded out with zeros.
 
+.. index::
+    single: molecular orbitals; moenergies (attribute)
+
 moenergies
 ----------
 
@@ -306,6 +324,9 @@ moenergies
 * GAMESS-UK - need to use FORMAT HIGH if you want information on all of the eigenvalues to be available (see the [http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000 manual] for more information).
 
 * Jaguar - the first ten virtual orbitals are printed by default; in order to print more of them, use the ''ipvirt'' keyword in the input file, with ''ipvirt=-1'' printing all virtual orbitals (see the [http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675 manual] for more information).
+
+.. index::
+    single: molecular orbitals; mosyms (attribute)
 
 mosyms
 ------
@@ -373,6 +394,9 @@ natom
 -----
 
 '''Natom''' is an integer, the number of atoms treated in the calculation.
+
+.. index::
+    single: basis sets; nbasis (attribute)
 
 nbasis
 ------

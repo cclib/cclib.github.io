@@ -201,19 +201,19 @@ svn remove https://..../mybranch
 <div class="section" id="testing">
 <h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="unit-tests">
-<h3>Unit tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h3>
+<span id="index-0"></span><h3>Unit tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h3>
 <p>In order to check whether our parsers extract information in the correct format, with the correct units, we have unit tests that parse a series of basic data files (see below) of the same calculation undertaken with different programs. Running testall.py in the test directory runs the whole test suite, but it is also possible to individually run the tests for GeoOpts (testGeoOpt.py), Single Point calculations, and so on.</p>
 <p>Note that no change should be commited to the repository if it increases the number of failed tests (unless you are adding new tests, of course).</p>
 </div>
 <div class="section" id="regression-tests">
-<h3>Regression tests<a class="headerlink" href="#regression-tests" title="Permalink to this headline">¶</a></h3>
+<span id="index-1"></span><h3>Regression tests<a class="headerlink" href="#regression-tests" title="Permalink to this headline">¶</a></h3>
 <p>Regression tests ensure that bugs, once fixed, stay fixed. That is, for every bug found in our parsers, we should add a regression test and then fix the bug. This process is simplified by regression.py in the test directory.</p>
 <p>regression.py runs through all of our test data, both the basic data and the real life log files, uses &#8216;ccopen()&#8217; to guess its type (checks for mistakes) and open it, parses it (catches any errors), and runs any relevant regression tests (catches any failures).</p>
 <p>New regression tests are added by creating a function testMyFileName_out following the examples at the start of <em>regression.py</em>.</p>
 </div>
 <div class="section" id="test-data">
 <h3>Test data<a class="headerlink" href="#test-data" title="Permalink to this headline">¶</a></h3>
-<p>The test directory (not included in the release version at the moment) contains all of the tests that help keep cclib working, and keep us sane. In general we use two types of data files for testing:</p>
+<p id="index-2">The test directory (not included in the release version at the moment) contains all of the tests that help keep cclib working, and keep us sane. In general we use two types of data files for testing:</p>
 <ol class="arabic simple">
 <li>&#8216;basic&#8217; data files are stored in folders like &#8220;basicJaguar6.4&#8221; and are b3lyp/sto-3g calculations on 1,4-divinylbenzene (dvb) with C2h symmetry. These jobs (a geometry optimisation, a single point calculation (one restricted and another unrestricted), frequency calculation, a TD-DFT calculation, and any variants of these which break the parser such as symmetry/nosymmetry) are run for each parser. These data files are stored in SVN and may be included in future releases.</li>
 <li>real-life parser-breaking files are stored in folders like &#8220;Jaguar6.4&#8221;. These data files are <em>not</em> stored in SVN as they are often massive but are stored on the web server and downloaded using a shell script (contained in the data directory). These files are also available as a download from the File Release page on Sourceforge (only updated every so often).</li>

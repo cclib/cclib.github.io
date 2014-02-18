@@ -1,3 +1,6 @@
+.. index::
+    module: methods
+
 Calculation methods
 ===================
 
@@ -5,8 +8,11 @@ The following methods in cclib allow further analysis of calculation output. The
 
 .. _`methods in the development version`: methods_dev.html
 
-C squred population analysis (CSPA)
------------------------------------
+.. index::
+    single: methods; C squared population analysis (CSPA)
+
+C squared population analysis (CSPA)
+------------------------------------
 
 **CSPA** can be used to determine and interpret the electron density of a molecule. The contribution of the a-th atomic orbital to the i-th molecular orbital can be written in terms of the molecular orbital coefficients:
 
@@ -68,6 +74,9 @@ The CSPA class also can take a progress class as an argument so that the progres
     m=CSPA(p,progress,logging.ERROR)
     m.calculate()
 
+.. index::
+    single: methods; Mulliken population analysis (MPA)
+
 Mulliken population analysis (MPA)
 ----------------------------------
 
@@ -114,6 +123,9 @@ The Mulliken class also can take a progress class as an argument so that the pro
 
     m=Mulliken(p,progress,logging.ERROR)
     m.calculate()
+
+.. index::
+    single: methods; Löwdin Population Analysis
 
 Löwdin Population Analysis
 --------------------------

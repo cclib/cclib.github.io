@@ -212,7 +212,7 @@
 <p><strong>ADF</strong>: There are no required inputfile options for fooverlaps to be suppored; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the &#8216;&#8217;&#8216;Symmetry NOSYM&#8217;&#8216;&#8217; option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that &#8216;&#8217;&#8216;Eigval 99999 99999&#8217;&#8216;&#8217; be put into an &#8216;&#8217;&#8216;Eprint&#8217;&#8216;&#8217; block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.</p>
 </div>
 <div class="section" id="gbasis">
-<h2>gbasis<a class="headerlink" href="#gbasis" title="Permalink to this headline">¶</a></h2>
+<span id="index-0"></span><h2>gbasis<a class="headerlink" href="#gbasis" title="Permalink to this headline">¶</a></h2>
 <p>This attribute stores information about the Gaussian basis functions that were used in the calculation. The information is stored per atom using the same conventions as [<a class="reference external" href="http://pyquante.sf.net">http://pyquante.sf.net</a> PyQuante]. Specifically, &#8216;&#8217;gbasis&#8217;&#8217; is a list (per atom) of lists (per Gaussian basis function) of tuples of length 2 consisting of orbital type (e.g. &#8216;S&#8217;, &#8216;P&#8217; or &#8216;D&#8217;) and a list (per contracted GTO) of tuples of size 2 consisting of the exponent and coefficient. Confused? Well, here&#8217;s &#8216;&#8217;gbasis&#8217;&#8217; for a molecule consisting of a single C atom with a STO-3G basis:</p>
 <blockquote>
 <div><p>[ # per atom
@@ -244,7 +244,7 @@
 <p><strong>Development note</strong>: It also needs to be noted whether any D and F functions are pure (5D, 7F) or Cartesian (6D, 10F). PyQuante can only handle Cartesian functions, but we should extract this information in any case. We will need to extend the PyQuante basis set format to include this.</p>
 </div>
 <div class="section" id="geotargets">
-<h2>geotargets<a class="headerlink" href="#geotargets" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>geotargets<a class="headerlink" href="#geotargets" title="Permalink to this headline">¶</a></h2>
 <p>Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in a Numeric array of length &#8216;&#8217;n&#8217;&#8216;, where &#8216;&#8217;n&#8217;&#8217; is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute [[geovalues]].</p>
 <p>== Jaguar ==</p>
 <p>Jaguar has the following geometry convergence criteria:
@@ -265,7 +265,7 @@ where TOL defaults to 0.003 and is set by the XTOL directive.</p>
 <p>For more info, see <a class="reference external" href="http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node12.html">http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node12.html</a>.</p>
 </div>
 <div class="section" id="geovalues">
-<h2>geovalues<a class="headerlink" href="#geovalues" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>geovalues<a class="headerlink" href="#geovalues" title="Permalink to this headline">¶</a></h2>
 <p>These are the current values for the criteria used to determine whether a geometry has converged in the course of a geometry optimisation. It is a Numeric array of dimensions <tt class="docutils literal"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">m</span></tt> is the number of geometry optimisation iterations and <tt class="docutils literal"><span class="pre">n</span></tt> the number of target criteria.</p>
 <p>Note that many programs print atomic coordinates before and after a geomtry optimization, which means that there will not necessarily be <tt class="docutils literal"><span class="pre">m</span></tt> elements in <a class="reference internal" href="#atomcoords">atomcoords</a>.</p>
 <p>If the optimization has finished successfully, the values in the last row should be smaller than the values in <a class="reference internal" href="#geotargets">geotargets</a> (unless the convergence criteria require otherwise).</p>
@@ -278,11 +278,11 @@ where TOL defaults to 0.003 and is set by the XTOL directive.</p>
 </ul>
 </div>
 <div class="section" id="homos">
-<h2>homos<a class="headerlink" href="#homos" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>homos<a class="headerlink" href="#homos" title="Permalink to this headline">¶</a></h2>
 <p>The attribute &#8216;&#8217;&#8216;homos&#8217;&#8216;&#8217; is a 1D array that holds the indexes of the highest occupied molecular orbitals (HOMOs), which contains one element for restricted and two elements for unrestricted calculations. These indexes can be applied to other attributes describing molecular orbitals, such as [[moenergies]] and [[mocoeffs]].</p>
 </div>
 <div class="section" id="mocoeffs">
-<h2>mocoeffs<a class="headerlink" href="#mocoeffs" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>mocoeffs<a class="headerlink" href="#mocoeffs" title="Permalink to this headline">¶</a></h2>
 <p>&#8216;&#8217;&#8216;mocoeffs&#8217;&#8216;&#8217; is a list of rank 2 arrays containing the molecular orbital coefficients. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations. For the array(s) in the list, the first axis corresponds to molecular orbitals, and the second corresponds to basis functions.</p>
 <p>Examples:</p>
 <p>mocoeffs[0][2,5] &#8211; The coefficient of the 6th basis function of the 3rd alpha molecular orbital</p>
@@ -293,7 +293,7 @@ where TOL defaults to 0.003 and is set by the XTOL directive.</p>
 </ul>
 </div>
 <div class="section" id="moenergies">
-<h2>moenergies<a class="headerlink" href="#moenergies" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>moenergies<a class="headerlink" href="#moenergies" title="Permalink to this headline">¶</a></h2>
 <p>&#8216;&#8217;&#8216;moenergies&#8217;&#8216;&#8217; is a list of rank 1 arrays containing the molecular orbital energies in eV. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations.</p>
 <ul class="simple">
 <li>GAMESS-UK - need to use FORMAT HIGH if you want information on all of the eigenvalues to be available (see the [<a class="reference external" href="http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000">http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000</a> manual] for more information).</li>
@@ -301,7 +301,7 @@ where TOL defaults to 0.003 and is set by the XTOL directive.</p>
 </ul>
 </div>
 <div class="section" id="mosyms">
-<h2>mosyms<a class="headerlink" href="#mosyms" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>mosyms<a class="headerlink" href="#mosyms" title="Permalink to this headline">¶</a></h2>
 <p>For unrestricted calculations, &#8216;&#8217;&#8216;mosyms&#8217;&#8216;&#8217; is a list of two lists (i.e. [ [&#8216;&#8217;alpha_syms&#8217;&#8216;] [&#8216;&#8217;beta_syms&#8217;&#8216;] ]) containing strings for the orbital symmetries arranged in order of energy. In a restricted calculation, it takes the form [ [&#8216;&#8217;syms&#8217;&#8216;] ]. The symmetry labels are normalised to use standard labels (see examples below).</p>
 <p>Examples:</p>
 <p>{| border=&#8221;1&#8221; cellspacing=&#8221;0&#8221; cellpadding=&#8221;5&#8221; align=&#8221;center&#8221; style=&#8221;text-align:center&#8221;
@@ -362,7 +362,7 @@ where TOL defaults to 0.003 and is set by the XTOL directive.</p>
 <p>&#8216;&#8217;&#8216;Natom&#8217;&#8216;&#8217; is an integer, the number of atoms treated in the calculation.</p>
 </div>
 <div class="section" id="nbasis">
-<h2>nbasis<a class="headerlink" href="#nbasis" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>nbasis<a class="headerlink" href="#nbasis" title="Permalink to this headline">¶</a></h2>
 <p>The attribute &#8216;&#8217;&#8216;nbasis&#8217;&#8216;&#8217; is an integer representing the number of basis functions used in the calculation.</p>
 </div>
 <div class="section" id="nmo">
