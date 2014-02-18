@@ -87,110 +87,115 @@
 <div class="section" id="atomcharges">
 <h2>atomcharges<a class="headerlink" href="#atomcharges" title="Permalink to this headline">¶</a></h2>
 <p>The attribute <tt class="docutils literal"><span class="pre">atomcharges</span></tt> contains the atomic partial charges as taken from the output file. Since these charges are arbitrary and depend on the details of a population analysis, this attribute is dictionary containing any number of various atomic charges. The keys in this dictionary are strings naming the population analysis, and the values are arrays of rank 1 and contain the actual charges.</p>
-<p>Currently, cclib parses Mulliken, Lowdin and NPA charges, whose respective dictionary keys are &#8216;&#8217;mulliken&#8217;&#8216;, &#8216;&#8217;lowdin&#8217;&#8217; and &#8216;&#8217;natural&#8217;&#8216;.</p>
+<p>Currently, cclib parses Mulliken, Lowdin and NPA charges, whose respective dictionary keys are <tt class="docutils literal"><span class="pre">mulliken</span></tt>, <tt class="docutils literal"><span class="pre">lowdin</span></tt> and <tt class="docutils literal"><span class="pre">natural</span></tt>.</p>
 <ul class="simple">
 <li>Not that in practice these may differ somewhat from the values cclib calculates in the various [[calculation methods]].</li>
 </ul>
 </div>
 <div class="section" id="atomcoords">
 <h2>atomcoords<a class="headerlink" href="#atomcoords" title="Permalink to this headline">¶</a></h2>
-<p>The attribute &#8216;&#8217;&#8216;atomcoords&#8217;&#8216;&#8217; contains the atomic coordinates as taken from the output file. This is a Numeric array of rank 3, with a shape (n,m,3) where n is 1 for a single point calculation and &gt;=1 for a geometry optimisation and m is the number of atoms.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">atomcoords</span></tt> contains the atomic coordinates as taken from the output file. This is a Numeric array of rank 3, with a shape (n,m,3) where n is 1 for a single point calculation and &gt;=1 for a geometry optimisation and m is the number of atoms.</p>
 <p><strong>Gaussian</strong>: for geometry optimisations, the &#8220;Standard orientation&#8221; sections are extracted.</p>
 <p><strong>Molpro</strong>: typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.</p>
 </div>
 <div class="section" id="atommasses">
 <h2>atommasses<a class="headerlink" href="#atommasses" title="Permalink to this headline">¶</a></h2>
-<p>The attribute &#8216;&#8217;atommasses&#8217;&#8217; contains the masses of all atoms in unified atomic mass units, or Daltons (Da). This is an array or rank 1.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">atommasses</span></tt> contains the masses of all atoms in unified atomic mass units, or Daltons (Da). This is an array or rank 1.</p>
 </div>
 <div class="section" id="atomnos">
 <h2>atomnos<a class="headerlink" href="#atomnos" title="Permalink to this headline">¶</a></h2>
-<p>The array of integers in &#8216;&#8217;&#8216;atomnos&#8217;&#8216;&#8217; containes the atomic numbers, or number of protons in the atom nuclei.</p>
+<p>The array of integers in <tt class="docutils literal"><span class="pre">atomnos</span></tt> containes the atomic numbers, or number of protons in the atom nuclei.</p>
 </div>
 <div class="section" id="atomspins">
 <h2>atomspins<a class="headerlink" href="#atomspins" title="Permalink to this headline">¶</a></h2>
-<p>The attribute &#8216;&#8217;&#8216;atomspins&#8217;&#8216;&#8217; contains the atomic spin densities as calculated in a population analysis and taken from the output file. Since these densities are arbitrary and depend on the particular population analysis, this attribute is dictionary. In analogy to [[atomcharges]], the keys in this dictionary are strings naming the population analysis, and the values are arrays of rank 1 and contain the actual spin densities.</p>
-<p>Currently, cclib parses Mulliken and Lowdin spin densities, whose respective dictionary keys are &#8216;&#8217;mulliken&#8217;&#8217; and &#8216;&#8217;lowdin&#8217;&#8216;.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">atomspins</span></tt> contains the atomic spin densities as calculated in a population analysis and taken from the output file. Since these densities are arbitrary and depend on the particular population analysis, this attribute is dictionary. In analogy to [[atomcharges]], the keys in this dictionary are strings naming the population analysis, and the values are arrays of rank 1 and contain the actual spin densities.</p>
+<p>Currently, cclib parses Mulliken and Lowdin spin densities, whose respective dictionary keys are <tt class="docutils literal"><span class="pre">mulliken</span></tt> and <tt class="docutils literal"><span class="pre">lowdin</span></tt>.</p>
 </div>
 <div class="section" id="ccenergies">
 <h2>ccenergies<a class="headerlink" href="#ccenergies" title="Permalink to this headline">¶</a></h2>
-<p>The atttribute &#8216;&#8217;&#8216;ccenergies&#8217;&#8216;&#8217; is a one-dimensional array holds the total molecule energies including Coupled Cluster corrections. The array&#8217;s length is 1 for single point calculations and larger for optimizations. Only the the highest theory level is parsed into this attribute (for example, CCSD energies as opposed to CCD energies).</p>
+<p>The atttribute <tt class="docutils literal"><span class="pre">ccenergies</span></tt> is a one-dimensional array holds the total molecule energies including Coupled Cluster corrections. The array&#8217;s length is 1 for single point calculations and larger for optimizations. Only the the highest theory level is parsed into this attribute (for example, CCSD energies as opposed to CCD energies).</p>
 </div>
 <div class="section" id="charge">
 <h2>charge<a class="headerlink" href="#charge" title="Permalink to this headline">¶</a></h2>
-<p>The attribute &#8216;&#8217;&#8216;charge&#8217;&#8216;&#8217; contains the net charge of the calculated system, in units of &#8216;&#8217;e&#8217;&#8216;.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">charge</span></tt> contains the net charge of the calculated system, in units of <tt class="docutils literal"><span class="pre">e</span></tt>.</p>
 </div>
 <div class="section" id="coreelectrons">
 <h2>coreelectrons<a class="headerlink" href="#coreelectrons" title="Permalink to this headline">¶</a></h2>
-<p>The attribute &#8216;&#8217;&#8216;coreelectrons&#8217;&#8216;&#8217; contains the number of core electrons in each atom&#8217;s pseudopotentials. It is an array of rank 1, with as many integer elements as there are atoms.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">coreelectrons</span></tt> contains the number of core electrons in each atom&#8217;s pseudopotentials. It is an array of rank 1, with as many integer elements as there are atoms.</p>
 </div>
 <div class="section" id="etenergies">
 <h2>etenergies<a class="headerlink" href="#etenergies" title="Permalink to this headline">¶</a></h2>
 <p>This is a rank 1 array that contains the energies of electronic transitions from a reference state to the excited states of the molecule, in <tt class="docutils literal"><span class="pre">cm&lt;sup&gt;-1&lt;/sup&gt;</span></tt>. There should be as many elements to this array as there are excited states calculated. Any type of excited state calculation should provide output that can be parsed into this attribute.</p>
 <p>Availability:</p>
 <ul class="simple">
-<li>&#8216;&#8217;&#8216;Configuration Interaction&#8217;&#8216;&#8217; (CIS): Gaussian</li>
-<li>&#8216;&#8217;&#8216;Time-dependent DFT&#8217;&#8216;&#8217; (TD-DFT): Gaussian</li>
-<li>&#8216;&#8217;&#8216;Time-dependent Hartree-Fock&#8217;&#8216;&#8217; (TD-HF): Gaussian</li>
+<li>Configuration Interaction (CIS): Gaussian</li>
+<li>Time-dependent DFT (TD-DFT): Gaussian</li>
+<li>Time-dependent Hartree-Fock (TD-HF): Gaussian</li>
 </ul>
 <p>Availability (development version):</p>
 <ul class="simple">
-<li>&#8216;&#8217;&#8216;Configuration Interaction&#8217;&#8216;&#8217; (CIS): Gaussian, GAMESS, Jaguar</li>
-<li>&#8216;&#8217;&#8216;Time-dependent DFT&#8217;&#8216;&#8217; (TD-DFT): Gaussian</li>
-<li>&#8216;&#8217;&#8216;Time-dependent Hartree-Fock&#8217;&#8216;&#8217; (TD-HF): Gaussian</li>
+<li>Configuration Interaction (CIS): Gaussian, GAMESS, Jaguar</li>
+<li>Time-dependent DFT (TD-DFT): Gaussian</li>
+<li>Time-dependent Hartree-Fock (TD-HF): Gaussian</li>
 </ul>
 </div>
 <div class="section" id="etoscs">
 <h2>etoscs<a class="headerlink" href="#etoscs" title="Permalink to this headline">¶</a></h2>
-<p>The attribute &#8216;&#8217;&#8216;etoscs&#8217;&#8216;&#8217; is a rank 1 array that contains the oscillator strengths of transitions from the reference (ground) state to the excited electornic states of the of the molecule. As for [[etenergies]] and other attributes related to excited states, there should as many elements in this array as there are excited states in the calculation.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">etoscs</span></tt> is a rank 1 array that contains the oscillator strengths of transitions from the reference (ground) state to the excited electornic states of the of the molecule. As for [[etenergies]] and other attributes related to excited states, there should as many elements in this array as there are excited states in the calculation.</p>
 <p>Availability:</p>
 <ul class="simple">
-<li>&#8216;&#8217;&#8216;Configuration Interaction&#8217;&#8216;&#8217; (CIS): Gaussian</li>
-<li>&#8216;&#8217;&#8216;Time-dependent DFT&#8217;&#8216;&#8217; (TD-DFT): Gaussian</li>
-<li>&#8216;&#8217;&#8216;Time-dependent Hartree-Fock&#8217;&#8216;&#8217; (TD-HF): Gaussian</li>
+<li>Configuration Interaction (CIS): Gaussian</li>
+<li>Time-dependent DFT (TD-DFT): Gaussian</li>
+<li>Time-dependent Hartree-Fock (TD-HF): Gaussian</li>
 </ul>
 <p>Availability:</p>
 <ul class="simple">
-<li>&#8216;&#8217;&#8216;Configuration Interaction&#8217;&#8216;&#8217; (CIS): GAMESS, Gaussian, Jaguar</li>
-<li>&#8216;&#8217;&#8216;Time-dependent DFT&#8217;&#8216;&#8217; (TD-DFT): Gaussian</li>
-<li>&#8216;&#8217;&#8216;Time-dependent Hartree-Fock&#8217;&#8216;&#8217; (TD-HF): Gaussian</li>
+<li>Configuration Interaction (CIS): GAMESS, Gaussian, Jaguar</li>
+<li>Time-dependent DFT (TD-DFT): Gaussian</li>
+<li>Time-dependent Hartree-Fock (TD-HF): Gaussian</li>
 </ul>
 </div>
 <div class="section" id="etsecs">
 <h2>etsecs<a class="headerlink" href="#etsecs" title="Permalink to this headline">¶</a></h2>
-<p>The singly-excited configurations that contribute to electronic transitions are stored in &#8216;&#8217;&#8216;etsecs&#8217;&#8216;&#8217;. It is a list (for each electronic transition from the reference ground state) of lists (for each singly-excited configuration) with three members each:</p>
-<p># a tuple (moindex, alpha/beta), which indicates the MO where the transition begins
-# a tuple (moindex, alpha/beta), which indicates the MO where the transition ends
-# a float (which can be negative), the coefficient of this singly-excited configuration</p>
+<dl class="docutils">
+<dt>The singly-excited configurations that contribute to electronic transitions are stored in <tt class="docutils literal"><span class="pre">etsecs</span></tt>. It is a list (for each electronic transition from the reference ground state) of lists (for each singly-excited configuration) with three members each:</dt>
+<dd><ul class="first last simple">
+<li>a tuple (moindex, alpha/beta), which indicates the MO where the transition begins</li>
+<li>a tuple (moindex, alpha/beta), which indicates the MO where the transition ends</li>
+<li>a float (which can be negative), the coefficient of this singly-excited configuration</li>
+</ul>
+</dd>
+</dl>
 <p>In these tuples, the value of alpha/beta is 0 or 1, respectively. For a restricted calculation, this value is always 0, although some programs (GAMESS) sometimes print coefficients for both alpha and beta electrons.</p>
 <p>The excitation coefficient is always converted to its unnormalized value by cclib - so the sum of the squared coefficients of all alpha and beta excitations should be unity. It is important to keep in mind, however, that only the square of the excitation coefficient has a physical meaning, and its sign depends on the numerical procedures used by each program.</p>
 <p>Availability:</p>
 <ul class="simple">
-<li>&#8216;&#8217;&#8216;Configuration Interaction&#8217;&#8216;&#8217; (CIS): Gaussian</li>
-<li>&#8216;&#8217;&#8216;Time-dependent DFT&#8217;&#8216;&#8217; (TD-DFT): Gaussian</li>
-<li>&#8216;&#8217;&#8216;Time-dependent Hartree-Fock&#8217;&#8216;&#8217; (TD-HF): Gaussian</li>
+<li>Configuration Interaction (CIS): Gaussian</li>
+<li>Time-dependent DFT (TD-DFT): Gaussian</li>
+<li>Time-dependent Hartree-Fock (TD-HF): Gaussian</li>
 </ul>
 <p>Availability (development version):</p>
 <ul class="simple">
-<li>&#8216;&#8217;&#8216;Configuration Interaction&#8217;&#8216;&#8217; (CIS): GAMESS, Gaussian, Jaguar</li>
-<li>&#8216;&#8217;&#8216;Time-dependent DFT&#8217;&#8216;&#8217; (TD-DFT): GAMESS, Gaussian</li>
-<li>&#8216;&#8217;&#8216;Time-dependent Hartree-Fock&#8217;&#8216;&#8217; (TD-HF): Gaussian</li>
+<li>Configuration Interaction (CIS): GAMESS, Gaussian, Jaguar</li>
+<li>Time-dependent DFT (TD-DFT): GAMESS, Gaussian</li>
+<li>Time-dependent Hartree-Fock (TD-HF): Gaussian</li>
 </ul>
 </div>
 <div class="section" id="etsyms">
 <h2>etsyms<a class="headerlink" href="#etsyms" title="Permalink to this headline">¶</a></h2>
-<p>The attributes &#8216;&#8217;&#8216;etsyms&#8217;&#8216;&#8217; is a list containing the symmetries (strings) of the excited states found in the calculation. As for [[etenergies]] and other attributes related to excited states, there should be as many elements in this list as there are excited states in the calcualtion.</p>
-<p>Note that while the symmetry descriptions start with the string &#8216;&#8217;Singlet&#8217;&#8217; or &#8216;&#8217;Triplet&#8217;&#8216;, the exact format differs between programs.</p>
+<p>The attributes <tt class="docutils literal"><span class="pre">etsyms</span></tt> is a list containing the symmetries (strings) of the excited states found in the calculation. As for [[etenergies]] and other attributes related to excited states, there should be as many elements in this list as there are excited states in the calcualtion.</p>
+<p>Note that while the symmetry descriptions start with the string <tt class="docutils literal"><span class="pre">Singlet</span></tt> or <tt class="docutils literal"><span class="pre">Triplet</span></tt>, the exact format differs between programs.</p>
 <p>Availability:</p>
 <ul class="simple">
-<li>&#8216;&#8217;&#8216;Configuration Interaction&#8217;&#8216;&#8217; (CIS): Gaussian</li>
-<li>&#8216;&#8217;&#8216;Time-dependent DFT&#8217;&#8216;&#8217; (TD-DFT): Gaussian</li>
-<li>&#8216;&#8217;&#8216;Time-dependent Hartree-Fock&#8217;&#8216;&#8217; (TD-HF): Gaussian</li>
+<li>Configuration Interaction (CIS): Gaussian</li>
+<li>Time-dependent DFT (TD-DFT): Gaussian</li>
+<li>Time-dependent Hartree-Fock (TD-HF): Gaussian</li>
 </ul>
 <p>Availability:</p>
 <ul class="simple">
-<li>&#8216;&#8217;&#8216;Configuration Interaction&#8217;&#8216;&#8217; (CIS): GAMESS, Gaussian, Jaguar</li>
-<li>&#8216;&#8217;&#8216;Time-dependent DFT&#8217;&#8216;&#8217; (TD-DFT): Gaussian</li>
-<li>&#8216;&#8217;&#8216;Time-dependent Hartree-Fock&#8217;&#8216;&#8217; (TD-HF): Gaussian</li>
+<li>Configuration Interaction (CIS): GAMESS, Gaussian, Jaguar</li>
+<li>Time-dependent DFT (TD-DFT): Gaussian</li>
+<li>Time-dependent Hartree-Fock (TD-HF): Gaussian</li>
 </ul>
 </div>
 <div class="section" id="fonames">
@@ -198,10 +203,10 @@
 <p>ADF uses symmetry-adapted fragment orbitals (SFOs) as its basis. These SFOs are generally orthonormal linear combinations of atomic orbitals. This makes it difficult to determine which individual atomic orbitals form the basis in calculations that have any symmetry. In addition, ADF allows &#8220;fragment&#8221; calculations which use the molecular orbitals of the fragments (FOs, or fragment orbitals) for building up the calculated molecular orbitals.</p>
 <p>The difficulty in handling the basis for a molecule with symmetry and the availability of extra information in the fragment calculations makes using [[aonames]] (as specified for the other formats) inappropriate, except for certain circumstances. Therefore, an extra member called fonames is available for the adfparser.</p>
 <p>Some examples:</p>
-<p>&#8216;&#8217;&#8216;C1+C4_1S+1S&#8217;&#8216;&#8217; - Orbitals from carbon 1 and carbon 4 can interact, and their &#8216;&#8216;1S&#8217;&#8217; orbitals mix in a positive manner</p>
-<p>&#8216;&#8217;&#8216;C1+C4_1Px-1Px&#8217;&#8216;&#8217; - Orbitals from carbon 1 and carbon 4 can interact, and their &#8216;&#8216;1Px&#8217;&#8217; orbitals mix in a negative manner</p>
-<p>&#8216;&#8217;&#8216;bdt1_37A&#8217;&#8216;&#8217; - Molecular orbital 37A from the fragment bdt1</p>
-<p><strong>ADF</strong>: There are no required inputfile options for fonames to be suppored; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the &#8216;&#8217;&#8216;Symmetry NOSYM&#8217;&#8216;&#8217; option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that &#8216;&#8217;&#8216;Eigval 99999 99999&#8217;&#8216;&#8217; be put into an &#8216;&#8217;&#8216;Eprint&#8217;&#8216;&#8217; block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.</p>
+<p><tt class="docutils literal"><span class="pre">C1+C4_1S+1S</span></tt> - Orbitals from carbon 1 and carbon 4 can interact, and their <tt class="docutils literal"><span class="pre">1S</span></tt> orbitals mix in a positive manner</p>
+<p><tt class="docutils literal"><span class="pre">C1+C4_1Px-1Px</span></tt> - Orbitals from carbon 1 and carbon 4 can interact, and their <tt class="docutils literal"><span class="pre">1Px</span></tt> orbitals mix in a negative manner</p>
+<p><tt class="docutils literal"><span class="pre">bdt1_37A</span></tt> - Molecular orbital 37A from the fragment bdt1</p>
+<p><strong>ADF</strong>: There are no required inputfile options for fonames to be suppored; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the <tt class="docutils literal"><span class="pre">Symmetry</span> <span class="pre">NOSYM</span></tt> option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that <tt class="docutils literal"><span class="pre">Eigval</span> <span class="pre">99999</span> <span class="pre">99999</span></tt> be put into an <tt class="docutils literal"><span class="pre">Eprint</span></tt> block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.</p>
 </div>
 <div class="section" id="fooverlaps">
 <h2>fooverlaps<a class="headerlink" href="#fooverlaps" title="Permalink to this headline">¶</a></h2>
@@ -209,11 +214,11 @@
 <p><strong>Background</strong></p>
 <p>ADF uses symmetry-adapted fragment orbitals (SFOs) as its basis. These SFOs are generally orthonormal linear combinations of atomic orbitals. This makes it difficult to determine which individual atomic orbitals form the basis in calculations that have any symmetry. In addition, ADF allows &#8220;fragment&#8221; calculations which use the molecular orbitals of the fragments (FOs, or fragment orbitals) for building up the calculated molecular orbitals.</p>
 <p>The difficulty in handling the basis for a molecule with symmetry and the availability of extra information in the fragment calculations makes using aooverlaps (as specified for the other formats) inappropriate, except for certain circumstances. Therefore, an extra member called fooverlaps is available for the ADF parser.</p>
-<p><strong>ADF</strong>: There are no required inputfile options for fooverlaps to be suppored; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the &#8216;&#8217;&#8216;Symmetry NOSYM&#8217;&#8216;&#8217; option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that &#8216;&#8217;&#8216;Eigval 99999 99999&#8217;&#8216;&#8217; be put into an &#8216;&#8217;&#8216;Eprint&#8217;&#8216;&#8217; block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.</p>
+<p><strong>ADF</strong>: There are no required inputfile options for fooverlaps to be suppored; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the <tt class="docutils literal"><span class="pre">Symmetry</span> <span class="pre">NOSYM</span></tt> option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that <tt class="docutils literal"><span class="pre">Eigval</span> <span class="pre">99999</span> <span class="pre">99999</span></tt> be put into an <tt class="docutils literal"><span class="pre">Eprint</span></tt> block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.</p>
 </div>
 <div class="section" id="gbasis">
 <span id="index-0"></span><h2>gbasis<a class="headerlink" href="#gbasis" title="Permalink to this headline">¶</a></h2>
-<p>This attribute stores information about the Gaussian basis functions that were used in the calculation. The information is stored per atom using the same conventions as [<a class="reference external" href="http://pyquante.sf.net">http://pyquante.sf.net</a> PyQuante]. Specifically, &#8216;&#8217;gbasis&#8217;&#8217; is a list (per atom) of lists (per Gaussian basis function) of tuples of length 2 consisting of orbital type (e.g. &#8216;S&#8217;, &#8216;P&#8217; or &#8216;D&#8217;) and a list (per contracted GTO) of tuples of size 2 consisting of the exponent and coefficient. Confused? Well, here&#8217;s &#8216;&#8217;gbasis&#8217;&#8217; for a molecule consisting of a single C atom with a STO-3G basis:</p>
+<p>This attribute stores information about the Gaussian basis functions that were used in the calculation. The information is stored per atom using the same conventions as [<a class="reference external" href="http://pyquante.sf.net">http://pyquante.sf.net</a> PyQuante]. Specifically, <tt class="docutils literal"><span class="pre">gbasis</span></tt> is a list (per atom) of lists (per Gaussian basis function) of tuples of length 2 consisting of orbital type (e.g. &#8216;S&#8217;, &#8216;P&#8217; or &#8216;D&#8217;) and a list (per contracted GTO) of tuples of size 2 consisting of the exponent and coefficient. Confused? Well, here&#8217;s <tt class="docutils literal"><span class="pre">gbasis</span></tt> for a molecule consisting of a single C atom with a STO-3G basis:</p>
 <blockquote>
 <div><p>[ # per atom
 [
@@ -236,7 +241,7 @@
 ]),</dd>
 </dl>
 </div></blockquote>
-<p>For different programs, you need to include different keywords in order for &#8216;&#8217;gbasis&#8217;&#8217; to be parsed:
+<p>For different programs, you need to include different keywords in order for <tt class="docutils literal"><span class="pre">gbasis</span></tt> to be parsed:
 * Gaussian - GFINPUT (note that GFPRINT gives equivalent information in a different format. At the moment, GFPRINT output will cause parsing errors but it may be supported or at least ignored in the future).
 * GAMESS - no special keywords are required, but the basis is only available for symmetry inequivalent atoms. There does not seem to be any way to get GAMESS to say which atoms are related through symmetry. As a result, if you want to get basis set info for every atom, you need to reduce the symmetry to C&lt;sub&gt;1&lt;/sub&gt;.
 * GAMESS UK - As for GAMESS
@@ -245,22 +250,30 @@
 </div>
 <div class="section" id="geotargets">
 <span id="index-1"></span><h2>geotargets<a class="headerlink" href="#geotargets" title="Permalink to this headline">¶</a></h2>
-<p>Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in a Numeric array of length &#8216;&#8217;n&#8217;&#8216;, where &#8216;&#8217;n&#8217;&#8217; is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute [[geovalues]].</p>
-<p>== Jaguar ==</p>
-<p>Jaguar has the following geometry convergence criteria:
-* &#8216;&#8217;gconv1&#8217;&#8216;: maximum element of gradient (4.5E-04)
-* &#8216;&#8217;gconv2&#8217;&#8216;: rms of gradient elements (3.0E-04)
-* &#8216;&#8217;gconv5&#8217;&#8216;: maximum element of nuclear displacement (1.8E-03)
-* &#8216;&#8217;gconv6&#8217;&#8216;: rms of nuclear displacement elements (1.2E-03)
-* &#8216;&#8217;gconv7&#8217;&#8216;: difference between final energies from previous and current geometry optimization iterations (5.0E-05)</p>
-<p>Note that a value for &#8216;&#8217;gconv7&#8217;&#8217; is not available until the second iteration, so it is set to zero in the first element of [[geovalues]].</p>
-<p>== GAMESS UK ==</p>
-<p>The geometry convergence criteria for OPTIMIZE are:
-* maximum change in variables  &lt;  TOL
-* average change in variables  &lt;  TOL * 2/3
-* maximum gradient             &lt;  TOL * 4/9
-* average gradient             &lt;  TOL * 8/27
-where TOL defaults to 0.003 and is set by the XTOL directive.</p>
+<p>Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in a Numeric array of length <tt class="docutils literal"><span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute [[geovalues]].</p>
+<dl class="docutils">
+<dt><strong>Jaguar</strong> has the following geometry convergence criteria:</dt>
+<dd><ul class="first last simple">
+<li>gconv1: maximum element of gradient (4.5E-04)</li>
+<li>gconv2: rms of gradient elements (3.0E-04)</li>
+<li>gconv5: maximum element of nuclear displacement (1.8E-03)</li>
+<li>gconv6: rms of nuclear displacement elements (1.2E-03)</li>
+<li>gconv7: difference between final energies from previous and current geometry optimization iterations (5.0E-05)</li>
+</ul>
+</dd>
+</dl>
+<p>Note that a value for gconv7 is not available until the second iteration, so it is set to zero in the first element of [[geovalues]].</p>
+<dl class="docutils">
+<dt>In <strong>GAMESS UK</strong>, the geometry convergence criteria for OPTIMIZE are:</dt>
+<dd><ul class="first last simple">
+<li>maximum change in variables  &lt;  TOL</li>
+<li>average change in variables  &lt;  TOL * 2/3</li>
+<li>maximum gradient             &lt;  TOL * 4/9</li>
+<li>average gradient             &lt;  TOL * 8/27</li>
+</ul>
+</dd>
+</dl>
+<p>where TOL defaults to 0.003 and is set by the XTOL directive.</p>
 <p>For OPTXYZ, tol defaults to 0.001, and the criteria appears to be simply the maximum gradient, although this is not clear from the manual.</p>
 <p>For more info, see <a class="reference external" href="http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node12.html">http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node12.html</a>.</p>
 </div>
@@ -272,67 +285,145 @@ where TOL defaults to 0.003 and is set by the XTOL directive.</p>
 </div>
 <div class="section" id="hessian">
 <h2>hessian<a class="headerlink" href="#hessian" title="Permalink to this headline">¶</a></h2>
-<p>The attribute &#8216;&#8217;&#8216;hessian&#8217;&#8216;&#8217; is an array of rank 1 that contains the elements of [<a class="reference external" href="http://en.wikipedia.org/wiki/Hessian_matrix">http://en.wikipedia.org/wiki/Hessian_matrix</a> hessian] or the force constant matrix. Only the lower triangular part of the 3Nx3N matrix is stored (this may change in the future, maybe also only the force-constant , unwighted matrix will be parsed).</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">hessian</span></tt> is an array of rank 1 that contains the elements of [<a class="reference external" href="http://en.wikipedia.org/wiki/Hessian_matrix">http://en.wikipedia.org/wiki/Hessian_matrix</a> hessian] or the force constant matrix. Only the lower triangular part of the 3Nx3N matrix is stored (this may change in the future, maybe also only the force-constant , unwighted matrix will be parsed).</p>
 <ul class="simple">
-<li>currently available only in &#8216;&#8217;&#8216;Molpro&#8217;&#8216;&#8217;</li>
+<li>currently available only in <tt class="docutils literal"><span class="pre">Molpro</span></tt></li>
 </ul>
 </div>
 <div class="section" id="homos">
 <span id="index-3"></span><h2>homos<a class="headerlink" href="#homos" title="Permalink to this headline">¶</a></h2>
-<p>The attribute &#8216;&#8217;&#8216;homos&#8217;&#8216;&#8217; is a 1D array that holds the indexes of the highest occupied molecular orbitals (HOMOs), which contains one element for restricted and two elements for unrestricted calculations. These indexes can be applied to other attributes describing molecular orbitals, such as [[moenergies]] and [[mocoeffs]].</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">homos</span></tt> is a 1D array that holds the indexes of the highest occupied molecular orbitals (HOMOs), which contains one element for restricted and two elements for unrestricted calculations. These indexes can be applied to other attributes describing molecular orbitals, such as [[moenergies]] and [[mocoeffs]].</p>
 </div>
 <div class="section" id="mocoeffs">
 <span id="index-4"></span><h2>mocoeffs<a class="headerlink" href="#mocoeffs" title="Permalink to this headline">¶</a></h2>
-<p>&#8216;&#8217;&#8216;mocoeffs&#8217;&#8216;&#8217; is a list of rank 2 arrays containing the molecular orbital coefficients. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations. For the array(s) in the list, the first axis corresponds to molecular orbitals, and the second corresponds to basis functions.</p>
+<p><tt class="docutils literal"><span class="pre">mocoeffs</span></tt> is a list of rank 2 arrays containing the molecular orbital coefficients. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations. For the array(s) in the list, the first axis corresponds to molecular orbitals, and the second corresponds to basis functions.</p>
 <p>Examples:</p>
 <p>mocoeffs[0][2,5] &#8211; The coefficient of the 6th basis function of the 3rd alpha molecular orbital</p>
 <p>mocoeffs[1][:,0] &#8211; An array of the 1st basis function coefficients for the every beta molecular orbital</p>
-<p>Note: For restricted calculation, &#8216;&#8217;&#8216;mocoeffs&#8217;&#8216;&#8217; is still a list, but it only contains a single rank 2 array so you access the matrix with mocoeffs[0].</p>
+<p>Note: For restricted calculation, <tt class="docutils literal"><span class="pre">mocoeffs</span></tt> is still a list, but it only contains a single rank 2 array so you access the matrix with mocoeffs[0].</p>
 <ul class="simple">
 <li>GAMESS UK - need to use FORMAT HIGH if you want information on all of the eigenvalues to be available (see the [<a class="reference external" href="http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000">http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000</a> manual] for more info). Unfortunately, for unrestricted calculations FORMAT HIGH does not increase the number of orbitals for which the molecular orbital coefficents are printed. Note that there may be more orbital information on the alpha orbitals compared to the beta orbitals, and as a result, the extra beta molecular orbital coefficients for which information is not available will be padded out with zeros.</li>
 </ul>
 </div>
 <div class="section" id="moenergies">
 <span id="index-5"></span><h2>moenergies<a class="headerlink" href="#moenergies" title="Permalink to this headline">¶</a></h2>
-<p>&#8216;&#8217;&#8216;moenergies&#8217;&#8216;&#8217; is a list of rank 1 arrays containing the molecular orbital energies in eV. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations.</p>
+<p><tt class="docutils literal"><span class="pre">moenergies</span></tt> is a list of rank 1 arrays containing the molecular orbital energies in eV. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations.</p>
 <ul class="simple">
 <li>GAMESS-UK - need to use FORMAT HIGH if you want information on all of the eigenvalues to be available (see the [<a class="reference external" href="http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000">http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000</a> manual] for more information).</li>
-<li>Jaguar - the first ten virtual orbitals are printed by default; in order to print more of them, use the &#8216;&#8217;ipvirt&#8217;&#8217; keyword in the input file, with &#8216;&#8217;ipvirt=-1&#8217;&#8217; printing all virtual orbitals (see the [<a class="reference external" href="http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675">http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675</a> manual] for more information).</li>
+<li>Jaguar - the first ten virtual orbitals are printed by default; in order to print more of them, use the <tt class="docutils literal"><span class="pre">ipvirt</span></tt> keyword in the input file, with <tt class="docutils literal"><span class="pre">ipvirt=-1</span></tt> printing all virtual orbitals (see the [<a class="reference external" href="http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675">http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675</a> manual] for more information).</li>
 </ul>
 </div>
 <div class="section" id="mosyms">
 <span id="index-6"></span><h2>mosyms<a class="headerlink" href="#mosyms" title="Permalink to this headline">¶</a></h2>
-<p>For unrestricted calculations, &#8216;&#8217;&#8216;mosyms&#8217;&#8216;&#8217; is a list of two lists (i.e. [ [&#8216;&#8217;alpha_syms&#8217;&#8216;] [&#8216;&#8217;beta_syms&#8217;&#8216;] ]) containing strings for the orbital symmetries arranged in order of energy. In a restricted calculation, it takes the form [ [&#8216;&#8217;syms&#8217;&#8216;] ]. The symmetry labels are normalised to use standard labels (see examples below).</p>
+<p>For unrestricted calculations, <tt class="docutils literal"><span class="pre">mosyms</span></tt> is a list of two lists (i.e. [ [<tt class="docutils literal"><span class="pre">alpha_syms</span></tt>] [<tt class="docutils literal"><span class="pre">beta_syms</span></tt>] ]) containing strings for the orbital symmetries arranged in order of energy. In a restricted calculation, it takes the form [ [<tt class="docutils literal"><span class="pre">syms</span></tt>] ]. The symmetry labels are normalised to use standard labels (see examples below).</p>
 <p>Examples:</p>
-<p>{| border=&#8221;1&#8221; cellspacing=&#8221;0&#8221; cellpadding=&#8221;5&#8221; align=&#8221;center&#8221; style=&#8221;text-align:center&#8221;
-<a href="#id5"><span class="problematic" id="id6">|+
-! cclib    !!  ADF !! GAMESS !! GAMESS-UK !! Gaussian !! Jaguar
-|-
-| A  ||</span></a>   A   ||    A    ||      a     ||    A      || A
-<a href="#id7"><span class="problematic" id="id8">|-
-| A1  ||</span></a>   A1   ||    A1    ||     a1      ||    A1      ||  A1
-<a href="#id9"><span class="problematic" id="id10">|-
-| Ag  ||</span></a>   A.g   ||  AG      ||      ag     ||    AG      ||  Ag
-<a href="#id11"><span class="problematic" id="id12">|-
-| A&#8217;  ||</span></a>   AA   ||    A&#8217;    ||    a&#8217;       ||     A&#8217;     ||  Ap
-<a href="#id13"><span class="problematic" id="id14">|-
-| A&#8221;  ||</span></a>   AAA   ||    A&#8217; &#8216;    ||   a&#8221; or a&#8217; &#8216;    ||    A&#8221;      || App
-<a href="#id15"><span class="problematic" id="id16">|-
-| A1&#8217;  ||</span></a>   AA1   ||  A1&#8217;      ||      a1&#8217;     ||    A1&#8217;      || A1p
-<a href="#id17"><span class="problematic" id="id18">|-
-| A1&#8221;  ||</span></a>  AAA1    ||    A1&#8221;    ||     a1&#8221;      ||    A1&#8221;      || A1pp
-<a href="#id19"><span class="problematic" id="id20">|-
-| sigma  ||</span></a>  Sigma    ||        ||           ||    SG      ||
-<a href="#id21"><span class="problematic" id="id22">|-
-| pi  ||</span></a>   Pi   ||        ||           ||     PI     ||
-<a href="#id23"><span class="problematic" id="id24">|-
-| phi  ||</span></a>   Phi   ||        ||           ||    PHI (inferred) ||
-<a href="#id25"><span class="problematic" id="id26">|-
-| delta  ||</span></a>    Delta  ||        ||           ||    DLTA but DLTU/DLTG    ||
-<a href="#id27"><span class="problematic" id="id28">|-
-| sigma.g  ||</span></a>  Sigma.g    ||        ||           ||   SGG       ||
-<a href="#id1"><span class="problematic" id="id2">|</span></a>-
-<a href="#id3"><span class="problematic" id="id4">|</span></a>}</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="18%" />
+<col width="33%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">cclib</th>
+<th class="head">ADF</th>
+<th class="head">GAMESS</th>
+<th class="head">GAMESS-UK</th>
+<th class="head">Gaussian</th>
+<th class="head">Jaguar</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>A</td>
+<td>A</td>
+<td>A</td>
+<td>a</td>
+<td>A</td>
+<td>A</td>
+</tr>
+<tr class="row-odd"><td>A1</td>
+<td>A1</td>
+<td>A1</td>
+<td>a1</td>
+<td>A1</td>
+<td>A1</td>
+</tr>
+<tr class="row-even"><td>Ag</td>
+<td>A.g</td>
+<td>AG</td>
+<td>ag</td>
+<td>AG</td>
+<td>Ag</td>
+</tr>
+<tr class="row-odd"><td>A&#8217;</td>
+<td>AA</td>
+<td>A&#8217;</td>
+<td>a&#8217;</td>
+<td>A&#8217;</td>
+<td>Ap</td>
+</tr>
+<tr class="row-even"><td>A&#8221;</td>
+<td>AAA</td>
+<td>A&#8217; &#8216;</td>
+<td>a&#8221; or a&#8217; &#8216;</td>
+<td>A&#8221;</td>
+<td>App</td>
+</tr>
+<tr class="row-odd"><td>A1&#8217;</td>
+<td>AA1</td>
+<td>A1&#8217;</td>
+<td>a1&#8217;</td>
+<td>A1&#8217;</td>
+<td>A1p</td>
+</tr>
+<tr class="row-even"><td>A1&#8221;</td>
+<td>AAA1</td>
+<td>A1&#8221;</td>
+<td>a1&#8221;</td>
+<td>A1&#8221;</td>
+<td>A1pp</td>
+</tr>
+<tr class="row-odd"><td>sigma</td>
+<td>Sigma</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SG</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>pi</td>
+<td>Pi</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>PI</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>phi</td>
+<td>Phi</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>PHI (inferred)</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>delta</td>
+<td>Delta</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>DLTA but DLTU/DLTG</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>sigma.g</td>
+<td>Sigma.g</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>SGG</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
 <ul class="simple">
 <li>ADF - the full list can be found [<a class="reference external" href="http://www.scm.com/Doc/Doc2005.01/ADF/ADFUsersGuide/page339.html">http://www.scm.com/Doc/Doc2005.01/ADF/ADFUsersGuide/page339.html</a> here].</li>
 <li>GAMESS-UK - to get the list, &#8216;grep &#8220;data yr&#8221; input.m&#8217; if you have access to the source. Note that for E, it&#8217;s split into &#8220;e1+&#8221; and &#8220;e1-&#8221; for instance.</li>
@@ -344,46 +435,46 @@ where TOL defaults to 0.003 and is set by the XTOL directive.</p>
 </div>
 <div class="section" id="mpenergies">
 <h2>mpenergies<a class="headerlink" href="#mpenergies" title="Permalink to this headline">¶</a></h2>
-<p>The attribute &#8216;&#8217;&#8216;mpenergies&#8217;&#8216;&#8217; holds the total molecule energies including Möller-Plesset correlation energy corrections in a two-dimensional array. The array&#8217;s shape is (n,L), where &#8216;&#8217;n&#8217;&#8217; is 1 for single point calculations and larger for optimizations, and &#8216;&#8217;L&#8217;&#8217; is the order at which the correction is truncated. The order of elements is ascending, so a single point MP5 calculation will yield mpenergies as &#8216;&#8217;[[E&lt;sub&gt;MP2&lt;/sub&gt;, E&lt;sub&gt;MP3&lt;/sub&gt;, E&lt;sub&gt;MP4&lt;/sub&gt;, E&lt;sub&gt;MP5&lt;/sub&gt;]]&#8217;&#8216;.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">mpenergies</span></tt> holds the total molecule energies including Möller-Plesset correlation energy corrections in a two-dimensional array. The array&#8217;s shape is (n,L), where <tt class="docutils literal"><span class="pre">n</span></tt> is 1 for single point calculations and larger for optimizations, and <tt class="docutils literal"><span class="pre">L</span></tt> is the order at which the correction is truncated. The order of elements is ascending, so a single point MP5 calculation will yield mpenergies as <tt class="docutils literal"><span class="pre">[[E&lt;sub&gt;MP2&lt;/sub&gt;,</span> <span class="pre">E&lt;sub&gt;MP3&lt;/sub&gt;,</span> <span class="pre">E&lt;sub&gt;MP4&lt;/sub&gt;,</span> <span class="pre">E&lt;sub&gt;MP5&lt;/sub&gt;]]</span></tt>.</p>
 <ul class="simple">
-<li>&#8216;&#8217;&#8216;ADF&#8217;&#8216;&#8217;: does not perform such calculations.</li>
-<li>&#8216;&#8217;&#8216;GAMESS&#8217;&#8216;&#8217;: second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calcualtions in PC-GAMESS (use &#8216;&#8217;mplevl=n&#8217;&#8217; in the &#8216;&#8217;$contrl&#8217;&#8217; section).</li>
-<li>&#8216;&#8217;&#8216;GAMESS-UK&#8217;&#8216;&#8217;: MP2 through MP3 corrections are avaialbe.</li>
-<li>&#8216;&#8217;&#8216;Gaussian&#8217;&#8216;&#8217;: MP2 through MP5 energies are available using the &#8216;&#8217;MP&#8217;&#8217; keyword. For MP4 corrections, the energy with the most substitutions is used (SDTQ by default).</li>
-<li>&#8216;&#8217;&#8216;Jaguar&#8217;&#8216;&#8217;: the LMP2 is available.</li>
+<li><tt class="docutils literal"><span class="pre">ADF</span></tt>: does not perform such calculations.</li>
+<li><tt class="docutils literal"><span class="pre">GAMESS</span></tt>: second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calcualtions in PC-GAMESS (use <tt class="docutils literal"><span class="pre">mplevl=n</span></tt> in the <tt class="docutils literal"><span class="pre">$contrl</span></tt> section).</li>
+<li><tt class="docutils literal"><span class="pre">GAMESS-UK</span></tt>: MP2 through MP3 corrections are avaialbe.</li>
+<li><tt class="docutils literal"><span class="pre">Gaussian</span></tt>: MP2 through MP5 energies are available using the <tt class="docutils literal"><span class="pre">MP</span></tt> keyword. For MP4 corrections, the energy with the most substitutions is used (SDTQ by default).</li>
+<li><tt class="docutils literal"><span class="pre">Jaguar</span></tt>: the LMP2 is available.</li>
 </ul>
 </div>
 <div class="section" id="mult">
 <h2>mult<a class="headerlink" href="#mult" title="Permalink to this headline">¶</a></h2>
-<p>The attribute &#8216;&#8217;&#8216;mult&#8217;&#8216;&#8217; is an integer and represents the spin multiplicity of the calculated system, which in turn is the total spin plus one.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">mult</span></tt> is an integer and represents the spin multiplicity of the calculated system, which in turn is the total spin plus one.</p>
 </div>
 <div class="section" id="natom">
 <h2>natom<a class="headerlink" href="#natom" title="Permalink to this headline">¶</a></h2>
-<p>&#8216;&#8217;&#8216;Natom&#8217;&#8216;&#8217; is an integer, the number of atoms treated in the calculation.</p>
+<p><tt class="docutils literal"><span class="pre">Natom</span></tt> is an integer, the number of atoms treated in the calculation.</p>
 </div>
 <div class="section" id="nbasis">
 <span id="index-7"></span><h2>nbasis<a class="headerlink" href="#nbasis" title="Permalink to this headline">¶</a></h2>
-<p>The attribute &#8216;&#8217;&#8216;nbasis&#8217;&#8216;&#8217; is an integer representing the number of basis functions used in the calculation.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">nbasis</span></tt> is an integer representing the number of basis functions used in the calculation.</p>
 </div>
 <div class="section" id="nmo">
 <h2>nmo<a class="headerlink" href="#nmo" title="Permalink to this headline">¶</a></h2>
-<p>The &#8216;&#8217;&#8216;nmo&#8217;&#8216;&#8217; attribute gives the number of molecular orbitals in the calculation. It is an integer and is typically equal to &#8216;&#8217;[[nbasis]]&#8217;&#8216;, but may be less than this if a linear dependency was identified between the basis functions.</p>
+<p>The <tt class="docutils literal"><span class="pre">nmo</span></tt> attribute gives the number of molecular orbitals in the calculation. It is an integer and is typically equal to <tt class="docutils literal"><span class="pre">[[nbasis]]</span></tt>, but may be less than this if a linear dependency was identified between the basis functions.</p>
 <p>Commands to get information on all orbitals:</p>
 <ul class="simple">
 <li>GAMESS-UK only usually prints information on the 5 lowest virtual orbitals. &#8220;FORMAT HIGH&#8221; should make it do this for all of the orbitals, although GAMESS-UK 7.0 has a bug that means that this only works for restricted calculations.</li>
-<li>Jaguar - the first ten virtual orbitals are printed by default; in order to print more of them, use the &#8216;&#8217;ipvirt&#8217;&#8217; keyword in the input file, with &#8216;&#8217;ipvirt=-1&#8217;&#8217; printing all virtual orbitals (see the [<a class="reference external" href="http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675">http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675</a> manual] for more information).</li>
+<li>Jaguar - the first ten virtual orbitals are printed by default; in order to print more of them, use the <tt class="docutils literal"><span class="pre">ipvirt</span></tt> keyword in the input file, with <tt class="docutils literal"><span class="pre">ipvirt=-1</span></tt> printing all virtual orbitals (see the [<a class="reference external" href="http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675">http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675</a> manual] for more information).</li>
 </ul>
 </div>
 <div class="section" id="scfenergies">
 <h2>scfenergies<a class="headerlink" href="#scfenergies" title="Permalink to this headline">¶</a></h2>
-<p>The attribute &#8216;&#8217;&#8216;scfenergies&#8217;&#8216;&#8217; is an array containing the converged SCF energies of the calculation, in eV. For an optimization log file, there will be as many elements in this array as there were optimization steps.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">scfenergies</span></tt> is an array containing the converged SCF energies of the calculation, in eV. For an optimization log file, there will be as many elements in this array as there were optimization steps.</p>
 <ul class="simple">
-<li>&#8216;&#8217;&#8216;Molpro&#8217;&#8216;&#8217;: typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.</li>
+<li><tt class="docutils literal"><span class="pre">Molpro</span></tt>: typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.</li>
 </ul>
 </div>
 <div class="section" id="scftargets">
 <h2>scftargets<a class="headerlink" href="#scftargets" title="Permalink to this headline">¶</a></h2>
-<p>Target values for criteria for determining whether the SCF has converged, whose values are stored in a Numeric array of dimension &#8216;&#8217;n x m&#8217;&#8216;, where &#8216;&#8217;n&#8217;&#8217; is the number of geometry optimisation cycles (1 for a single point calculation) and &#8216;&#8217;m&#8217;&#8217; is the number of criteria.</p>
+<p>Target values for criteria for determining whether the SCF has converged, whose values are stored in a Numeric array of dimension <tt class="docutils literal"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">m</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of geometry optimisation cycles (1 for a single point calculation) and <tt class="docutils literal"><span class="pre">m</span></tt> is the number of criteria.</p>
 <p>The criteria vary from program to program, and depending on the program they may be constant for the whole of a geometry optimisation or they may be different for each geometry optimisation cycle. A more complete description follows.</p>
 <p>Gaussian:</p>
 <ul class="simple">
@@ -397,8 +488,8 @@ where TOL defaults to 0.003 and is set by the XTOL directive.</p>
 </ul>
 <p>Jaguar 4.2:</p>
 <p>The Jaguar 4.2 targets depend on whether it is a geometry optimisation or not:
-* For geometry optimisation and hyper/polarisability, the rms change in the density matrix elements is used as a criterion (controlled by the &#8216;&#8217;dconv&#8217;&#8217; keyword). Default is 5.0E6.
-* The energy convergence criterion (keyword &#8216;&#8217;econv&#8217;&#8216;) is ignored for geometry optimisation calculations but is used for SCF calculations. Default is 5.0E5, except for hyper/polarisability where it is 1.0E6.</p>
+* For geometry optimisation and hyper/polarisability, the rms change in the density matrix elements is used as a criterion (controlled by the <tt class="docutils literal"><span class="pre">dconv</span></tt> keyword). Default is 5.0E6.
+* The energy convergence criterion (keyword <tt class="docutils literal"><span class="pre">econv</span></tt>) is ignored for geometry optimisation calculations but is used for SCF calculations. Default is 5.0E5, except for hyper/polarisability where it is 1.0E6.</p>
 <p>(Note sure how correct this is - but it&#8217;s taken from the manual)</p>
 <p>ADF:</p>
 <ul class="simple">
@@ -420,14 +511,14 @@ where TOL defaults to 0.003 and is set by the XTOL directive.</p>
 </div>
 <div class="section" id="scfvalues">
 <h2>scfvalues<a class="headerlink" href="#scfvalues" title="Permalink to this headline">¶</a></h2>
-<p>The attribute &#8216;&#8217;&#8216;scfvalues&#8217;&#8216;&#8217; is a list (one element for each step in a geometry optimisation) of Numeric arrays of dimension &#8216;&#8217;n x m&#8217;&#8216;, where &#8216;&#8217;n&#8217;&#8217; is the number of SCF cycles required for convergence and &#8216;&#8217;m&#8217;&#8217; is the number of SCF convergence target criteria.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">scfvalues</span></tt> is a list (one element for each step in a geometry optimisation) of Numeric arrays of dimension <tt class="docutils literal"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">m</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of SCF cycles required for convergence and <tt class="docutils literal"><span class="pre">m</span></tt> is the number of SCF convergence target criteria.</p>
 <p>For some packages, you may need to include a directive to make sure that SCF convergence information is printed to the log file:
 * Gaussian requires the [<a class="reference external" href="http://www.gaussian.com/g_tech/g_ur/k_route.htm">http://www.gaussian.com/g_tech/g_ur/k_route.htm</a> route section] to start with #P
 * GAMESS UK requires IPRINT SCF</p>
 </div>
 <div class="section" id="vibdisps">
 <h2>vibdisps<a class="headerlink" href="#vibdisps" title="Permalink to this headline">¶</a></h2>
-<p>The attribute &#8216;&#8217;&#8216;vibdisps&#8217;&#8216;&#8217; stores the Cartesian displacement vectors from the output of a vibrational frequency calculation. It is a rank 3 array having dimensions &#8216;&#8217;M x N x 3&#8217;&#8216;, where &#8216;&#8217;M&#8217;&#8217; is the number of normal modes and &#8216;&#8217;N&#8217;&#8217; is the number of atoms. &#8216;&#8217;M&#8217;&#8217; is typically &#8216;&#8216;3N-6&#8217;&#8217; (&#8216;&#8216;3N-5&#8217;&#8217; for linear molecules).</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">vibdisps</span></tt> stores the Cartesian displacement vectors from the output of a vibrational frequency calculation. It is a rank 3 array having dimensions <tt class="docutils literal"><span class="pre">M</span> <span class="pre">x</span> <span class="pre">N</span> <span class="pre">x</span> <span class="pre">3</span></tt>, where <tt class="docutils literal"><span class="pre">M</span></tt> is the number of normal modes and <tt class="docutils literal"><span class="pre">N</span></tt> is the number of atoms. <tt class="docutils literal"><span class="pre">M</span></tt> is typically <tt class="docutils literal"><span class="pre">3N-6</span></tt> (<tt class="docutils literal"><span class="pre">3N-5</span></tt> for linear molecules).</p>
 </div>
 </div>
 
