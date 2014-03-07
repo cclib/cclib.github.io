@@ -7,9 +7,11 @@ Table of Contents
     :maxdepth: 2
 
     index
+    data
     data_notes
     methods
     development
+    data_dev
     changelog
 
 Indices and tables

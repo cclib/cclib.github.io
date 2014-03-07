@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Parsed data &mdash; cclib 1.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="cclib 1.1 documentation" href="index.html" />
+    <link rel="next" title="Parsed data notes" href="data_notes.html" />
+    <link rel="prev" title="Overview" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="data_notes.html" title="Parsed data notes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Overview"
+             accesskey="P">previous</a> |</li>
+        <li><a href="contents.html">cclib 1.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="parsed-data">
+<h1>Parsed data<a class="headerlink" href="#parsed-data" title="Permalink to this headline">¶</a></h1>
+<p>This is a list of all the data parsed by the current official release of cclib (version 1.0). For the same list for the development version, see [[development parsed data]].</p>
+<p>== Description of parsed data ==</p>
+<p>Click the attribute name in the table below for the specifications for a particular attribute. All arrays are Numpy arrays of type &#8216;d&#8217; (if containing floats) or &#8216;i&#8217; (if containing integers).</p>
+<p>{| border=&#8221;1&#8221; cellspacing=&#8221;0&#8221; cellpadding=&#8221;5&#8221; align=&#8221;center&#8221; style=&#8221;text-align:left&#8221;
+<a href="#id5"><span class="problematic" id="id6">|+
+! style=&#8221;text-align:center&#8221; | Name    !!  style=&#8221;text-align:center&#8221; | Description  !!  style=&#8221;text-align:center&#8221; | Units  !!  style=&#8221;text-align:center&#8221; | Data Structure
+|-
+| [[aonames]]  ||</span></a> atomic orbital names (not available for ADF files) || || List of strings
+<a href="#id7"><span class="problematic" id="id8">|-
+| [[aooverlaps]] ||</span></a> atomic orbital overlap matrix (not available for ADF files) || || Array of rank 2
+<a href="#id9"><span class="problematic" id="id10">|-
+| [[atombasis]] ||</span></a> indices of atomic orbitals on each atom || || List of lists
+<a href="#id11"><span class="problematic" id="id12">|-
+| [[atomcoords]] ||</span></a> atom coordinates || &amp;Aring; || Array of rank 3
+<a href="#id13"><span class="problematic" id="id14">|-
+| [[atommasses]] ||</span></a> atom masses || Daltons || Array of rank 1
+<a href="#id15"><span class="problematic" id="id16">|-
+| [[atomnos]] ||</span></a> atomic numbers || || Array of rank 1
+<a href="#id17"><span class="problematic" id="id18">|-
+| [[charge]] ||</span></a> net charge of the system || &#8216;&#8217;e&#8217;&#8217; || Integer
+<a href="#id19"><span class="problematic" id="id20">|-
+| [[ccenergies]] ||</span></a> molecular energies with Coupled Cluster corrections || eV || Array of rank 1
+<a href="#id21"><span class="problematic" id="id22">|-
+| [[coreelectrons]] ||</span></a> numbers of core electrons atom pseudopotentials || || Array of rank 1
+<a href="#id23"><span class="problematic" id="id24">|-
+| [[etenergies]] ||</span></a> energies of electronic transitions || cm&lt;sup&gt;-1&lt;/sup&gt; || Array of rank 1
+<a href="#id25"><span class="problematic" id="id26">|-
+| [[etoscs]] ||</span></a> oscillator strengths of electronic transitions ||   || Array of rank 1
+<a href="#id27"><span class="problematic" id="id28">|-
+| [[etrotats]] ||</span></a> rotatory strengths of electronic transitions || ??  || Array of rank 1
+<a href="#id29"><span class="problematic" id="id30">|-
+| [[etsecs]] ||</span></a> singly-excited configurations for electronic transitions || || List of Lists
+<a href="#id31"><span class="problematic" id="id32">|-
+| [[etsyms]] ||</span></a> symmetries of electronic transitions || || List of strings
+<a href="#id33"><span class="problematic" id="id34">|-
+| [[fonames]] ||</span></a> fragment orbital names (only for ADF) || || List of strings
+<a href="#id35"><span class="problematic" id="id36">|-
+| [[fooverlaps]] ||</span></a> fragment orbital overlap matrix (only for ADF) || || Array of rank 2
+<a href="#id37"><span class="problematic" id="id38">|-
+| [[fragnames]] ||</span></a> names of fragments (only for ADF) || || List of strings
+<a href="#id39"><span class="problematic" id="id40">|-
+| [[frags]] ||</span></a> indices of atoms in a fragment (only for ADF) || || List of Lists
+<a href="#id41"><span class="problematic" id="id42">|-
+| [[gbasis]] ||</span></a> coefficients of Gaussian basis functions || || PyQuante format
+<a href="#id43"><span class="problematic" id="id44">|-
+| [[geotargets]] ||</span></a> targets for convergence of geometry optimization || || Array of rank 1
+<a href="#id45"><span class="problematic" id="id46">|-
+| [[geovalues]] ||</span></a> current values for convergence of geometry optmization || || Array of rank 2
+<a href="#id47"><span class="problematic" id="id48">|-
+| [[hessian]] ||</span></a> force constant matrix || || Array of rank 1
+<a href="#id49"><span class="problematic" id="id50">|-
+| [[homos]] ||</span></a> molecular orbital indices of HOMO(s) || || Array of rank 1
+<a href="#id51"><span class="problematic" id="id52">|-
+| [[mocoeffs]] ||</span></a> molecular orbital coefficients || || List of Arrays of rank 2
+<a href="#id53"><span class="problematic" id="id54">|-
+| [[moenergies]] ||</span></a> molecular orbital energies || eV || List of Arrays of rank 1
+<a href="#id55"><span class="problematic" id="id56">|-
+| [[mosyms]] ||</span></a> orbital symmetries || || List of Lists
+<a href="#id57"><span class="problematic" id="id58">|-
+| [[mpenergies]] ||</span></a> molecular electronic energies with Möller-Plesset corrections || eV || Array of rank 2
+<a href="#id59"><span class="problematic" id="id60">|-
+| [[mult]] ||</span></a> multiplicity of the system || h/2&amp;pi; || Integer
+<a href="#id61"><span class="problematic" id="id62">|-
+| [[natom]] ||</span></a> number of atoms ||  || Integer
+<a href="#id63"><span class="problematic" id="id64">|-
+| [[nbasis]] ||</span></a> number of basis functions ||  || Integer
+<a href="#id65"><span class="problematic" id="id66">|-
+| [[nmo]] ||</span></a> number of molecular orbitals || || Integer
+<a href="#id67"><span class="problematic" id="id68">|-
+| [[scfenergies]] ||</span></a> molecular electronic energies after SCF (Hartree-Fock, DFT) || eV || Array of rank 1
+<a href="#id69"><span class="problematic" id="id70">|-
+| [[scftargets]] ||</span></a> targets for convergence of the SCF || ||Array of rank 2
+<a href="#id71"><span class="problematic" id="id72">|-
+| [[scfvalues]] ||</span></a> current values for convergence of the SCF || || Array of rank 3
+<a href="#id73"><span class="problematic" id="id74">|-
+| [[temperature]] ||</span></a> temperature specified for thermochemistry analysis || K || Float
+<a href="#id75"><span class="problematic" id="id76">|-
+| [[vibdisps]] ||</span></a> cartesian displacement vectors || &amp;Delta;&amp;Aring; || Array of rank 3
+<a href="#id77"><span class="problematic" id="id78">|-
+| [[vibfreqs]] ||</span></a> vibrational frequencies || cm&lt;sup&gt;-1&lt;/sup&gt; || Array of rank 1
+<a href="#id79"><span class="problematic" id="id80">|-
+| [[vibirs]] ||</span></a> IR intensities || km mol&lt;sup&gt;-1&lt;/sup&gt; || Array of rank 1
+<a href="#id81"><span class="problematic" id="id82">|-
+| [[vibramans]] ||</span></a> Raman intensities || A&lt;sup&gt;4&lt;/sup&gt; amu&lt;sup&gt;-1&lt;/sup&gt;  || Array of rank 1
+<a href="#id83"><span class="problematic" id="id84">|-
+| [[vibsyms]] ||</span></a> symmetries of vibrations || || List of strings
+<a href="#id1"><span class="problematic" id="id2">|</span></a>}</p>
+<p>== Details of current implementation ==</p>
+<p>&#8216;&#8217;&#8216;N/A&#8217;&#8216;&#8217; = not applicable, &#8216;&#8217;&#8216;N/P&#8217;&#8216;&#8217; = applicable, but not possible, &#8216;&#8217;&#8216;T/D&#8217;&#8216;&#8217; = to do</p>
+<p>{| border=&#8221;1&#8221; cellspacing=&#8221;0&#8221; cellpadding=&#8221;5&#8221; text-align=&#8221;center&#8221; align=&#8221;center&#8221;
+<a href="#id85"><span class="problematic" id="id86">|+&#8217;&#8216;&#8217;Current implementation of parsers&#8217;&#8216;&#8217;
+!          !! width=&#8221;80px&#8221; | ADF     !! width=&#8221;80px&#8221; | GAMESS !! width=&#8221;80px&#8221; | GAMESS-UK !! width=&#8221;80px&#8221; | Gaussian !! width=&#8221;80px&#8221; | Jaguar     !! width=&#8221;80px&#8221; | Molpro !! width=&#8221;80px&#8221; | ORCA
+|-
+! aonames  ||</span></a>   N/A    ||    &amp;radic;       ||   &amp;radic;       ||    &amp;radic;     ||   &amp;radic;      ||      &amp;radic;  || &amp;radic;
+<a href="#id87"><span class="problematic" id="id88">|-
+! aooverlaps  ||</span></a>    N/A   ||    &amp;radic;      ||    &amp;radic;      ||  &amp;radic;       ||     &amp;radic;    ||   &amp;radic;  || &amp;radic;
+<a href="#id89"><span class="problematic" id="id90">|-
+! atomcoords  ||</span></a>  &amp;radic;     ||   &amp;radic;        ||    &amp;radic;      ||   &amp;radic;   ||    &amp;radic;  ||       &amp;radic; || &amp;radic;
+<a href="#id91"><span class="problematic" id="id92">|-
+! atombasis ||</span></a>   T/D    ||    &amp;radic;     ||   &amp;radic;     ||   &amp;radic;      ||    &amp;radic;     ||         &amp;radic; || T/D
+<a href="#id93"><span class="problematic" id="id94">|-
+! atommasses ||</span></a>   &amp;radic;     ||   T/D  ||     T/D    ||      &amp;radic;      ||   T/D       ||     T/D      ||      T/D
+<a href="#id95"><span class="problematic" id="id96">|-
+! atomnos  ||</span></a>   &amp;radic;    ||    &amp;radic;       ||    &amp;radic;      ||   &amp;radic;      ||  &amp;radic;       ||      &amp;radic; || &amp;radic;
+<a href="#id97"><span class="problematic" id="id98">|-
+! ccenergies ||</span></a>      N/A        ||    &amp;radic;  ||    T/D   || &amp;radic; ||     N/A    ||    T/D || T/D
+<a href="#id99"><span class="problematic" id="id100">|-
+! charge ||</span></a>  &amp;radic;    ||    &amp;radic;       ||    &amp;radic;      ||   &amp;radic;      ||  &amp;radic;       ||     &amp;radic; || &amp;radic;
+<a href="#id101"><span class="problematic" id="id102">|-
+! coreelectrons ||</span></a>     &amp;radic;     ||     &amp;radic;        ||        T/D         ||       &amp;radic;   ||     T/D   ||  T/D || T/D
+<a href="#id103"><span class="problematic" id="id104">|-
+! etenergies  ||</span></a>   &amp;radic;    ||    &amp;radic;    ||   N/A      ||   &amp;radic;      ||   &amp;radic;     ||  T/D  ||  T/D
+<a href="#id105"><span class="problematic" id="id106">|-
+! etoscs  ||</span></a>   &amp;radic;    ||     &amp;radic;       ||    N/A     ||   &amp;radic;      ||   &amp;radic;  || T/D ||  T/D
+<a href="#id107"><span class="problematic" id="id108">|-
+! etrotats  ||</span></a>   &amp;radic;    ||     T/D(?)       ||     N/A     ||   &amp;radic;      ||    T/D     || T/D ||  T/D
+<a href="#id109"><span class="problematic" id="id110">|-
+! etsecs  ||</span></a>   &amp;radic;    ||     &amp;radic;   ||    N/A     ||   &amp;radic;      ||    &amp;radic;    || T/D  || T/D
+<a href="#id111"><span class="problematic" id="id112">|-
+! etsyms  ||</span></a>   &amp;radic;    ||     &amp;radic;    ||   N/A      ||    &amp;radic;     ||    &amp;radic;    || T/D(?) || T/D
+<a href="#id113"><span class="problematic" id="id114">|-
+! fonames  ||</span></a>   &amp;radic;   ||   N/A   ||   N/A   ||   N/A   ||   N/A  ||  N/A || N/A
+<a href="#id115"><span class="problematic" id="id116">|-
+! fooverlaps ||</span></a>   &amp;radic;   ||   N/A ||   N/A   ||   N/A   ||   N/A  ||  N/A || N/A
+<a href="#id117"><span class="problematic" id="id118">|-
+! fragnames ||</span></a>   &amp;radic;   ||   N/A ||   N/A   ||   N/A   ||   N/A  ||  N/A || N/A
+<a href="#id119"><span class="problematic" id="id120">|-
+! frags ||</span></a>   &amp;radic;   ||   N/A ||   N/A   ||   N/A   ||   N/A  ||  N/A  || N/A
+<a href="#id121"><span class="problematic" id="id122">|-
+! gbasis  ||</span></a>   N/A    ||    &amp;radic;      ||    &amp;radic;    ||    &amp;radic;     ||   N/P      ||  &amp;radic;  || T/D
+<a href="#id123"><span class="problematic" id="id124">|-
+! geotargets  ||</span></a>   &amp;radic;    ||    &amp;radic;       ||   &amp;radic;       ||    &amp;radic;     ||    &amp;radic;     ||  T/D(?) || &amp;radic;
+<a href="#id125"><span class="problematic" id="id126">|-
+! geovalues  ||</span></a>   &amp;radic;    ||     &amp;radic;      ||     &amp;radic;     ||   &amp;radic;      ||  &amp;radic; ||  T/D(?) || &amp;radic;
+<a href="#id127"><span class="problematic" id="id128">|-
+! grads ||</span></a> N/A   ||   N/A ||   N/A   || &amp;radic; ||   N/A  ||  N/A || N/A
+<a href="#id129"><span class="problematic" id="id130">|-
+! hessian ||</span></a> T/D || T/D || T/D || T/D  ||  T/D      ||    &amp;radic;     || T/D
+<a href="#id131"><span class="problematic" id="id132">|-
+! homos  ||</span></a>   &amp;radic;    ||      &amp;radic;     ||     &amp;radic;     ||    &amp;radic;     ||     &amp;radic;    ||  &amp;radic; || &amp;radic;
+<a href="#id133"><span class="problematic" id="id134">|-
+! mocoeffs  ||</span></a>   &amp;radic;    ||    &amp;radic;       ||    &amp;radic;      ||   &amp;radic;      ||    &amp;radic;    ||       &amp;radic;  || &amp;radic;
+<a href="#id135"><span class="problematic" id="id136">|-
+! moenergies  ||</span></a>   &amp;radic;    ||     &amp;radic;      ||    &amp;radic;      ||   &amp;radic;      ||    &amp;radic;    ||    &amp;radic;  || &amp;radic;
+<a href="#id137"><span class="problematic" id="id138">|-
+! mosyms  ||</span></a>   &amp;radic;    ||    &amp;radic;      ||    &amp;radic;      ||    &amp;radic;     ||   &amp;radic;      ||  T/D(?) || T/D
+<a href="#id139"><span class="problematic" id="id140">|-
+! mpenergies    ||</span></a> N/A     || &amp;radic; ||  &amp;radic;  || &amp;radic; || &amp;radic;  || &amp;radic;  || T/D
+<a href="#id141"><span class="problematic" id="id142">|-
+! mult ||</span></a>  &amp;radic;    ||    &amp;radic;       ||    &amp;radic;      ||   &amp;radic;      ||  &amp;radic;       ||     &amp;radic;   || &amp;radic;
+<a href="#id143"><span class="problematic" id="id144">|-
+! natom  ||</span></a>    &amp;radic;   ||     &amp;radic;     ||     &amp;radic;     ||     &amp;radic;    ||    &amp;radic;     ||    &amp;radic;  || &amp;radic;
+<a href="#id145"><span class="problematic" id="id146">|-
+! nbasis  ||</span></a>   &amp;radic;    ||     &amp;radic;      ||     &amp;radic;     ||     &amp;radic;    ||   &amp;radic;      ||    &amp;radic;   || &amp;radic;
+<a href="#id147"><span class="problematic" id="id148">|-
+! nmo  ||</span></a>   &amp;radic;    ||    &amp;radic;       ||     &amp;radic;     ||   &amp;radic;      ||    &amp;radic;     ||  &amp;radic;(?) || &amp;radic;
+<a href="#id149"><span class="problematic" id="id150">|-
+! scfenergies  ||</span></a>   &amp;radic;    ||     &amp;radic;      ||    &amp;radic;      ||    &amp;radic;     ||  &amp;radic;      || &amp;radic; || T/D
+<a href="#id151"><span class="problematic" id="id152">|-
+! scftargets  ||</span></a>   &amp;radic;    ||     &amp;radic;      ||   &amp;radic;       ||    &amp;radic;     ||   &amp;radic;      ||    &amp;radic;   || T/D
+<a href="#id153"><span class="problematic" id="id154">|-
+! scfvalues  ||</span></a>    &amp;radic;   ||     &amp;radic;      ||   &amp;radic;       ||   &amp;radic;      ||    &amp;radic;     ||  T/D(?) || T/D
+<a href="#id155"><span class="problematic" id="id156">|-
+! temperature ||</span></a>    &amp;radic;   ||     T/D      ||   T/D       ||   T/D      ||    T/D     ||  T/D || T/D
+<a href="#id157"><span class="problematic" id="id158">|-
+! vibdisps  ||</span></a>   &amp;radic;       ||     &amp;radic;      ||     &amp;radic;        ||      &amp;radic;        ||      &amp;radic;   || T/D(?) || T/D
+<a href="#id159"><span class="problematic" id="id160">|-
+! vibfreqs  ||</span></a>   &amp;radic;    ||     &amp;radic;      ||   &amp;radic;       ||   &amp;radic;      ||   &amp;radic;  ||      &amp;radic;     || &amp;radic;
+<a href="#id161"><span class="problematic" id="id162">|-
+! vibirs  ||</span></a>   &amp;radic;    ||     &amp;radic;      ||    &amp;radic;      ||    &amp;radic;     ||   &amp;radic;      ||    &amp;radic;     || &amp;radic;(?)
+<a href="#id163"><span class="problematic" id="id164">|-
+! vibramans  ||</span></a>   T/D    ||     &amp;radic; (PC GAMESS)   ||     &amp;radic;     ||    &amp;radic;     ||     N/A    ||  T/D(?)  || T/D
+<a href="#id165"><span class="problematic" id="id166">|-
+! vibsyms  ||</span></a>   N/A    ||    N/A       ||    N/A      ||  &amp;radic;     ||    &amp;radic;     ||    &amp;radic;     || T/D
+<a href="#id3"><span class="problematic" id="id4">|</span></a>-
+!          !! width=&#8221;80px&#8221; | ADF     !! width=&#8221;80px&#8221; | GAMESS !! width=&#8221;80px&#8221; | GAMESS-UK !! width=&#8221;80px&#8221; | Gaussian !! width=&#8221;80px&#8221; | Jaguar     !! width=&#8221;80px&#8221; | Molpro !! width=&#8221;80px&#8221; | ORCA }</p>
+<p>[[Category:Parsed data| ]]</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Overview</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="data_notes.html"
+                        title="next chapter">Parsed data notes</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/data.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="data_notes.html" title="Parsed data notes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Overview"
+             >previous</a> |</li>
+        <li><a href="contents.html">cclib 1.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, cclib Development Team.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
