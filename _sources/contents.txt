@@ -7,6 +7,7 @@ Table of Contents
     :maxdepth: 2
 
     index
+    tutorial
     data
     data_notes
     methods
