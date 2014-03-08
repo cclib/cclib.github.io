@@ -279,53 +279,473 @@
 </div>
 <div class="section" id="details-of-current-implementation">
 <h2>Details of current implementation<a class="headerlink" href="#details-of-current-implementation" title="Permalink to this headline">¶</a></h2>
-<p>&#8216;&#8217;&#8216;N/A&#8217;&#8216;&#8217; = not applicable, &#8216;&#8217;&#8216;N/P&#8217;&#8216;&#8217; = applicable, but not possible, &#8216;&#8217;&#8216;T/D&#8217;&#8216;&#8217; = to do</p>
-<p>{| border=&#8221;1&#8221; cellspacing=&#8221;0&#8221; cellpadding=&#8221;5&#8221; text-align=&#8221;center&#8221; align=&#8221;center&#8221;
-<a href="#id3"><span class="problematic" id="id4">|</span></a>+&#8217;&#8216;&#8217;Current implementation of parsers&#8217;&#8216;&#8217;
-!          !! width=&#8221;80px&#8221; | ADF     !! width=&#8221;80px&#8221; | GAMESS !! width=&#8221;80px&#8221; | GAMESS-UK !! width=&#8221;80px&#8221; | Gaussian !! width=&#8221;80px&#8221; | Jaguar     !! width=&#8221;80px&#8221; | Molpro !! width=&#8221;80px&#8221; | ORCA</p>
-<p>! aonames  ||   N/A    ||    &amp;radic;       ||   &amp;radic;       ||    &amp;radic;     ||   &amp;radic;      ||      &amp;radic;  || &amp;radic;</p>
-<p>! aooverlaps  ||    N/A   ||    &amp;radic;      ||    &amp;radic;      ||  &amp;radic;       ||     &amp;radic;    ||   &amp;radic;  || &amp;radic;</p>
-<p>! atomcoords  ||  &amp;radic;     ||   &amp;radic;        ||    &amp;radic;      ||   &amp;radic;   ||    &amp;radic;  ||       &amp;radic; || &amp;radic;</p>
-<p>! atombasis ||   T/D    ||    &amp;radic;     ||   &amp;radic;     ||   &amp;radic;      ||    &amp;radic;     ||         &amp;radic; || T/D</p>
-<p>! atommasses ||   &amp;radic;     ||   T/D  ||     T/D    ||      &amp;radic;      ||   T/D       ||     T/D      ||      T/D</p>
-<p>! atomnos  ||   &amp;radic;    ||    &amp;radic;       ||    &amp;radic;      ||   &amp;radic;      ||  &amp;radic;       ||      &amp;radic; || &amp;radic;</p>
-<p>! ccenergies ||      N/A        ||    &amp;radic;  ||    T/D   || &amp;radic; ||     N/A    ||    T/D || T/D</p>
-<p>! charge ||  &amp;radic;    ||    &amp;radic;       ||    &amp;radic;      ||   &amp;radic;      ||  &amp;radic;       ||     &amp;radic; || &amp;radic;</p>
-<p>! coreelectrons ||     &amp;radic;     ||     &amp;radic;        ||        T/D         ||       &amp;radic;   ||     T/D   ||  T/D || T/D</p>
-<p>! etenergies  ||   &amp;radic;    ||    &amp;radic;    ||   N/A      ||   &amp;radic;      ||   &amp;radic;     ||  T/D  ||  T/D</p>
-<p>! etoscs  ||   &amp;radic;    ||     &amp;radic;       ||    N/A     ||   &amp;radic;      ||   &amp;radic;  || T/D ||  T/D</p>
-<p>! etrotats  ||   &amp;radic;    ||     T/D(?)       ||     N/A     ||   &amp;radic;      ||    T/D     || T/D ||  T/D</p>
-<p>! etsecs  ||   &amp;radic;    ||     &amp;radic;   ||    N/A     ||   &amp;radic;      ||    &amp;radic;    || T/D  || T/D</p>
-<p>! etsyms  ||   &amp;radic;    ||     &amp;radic;    ||   N/A      ||    &amp;radic;     ||    &amp;radic;    || T/D(?) || T/D</p>
-<p>! fonames  ||   &amp;radic;   ||   N/A   ||   N/A   ||   N/A   ||   N/A  ||  N/A || N/A</p>
-<p>! fooverlaps ||   &amp;radic;   ||   N/A ||   N/A   ||   N/A   ||   N/A  ||  N/A || N/A</p>
-<p>! fragnames ||   &amp;radic;   ||   N/A ||   N/A   ||   N/A   ||   N/A  ||  N/A || N/A</p>
-<p>! frags ||   &amp;radic;   ||   N/A ||   N/A   ||   N/A   ||   N/A  ||  N/A  || N/A</p>
-<p>! gbasis  ||   N/A    ||    &amp;radic;      ||    &amp;radic;    ||    &amp;radic;     ||   N/P      ||  &amp;radic;  || T/D</p>
-<p>! geotargets  ||   &amp;radic;    ||    &amp;radic;       ||   &amp;radic;       ||    &amp;radic;     ||    &amp;radic;     ||  T/D(?) || &amp;radic;</p>
-<p>! geovalues  ||   &amp;radic;    ||     &amp;radic;      ||     &amp;radic;     ||   &amp;radic;      ||  &amp;radic; ||  T/D(?) || &amp;radic;</p>
-<p>! grads || N/A   ||   N/A ||   N/A   || &amp;radic; ||   N/A  ||  N/A || N/A</p>
-<p>! hessian || T/D || T/D || T/D || T/D  ||  T/D      ||    &amp;radic;     || T/D</p>
-<p>! homos  ||   &amp;radic;    ||      &amp;radic;     ||     &amp;radic;     ||    &amp;radic;     ||     &amp;radic;    ||  &amp;radic; || &amp;radic;</p>
-<p>! mocoeffs  ||   &amp;radic;    ||    &amp;radic;       ||    &amp;radic;      ||   &amp;radic;      ||    &amp;radic;    ||       &amp;radic;  || &amp;radic;</p>
-<p>! moenergies  ||   &amp;radic;    ||     &amp;radic;      ||    &amp;radic;      ||   &amp;radic;      ||    &amp;radic;    ||    &amp;radic;  || &amp;radic;</p>
-<p>! mosyms  ||   &amp;radic;    ||    &amp;radic;      ||    &amp;radic;      ||    &amp;radic;     ||   &amp;radic;      ||  T/D(?) || T/D</p>
-<p>! mpenergies    || N/A     || &amp;radic; ||  &amp;radic;  || &amp;radic; || &amp;radic;  || &amp;radic;  || T/D</p>
-<p>! mult ||  &amp;radic;    ||    &amp;radic;       ||    &amp;radic;      ||   &amp;radic;      ||  &amp;radic;       ||     &amp;radic;   || &amp;radic;</p>
-<p>! natom  ||    &amp;radic;   ||     &amp;radic;     ||     &amp;radic;     ||     &amp;radic;    ||    &amp;radic;     ||    &amp;radic;  || &amp;radic;</p>
-<p>! nbasis  ||   &amp;radic;    ||     &amp;radic;      ||     &amp;radic;     ||     &amp;radic;    ||   &amp;radic;      ||    &amp;radic;   || &amp;radic;</p>
-<p>! nmo  ||   &amp;radic;    ||    &amp;radic;       ||     &amp;radic;     ||   &amp;radic;      ||    &amp;radic;     ||  &amp;radic;(?) || &amp;radic;</p>
-<p>! scfenergies  ||   &amp;radic;    ||     &amp;radic;      ||    &amp;radic;      ||    &amp;radic;     ||  &amp;radic;      || &amp;radic; || T/D</p>
-<p>! scftargets  ||   &amp;radic;    ||     &amp;radic;      ||   &amp;radic;       ||    &amp;radic;     ||   &amp;radic;      ||    &amp;radic;   || T/D</p>
-<p>! scfvalues  ||    &amp;radic;   ||     &amp;radic;      ||   &amp;radic;       ||   &amp;radic;      ||    &amp;radic;     ||  T/D(?) || T/D</p>
-<p>! temperature ||    &amp;radic;   ||     T/D      ||   T/D       ||   T/D      ||    T/D     ||  T/D || T/D</p>
-<p>! vibdisps  ||   &amp;radic;       ||     &amp;radic;      ||     &amp;radic;        ||      &amp;radic;        ||      &amp;radic;   || T/D(?) || T/D</p>
-<p>! vibfreqs  ||   &amp;radic;    ||     &amp;radic;      ||   &amp;radic;       ||   &amp;radic;      ||   &amp;radic;  ||      &amp;radic;     || &amp;radic;</p>
-<p>! vibirs  ||   &amp;radic;    ||     &amp;radic;      ||    &amp;radic;      ||    &amp;radic;     ||   &amp;radic;      ||    &amp;radic;     || &amp;radic;(?)</p>
-<p>! vibramans  ||   T/D    ||     &amp;radic; (PC GAMESS)   ||     &amp;radic;     ||    &amp;radic;     ||     N/A    ||  T/D(?)  || T/D</p>
-<p>! vibsyms  ||   N/A    ||    N/A       ||    N/A      ||  &amp;radic;     ||    &amp;radic;     ||    &amp;radic;     || T/D</p>
-<p>!          !! width=&#8221;80px&#8221; | ADF     !! width=&#8221;80px&#8221; | GAMESS !! width=&#8221;80px&#8221; | GAMESS-UK !! width=&#8221;80px&#8221; | Gaussian !! width=&#8221;80px&#8221; | Jaguar     !! width=&#8221;80px&#8221; | Molpro !! width=&#8221;80px&#8221; | ORCA }</p>
-<p>[[Category:Parsed data| ]]</p>
+<p><strong>N/A</strong> = not applicable, <strong>N/P</strong> = applicable, but not possible, <strong>T/D</strong> = to do</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="12%" />
+<col width="16%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">attribute</th>
+<th class="head">ADF</th>
+<th class="head">GAMESS</th>
+<th class="head">GAMESS-UK</th>
+<th class="head">Gaussian</th>
+<th class="head">Jaguar</th>
+<th class="head">Molpro</th>
+<th class="head">ORCA</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>aonames</td>
+<td>N/A</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>aooverlaps</td>
+<td>N/A</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>atomcoords</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>atombasis</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>atommasses</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>atomnos</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>ccenergies</td>
+<td>N/A</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>N/A</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>charge</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>coreelectrons</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>etenergies</td>
+<td>√</td>
+<td>√</td>
+<td>N/A</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>etoscs</td>
+<td>√</td>
+<td>√</td>
+<td>N/A</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>etrotats</td>
+<td>√</td>
+<td>T/D(?)</td>
+<td>N/A</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>etsecs</td>
+<td>√</td>
+<td>√</td>
+<td>N/A</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>etsyms</td>
+<td>√</td>
+<td>√</td>
+<td>N/A</td>
+<td>√</td>
+<td>√</td>
+<td>T/D(?)</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>ccenergies</td>
+<td>N/A</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>N/A</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>charge</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>coreelectrons</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>etenergies</td>
+<td>√</td>
+<td>√</td>
+<td>N/A</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>etoscs</td>
+<td>√</td>
+<td>√</td>
+<td>N/A</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>etrotats</td>
+<td>√</td>
+<td>T/D(?)</td>
+<td>N/A</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>etsecs</td>
+<td>√</td>
+<td>√</td>
+<td>N/A</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>etsyms</td>
+<td>√</td>
+<td>√</td>
+<td>N/A</td>
+<td>√</td>
+<td>√</td>
+<td>T/D(?)</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>fonames</td>
+<td>√</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="row-odd"><td>fooverlaps</td>
+<td>√</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="row-even"><td>fragnames</td>
+<td>√</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="row-odd"><td>frags</td>
+<td>√</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="row-even"><td>gbasis</td>
+<td>N/A</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>N/P</td>
+<td>√</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>geotargets</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D(?)</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>geovalues</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D(?)</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>grads</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>√</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="row-even"><td>hessian</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>homos</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>mocoeffs</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>moenergies</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>mosyms</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D(?)</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>mpenergies</td>
+<td>N/A</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>mult</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>natom</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>nbasis</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>nmo</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√(?)</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>scfenergies</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>scftargets</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>scfvalues</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D(?)</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>temperature</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>vibdisps</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D(?)</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>vibfreqs</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>vibirs</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√(?)</td>
+</tr>
+<tr class="row-odd"><td>vibramans</td>
+<td>T/D</td>
+<td>√ (PC GAMESS)</td>
+<td>√</td>
+<td>√</td>
+<td>N/A</td>
+<td>T/D(?)</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>vibsyms</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 

@@ -100,94 +100,59 @@ Click the attribute name in the table below to go the notes for a particular att
 Details of current implementation
 ---------------------------------
 
-'''N/A''' = not applicable, '''N/P''' = applicable, but not possible, '''T/D''' = to do
+**N/A** = not applicable, **N/P** = applicable, but not possible, **T/D** = to do
 
-{| border="1" cellspacing="0" cellpadding="5" text-align="center" align="center"
-|+'''Current implementation of parsers'''
-!          !! width="80px" | ADF     !! width="80px" | GAMESS !! width="80px" | GAMESS-UK !! width="80px" | Gaussian !! width="80px" | Jaguar     !! width="80px" | Molpro !! width="80px" | ORCA 
- 
-! aonames  ||   N/A    ||    &radic;       ||   &radic;       ||    &radic;     ||   &radic;      ||      &radic;  || &radic; 
+=============== =========== =============== =========== =========== =========== =========== ========
+attribute       ADF         GAMESS          GAMESS-UK   Gaussian    Jaguar      Molpro      ORCA 
+=============== =========== =============== =========== =========== =========== =========== ========
+aonames         N/A         √               √           √           √           √           √
+aooverlaps      N/A         √               √           √           √           √           √           
+atomcoords      √           √               √           √           √           √           √           
+atombasis       T/D         √               √           √           √           √           T/D         
+atommasses      √           T/D             T/D         √           T/D         T/D         T/D 
+atomnos         √           √               √           √           √           √           √
+ccenergies      N/A         √               T/D         √           N/A         T/D         T/D         
+charge          √           √               √           √           √           √           √         
+coreelectrons   √           √               T/D         √           T/D         T/D         T/D         
+etenergies      √           √               N/A         √           √           T/D         T/D         
+etoscs          √           √               N/A         √           √           T/D         T/D         
+etrotats        √           T/D(?)          N/A         √           T/D         T/D         T/D         
+etsecs          √           √               N/A         √           √           T/D         T/D         
+etsyms          √           √               N/A         √           √           T/D(?)      T/D
+ccenergies      N/A         √               T/D         √           N/A         T/D         T/D         
+charge          √           √               √           √           √           √           √           
+coreelectrons   √           √               T/D         √           T/D         T/D         T/D         
+etenergies      √           √               N/A         √           √           T/D         T/D         
+etoscs          √           √               N/A         √           √           T/D         T/D         
+etrotats        √           T/D(?)          N/A         √           T/D         T/D         T/D         
+etsecs          √           √               N/A         √           √           T/D         T/D         
+etsyms          √           √               N/A         √           √           T/D(?)      T/D
+fonames         √           N/A             N/A         N/A         N/A         N/A         N/A         
+fooverlaps      √           N/A             N/A         N/A         N/A         N/A         N/A         
+fragnames       √           N/A             N/A         N/A         N/A         N/A         N/A         
+frags           √           N/A             N/A         N/A         N/A         N/A         N/A         
+gbasis          N/A         √               √           √           N/P         √           T/D         
+geotargets      √           √               √           √           √           T/D(?)      √           
+geovalues       √           √               √           √           √           T/D(?)      √           
+grads           N/A         N/A             N/A         √           N/A         N/A         N/A
+hessian         T/D         T/D             T/D         T/D         T/D         √           T/D         
+homos           √           √               √           √           √           √           √           
+mocoeffs        √           √               √           √           √           √           √           
+moenergies      √           √               √           √           √           √           √           
+mosyms          √           √               √           √           √           T/D(?)      T/D         
+mpenergies      N/A         √               √           √           √           √           T/D         
+mult            √           √               √           √           √           √           √           
+natom           √           √               √           √           √           √           √           
+nbasis          √           √               √           √           √           √           √           
+nmo             √           √               √           √           √           √(?)        √
+scfenergies     √           √               √           √           √           √           T/D         
+scftargets      √           √               √           √           √           √           T/D         
+scfvalues       √           √               √           √           √           T/D(?)      T/D         
+temperature     √           T/D             T/D         T/D         T/D         T/D         T/D         
+vibdisps        √           √               √           √           √           T/D(?)      T/D         
+vibfreqs        √           √               √           √           √           √           √           
+vibirs          √           √               √           √           √           √           √(?)
+vibramans       T/D         √ (PC GAMESS)   √           √           N/A         T/D(?)      T/D  
+vibsyms         N/A         N/A             N/A         √           √           √           T/D    
+=============== =========== =============== =========== =========== =========== =========== ========
 
-! aooverlaps  ||    N/A   ||    &radic;      ||    &radic;      ||  &radic;       ||     &radic;    ||   &radic;  || &radic;  
-
-! atomcoords  ||  &radic;     ||   &radic;        ||    &radic;      ||   &radic;   ||    &radic;  ||       &radic; || &radic;
-
-! atombasis ||   T/D    ||    &radic;     ||   &radic;     ||   &radic;      ||    &radic;     ||         &radic; || T/D  
-
-! atommasses ||   &radic;     ||   T/D  ||     T/D    ||      &radic;      ||   T/D       ||     T/D      ||      T/D 
-
-! atomnos  ||   &radic;    ||    &radic;       ||    &radic;      ||   &radic;      ||  &radic;       ||      &radic; || &radic;
-
-! ccenergies ||      N/A        ||    &radic;  ||    T/D   || &radic; ||     N/A    ||    T/D || T/D 
-
-! charge ||  &radic;    ||    &radic;       ||    &radic;      ||   &radic;      ||  &radic;       ||     &radic; || &radic; 
-
-! coreelectrons ||     &radic;     ||     &radic;        ||        T/D         ||       &radic;   ||     T/D   ||  T/D || T/D 
-
-! etenergies  ||   &radic;    ||    &radic;    ||   N/A      ||   &radic;      ||   &radic;     ||  T/D  ||  T/D
-
-! etoscs  ||   &radic;    ||     &radic;       ||    N/A     ||   &radic;      ||   &radic;  || T/D ||  T/D   
-
-! etrotats  ||   &radic;    ||     T/D(?)       ||     N/A     ||   &radic;      ||    T/D     || T/D ||  T/D 
- 
-! etsecs  ||   &radic;    ||     &radic;   ||    N/A     ||   &radic;      ||    &radic;    || T/D  || T/D   
-
-! etsyms  ||   &radic;    ||     &radic;    ||   N/A      ||    &radic;     ||    &radic;    || T/D(?) || T/D 
-
-! fonames  ||   &radic;   ||   N/A   ||   N/A   ||   N/A   ||   N/A  ||  N/A || N/A  
-
-! fooverlaps ||   &radic;   ||   N/A ||   N/A   ||   N/A   ||   N/A  ||  N/A || N/A  
-
-! fragnames ||   &radic;   ||   N/A ||   N/A   ||   N/A   ||   N/A  ||  N/A || N/A   
-
-! frags ||   &radic;   ||   N/A ||   N/A   ||   N/A   ||   N/A  ||  N/A  || N/A   
-
-! gbasis  ||   N/A    ||    &radic;      ||    &radic;    ||    &radic;     ||   N/P      ||  &radic;  || T/D   
-
-! geotargets  ||   &radic;    ||    &radic;       ||   &radic;       ||    &radic;     ||    &radic;     ||  T/D(?) || &radic;  
-
-! geovalues  ||   &radic;    ||     &radic;      ||     &radic;     ||   &radic;      ||  &radic; ||  T/D(?) || &radic;   
-
-! grads || N/A   ||   N/A ||   N/A   || &radic; ||   N/A  ||  N/A || N/A   
-
-! hessian || T/D || T/D || T/D || T/D  ||  T/D      ||    &radic;     || T/D  
-
-! homos  ||   &radic;    ||      &radic;     ||     &radic;     ||    &radic;     ||     &radic;    ||  &radic; || &radic;   
-
-! mocoeffs  ||   &radic;    ||    &radic;       ||    &radic;      ||   &radic;      ||    &radic;    ||       &radic;  || &radic;   
-
-! moenergies  ||   &radic;    ||     &radic;      ||    &radic;      ||   &radic;      ||    &radic;    ||    &radic;  || &radic;   
-
-! mosyms  ||   &radic;    ||    &radic;      ||    &radic;      ||    &radic;     ||   &radic;      ||  T/D(?) || T/D   
-
-! mpenergies    || N/A     || &radic; ||  &radic;  || &radic; || &radic;  || &radic;  || T/D   
-
-! mult ||  &radic;    ||    &radic;       ||    &radic;      ||   &radic;      ||  &radic;       ||     &radic;   || &radic;   
-
-! natom  ||    &radic;   ||     &radic;     ||     &radic;     ||     &radic;    ||    &radic;     ||    &radic;  || &radic;      
-
-! nbasis  ||   &radic;    ||     &radic;      ||     &radic;     ||     &radic;    ||   &radic;      ||    &radic;   || &radic;   
-
-! nmo  ||   &radic;    ||    &radic;       ||     &radic;     ||   &radic;      ||    &radic;     ||  &radic;(?) || &radic;  
-
-! scfenergies  ||   &radic;    ||     &radic;      ||    &radic;      ||    &radic;     ||  &radic;      || &radic; || T/D   
-
-! scftargets  ||   &radic;    ||     &radic;      ||   &radic;       ||    &radic;     ||   &radic;      ||    &radic;   || T/D     
-
-! scfvalues  ||    &radic;   ||     &radic;      ||   &radic;       ||   &radic;      ||    &radic;     ||  T/D(?) || T/D   
-
-! temperature ||    &radic;   ||     T/D      ||   T/D       ||   T/D      ||    T/D     ||  T/D || T/D
-
-! vibdisps  ||   &radic;       ||     &radic;      ||     &radic;        ||      &radic;        ||      &radic;   || T/D(?) || T/D   
-
-! vibfreqs  ||   &radic;    ||     &radic;      ||   &radic;       ||   &radic;      ||   &radic;  ||      &radic;     || &radic;  
-
-! vibirs  ||   &radic;    ||     &radic;      ||    &radic;      ||    &radic;     ||   &radic;      ||    &radic;     || &radic;(?)   
-
-! vibramans  ||   T/D    ||     &radic; (PC GAMESS)   ||     &radic;     ||    &radic;     ||     N/A    ||  T/D(?)  || T/D  
-
-! vibsyms  ||   N/A    ||    N/A       ||    N/A      ||  &radic;     ||    &radic;     ||    &radic;     || T/D    
-
-!          !! width="80px" | ADF     !! width="80px" | GAMESS !! width="80px" | GAMESS-UK !! width="80px" | Gaussian !! width="80px" | Jaguar     !! width="80px" | Molpro !! width="80px" | ORCA }
-
-[[Category:Parsed data| ]]
