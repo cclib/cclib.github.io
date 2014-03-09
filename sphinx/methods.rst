@@ -33,9 +33,9 @@ The CSPA class available from cclib.method performs C-squared population analysi
 
 After the calculate() method is called, the following attributes are available:
 
-* ``aoresults`` is a Numeric array[3] with spin, molecular orbital, and atomic/fragment orbitals as the axes (aoresults[0][45][0] gives the contribution of the 1st atomic/fragment orbital to the 46th alpha/restricted molecular orbital)
-* ``fragresults`` is a Numeric array[3] with spin, molecular orbital, and atoms as the axes (atomresults[1][23][4] gives the contribution of the 5th atomic/fragment orbital to the 24th beta molecular orbital)
-* ``fragcharges`` is a Numeric array[1] with the number of (partial) electrons in each atom (atomcharges[2] gives the number of electrons on the 3rd atom) 
+* ``aoresults`` is a Numpy array[3] with spin, molecular orbital, and atomic/fragment orbitals as the axes (aoresults[0][45][0] gives the contribution of the 1st atomic/fragment orbital to the 46th alpha/restricted molecular orbital)
+* ``fragresults`` is a Numpy array[3] with spin, molecular orbital, and atoms as the axes (atomresults[1][23][4] gives the contribution of the 5th atomic/fragment orbital to the 24th beta molecular orbital)
+* ``fragcharges`` is a Numpy array[1] with the number of (partial) electrons in each atom (atomcharges[2] gives the number of electrons on the 3rd atom) 
 
 Custom fragments
 ~~~~~~~~~~~~~~~~
@@ -156,19 +156,36 @@ The Density class from cclib.method can be used to calculate the density matrix:
 
 .. code-block:: python
 
-    from cclib.parser import Gaussian
+    from cclib.parser import ccopen
     from cclib.method import Density
 
-    parser=Gaussian("myfile.out")
-    parser.parse()
+    parser = ccopen("myfile.out")
+    data = parser.parse()
 
-    d=Density(parser)
+    d = Density(data)
     d.calculate()
 
-After calculate() is called, the density attribute is available. It is simply a Numeric array with two axes, and follows the standard definition of the density matrix. 
+After calculate() is called, the density attribute is available. It is simply a Numpy array with three axes. The first axis is for the spin contributions, and the second and third axes are for the density matrix, which follows the standard definition. 
 
 Mayer's Bond Orders 
 -------------------
+
+This method calculates the Mayer's bond orders for a given molecule:
+
+.. code-block:: python
+
+    import sys
+
+    from cclib.parser import ccopen
+    from cclib.method import MBO
+
+    parser = ccopen(sys.argv[1])
+    data = parser.parse()
+
+    d = MBO(data)
+    d.calculate()
+
+After calculate() is called, the fragresults attribute is available, which is a Numpy array of rank 3. The first axis is for contributions of each spin to the MBO, while the second and third correspond to the indices of the atoms.
 
 Charge Decomposition Analysis
 -----------------------------
@@ -197,7 +214,7 @@ The CDA class available from cclib.method performs this analysis:
     cda = CDA(m)
     cda.calculate([f1, f2])
 
-After calculate() finishes, there should be the donations, bdonations (back donation), and repulsions attributes to the cda instance. These attributes are simply lists of 1-dimensional Numeric arrays corresponding to the restricted or alpha/beta molecular orbitals of the entire molecule. Additionally, the CDA method involves transforming the atomic basis functions of the molecule into a basis using the molecular orbitals of the fragments so the attributes mocoeffs and fooverlaps are created and can be used in population analyses such as Mulliken or C-squared (see Fragment Analysis for more details).
+After calculate() finishes, there should be the donations, bdonations (back donation), and repulsions attributes to the cda instance. These attributes are simply lists of 1-dimensional Numpy arrays corresponding to the restricted or alpha/beta molecular orbitals of the entire molecule. Additionally, the CDA method involves transforming the atomic basis functions of the molecule into a basis using the molecular orbitals of the fragments so the attributes mocoeffs and fooverlaps are created and can be used in population analyses such as Mulliken or C-squared (see Fragment Analysis for more details).
 
 There is also a script provided by cclib that performs the CDA from a command-line:
 

@@ -68,9 +68,9 @@
 </div>
 <p>After the calculate() method is called, the following attributes are available:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">aoresults</span></tt> is a Numeric array[3] with spin, molecular orbital, and atomic/fragment orbitals as the axes (aoresults[0][45][0] gives the contribution of the 1st atomic/fragment orbital to the 46th alpha/restricted molecular orbital)</li>
-<li><tt class="docutils literal"><span class="pre">fragresults</span></tt> is a Numeric array[3] with spin, molecular orbital, and atoms as the axes (atomresults[1][23][4] gives the contribution of the 5th atomic/fragment orbital to the 24th beta molecular orbital)</li>
-<li><tt class="docutils literal"><span class="pre">fragcharges</span></tt> is a Numeric array[1] with the number of (partial) electrons in each atom (atomcharges[2] gives the number of electrons on the 3rd atom)</li>
+<li><tt class="docutils literal"><span class="pre">aoresults</span></tt> is a Numpy array[3] with spin, molecular orbital, and atomic/fragment orbitals as the axes (aoresults[0][45][0] gives the contribution of the 1st atomic/fragment orbital to the 46th alpha/restricted molecular orbital)</li>
+<li><tt class="docutils literal"><span class="pre">fragresults</span></tt> is a Numpy array[3] with spin, molecular orbital, and atoms as the axes (atomresults[1][23][4] gives the contribution of the 5th atomic/fragment orbital to the 24th beta molecular orbital)</li>
+<li><tt class="docutils literal"><span class="pre">fragcharges</span></tt> is a Numpy array[1] with the number of (partial) electrons in each atom (atomcharges[2] gives the number of electrons on the 3rd atom)</li>
 </ul>
 <div class="section" id="custom-fragments">
 <h3>Custom fragments<a class="headerlink" href="#custom-fragments" title="Permalink to this headline">¶</a></h3>
@@ -168,20 +168,34 @@ m.calculate()
 <div class="section" id="density-matrix-calculation">
 <h2>Density Matrix calculation<a class="headerlink" href="#density-matrix-calculation" title="Permalink to this headline">¶</a></h2>
 <p>The Density class from cclib.method can be used to calculate the density matrix:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">Gaussian</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
 <span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Density</span>
 
-<span class="n">parser</span><span class="o">=</span><span class="n">Gaussian</span><span class="p">(</span><span class="s">&quot;myfile.out&quot;</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">ccopen</span><span class="p">(</span><span class="s">&quot;myfile.out&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
 
-<span class="n">d</span><span class="o">=</span><span class="n">Density</span><span class="p">(</span><span class="n">parser</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">Density</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">d</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>After calculate() is called, the density attribute is available. It is simply a Numeric array with two axes, and follows the standard definition of the density matrix.</p>
+<p>After calculate() is called, the density attribute is available. It is simply a Numpy array with three axes. The first axis is for the spin contributions, and the second and third axes are for the density matrix, which follows the standard definition.</p>
 </div>
 <div class="section" id="mayer-s-bond-orders">
 <h2>Mayer&#8217;s Bond Orders<a class="headerlink" href="#mayer-s-bond-orders" title="Permalink to this headline">¶</a></h2>
+<p>This method calculates the Mayer&#8217;s bond orders for a given molecule:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
+<span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">MBO</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">ccopen</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">MBO</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>After calculate() is called, the fragresults attribute is available, which is a Numpy array of rank 3. The first axis is for contributions of each spin to the MBO, while the second and third correspond to the indices of the atoms.</p>
 </div>
 <div class="section" id="charge-decomposition-analysis">
 <h2>Charge Decomposition Analysis<a class="headerlink" href="#charge-decomposition-analysis" title="Permalink to this headline">¶</a></h2>
@@ -206,7 +220,7 @@ m.calculate()
 <span class="n">cda</span><span class="o">.</span><span class="n">calculate</span><span class="p">([</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>After calculate() finishes, there should be the donations, bdonations (back donation), and repulsions attributes to the cda instance. These attributes are simply lists of 1-dimensional Numeric arrays corresponding to the restricted or alpha/beta molecular orbitals of the entire molecule. Additionally, the CDA method involves transforming the atomic basis functions of the molecule into a basis using the molecular orbitals of the fragments so the attributes mocoeffs and fooverlaps are created and can be used in population analyses such as Mulliken or C-squared (see Fragment Analysis for more details).</p>
+<p>After calculate() finishes, there should be the donations, bdonations (back donation), and repulsions attributes to the cda instance. These attributes are simply lists of 1-dimensional Numpy arrays corresponding to the restricted or alpha/beta molecular orbitals of the entire molecule. Additionally, the CDA method involves transforming the atomic basis functions of the molecule into a basis using the molecular orbitals of the fragments so the attributes mocoeffs and fooverlaps are created and can be used in population analyses such as Mulliken or C-squared (see Fragment Analysis for more details).</p>
 <p>There is also a script provided by cclib that performs the CDA from a command-line:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cda molecule.log fragment1.log fragment2.log
 Charge decomposition analysis of molecule.log
