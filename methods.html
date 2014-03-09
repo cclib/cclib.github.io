@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -15,7 +13,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -57,25 +55,14 @@
 <div class="section" id="c-squared-population-analysis-cspa">
 <span id="index-1"></span><h2>C squared population analysis (CSPA)<a class="headerlink" href="#c-squared-population-analysis-cspa" title="Permalink to this headline">¶</a></h2>
 <p><strong>CSPA</strong> can be used to determine and interpret the electron density of a molecule. The contribution of the a-th atomic orbital to the i-th molecular orbital can be written in terms of the molecular orbital coefficients:</p>
-<div>
-<math xmlns="http://www.w3.org/1998/Math/MathML" mode="display">
-<mtable>
-<mtr>
-<mtd><msub><mo>Φ</mo>
-<mrow><mi>a</mi><mi>i</mi></mrow></msub><mo>=</mo><mfrac>
-<mrow><msubsup><mi>c</mi>
-<mrow><mi>a</mi><mi>i</mi></mrow><mn>2</mn></msubsup></mrow>
-<mrow><munder><mo>∑</mo><mi>k</mi></munder><msubsup><mi>c</mi>
-<mrow><mi>k</mi><mi>i</mi></mrow><mn>2</mn></msubsup></mrow></mfrac></mtd></mtr></mtable></math>
-</div>
 <p>The CSPA class available from cclib.method performs C-squared population analysis and can be used as follows:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">CSPA</span>
 <span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">Gaussian</span>
 
-<span class="n">p</span><span class="o">=</span><span class="n">Gaussian</span><span class="p">(</span><span class="s">&quot;mycalc.out&quot;</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Gaussian</span><span class="p">(</span><span class="s">&quot;mycalc.out&quot;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
 
-<span class="n">m</span><span class="o">=</span><span class="n">CSPA</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">CSPA</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 <span class="n">m</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -92,9 +79,9 @@
 <span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">Gaussian</span>
 
 <span class="n">p</span> <span class="o">=</span> <span class="n">Gaussian</span><span class="p">(</span><span class="s">&quot;mycalc.out&quot;</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
 
-<span class="n">m</span> <span class="o">=</span> <span class="n">CSPA</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">CSPA</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 <span class="n">m</span><span class="o">.</span><span class="n">calculate</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span> <span class="c">#fragment one is made from basis functions 0-4</span>
                                          <span class="c">#fragment two is made from basis functions 5&amp;6</span>
                                          <span class="c">#fragment three is made from basis functions 7-9</span>
@@ -104,17 +91,18 @@
 <div class="section" id="custom-progress">
 <h3>Custom progress<a class="headerlink" href="#custom-progress" title="Permalink to this headline">¶</a></h3>
 <p>The CSPA class also can take a progress class as an argument so that the progress of the calculation can be monitored:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">CSPA</span>
-<span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">Gaussian</span>
-<span class="kn">from</span> <span class="nn">cclib.progress</span> <span class="kn">import</span> <span class="n">TextProgress</span>
-<span class="kn">import</span> <span class="nn">logging</span>
+<div class="highlight-python"><div class="highlight"><pre>from cclib.method import CSPA
+from cclib.parser import Gaussian
+from cclib.progress import TextProgress
 
-<span class="n">progress</span><span class="o">=</span><span class="n">TextProgress</span><span class="p">()</span>
-<span class="n">p</span><span class="o">=</span><span class="n">Gaussian</span><span class="p">(</span><span class="s">&quot;mycalc.out&quot;</span><span class="p">,</span><span class="n">progress</span><span class="p">,</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+import logging
 
-<span class="n">m</span><span class="o">=</span><span class="n">CSPA</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">progress</span><span class="p">,</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
-<span class="n">m</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+progress=TextProgress()
+p = Gaussian(“mycalc.out”, logging.ERROR)
+d = p.parse(progress)
+
+m = CSPA(d, progress, logging.ERROR)
+m.calculate()
 </pre></div>
 </div>
 </div>
@@ -122,22 +110,14 @@
 <div class="section" id="mulliken-population-analysis-mpa">
 <span id="index-2"></span><h2>Mulliken population analysis (MPA)<a class="headerlink" href="#mulliken-population-analysis-mpa" title="Permalink to this headline">¶</a></h2>
 <p>MPA can be used to determine and interpret the electron density of a molecule. The contribution of the a-th atomic orbital to the i-th molecular orbital in this method is written in terms of the molecular orbital coefficients, c, and the overlap matrix, S:</p>
-<div>
-<math xmlns="http://www.w3.org/1998/Math/MathML" mode="display">
-<mtable>
-<mtr>
-<mtd><msub><mo>Φ</mo>
-<mrow><mi>a</mi><mi>i</mi></mrow></msub><mo>=</mo><munder><mo>∑</mo><mi>b</mi></munder><msub><mi>c</mi>
-<mrow><mi>a</mi><mi>i</mi></mrow></msub><msub><mi>c</mi>
-<mrow><mi>b</mi><mi>i</mi></mrow></msub><msub><mi>S</mi>
-<mrow><mi>a</mi><mi>b</mi></mrow></msub></mtd></mtr></mtable></math>
-</div>
 <p>The MPA class available from cclib.method performs Mulliken population analysis and can be used as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">MPA</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">MPA</span>
 <span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
 
-<span class="n">d</span><span class="o">=</span><span class="n">ccopen</span><span class="p">(</span><span class="s">&quot;mycalc.out&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
-<span class="n">m</span><span class="o">=</span><span class="n">MPA</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">ccopen</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">MPA</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 <span class="n">m</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -154,22 +134,33 @@
 <div class="section" id="id2">
 <h3>Custom progress<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>The Mulliken class also can take a progress class as an argument so that the progress of the calculation can be monitored:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Mulliken</span>
-<span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">Gaussian</span>
-<span class="kn">from</span> <span class="nn">cclib.progress</span> <span class="kn">import</span> <span class="n">TextProgress</span>
-<span class="kn">import</span> <span class="nn">logging</span>
+<div class="highlight-python"><div class="highlight"><pre>from cclib.method import MPA
+from cclib.parser import ccopen
+from cclib.progress import TextProgress
+import logging
 
-<span class="n">progress</span><span class="o">=</span><span class="n">TextProgress</span><span class="p">()</span>
-<span class="n">d</span><span class="o">=</span><span class="n">Gaussian</span><span class="p">(</span><span class="s">&quot;mycalc.out&quot;</span><span class="p">,</span><span class="n">progress</span><span class="p">,</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+progress = TextProgress()
+d = ccopen(“mycalc.out&quot;, logging.ERROR).parse(progress)
 
-<span class="n">m</span><span class="o">=</span><span class="n">Mulliken</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">progress</span><span class="p">,</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
-<span class="n">m</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+m = MPA(d, progress, logging.ERROR)
+m.calculate()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="lowdin-population-analysis">
 <span id="index-3"></span><h2>Löwdin Population Analysis<a class="headerlink" href="#lowdin-population-analysis" title="Permalink to this headline">¶</a></h2>
+<p>The LPA class available from cclib.method performs Löwdin population analysis and can be used as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">LPA</span>
+<span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">ccopen</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">LPA</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="overlap-population-analysis">
 <h2>Overlap Population Analysis<a class="headerlink" href="#overlap-population-analysis" title="Permalink to this headline">¶</a></h2>
@@ -331,7 +322,7 @@ Charge decomposition analysis of molecule.log
     </div>
     <div class="footer">
         &copy; Copyright 2014, cclib Development Team.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

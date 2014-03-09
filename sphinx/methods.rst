@@ -25,10 +25,10 @@ The CSPA class available from cclib.method performs C-squared population analysi
     from cclib.method import CSPA
     from cclib.parser import Gaussian
 
-    p=Gaussian("mycalc.out")
-    p.parse()
+    p = Gaussian("mycalc.out")
+    d = p.parse()
 
-    m=CSPA(p)
+    m = CSPA(d)
     m.calculate()
 
 After the calculate() method is called, the following attributes are available:
@@ -48,9 +48,9 @@ Calling the calculate method without an argument treats each atom as a fragment 
     from cclib.parser import Gaussian
 
     p = Gaussian("mycalc.out")
-    p.parse()
+    d = p.parse()
 
-    m = CSPA(p)
+    m = CSPA(d)
     m.calculate([[0,1,2,3,4],[5,6],[7,8,9]]) #fragment one is made from basis functions 0-4
                                              #fragment two is made from basis functions 5&6
                                              #fragment three is made from basis functions 7-9
@@ -65,13 +65,14 @@ The CSPA class also can take a progress class as an argument so that the progres
     from cclib.method import CSPA
     from cclib.parser import Gaussian
     from cclib.progress import TextProgress
+
     import logging
 
     progress=TextProgress()
-    p=Gaussian("mycalc.out",progress,logging.ERROR)
-    p.parse()
+    p = Gaussian(“mycalc.out”, logging.ERROR)
+    d = p.parse(progress)
 
-    m=CSPA(p,progress,logging.ERROR)
+    m = CSPA(d, progress, logging.ERROR)
     m.calculate()
 
 .. index::
@@ -88,11 +89,13 @@ The MPA class available from cclib.method performs Mulliken population analysis 
 
 .. code-block:: python
 
+    import sys
+
     from cclib.method import MPA
     from cclib.parser import ccopen
 
-    d=ccopen("mycalc.out").parse()
-    m=MPA(d)
+    d = ccopen(sys.argv[1]).parse()
+    m = MPA(d)
     m.calculate()
 
 After the calculate() method is called, the following attributes are available:
@@ -113,15 +116,15 @@ The Mulliken class also can take a progress class as an argument so that the pro
 
 .. code-block:: python
 
-    from cclib.method import Mulliken
-    from cclib.parser import Gaussian
+    from cclib.method import MPA
+    from cclib.parser import ccopen
     from cclib.progress import TextProgress
     import logging
 
-    progress=TextProgress()
-    d=Gaussian("mycalc.out",progress,logging.ERROR).parse()
+    progress = TextProgress()
+    d = ccopen(“mycalc.out", logging.ERROR).parse(progress)
 
-    m=Mulliken(p,progress,logging.ERROR)
+    m = MPA(d, progress, logging.ERROR)
     m.calculate()
 
 .. index::
@@ -129,6 +132,19 @@ The Mulliken class also can take a progress class as an argument so that the pro
 
 Löwdin Population Analysis
 --------------------------
+
+The LPA class available from cclib.method performs Löwdin population analysis and can be used as follows:
+
+.. code-block:: python
+
+    import sys
+
+    from cclib.method import LPA
+    from cclib.parser import ccopen
+
+    d = ccopen(sys.argv[1]).parse()
+    m = LPA(d)
+    m.calculate()
 
 Overlap Population Analysis 
 ---------------------------
