@@ -13,7 +13,7 @@ The goals of cclib are centered around the reuse of data contained in output fil
 Summary
 -------
 
-The current version is **cclib 1.b** (see the changelog_ for what's new) and parses output files from several programs:
+The current version is **cclib 1.2b** (see the changelog_ for what's new) and parses output files from several programs:
 
 - ADF_
 - Firefly_ (formerly PC GAMESS)
