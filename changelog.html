@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Changelog &mdash; cclib 1.1 documentation</title>
+    <title>Changelog &mdash; cclib 1.2b documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.1',
+        VERSION:     '1.2b',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="cclib 1.1 documentation" href="index.html" />
+    <link rel="top" title="cclib 1.2b documentation" href="index.html" />
     <link rel="prev" title="Development parsed data" href="data_dev.html" /> 
   </head>
   <body>
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="data_dev.html" title="Development parsed data"
              accesskey="P">previous</a> |</li>
-        <li><a href="contents.html">cclib 1.1 documentation</a> &raquo;</li> 
+        <li><a href="contents.html">cclib 1.2b documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -49,6 +49,29 @@
             
   <div class="section" id="changelog">
 <span id="index-0"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="changes-since-cclib-1-1">
+<h2>Changes since cclib-1.1<a class="headerlink" href="#changes-since-cclib-1-1" title="Permalink to this headline">¶</a></h2>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li>Move project to github</li>
+<li>Transition to Python 3 (Python 2.7 will still work)</li>
+<li>Add a multifile mode to ccget script</li>
+<li>Extract vibrational displacements for ORCA</li>
+<li>Extract natural atom charges for Gaussian (Fedor Zhuravlev)</li>
+<li>Updated test file versions to ADF2013.01, GAMESS-US 2012, Gaussian09, Molpro 2012 and ORCA 3.0.1</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul class="simple">
+<li>Ignore unicode errors in logfiles</li>
+<li>Handle Guassian jobs with terse output (basis set count not reported)</li>
+<li>Handle Gaussian jobs using IndoGuess (Scott McKechnie)</li>
+<li>Handle Gaussian file with irregular ONION gradients (Tamilmani S)</li>
+<li>Handle ORCA file with SCF convergence issue (Melchor Sanchez)</li>
+<li>Handle Gaussian file with problematic IRC output (Clyde Fare)</li>
+<li>Handle ORCA file with AM1 output (Julien Idé)</li>
+<li>Handle GAMESS-US output with irregular frequency format (Andrew Warden)</li>
+</ul>
+</div>
 <div class="section" id="changes-since-cclib-1-0-1">
 <h2>Changes since cclib-1.0.1<a class="headerlink" href="#changes-since-cclib-1-0-1" title="Permalink to this headline">¶</a></h2>
 <p><strong>Feaures</strong></p>
@@ -276,6 +299,7 @@
   <h3><a href="contents.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#changes-since-cclib-1-1">Changes since cclib-1.1</a></li>
 <li><a class="reference internal" href="#changes-since-cclib-1-0-1">Changes since cclib-1.0.1</a></li>
 <li><a class="reference internal" href="#changes-since-cclib-1-0">Changes since cclib-1.0</a></li>
 <li><a class="reference internal" href="#changes-since-cclib-0-9">Changes since cclib-0.9</a></li>
@@ -324,7 +348,7 @@
         <li class="right" >
           <a href="data_dev.html" title="Development parsed data"
              >previous</a> |</li>
-        <li><a href="contents.html">cclib 1.1 documentation</a> &raquo;</li> 
+        <li><a href="contents.html">cclib 1.2b documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -4,7 +4,7 @@
 Calculation methods
 ===================
 
-The following methods in cclib allow further analysis of calculation output. There may also be more `methods in the development version`_ of cclib.
+The following methods in cclib allow further analysis of calculation output.
 
 .. _`methods in the development version`: methods_dev.html
 

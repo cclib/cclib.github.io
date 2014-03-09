@@ -1,7 +1,7 @@
 Parsed data
 ===========
 
-This is a list of all the data parsed by the current official release of cclib (version 1.1). For the same list for the development version, see `development parsed data`_. For details and miscellaneous notes on these attributes, see the `data notes`_ page.
+This is a list of all the data parsed by the current official release of cclib (version |release|). For the same list for the development version, see `development parsed data`_. For details and miscellaneous notes on these attributes, see the `data notes`_ page.
 
 .. _`development parsed data`: data_dev.html
 .. _`data notes`: data_notes.html

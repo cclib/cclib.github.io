@@ -1,7 +1,8 @@
 Parsed data notes
 =================
 
-This is a list of descriptions and notes for all the data currently parsed by cclib, either in the official release or development branch. For a summary and details of the current implementation by the different parsers, please see the `extracted data`_ page and its `development`_ version.
+This is a list of descriptions and notes for all the data currently parsed by cclib, either in the official release (|release|) or development branch. For a summary and details of the current implementation by the different parsers, please see the `extracted 
+data`_ page and its `development`_ version.
 
 .. _`extracted data`: data.html
 .. _`development`: data_dev.html

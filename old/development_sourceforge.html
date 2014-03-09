@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Development (sourceforge) &mdash; cclib 1.2b documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2b',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="cclib 1.2b documentation" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="../contents.html">cclib 1.2b documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="development-sourceforge">
+<h1>Development (sourceforge)<a class="headerlink" href="#development-sourceforge" title="Permalink to this headline">¶</a></h1>
+<p>This page contains old development content, from when cclib was hosted at Sourceforge, and which has become obsolete for the current version of cclib (1.2b).</p>
+<div class="section" id="websites-related-to-cclib">
+<h2>Websites related to cclib<a class="headerlink" href="#websites-related-to-cclib" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The official <a class="reference external" href="https://github.com/cclib/cclib">cclib repository on github</a></li>
+<li>The <a class="reference external" href="http://sourceforge.net/projects/cclib/">cclib project page on Sourceforge</a> (inactive now)</li>
+<li>The <a class="reference external" href="http://freecode.com/projects/cclib">cclib entry on Freecode</a></li>
+<li>The <a class="reference external" href="https://www.ohloh.net/p/cclib">cclib entry on Ohloh</a></li>
+<li>The <a class="reference external" href="http://www.python.org/pypi/cclib">cclib entry on Cheeseshop</a></li>
+</ul>
+</div>
+<div class="section" id="instructions-for-developers">
+<h2>Instructions for developers<a class="headerlink" href="#instructions-for-developers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="checking-cclib-out-of-subversion">
+<h3>Checking cclib out of subversion<a class="headerlink" href="#checking-cclib-out-of-subversion" title="Permalink to this headline">¶</a></h3>
+<p>cclib is hosted by the fantastic people at Sourceforge. The development version of cclib is stored in a Subversion (SVN) repository at Sourceforge (you can read some background material on this at [1]). The following command will download the current development version into a folder called cclib:</p>
+<div class="highlight-bash"><div class="highlight"><pre>svn checkout https://cclib.svn.sourceforge.net/svnroot/cclib/trunk cclib
+</pre></div>
+</div>
+<p>To install, follow the guidelines described on the Install page.</p>
+</div>
+<div class="section" id="releasing-a-version">
+<h3>Releasing a version<a class="headerlink" href="#releasing-a-version" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Update the CHANGELOG and ANNOUNCE</li>
+<li>Make sure that setup.py has the right version number, as well as __version__ in __init__.py.</li>
+<li>Run manifest.py to update the MANIFEST if necessary.</li>
+<li>Do a final merge of the trunk to release branch</li>
+<li>Create the source distributions</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>python setup.py sdist --formats<span class="o">=</span>gztar,zip upload
+python setup.py bdist_wininst <span class="c"># rename from cclib-0.x.win32.exe to cclib-0.x-py2.3.exe</span>
+python2.4 setup.py bdist_wininst                       <span class="c"># rename to cclib-0.x-py2.4.exe</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Run the tests for a final time after removing cclib (rm -rf $PYTHONDIR/Lib/site-packages/cclib) and reinstalling from the source distribution.</li>
+<li>Tag the release.</li>
+<li>Use releaseforge to make a new release</li>
+<li>Update the download instructions on the wiki</li>
+<li>Wait 24 hours (for the sourceforge mirrors to get a copy)</li>
+<li>Email the users and developers mailing list with the ANNOUNCE</li>
+<li>Create a news item and copy and paste ANNOUNCE into it</li>
+<li>Update <a class="reference external" href="http://www.freshmeat.net">http://www.freshmeat.net</a> (click &#8220;Add release&#8221; - summarise the changelog in changes, and give the link to the changelog in the appropriate box)</li>
+<li>Update the Python cheeseshop</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>python setup.py register
+</pre></div>
+</div>
+<ul class="simple">
+<li>For a major release, if appropriate, send an email to the CCL list, the GAMESS users list and the ADF users list.</li>
+</ul>
+</div>
+<div class="section" id="creating-a-logfile-release">
+<h3>Creating a logfile release<a class="headerlink" href="#creating-a-logfile-release" title="Permalink to this headline">¶</a></h3>
+<p>Although all of the regression log files are stored on the web server, for the convenience of users we make periodic releases of all of these as one large .tar file (no point in .gz as they are already zipped). To create a release:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd </span>data
+tar -c -f logfiles.tar -T regressionfiles.txt
+</pre></div>
+</div>
+<ul class="simple">
+<li>Create a new release in package logfiles called logfiles-rnnn, where nnn is the current SVN revision.</li>
+<li>You can use a variation of the following text in the release notes: &#8220;A release of test logfiles for use with rnnn of the cclib code.&#8221;</li>
+</ul>
+</div>
+<div class="section" id="copying-a-logfile-to-sourceforge">
+<h3>Copying a logfile to sourceforge<a class="headerlink" href="#copying-a-logfile-to-sourceforge" title="Permalink to this headline">¶</a></h3>
+<p>Use scp or winscp to connect to &#8220;USERNAME,cclib&#64;web.sf.net&#8221;. The logfiles are in htdocs/data. For interactive shell access, you will need to first type &#8220;ssh -t USERNAME,cclib&#64;shell.sf.net create&#8221;. After about 10 seconds, your own private shell will be created at SourceFroge which you can then log into.</p>
+</div>
+<div class="section" id="release-branches">
+<h3>Release branches<a class="headerlink" href="#release-branches" title="Permalink to this headline">¶</a></h3>
+<p>Historically, branches were managed by hand. Now I&#8217;ve now started using svnmerge.py, which keeps track of what&#8217;s already been merged, and what&#8217;s already been marked as &#8216;not to merge&#8217;.</p>
+<ul class="simple">
+<li>Create a release branch for cclib-1.0.1</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>svn copy https://cclib.svn.sourceforge.net/svnroot/cclib/trunk https://cclib.svn.sourceforge.net/svnroot/cclib/branches/cclib-1.0.1
+</pre></div>
+</div>
+<ul class="simple">
+<li>Check it out</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>svn checkout https://svn.sourceforge.net/svnroot/branches/cclib-1.0.1 branchcclib101
+</pre></div>
+</div>
+<ul class="simple">
+<li>Initialise merge tracking</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd </span>branchcclib101
+python svnmerge.py init ../trunk
+svn commit -F svnmerge-commit-message.txt
+</pre></div>
+</div>
+<ul class="simple">
+<li>Merge some stuff</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>python ..<span class="se">\s</span>vnmerge.py avail -S /trunk  <span class="c"># or add &quot;--log&quot;</span>
+python ..<span class="se">\s</span>vnmerge.py merge -S /trunk <span class="c"># Merge all changes</span>
+svn commit -F svnmerge-commit-message.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="source-code-upload-policy">
+<h3>Source code upload policy<a class="headerlink" href="#source-code-upload-policy" title="Permalink to this headline">¶</a></h3>
+<p>As a sort of guide for developers who are commiting source code revisions to the SVN repository, we recommend the following:</p>
+<ul class="simple">
+<li>Run the tests before commiting (at least testall.py)</li>
+<li>If tests that previously passed now no longer do (when we have a more complete and stable release, this will read &#8220;If any tests fail&#8221;), and you don&#8217;t have time to fix things before commiting, commits your changes to a branch as follows:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>svn copy https://svn.sourceforge.net/svnroot/cclib/trunk https://..../branches/brokenadfparser
+       -m <span class="s2">&quot;Informative log message about why you&#39;re branching&quot;</span>
+<span class="c"># change directory into the &#39;top&#39; of your working copy where setup.py is</span>
+svn switch https://svn.sourceforge.net/svnroot/cclib/branches/brokenadfparser
+<span class="c"># (note that this preserves the local modifications, only now these modifications</span>
+   are to the branch instead of the trunk<span class="o">)</span>
+svn commit <span class="c"># (commits the local modifications to the branch)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>As soon as the tests that previously passed are passed again, merge the changes and remove the branch (this should be within a revision or two of the branch):</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>svn log --stop-on-copy <span class="c"># (to find the revision when the branching took place)</span>
+svn switch https://...../mytrunk
+svn merge --dry-run -r123:HEAD https://..../mybranch
+svn merge -r123:HEAD https://..../mybranch
+svn commit -m <span class="s2">&quot;Merging 123:HEAD of mybranch into trunk&quot;</span>
+svn remove https://..../mybranch
+</pre></div>
+</div>
+</div>
+<div class="section" id="ensuring-source-code-quality">
+<h3>Ensuring source code quality<a class="headerlink" href="#ensuring-source-code-quality" title="Permalink to this headline">¶</a></h3>
+<p>To ensure source code quality, or at least consistency, we use the following tools/metrics:</p>
+<ul class="simple">
+<li><cite>Cheesecake index</cite></li>
+</ul>
+</div>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="unit-tests">
+<span id="index-0"></span><h3>Unit tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h3>
+<p>In order to check whether our parsers extract information in the correct format, with the correct units, we have unit tests that parse a series of basic data files (see below) of the same calculation undertaken with different programs. Running testall.py in the test directory runs the whole test suite, but it is also possible to individually run the tests for GeoOpts (testGeoOpt.py), Single Point calculations, and so on.</p>
+<p>Note that no change should be commited to the repository if it increases the number of failed tests (unless you are adding new tests, of course).</p>
+</div>
+<div class="section" id="regression-tests">
+<span id="index-1"></span><h3>Regression tests<a class="headerlink" href="#regression-tests" title="Permalink to this headline">¶</a></h3>
+<p>Regression tests ensure that bugs, once fixed, stay fixed. That is, for every bug found in our parsers, we should add a regression test and then fix the bug. This process is simplified by regression.py in the test directory.</p>
+<p>regression.py runs through all of our test data, both the basic data and the real life log files, uses &#8216;ccopen()&#8217; to guess its type (checks for mistakes) and open it, parses it (catches any errors), and runs any relevant regression tests (catches any failures).</p>
+<p>New regression tests are added by creating a function testMyFileName_out following the examples at the start of <em>regression.py</em>.</p>
+</div>
+<div class="section" id="test-data">
+<h3>Test data<a class="headerlink" href="#test-data" title="Permalink to this headline">¶</a></h3>
+<p id="index-2">The test directory (not included in the release version at the moment) contains all of the tests that help keep cclib working, and keep us sane. In general we use two types of data files for testing:</p>
+<ol class="arabic simple">
+<li>&#8216;basic&#8217; data files are stored in folders like &#8220;basicJaguar6.4&#8221; and are b3lyp/sto-3g calculations on 1,4-divinylbenzene (dvb) with C2h symmetry. These jobs (a geometry optimisation, a single point calculation (one restricted and another unrestricted), frequency calculation, a TD-DFT calculation, and any variants of these which break the parser such as symmetry/nosymmetry) are run for each parser. These data files are stored in SVN and may be included in future releases.</li>
+<li>real-life parser-breaking files are stored in folders like &#8220;Jaguar6.4&#8221;. These data files are <em>not</em> stored in SVN as they are often massive but are stored on the web server and downloaded using a shell script (contained in the data directory). These files are also available as a download from the File Release page on Sourceforge (only updated every so often).</li>
+</ol>
+</div>
+<div class="section" id="doc-tests">
+<h3>Doc tests<a class="headerlink" href="#doc-tests" title="Permalink to this headline">¶</a></h3>
+<p>Doc tests are a nice Python invention for unit testing individual functions. To run the doctests in a particular file, you need to run the script. For example, &#8220;python gaussianparser.py&#8221; runs the doctests contained in gaussianparser.py. To run all of the doctests at once, you need to install a testing tool like nose, and then use the following command (note that many errors may be due to missing libraries like BioPython):</p>
+</div>
+</div>
+<div class="section" id="other-useful-pages">
+<h2>Other useful pages<a class="headerlink" href="#other-useful-pages" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The <a class="reference external" href="methods_dev.html">methods in the development version</a></li>
+<li>The <a class="reference external" href="data_dev.html">parsed data in the development version</a></li>
+<li>The <a class="reference external" href="progress.html">progress page</a>, which describes where we are and what we are trying to do</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Development (sourceforge)</a><ul>
+<li><a class="reference internal" href="#websites-related-to-cclib">Websites related to cclib</a></li>
+<li><a class="reference internal" href="#instructions-for-developers">Instructions for developers</a><ul>
+<li><a class="reference internal" href="#checking-cclib-out-of-subversion">Checking cclib out of subversion</a></li>
+<li><a class="reference internal" href="#releasing-a-version">Releasing a version</a></li>
+<li><a class="reference internal" href="#creating-a-logfile-release">Creating a logfile release</a></li>
+<li><a class="reference internal" href="#copying-a-logfile-to-sourceforge">Copying a logfile to sourceforge</a></li>
+<li><a class="reference internal" href="#release-branches">Release branches</a></li>
+<li><a class="reference internal" href="#source-code-upload-policy">Source code upload policy</a></li>
+<li><a class="reference internal" href="#ensuring-source-code-quality">Ensuring source code quality</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#testing">Testing</a><ul>
+<li><a class="reference internal" href="#unit-tests">Unit tests</a></li>
+<li><a class="reference internal" href="#regression-tests">Regression tests</a></li>
+<li><a class="reference internal" href="#test-data">Test data</a></li>
+<li><a class="reference internal" href="#doc-tests">Doc tests</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-useful-pages">Other useful pages</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/old/development_sourceforge.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="../contents.html">cclib 1.2b documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, cclib Development Team.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
