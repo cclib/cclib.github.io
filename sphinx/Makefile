@@ -14,9 +14,9 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
-.PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
+.PHONY: help clean attributes html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
 
-default: html copy
+default: cclib attributes html copy
 copy:
 	cp -rvf _build/html/* ../.
 
@@ -44,6 +44,25 @@ help:
 
 clean:
 	-rm -rf $(BUILDDIR)/*
+	-rm -rf cclib
+	-rm -rf attributes*.rst
+
+cclib:
+	-rm -rf $(BUILDDIR)/cclib
+	-rm -rf  cclib
+	git clone git@github.com:cclib/cclib.git $(BUILDDIR)/cclib
+	ln -s $(BUILDDIR)/cclib/src/cclib
+
+PRODUCTION_VERSION = v1.2b
+
+attributes: attributes.rst attributes_dev.rst
+attributes_dev.rst: attributes.py
+	cd cclib; git checkout master; git pull; cd ..
+	python3 attributes.py > $@
+attributes.rst: attributes.py
+	cd cclib; git checkout -q $(PRODUCTION_VERSION); cd ..
+	python3 attributes.py > $@
+	cd cclib; git checkout master; cd ..
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
