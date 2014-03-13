@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Development parsed data &mdash; cclib 1.2b documentation</title>
+    <title>&lt;no title&gt; &mdash; cclib 1.2b documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -25,9 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="cclib 1.2b documentation" href="index.html" />
-    <link rel="next" title="Changelog" href="changelog.html" />
-    <link rel="prev" title="Development" href="development.html" /> 
+    <link rel="top" title="cclib 1.2b documentation" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -36,12 +34,6 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="changelog.html" title="Changelog"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="development.html" title="Development"
-             accesskey="P">previous</a> |</li>
         <li><a href="contents.html">cclib 1.2b documentation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -51,13 +43,7 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="development-parsed-data">
-<h1>Development parsed data<a class="headerlink" href="#development-parsed-data" title="Permalink to this headline">¶</a></h1>
-<p>This is a list of all the data parsed by the <a class="reference external" href="https://github.com/cclib/cclib">current development code of cclib</a>. For the same information for the current official release, see the regular <a class="reference external" href="data.html">parsed data</a> page. Note that the information on this page may be outdated.</p>
-<div class="section" id="description-of-parsed-data">
-<h2>Description of parsed data<a class="headerlink" href="#description-of-parsed-data" title="Permalink to this headline">¶</a></h2>
-<p>Click the attribute name in the table below for the specifications for a particular attribute. All arrays are Numpy arrays of type &#8216;d&#8217; (if containing floats) or &#8216;i&#8217; (if containing integers).</p>
-<blockquote>
+  <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
 <col width="13%" />
@@ -341,459 +327,6 @@
 </tbody>
 </table>
 </div></blockquote>
-</div>
-<div class="section" id="details-of-current-implementation">
-<h2>Details of current implementation<a class="headerlink" href="#details-of-current-implementation" title="Permalink to this headline">¶</a></h2>
-<p><strong>N/A</strong> = not applicable, <strong>N/P</strong> = applicable, but not possible, <strong>T/D</strong> = to do</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="14%" />
-<col width="10%" />
-<col width="14%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="11%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">attribute</th>
-<th class="head">ADF</th>
-<th class="head">GAMESS</th>
-<th class="head">GAMESS-UK</th>
-<th class="head">Gaussian</th>
-<th class="head">Jaguar</th>
-<th class="head">Molpro</th>
-<th class="head">ORCA</th>
-<th class="head">Turbomole</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>aonames</td>
-<td>N/A</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>aooverlaps</td>
-<td>N/A</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>atomcharges</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>atomcoords</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>atombasis</td>
-<td>T/D</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>atommasses</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>?</td>
-</tr>
-<tr class="row-even"><td>atomnos</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>atomspins</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>ccenergies</td>
-<td>N/A</td>
-<td>√</td>
-<td>T/D</td>
-<td>√</td>
-<td>N/A</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>charge</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>coreelectrons</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>etenergies</td>
-<td>√</td>
-<td>√</td>
-<td>N/A</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>etoscs</td>
-<td>√</td>
-<td>√</td>
-<td>N/A</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>etrotats</td>
-<td>√</td>
-<td>T/D(?)</td>
-<td>N/A</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>etsecs</td>
-<td>√</td>
-<td>√</td>
-<td>N/A</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>etsyms</td>
-<td>√</td>
-<td>√</td>
-<td>N/A</td>
-<td>√</td>
-<td>√</td>
-<td>T/D(?)</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>fonames</td>
-<td>√</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr class="row-odd"><td>fooverlaps</td>
-<td>√</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr class="row-even"><td>fragnames</td>
-<td>√</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr class="row-odd"><td>frags</td>
-<td>√</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr class="row-even"><td>gbasis</td>
-<td>N/A</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>N/P</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>geotargets</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D(?)</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>geovalues</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D(?)</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>grads</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>√</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr class="row-even"><td>hessian</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>homos</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>mocoeffs</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>moenergies</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>mosyms</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D(?)</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>mpenergies</td>
-<td>N/A</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>mult</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>natom</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>nbasis</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>nmo</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√      (?)</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>nocoeffs</td>
-<td>T/D</td>
-<td>√</td>
-<td>T/D</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>scfenergies</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>scftargets</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>scfvalues</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D(?)</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>vibanharms</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>√</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr class="row-odd"><td>vibdisps</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D(?)</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>vibfreqs</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>vibirs</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√      (?)</td>
-<td>T/D</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 
 
           </div>
@@ -801,24 +334,9 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="contents.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Development parsed data</a><ul>
-<li><a class="reference internal" href="#description-of-parsed-data">Description of parsed data</a></li>
-<li><a class="reference internal" href="#details-of-current-implementation">Details of current implementation</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="development.html"
-                        title="previous chapter">Development</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="changelog.html"
-                        title="next chapter">Changelog</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/data_dev.txt"
+    <li><a href="_sources/attributes_dev.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -844,12 +362,6 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="changelog.html" title="Changelog"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="development.html" title="Development"
-             >previous</a> |</li>
         <li><a href="contents.html">cclib 1.2b documentation</a> &raquo;</li> 
       </ul>
     </div>
