@@ -50,7 +50,9 @@ The attribute ``atomcharges`` contains the atomic partial charges as taken from 
 
 Currently, cclib parses Mulliken, Lowdin and NPA charges, whose respective dictionary keys are ``mulliken``, ``lowdin`` and ``natural``.
 
-* Not that in practice these may differ somewhat from the values cclib calculates in the various [[calculation methods]].
+Note that in practice these may differ somewhat from the values cclib calculates in the various calculation methods.
+
+**Molpro**: use the ``pop`` command (see http://www.molpro.net/info/2010.1/doc/manual/node450.html)
 
 atomcoords
 ----------
