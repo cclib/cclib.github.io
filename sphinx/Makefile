@@ -16,7 +16,7 @@ I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
 .PHONY: help clean attributes html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
 
-default: cclib attributes html copy
+default: cclib update attributes html copy
 copy:
 	cp -rvf _build/html/* ../.
 
@@ -53,6 +53,9 @@ cclib:
 	git clone git@github.com:cclib/cclib.git $(BUILDDIR)/cclib
 	ln -s $(BUILDDIR)/cclib/src/cclib
 
+update:
+	cd cclib; git fetch --all; cd ..
+
 PRODUCTION_VERSION = v1.2b
 
 attributes: attributes.rst attributes_dev.rst
@@ -60,7 +63,7 @@ attributes_dev.rst: attributes.py
 	cd cclib; git checkout master; git pull; cd ..
 	python3 attributes.py > $@
 attributes.rst: attributes.py
-	cd cclib; git checkout -q $(PRODUCTION_VERSION); cd ..
+	cd cclib; git checkout -q $(PRODUCTION_VERSION); git pull; cd ..
 	python3 attributes.py > $@
 	cd cclib; git checkout master; cd ..
 
