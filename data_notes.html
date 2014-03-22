@@ -245,7 +245,8 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 * Gaussian - GFINPUT (note that GFPRINT gives equivalent information in a different format. At the moment, GFPRINT output will cause parsing errors but it may be supported or at least ignored in the future).
 * GAMESS - no special keywords are required, but the basis is only available for symmetry inequivalent atoms. There does not seem to be any way to get GAMESS to say which atoms are related through symmetry. As a result, if you want to get basis set info for every atom, you need to reduce the symmetry to C&lt;sub&gt;1&lt;/sub&gt;.
 * GAMESS UK - As for GAMESS
-* Jaguar - for more information see the [<a class="reference external" href="http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223">http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223</a> manual].</p>
+* Jaguar - for more information see the [<a class="reference external" href="http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223">http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223</a> manual].
+* ORCA - include <cite>Print[ P_Basis ] 2</cite> in the <cite>output</cite> block</p>
 <p><strong>Development note</strong>: It also needs to be noted whether any D and F functions are pure (5D, 7F) or Cartesian (6D, 10F). PyQuante can only handle Cartesian functions, but we should extract this information in any case. We will need to extend the PyQuante basis set format to include this.</p>
 </div>
 <div class="section" id="geotargets">

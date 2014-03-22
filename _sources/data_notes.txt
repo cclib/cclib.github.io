@@ -237,6 +237,7 @@ For different programs, you need to include different keywords in order for ``gb
 * GAMESS - no special keywords are required, but the basis is only available for symmetry inequivalent atoms. There does not seem to be any way to get GAMESS to say which atoms are related through symmetry. As a result, if you want to get basis set info for every atom, you need to reduce the symmetry to C<sub>1</sub>.
 * GAMESS UK - As for GAMESS
 * Jaguar - for more information see the [http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223 manual].
+* ORCA - include `Print[ P_Basis ] 2` in the `output` block
 
 **Development note**: It also needs to be noted whether any D and F functions are pure (5D, 7F) or Cartesian (6D, 10F). PyQuante can only handle Cartesian functions, but we should extract this information in any case. We will need to extend the PyQuante basis set format to include this.
 
