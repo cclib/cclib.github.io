@@ -347,26 +347,26 @@
 <p><strong>N/A</strong> = not applicable, <strong>N/P</strong> = applicable, but not possible, <strong>T/D</strong> = to do</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="14%" />
-<col width="10%" />
-<col width="14%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
 <col width="11%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">attribute</th>
+<tr class="row-odd"><th class="head">attributes</th>
 <th class="head">ADF</th>
 <th class="head">GAMESS</th>
-<th class="head">GAMESS-UK</th>
+<th class="head">GAMESSUK</th>
 <th class="head">Gaussian</th>
 <th class="head">Jaguar</th>
 <th class="head">Molpro</th>
+<th class="head">NWChem</th>
 <th class="head">ORCA</th>
-<th class="head">Turbomole</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -375,32 +375,12 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
-<td>√</td>
-<td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>T/D</td>
+<td>√</td>
 </tr>
 <tr class="row-odd"><td>aooverlaps</td>
-<td>N/A</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>atomcharges</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>atomcoords</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -408,17 +388,37 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
-<td>T/D</td>
+<td>√</td>
 </tr>
 <tr class="row-even"><td>atombasis</td>
 <td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>atomcharges</td>
+<td>√</td>
+<td>√</td>
 <td>√</td>
 <td>√</td>
 <td>T/D</td>
-<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>atomcoords</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
 </tr>
 <tr class="row-odd"><td>atommasses</td>
 <td>√</td>
@@ -428,7 +428,7 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
-<td>?</td>
+<td>T/D</td>
 </tr>
 <tr class="row-even"><td>atomnos</td>
 <td>√</td>
@@ -438,7 +438,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
-<td>T/D</td>
+<td>√</td>
 </tr>
 <tr class="row-odd"><td>atomspins</td>
 <td>T/D</td>
@@ -447,16 +447,16 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
-<td>√</td>
 <td>T/D</td>
+<td>√</td>
 </tr>
 <tr class="row-even"><td>ccenergies</td>
 <td>N/A</td>
 <td>√</td>
 <td>T/D</td>
 <td>√</td>
-<td>N/A</td>
 <td>T/D</td>
+<td>√</td>
 <td>T/D</td>
 <td>T/D</td>
 </tr>
@@ -468,11 +468,31 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
-<td>T/D</td>
+<td>√</td>
 </tr>
 <tr class="row-even"><td>coreelectrons</td>
 <td>√</td>
 <td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>enthaply</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>entropy</td>
+<td>T/D</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>√</td>
 <td>T/D</td>
@@ -483,27 +503,27 @@
 <tr class="row-odd"><td>etenergies</td>
 <td>√</td>
 <td>√</td>
-<td>N/A</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>T/D</td>
 <td>T/D</td>
-<td>T/D</td>
+<td>√</td>
 </tr>
 <tr class="row-even"><td>etoscs</td>
 <td>√</td>
 <td>√</td>
-<td>N/A</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>T/D</td>
 <td>T/D</td>
-<td>T/D</td>
+<td>√</td>
 </tr>
 <tr class="row-odd"><td>etrotats</td>
-<td>√</td>
-<td>T/D(?)</td>
-<td>N/A</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
 <td>√</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -513,22 +533,22 @@
 <tr class="row-even"><td>etsecs</td>
 <td>√</td>
 <td>√</td>
-<td>N/A</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>T/D</td>
 <td>T/D</td>
-<td>T/D</td>
+<td>√</td>
 </tr>
 <tr class="row-odd"><td>etsyms</td>
 <td>√</td>
 <td>√</td>
-<td>N/A</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
-<td>T/D(?)</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>√</td>
 </tr>
 <tr class="row-even"><td>fonames</td>
 <td>√</td>
@@ -570,107 +590,117 @@
 <td>N/A</td>
 <td>N/A</td>
 </tr>
-<tr class="row-even"><td>gbasis</td>
+<tr class="row-even"><td>freeenergy</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>gbasis</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>geotargets</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>geovalues</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>grads</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>hessian</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>homos</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>mocoeffs</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>moenergies</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>mosyms</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>mpenergies</td>
 <td>N/A</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
-<td>N/P</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>geotargets</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D(?)</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>geovalues</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D(?)</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>grads</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>√</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr class="row-even"><td>hessian</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>√</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>homos</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>mocoeffs</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>moenergies</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td>mosyms</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D(?)</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-odd"><td>mpenergies</td>
-<td>N/A</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
 <td>√</td>
 <td>√</td>
 <td>T/D</td>
 <td>T/D</td>
 </tr>
-<tr class="row-even"><td>mult</td>
+<tr class="row-odd"><td>mult</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -678,43 +708,93 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>natom</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>nbasis</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>nmo</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>nocoeffs</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
 <td>T/D</td>
 </tr>
-<tr class="row-odd"><td>natom</td>
+<tr class="row-even"><td>optdone</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
 <td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
 <td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
+</tr>
+<tr class="row-odd"><td>scancoords</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
 <td>T/D</td>
 </tr>
-<tr class="row-even"><td>nbasis</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
+<tr class="row-even"><td>scanenergies</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
 <td>T/D</td>
 </tr>
-<tr class="row-odd"><td>nmo</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√      (?)</td>
-<td>√</td>
+<tr class="row-odd"><td>scannames</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
 <td>T/D</td>
 </tr>
-<tr class="row-even"><td>nocoeffs</td>
+<tr class="row-even"><td>scanparm</td>
 <td>T/D</td>
-<td>√</td>
 <td>T/D</td>
-<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -727,8 +807,8 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
-<td>T/D</td>
-<td>T/D</td>
+<td>√</td>
+<td>√</td>
 </tr>
 <tr class="row-even"><td>scftargets</td>
 <td>√</td>
@@ -737,8 +817,8 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
-<td>T/D</td>
-<td>T/D</td>
+<td>√</td>
+<td>√</td>
 </tr>
 <tr class="row-odd"><td>scfvalues</td>
 <td>√</td>
@@ -746,32 +826,31 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
-<td>T/D(?)</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>temperature</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 </tr>
-<tr class="row-even"><td>vibanharms</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>√</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr class="row-odd"><td>vibdisps</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>T/D(?)</td>
+<tr class="row-odd"><td>vibanharms</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 </tr>
-<tr class="row-even"><td>vibfreqs</td>
-<td>√</td>
+<tr class="row-even"><td>vibdisps</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -779,15 +858,46 @@
 <td>√</td>
 <td>√</td>
 <td>T/D</td>
+<td>√</td>
 </tr>
-<tr class="row-odd"><td>vibirs</td>
+<tr class="row-odd"><td>vibfreqs</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
-<td>√      (?)</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>vibirs</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>vibramans</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>vibsyms</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
 <td>T/D</td>
 </tr>
 </tbody>

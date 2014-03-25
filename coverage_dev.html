@@ -1,0 +1,646 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>&lt;no title&gt; &mdash; cclib 1.2b documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.2b',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="cclib 1.2b documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="contents.html">cclib 1.2b documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">attributes</th>
+<th class="head">ADF</th>
+<th class="head">GAMESS</th>
+<th class="head">GAMESSUK</th>
+<th class="head">Gaussian</th>
+<th class="head">Jaguar</th>
+<th class="head">Molpro</th>
+<th class="head">NWChem</th>
+<th class="head">ORCA</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>aonames</td>
+<td>N/A</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>aooverlaps</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>atombasis</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>atomcharges</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>atomcoords</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>atommasses</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>atomnos</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>atomspins</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>ccenergies</td>
+<td>N/A</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>charge</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>coreelectrons</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>enthaply</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>entropy</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>etenergies</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>etoscs</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>etrotats</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>etsecs</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>etsyms</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>fonames</td>
+<td>√</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="row-odd"><td>fooverlaps</td>
+<td>√</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="row-even"><td>fragnames</td>
+<td>√</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="row-odd"><td>frags</td>
+<td>√</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr class="row-even"><td>freeenergy</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>gbasis</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>geotargets</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>geovalues</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>grads</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>hessian</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>homos</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>mocoeffs</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>moenergies</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>mosyms</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>mpenergies</td>
+<td>N/A</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>mult</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>natom</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>nbasis</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>nmo</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>nocoeffs</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>optdone</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>scancoords</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>scanenergies</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>scannames</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>scanparm</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>scfenergies</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>scftargets</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>scfvalues</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>temperature</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td>vibanharms</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td>vibdisps</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>vibfreqs</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>vibirs</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-odd"><td>vibramans</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+</tr>
+<tr class="row-even"><td>vibsyms</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+</tbody>
+</table>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/coverage_dev.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="contents.html">cclib 1.2b documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, cclib Development Team.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

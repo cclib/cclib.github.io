@@ -6,23 +6,63 @@ from attributes import check_cclib
 
 if __name__ == "__main__":
 
+    # Import cclib and check we are using the version from a subdirectory.
     import cclib
     check_cclib(cclib)
 
+    # Change directory to where tests are and import testall correctly.
     thispath = os.path.dirname(os.path.realpath(__file__))
-
     testpath = thispath + '/_build/cclib/test/'
     os.chdir(testpath)
     sys.path.append('.')
-
     from testall import parsers, testall
 
-    ncols = len(parsers)+1
-    print("%-20s"*ncols % tuple(["attributes"] + parsers))
-
+    # Try running all unit tests, and dump output to a file.
     logpath = thispath + "/coverage.tests.log"
-    with open(logpath, "w") as flog:
-        alltests = [testall([p], stream=flog) for p in parsers]
+    try:
+        with open(logpath, "w") as flog:
+            alltests = [testall([p], stream=flog) for p in parsers]
+    except Exception as e:
+        print("Unit tests did not run correctly. Check log file for errors:")
+        print(open(logpath, 'r').read())
+        print(e)
+        sys.exit(1)
+
+    ncols = len(parsers)+1
+    colwidth = 15
+    colfmt = "%%-%is" % colwidth
+    dashes = ("="*(colwidth-1) + " ") * ncols
+
+    print(dashes)
+    print(colfmt*ncols % tuple(["attributes"] + parsers))
+    print(dashes)
+
+    # Eventually we want to move this to cclib.
+    not_available = {
+        'ADF' : ['aonames', 'aooverlaps', 'ccenergies', 'mpenergies'],
+        'GAMESS' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
+        'GAMESSUK' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
+        'Gaussian' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
+        'Jaguar' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
+        'Molpro' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
+        'NWChem' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
+        'ORCA' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
+    }
+
+    # For each attribute, get a list of Boolean values for each parser that flags if it has
+    # been parsed by at least one unit test. Substitute an OK sign or T/D string appropriately,
+    # with the exception of attributes that have been designated as N/A.
     attributes = sorted(cclib.parser.data.ccData._attrlist)
     for attr in attributes:
-        print("%-20s"*ncols % tuple([attr] + [any([attr in t.data.__dict__ for t in tests]) for tests in alltests]))
+        parsed = [any([attr in t.data.__dict__ for t in tests]) for tests in alltests]
+        for ip, p in enumerate(parsed):
+            if p:
+                parsed[ip] = "√"
+            else:
+                if attr in not_available[parsers[ip]]:
+                    parsed[ip] = "N/A"
+                else:
+                    parsed[ip] = "T/D"
+        print(colfmt*ncols % tuple([attr] + parsed))
+
+    print(dashes)

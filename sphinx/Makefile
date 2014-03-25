@@ -14,9 +14,9 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
-.PHONY: help clean attributes html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
+.PHONY: help clean attributes coverage html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
 
-default: cclib update attributes html copy
+default: cclib update attributes coverage html copy
 copy:
 	cp -rvf _build/html/* ../.
 
@@ -63,8 +63,17 @@ attributes_dev.rst: attributes.py
 	cd cclib; git checkout master; git pull; cd ..
 	python3 attributes.py > $@
 attributes.rst: attributes.py
-	cd cclib; git checkout -q $(PRODUCTION_VERSION); git pull; cd ..
+	cd cclib; git checkout -q $(PRODUCTION_VERSION); cd ..
 	python3 attributes.py > $@
+	cd cclib; git checkout master; cd ..
+
+coverage: coverage.rst coverage_dev.rst
+coverage_dev.rst: coverage.py
+	cd cclib; git checkout master; git pull; cd ..
+	python3 coverage.py > $@
+coverage.rst: coverage.py
+	cd cclib; git checkout -q $(PRODUCTION_VERSION); cd ..
+	python3 coverage.py > $@
 	cd cclib; git checkout master; cd ..
 
 html:
