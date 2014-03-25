@@ -56,7 +56,7 @@ cclib:
 update:
 	cd cclib; git fetch --all; cd ..
 
-PRODUCTION_VERSION = v1.2b
+PRODUCTION_VERSION = v1.2
 
 attributes: attributes.rst attributes_dev.rst
 attributes_dev.rst: attributes.py
