@@ -253,18 +253,6 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <span id="index-1"></span><h2>geotargets<a class="headerlink" href="#geotargets" title="Permalink to this headline">¶</a></h2>
 <p>Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in a Numeric array of length <tt class="docutils literal"><span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute [[geovalues]].</p>
 <dl class="docutils">
-<dt><strong>Jaguar</strong> has the following geometry convergence criteria:</dt>
-<dd><ul class="first last simple">
-<li>gconv1: maximum element of gradient (4.5E-04)</li>
-<li>gconv2: rms of gradient elements (3.0E-04)</li>
-<li>gconv5: maximum element of nuclear displacement (1.8E-03)</li>
-<li>gconv6: rms of nuclear displacement elements (1.2E-03)</li>
-<li>gconv7: difference between final energies from previous and current geometry optimization iterations (5.0E-05)</li>
-</ul>
-</dd>
-</dl>
-<p>Note that a value for gconv7 is not available until the second iteration, so it is set to zero in the first element of [[geovalues]].</p>
-<dl class="docutils">
 <dt>In <strong>GAMESS UK</strong>, the geometry convergence criteria for OPTIMIZE are:</dt>
 <dd><ul class="first last simple">
 <li>maximum change in variables  &lt;  TOL</li>
@@ -277,6 +265,27 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <p>where TOL defaults to 0.003 and is set by the XTOL directive.</p>
 <p>For OPTXYZ, tol defaults to 0.001, and the criteria appears to be simply the maximum gradient, although this is not clear from the manual.</p>
 <p>For more info, see <a class="reference external" href="http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node12.html">http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node12.html</a>.</p>
+<dl class="docutils">
+<dt><strong>Jaguar</strong> has the following geometry convergence criteria:</dt>
+<dd><ul class="first last simple">
+<li>gconv1: maximum element of gradient (4.5E-04)</li>
+<li>gconv2: rms of gradient elements (3.0E-04)</li>
+<li>gconv5: maximum element of nuclear displacement (1.8E-03)</li>
+<li>gconv6: rms of nuclear displacement elements (1.2E-03)</li>
+<li>gconv7: difference between final energies from previous and current geometry optimization iterations (5.0E-05)</li>
+</ul>
+</dd>
+</dl>
+<p>Note that a value for gconv7 is not available until the second iteration, so it is set to zero in the first element of [[geovalues]].</p>
+<p><strong>Molpro</strong> has custom convergence criteria, as described in the <a class="reference external" href="https://www.molpro.net/info/2012.1/doc/manual/node592.html">manual</a>:</p>
+<blockquote>
+<div>The standard MOLPRO convergency criterion requires the maximum component of the gradient to be less then <math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow><mn>3</mn><mo>⋅</mo><mn>1</mn><msup><mn>0</mn>
+<mrow><mo>-</mo><mn>4</mn></mrow></msup></mrow></math> [a.u.] and the maximum energy change to be less than <math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow><mn>1</mn><mo>⋅</mo><mn>1</mn><msup><mn>0</mn>
+<mrow><mo>-</mo><mn>6</mn></mrow></msup></mrow></math> [H] or the maximum component of the gradient to be less then $ 3 cdot 10^{-4}$ [a.u.] and the maximum component of the step to be less then <math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow><mn>3</mn><mo>⋅</mo><mn>1</mn><msup><mn>0</mn>
+<mrow><mo>-</mo><mn>4</mn></mrow></msup></mrow></math> [a.u.].</div></blockquote>
 </div>
 <div class="section" id="geovalues">
 <span id="index-2"></span><h2>geovalues<a class="headerlink" href="#geovalues" title="Permalink to this headline">¶</a></h2>

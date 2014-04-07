@@ -249,15 +249,6 @@ geotargets
 
 Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in a Numeric array of length ``n``, where ``n`` is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute [[geovalues]].
 
-**Jaguar** has the following geometry convergence criteria:
- * gconv1: maximum element of gradient (4.5E-04)
- * gconv2: rms of gradient elements (3.0E-04)
- * gconv5: maximum element of nuclear displacement (1.8E-03)
- * gconv6: rms of nuclear displacement elements (1.2E-03)
- * gconv7: difference between final energies from previous and current geometry optimization iterations (5.0E-05)
-
-Note that a value for gconv7 is not available until the second iteration, so it is set to zero in the first element of [[geovalues]].
-
 In **GAMESS UK**, the geometry convergence criteria for OPTIMIZE are:
  * maximum change in variables  <  TOL
  * average change in variables  <  TOL * 2/3
@@ -268,6 +259,21 @@ where TOL defaults to 0.003 and is set by the XTOL directive.
 For OPTXYZ, tol defaults to 0.001, and the criteria appears to be simply the maximum gradient, although this is not clear from the manual.
 
 For more info, see http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node12.html.
+
+**Jaguar** has the following geometry convergence criteria:
+ * gconv1: maximum element of gradient (4.5E-04)
+ * gconv2: rms of gradient elements (3.0E-04)
+ * gconv5: maximum element of nuclear displacement (1.8E-03)
+ * gconv6: rms of nuclear displacement elements (1.2E-03)
+ * gconv7: difference between final energies from previous and current geometry optimization iterations (5.0E-05)
+
+Note that a value for gconv7 is not available until the second iteration, so it is set to zero in the first element of [[geovalues]].
+
+**Molpro** has custom convergence criteria, as described in the `manual`_:
+
+    The standard MOLPRO convergency criterion requires the maximum component of the gradient to be less then :math:`3 \cdot 10^{-4}` [a.u.] and the maximum energy change to be less than :math:`1 \cdot 10^{-6}` [H] or the maximum component of the gradient to be less then $ 3 \cdot 10^{-4}$ [a.u.] and the maximum component of the step to be less then :math:`3 \cdot 10^{-4}` [a.u.]. 
+
+.. _`manual`: https://www.molpro.net/info/2012.1/doc/manual/node592.html
 
 .. index::
     single: geomtry optimization; geovalues (attribute)
