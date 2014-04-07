@@ -1,57 +1,57 @@
-============== ============== ============== ============== ============== ============== ============== ============== ============== 
-attributes     ADF            GAMESS         GAMESSUK       Gaussian       Jaguar         Molpro         NWChem         ORCA           
-============== ============== ============== ============== ============== ============== ============== ============== ============== 
-aonames        N/A            √              √              √              T/D            √              T/D            √              
-aooverlaps     √              √              √              √              √              √              √              √              
-atombasis      T/D            √              √              √              T/D            √              √              √              
-atomcharges    √              √              √              √              T/D            √              √              √              
-atomcoords     √              √              √              √              √              √              √              √              
-atommasses     √              T/D            T/D            √              T/D            T/D            T/D            T/D            
-atomnos        √              √              √              √              √              √              √              √              
-atomspins      T/D            T/D            T/D            T/D            T/D            T/D            T/D            √              
-ccenergies     N/A            √              T/D            √              T/D            √              T/D            T/D            
-charge         √              √              √              √              √              √              √              √              
-coreelectrons  √              √              √              √              √              √              √              √              
-enthaply       T/D            T/D            T/D            √              T/D            T/D            T/D            T/D            
-entropy        T/D            T/D            T/D            √              T/D            T/D            T/D            T/D            
-etenergies     √              √              T/D            √              √              T/D            T/D            √              
-etoscs         √              √              T/D            √              √              T/D            T/D            √              
-etrotats       T/D            T/D            T/D            √              T/D            T/D            T/D            T/D            
-etsecs         √              √              T/D            √              √              T/D            T/D            √              
-etsyms         √              √              T/D            √              √              T/D            T/D            √              
-fonames        √              N/A            N/A            N/A            N/A            N/A            N/A            N/A            
-fooverlaps     √              N/A            N/A            N/A            N/A            N/A            N/A            N/A            
-fragnames      √              N/A            N/A            N/A            N/A            N/A            N/A            N/A            
-frags          √              N/A            N/A            N/A            N/A            N/A            N/A            N/A            
-freeenergy     T/D            T/D            T/D            √              T/D            T/D            T/D            T/D            
-gbasis         T/D            √              √              √              T/D            √              √              T/D            
-geotargets     √              √              √              √              √              √              T/D            √              
-geovalues      √              √              √              √              √              √              T/D            √              
-grads          T/D            T/D            T/D            √              T/D            T/D            T/D            T/D            
-hessian        T/D            T/D            T/D            T/D            T/D            √              T/D            T/D            
-homos          √              √              √              √              √              √              √              √              
-mocoeffs       √              √              √              √              T/D            √              √              √              
-moenergies     √              √              √              √              √              √              √              √              
-mosyms         √              √              √              √              √              T/D            T/D            T/D            
-mpenergies     N/A            √              √              √              √              √              T/D            T/D            
-mult           √              √              √              √              √              √              √              √              
-natom          √              √              √              √              √              √              √              √              
-nbasis         √              √              √              √              √              √              √              √              
-nmo            √              √              √              √              √              √              √              √              
-nocoeffs       T/D            √              T/D            √              T/D            T/D            T/D            T/D            
-optdone        T/D            T/D            T/D            √              T/D            T/D            T/D            √              
-scancoords     T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            
-scanenergies   T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            
-scannames      T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            
-scanparm       T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            
-scfenergies    √              √              √              √              √              √              √              √              
-scftargets     √              √              √              √              √              √              √              √              
-scfvalues      √              √              √              √              √              √              √              √              
-temperature    T/D            T/D            T/D            √              T/D            T/D            T/D            T/D            
-vibanharms     T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            
-vibdisps       √              √              √              √              √              √              T/D            √              
-vibfreqs       √              √              √              √              √              √              T/D            √              
-vibirs         √              √              √              √              √              √              T/D            √              
-vibramans      T/D            √              √              √              T/D            T/D            T/D            √              
-vibsyms        T/D            T/D            T/D            √              √              √              T/D            T/D            
-============== ============== ============== ============== ============== ============== ============== ============== ============== 
+============== ============== ============== ============== ============== ============== ============== ============== ============== ============== 
+attributes     ADF            GAMESS         GAMESSUK       Gaussian       Jaguar         Molpro         NWChem         ORCA           Psi            
+============== ============== ============== ============== ============== ============== ============== ============== ============== ============== 
+aonames        N/A            √              √              √              T/D            √              T/D            √              T/D            
+aooverlaps     √              √              √              √              √              √              √              √              T/D            
+atombasis      T/D            √              √              √              T/D            √              √              √              T/D            
+atomcharges    √              √              √              √              T/D            √              √              √              T/D            
+atomcoords     √              √              √              √              √              √              √              √              √              
+atommasses     √              T/D            T/D            √              T/D            T/D            T/D            T/D            T/D            
+atomnos        √              √              √              √              √              √              √              √              T/D            
+atomspins      T/D            T/D            T/D            T/D            T/D            T/D            T/D            √              T/D            
+ccenergies     N/A            √              T/D            √              T/D            √              √              T/D            T/D            
+charge         √              √              √              √              √              √              √              √              √              
+coreelectrons  √              √              √              √              √              √              √              √              √              
+enthaply       T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            
+entropy        T/D            T/D            T/D            √              T/D            T/D            T/D            T/D            T/D            
+etenergies     √              √              T/D            √              √              T/D            T/D            √              T/D            
+etoscs         √              √              T/D            √              √              T/D            T/D            √              T/D            
+etrotats       T/D            T/D            T/D            √              T/D            T/D            T/D            T/D            T/D            
+etsecs         √              √              T/D            √              √              T/D            T/D            √              T/D            
+etsyms         √              √              T/D            √              √              T/D            T/D            √              T/D            
+fonames        √              N/A            N/A            N/A            N/A            N/A            N/A            N/A            N/A            
+fooverlaps     √              N/A            N/A            N/A            N/A            N/A            N/A            N/A            N/A            
+fragnames      √              N/A            N/A            N/A            N/A            N/A            N/A            N/A            N/A            
+frags          √              N/A            N/A            N/A            N/A            N/A            N/A            N/A            N/A            
+freeenergy     T/D            T/D            T/D            √              T/D            T/D            T/D            T/D            T/D            
+gbasis         T/D            √              √              √              T/D            √              √              T/D            T/D            
+geotargets     √              √              √              √              √              √              √              √              T/D            
+geovalues      √              √              √              √              √              √              √              √              T/D            
+grads          T/D            T/D            T/D            √              T/D            T/D            T/D            T/D            T/D            
+hessian        T/D            T/D            T/D            T/D            T/D            √              T/D            T/D            T/D            
+homos          √              √              √              √              √              √              √              √              √              
+mocoeffs       √              √              √              √              T/D            √              √              √              √              
+moenergies     √              √              √              √              √              √              √              √              √              
+mosyms         √              √              √              √              √              T/D            √              T/D            √              
+mpenergies     N/A            √              √              √              √              √              √              T/D            T/D            
+mult           √              √              √              √              √              √              √              √              √              
+natom          √              √              √              √              √              √              √              √              √              
+nbasis         √              √              √              √              √              √              √              √              √              
+nmo            √              √              √              √              √              √              √              √              √              
+nocoeffs       T/D            √              T/D            √              T/D            T/D            T/D            T/D            T/D            
+optdone        T/D            T/D            T/D            √              T/D            T/D            T/D            √              T/D            
+scancoords     T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            
+scanenergies   T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            
+scannames      T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            
+scanparm       T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            
+scfenergies    √              √              √              √              √              √              √              √              √              
+scftargets     √              √              √              √              √              √              √              √              √              
+scfvalues      √              √              √              √              √              √              √              √              √              
+temperature    T/D            T/D            T/D            √              T/D            T/D            T/D            T/D            T/D            
+vibanharms     T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            T/D            
+vibdisps       √              √              √              √              √              √              T/D            √              T/D            
+vibfreqs       √              √              √              √              √              √              T/D            √              T/D            
+vibirs         √              √              √              √              √              √              T/D            √              T/D            
+vibramans      T/D            √              √              √              T/D            T/D            T/D            √              T/D            
+vibsyms        T/D            T/D            T/D            √              √              √              T/D            T/D            T/D            
+============== ============== ============== ============== ============== ============== ============== ============== ============== ============== 

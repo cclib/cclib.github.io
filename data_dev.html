@@ -264,9 +264,9 @@
 <td>array of rank 2</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#optdone">optdone</a></td>
-<td>indexes corresponding to energies/coords when optimizations have</td>
-<td>converged</td>
-<td>list</td>
+<td>flag for completion of optimisation</td>
+<td>&nbsp;</td>
+<td>boolean</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#scancoords">scancoords</a></td>
 <td>geometries of each scan step</td>
@@ -347,15 +347,16 @@
 <p><strong>N/A</strong> = not applicable, <strong>N/P</strong> = applicable, but not possible, <strong>T/D</strong> = to do</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">attributes</th>
@@ -367,6 +368,7 @@
 <th class="head">Molpro</th>
 <th class="head">NWChem</th>
 <th class="head">ORCA</th>
+<th class="head">Psi</th>
 </tr>
 </thead>
 <tbody valign="top">
@@ -379,6 +381,7 @@
 <td>√</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-odd"><td>aooverlaps</td>
 <td>√</td>
@@ -389,6 +392,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-even"><td>atombasis</td>
 <td>T/D</td>
@@ -399,6 +403,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-odd"><td>atomcharges</td>
 <td>√</td>
@@ -409,8 +414,10 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-even"><td>atomcoords</td>
+<td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -429,6 +436,7 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>T/D</td>
 </tr>
 <tr class="row-even"><td>atomnos</td>
 <td>√</td>
@@ -439,6 +447,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-odd"><td>atomspins</td>
 <td>T/D</td>
@@ -449,6 +458,7 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-even"><td>ccenergies</td>
 <td>N/A</td>
@@ -457,10 +467,12 @@
 <td>√</td>
 <td>T/D</td>
 <td>√</td>
+<td>√</td>
 <td>T/D</td>
 <td>T/D</td>
 </tr>
 <tr class="row-odd"><td>charge</td>
+<td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -479,12 +491,14 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>√</td>
 </tr>
 <tr class="row-odd"><td>enthaply</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
-<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -499,6 +513,7 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>T/D</td>
 </tr>
 <tr class="row-odd"><td>etenergies</td>
 <td>√</td>
@@ -509,6 +524,7 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-even"><td>etoscs</td>
 <td>√</td>
@@ -519,12 +535,14 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-odd"><td>etrotats</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -539,6 +557,7 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-odd"><td>etsyms</td>
 <td>√</td>
@@ -549,9 +568,11 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-even"><td>fonames</td>
 <td>√</td>
+<td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
@@ -569,9 +590,11 @@
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
+<td>N/A</td>
 </tr>
 <tr class="row-even"><td>fragnames</td>
 <td>√</td>
+<td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
@@ -589,12 +612,14 @@
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
+<td>N/A</td>
 </tr>
 <tr class="row-even"><td>freeenergy</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -609,6 +634,7 @@
 <td>√</td>
 <td>√</td>
 <td>T/D</td>
+<td>T/D</td>
 </tr>
 <tr class="row-even"><td>geotargets</td>
 <td>√</td>
@@ -617,8 +643,9 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
-<td>T/D</td>
 <td>√</td>
+<td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-odd"><td>geovalues</td>
 <td>√</td>
@@ -627,14 +654,16 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
-<td>T/D</td>
 <td>√</td>
+<td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-even"><td>grads</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -649,8 +678,10 @@
 <td>√</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>T/D</td>
 </tr>
 <tr class="row-even"><td>homos</td>
+<td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -669,8 +700,10 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>√</td>
 </tr>
 <tr class="row-even"><td>moenergies</td>
+<td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -687,11 +720,13 @@
 <td>√</td>
 <td>√</td>
 <td>T/D</td>
+<td>√</td>
 <td>T/D</td>
-<td>T/D</td>
+<td>√</td>
 </tr>
 <tr class="row-even"><td>mpenergies</td>
 <td>N/A</td>
+<td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -701,6 +736,7 @@
 <td>T/D</td>
 </tr>
 <tr class="row-odd"><td>mult</td>
+<td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -719,8 +755,10 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>√</td>
 </tr>
 <tr class="row-odd"><td>nbasis</td>
+<td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -739,12 +777,14 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>√</td>
 </tr>
 <tr class="row-odd"><td>nocoeffs</td>
 <td>T/D</td>
 <td>√</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -759,8 +799,10 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-odd"><td>scancoords</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -779,8 +821,10 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>T/D</td>
 </tr>
 <tr class="row-odd"><td>scannames</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -799,8 +843,10 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>T/D</td>
 </tr>
 <tr class="row-odd"><td>scfenergies</td>
+<td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -819,8 +865,10 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>√</td>
 </tr>
 <tr class="row-odd"><td>scfvalues</td>
+<td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -839,8 +887,10 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>T/D</td>
 </tr>
 <tr class="row-odd"><td>vibanharms</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -859,6 +909,7 @@
 <td>√</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-odd"><td>vibfreqs</td>
 <td>√</td>
@@ -869,6 +920,7 @@
 <td>√</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-even"><td>vibirs</td>
 <td>√</td>
@@ -879,6 +931,7 @@
 <td>√</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-odd"><td>vibramans</td>
 <td>T/D</td>
@@ -889,6 +942,7 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 </tr>
 <tr class="row-even"><td>vibsyms</td>
 <td>T/D</td>
@@ -897,6 +951,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 </tr>

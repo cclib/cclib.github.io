@@ -1,7 +1,7 @@
     =================== ================================================================ =========================== =============================== 
     Name                Description                                                      Units                       Data type                       
     =================== ================================================================ =========================== =============================== 
-    `aonames`_          atomic orbital names                                                                         list
+    `aonames`_          atomic orbital names                                                                         list of strings
     `aooverlaps`_       atomic orbital overlap matrix                                                                array of rank 2
     `atombasis`_        indices of atomic orbitals on each atom                                                      list of lists
     `atomcharges`_      atomic partial charges                                                                       dict of arrays of rank 1
@@ -12,14 +12,17 @@
     `charge`_           net charge of the system                                                                     integer
     `ccenergies`_       molecular energies with Coupled-Cluster corrections              eV                          array of rank 2
     `coreelectrons`_    number of core electrons in atom pseudopotentials                                            array of rank 1
+    `enthalpy`_         sum of electronic and thermal enthalpies                                                     float hartree/particle
+    `entropy`_          entropy                                                                                      float hartree/particle
     `etenergies`_       energies of electronic transitions                               1/cm                        array of rank 1
     `etoscs`_           oscillator strengths of electronic transitions                                               array of rank 1
     `etrotats`_         rotatory strengths of electronic transitions                     ??                          array of rank 1
     `etsecs`_           singly-excited configurations for electronic transitions                                     list of lists
-    `etsyms`_           symmetries of electronic transitions                                                         list
-    `fonames`_          fragment orbital names                                                                       list
+    `etsyms`_           symmetries of electronic transitions                                                         list of string
+    `freeenergy`_       sum of electronic and thermal free energies                                                  float hartree/particle
+    `fonames`_          fragment orbital names                                                                       list of strings
     `fooverlaps`_       fragment orbital overlap matrix                                                              array of rank 2
-    `fragnames`_        names of fragments                                                                           list
+    `fragnames`_        names of fragments                                                                           list of strings
     `frags`_            indices of atoms in a fragment                                                               list of lists
     `gbasis`_           coefficients and exponents of Gaussian basis functions                                       PyQuante format
     `geotargets`_       targets for convergence of geometry optimization                                             array of rank 1
@@ -30,30 +33,27 @@
     `mocoeffs`_         molecular orbital coefficients                                                               list of arrays of rank 2
     `moenergies`_       molecular orbital energies                                       eV                          list of arrays of rank 1
     `mosyms`_           orbital symmetries                                                                           list of lists
-    `mpenergies`_       molecular electronic energies with Moller-Plesset corrections    eV                          array of rank 2
+    `mpenergies`_       molecular electronic energies with Möller-Plesset corrections    eV                          array of rank 2
     `mult`_             multiplicity of the system                                                                   integer
     `natom`_            number of atoms                                                                              integer
     `nbasis`_           number of basis functions                                                                    integer
     `nmo`_              number of molecular orbitals                                                                 integer
     `nocoeffs`_         natural orbital coefficients                                                                 array of rank 2
+    `optdone`_          flag for completion of optimisation                                                          boolean
+    `scancoords`_       geometries of each scan step                                     angstroms                   array of rank 3
+    `scanenergies`_     energies of potential energy surface                                                         list
+    `scannames`_        names of varaibles scanned                                                                   list of strings
+    `scanparm`_         values of parameters in potential energy surface                                             list of tuples
     `scfenergies`_      molecular electronic energies after SCF (Hartree-Fock, DFT)      eV                          array of rank 1
     `scftargets`_       targets for convergence of the SCF                                                           array of rank 2
     `scfvalues`_        current values for convergence of the SCF                                                    list of arrays of rank 2
+    `temperature`_      tempature used for Thermochemistry                                                           float kelvin
     `vibanharms`_       vibrational anharmonicity constants                              1/cm                        array of rank 2
     `vibdisps`_         cartesian displacement vectors                                   delta angstrom              array of rank 3
     `vibfreqs`_         vibrational frequencies                                          1/cm                        array of rank 1
     `vibirs`_           IR intensities                                                   km/mol                      array of rank 1
     `vibramans`_        Raman intensities                                                A^4/Da                      array of rank 1
-    `vibsyms`_          symmetries of vibrations                                                                     list
-    `scannames`_        Names of varaibles scanned                                                                   list
-    `scanenergies`_     energies of potential energy surface                                                         list
-    `scanparm`_         values of parameters in potential energy surface                                             list of tuples
-    `scancoords`_       Geometries of each scan step                                     angstroms                   array of rank 3
-    `enthaply`_         Sum of electronic and thermal Enthalpie                                                      float hartree/particle
-    `freeenergy`_       Sum of electronic and thermal Free Energies                                                  float hartree/particle
-    `temperature`_      Tempature used for Thermochemistry                                                           float kelvin
-    `entropy`_          Entropy                                                                                      float hartree/particle
-    `optdone`_          Stores if an optimisation job has completed                                                  boolean
+    `vibsyms`_          symmetries of vibrations                                                                     list of strings
     =================== ================================================================ =========================== =============================== 
 
 .. _`aonames`: data_notes.html#aonames
@@ -67,11 +67,14 @@
 .. _`charge`: data_notes.html#charge
 .. _`ccenergies`: data_notes.html#ccenergies
 .. _`coreelectrons`: data_notes.html#coreelectrons
+.. _`enthalpy`: data_notes.html#enthalpy
+.. _`entropy`: data_notes.html#entropy
 .. _`etenergies`: data_notes.html#etenergies
 .. _`etoscs`: data_notes.html#etoscs
 .. _`etrotats`: data_notes.html#etrotats
 .. _`etsecs`: data_notes.html#etsecs
 .. _`etsyms`: data_notes.html#etsyms
+.. _`freeenergy`: data_notes.html#freeenergy
 .. _`fonames`: data_notes.html#fonames
 .. _`fooverlaps`: data_notes.html#fooverlaps
 .. _`fragnames`: data_notes.html#fragnames
@@ -91,21 +94,18 @@
 .. _`nbasis`: data_notes.html#nbasis
 .. _`nmo`: data_notes.html#nmo
 .. _`nocoeffs`: data_notes.html#nocoeffs
+.. _`optdone`: data_notes.html#optdone
+.. _`scancoords`: data_notes.html#scancoords
+.. _`scanenergies`: data_notes.html#scanenergies
+.. _`scannames`: data_notes.html#scannames
+.. _`scanparm`: data_notes.html#scanparm
 .. _`scfenergies`: data_notes.html#scfenergies
 .. _`scftargets`: data_notes.html#scftargets
 .. _`scfvalues`: data_notes.html#scfvalues
+.. _`temperature`: data_notes.html#temperature
 .. _`vibanharms`: data_notes.html#vibanharms
 .. _`vibdisps`: data_notes.html#vibdisps
 .. _`vibfreqs`: data_notes.html#vibfreqs
 .. _`vibirs`: data_notes.html#vibirs
 .. _`vibramans`: data_notes.html#vibramans
 .. _`vibsyms`: data_notes.html#vibsyms
-.. _`scannames`: data_notes.html#scannames
-.. _`scanenergies`: data_notes.html#scanenergies
-.. _`scanparm`: data_notes.html#scanparm
-.. _`scancoords`: data_notes.html#scancoords
-.. _`enthaply`: data_notes.html#enthaply
-.. _`freeenergy`: data_notes.html#freeenergy
-.. _`temperature`: data_notes.html#temperature
-.. _`entropy`: data_notes.html#entropy
-.. _`optdone`: data_notes.html#optdone

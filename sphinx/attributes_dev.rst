@@ -39,7 +39,7 @@
     `nbasis`_           number of basis functions                                                                    integer
     `nmo`_              number of molecular orbitals                                                                 integer
     `nocoeffs`_         natural orbital coefficients                                                                 array of rank 2
-    `optdone`_          indexes corresponding to energies/coords when optimizations have converged                            list
+    `optdone`_          flag for completion of optimisation                                                          boolean
     `scancoords`_       geometries of each scan step                                     angstroms                   array of rank 3
     `scanenergies`_     energies of potential energy surface                                                         list
     `scannames`_        names of varaibles scanned                                                                   list of strings
