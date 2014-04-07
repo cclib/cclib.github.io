@@ -17,11 +17,15 @@ if __name__ == "__main__":
     sys.path.append('.')
     from testall import parsers, testall
 
-    # Try running all unit tests, and dump output to a file.
+    # Try running all unit tests, and dump output to a file. In case there is some
+    # rogue output from the tests, switch sys.stdout to the open log, too.
     logpath = thispath + "/coverage.tests.log"
     try:
         with open(logpath, "w") as flog:
+            stdout_backup = sys.stdout
+            sys.stdout = flog
             alltests = [testall([p], stream=flog) for p in parsers]
+            sys.stdout = stdout_backup
     except Exception as e:
         print("Unit tests did not run correctly. Check log file for errors:")
         print(open(logpath, 'r').read())
@@ -47,6 +51,7 @@ if __name__ == "__main__":
         'Molpro' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
         'NWChem' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
         'ORCA' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
+        'Psi' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
     }
 
     # For each attribute, get a list of Boolean values for each parser that flags if it has
