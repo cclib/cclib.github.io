@@ -46,6 +46,7 @@ clean:
 	-rm -rf $(BUILDDIR)/*
 	-rm -rf cclib
 	-rm -rf attributes*.rst
+	-rm -rf converage*.rst
 
 cclib:
 	-rm -rf $(BUILDDIR)/cclib
@@ -54,7 +55,7 @@ cclib:
 	ln -s $(BUILDDIR)/cclib/src/cclib
 
 update:
-	cd cclib; git fetch --all; cd ..
+	cd cclib; git fetch --all; git checkout master; git pull; git checkout $(PRODUCTION_VERSION); git pull; cd ..
 
 PRODUCTION_VERSION = v1.2
 
@@ -63,7 +64,7 @@ attributes_dev.rst: attributes.py
 	cd cclib; git checkout master; git pull; cd ..
 	python3 attributes.py > $@
 attributes.rst: attributes.py
-	cd cclib; git checkout -q $(PRODUCTION_VERSION); cd ..
+	cd cclib; git checkout $(PRODUCTION_VERSION); cd ..
 	python3 attributes.py > $@
 	cd cclib; git checkout master; cd ..
 
@@ -72,7 +73,7 @@ coverage_dev.rst: coverage.py
 	cd cclib; git checkout master; git pull; cd ..
 	python3 coverage.py > $@
 coverage.rst: coverage.py
-	cd cclib; git checkout -q $(PRODUCTION_VERSION); cd ..
+	cd cclib; git checkout $(PRODUCTION_VERSION); cd ..
 	python3 coverage.py > $@
 	cd cclib; git checkout master; cd ..
 
