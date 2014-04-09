@@ -61,7 +61,7 @@ PRODUCTION_VERSION = v1.2
 
 attributes: attributes.rst attributes_dev.rst
 attributes_dev.rst: attributes.py
-	cd cclib; git checkout master; git pull; cd ..
+	cd cclib; git checkout master; git pull; find . -type d -name __pycache__ | xargs rm -rf; cd ..
 	python3 attributes.py > $@
 attributes.rst: attributes.py
 	cd cclib; git checkout $(PRODUCTION_VERSION); cd ..
@@ -70,7 +70,7 @@ attributes.rst: attributes.py
 
 coverage: coverage.rst coverage_dev.rst
 coverage_dev.rst: coverage.py
-	cd cclib; git checkout master; git pull; cd ..
+	cd cclib; git checkout master; git pull; find . -type d -name __pycache__ | xargs rm -rf; cd ..
 	python3 coverage.py > $@
 coverage.rst: coverage.py
 	cd cclib; git checkout $(PRODUCTION_VERSION); cd ..
