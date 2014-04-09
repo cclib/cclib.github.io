@@ -286,6 +286,16 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <mrow><mo>-</mo><mn>6</mn></mrow></msup></mrow></math> [H] or the maximum component of the gradient to be less then $ 3 cdot 10^{-4}$ [a.u.] and the maximum component of the step to be less then <math xmlns="http://www.w3.org/1998/Math/MathML">
 <mrow><mn>3</mn><mo>⋅</mo><mn>1</mn><msup><mn>0</mn>
 <mrow><mo>-</mo><mn>4</mn></mrow></msup></mrow></math> [a.u.].</div></blockquote>
+<dl class="docutils">
+<dt><strong>ORCA</strong> tracks the change in energy as well as RMS and maximum gradients and displacements. As of version 3.0, an optimization is considered converged when all the tolerances are met, and there are four exceptions:</dt>
+<dd><ul class="first last simple">
+<li>the energy is within 25x the tolerance and all other criteria are met</li>
+<li>the gradients are overachieved (1/3 of the tolerance) and displacements are reasonable (at most 3x the tolerance)</li>
+<li>the displacements are overachieved (1/3 of the tolerance) and the gradients are reasonable (at most 3x the tolerance)</li>
+<li>the energy gradients and internal coordinates are converged (bond distances, angles, dihedrals and impropers)</li>
+</ul>
+</dd>
+</dl>
 </div>
 <div class="section" id="geovalues">
 <span id="index-2"></span><h2>geovalues<a class="headerlink" href="#geovalues" title="Permalink to this headline">¶</a></h2>

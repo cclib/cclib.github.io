@@ -275,6 +275,12 @@ Note that a value for gconv7 is not available until the second iteration, so it 
 
 .. _`manual`: https://www.molpro.net/info/2012.1/doc/manual/node592.html
 
+**ORCA** tracks the change in energy as well as RMS and maximum gradients and displacements. As of version 3.0, an optimization is considered converged when all the tolerances are met, and there are four exceptions:
+ * the energy is within 25x the tolerance and all other criteria are met
+ * the gradients are overachieved (1/3 of the tolerance) and displacements are reasonable (at most 3x the tolerance)
+ * the displacements are overachieved (1/3 of the tolerance) and the gradients are reasonable (at most 3x the tolerance)
+ * the energy gradients and internal coordinates are converged (bond distances, angles, dihedrals and impropers)
+
 .. index::
     single: geomtry optimization; geovalues (attribute)
 
