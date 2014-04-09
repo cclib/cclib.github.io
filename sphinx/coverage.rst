@@ -39,7 +39,7 @@ natom          √              √              √              √           
 nbasis         √              √              √              √              √              √              √              
 nmo            √              √              √              √              √              √              √              
 nocoeffs       T/D            √              T/D            √              T/D            T/D            T/D            
-optdone        T/D            T/D            T/D            √              T/D            T/D            T/D            
+optdone        √              √              √              √              √              √              √              
 scancoords     T/D            T/D            T/D            T/D            T/D            T/D            T/D            
 scanenergies   T/D            T/D            T/D            T/D            T/D            T/D            T/D            
 scannames      T/D            T/D            T/D            T/D            T/D            T/D            T/D            
