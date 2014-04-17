@@ -1,10 +1,10 @@
 ============== ============== ============== ============== ============== ============== ============== ============== ============== ============== 
 attributes     ADF            GAMESS         GAMESSUK       Gaussian       Jaguar         Molpro         NWChem         ORCA           Psi            
 ============== ============== ============== ============== ============== ============== ============== ============== ============== ============== 
-aonames        N/A            √              √              √              T/D            √              T/D            √              T/D            
+aonames        N/A            √              √              √              √              √              T/D            √              T/D            
 aooverlaps     √              √              √              √              √              √              √              √              T/D            
-atombasis      T/D            √              √              √              T/D            √              √              √              T/D            
-atomcharges    √              √              √              √              T/D            √              √              √              T/D            
+atombasis      T/D            √              √              √              √              √              √              √              T/D            
+atomcharges    √              √              √              √              √              √              √              √              T/D            
 atomcoords     √              √              √              √              √              √              √              √              √              
 atommasses     √              T/D            T/D            √              T/D            T/D            T/D            T/D            T/D            
 atomnos        √              √              √              √              √              √              √              √              T/D            
@@ -30,7 +30,7 @@ geovalues      √              √              √              √           
 grads          T/D            T/D            T/D            √              T/D            T/D            T/D            T/D            T/D            
 hessian        T/D            T/D            T/D            T/D            T/D            √              T/D            T/D            T/D            
 homos          √              √              √              √              √              √              √              √              √              
-mocoeffs       √              √              √              √              T/D            √              √              √              √              
+mocoeffs       √              √              √              √              √              √              √              √              √              
 moenergies     √              √              √              √              √              √              √              √              √              
 mosyms         √              √              √              √              √              T/D            √              T/D            √              
 mpenergies     N/A            √              √              √              √              √              √              T/D            T/D            
