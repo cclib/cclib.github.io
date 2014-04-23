@@ -10,9 +10,7 @@ data`_ page and its `development`_ version.
 aonames
 -------
 
-Atomic orbital names are stored in ``aonames``.
-
-These data are not normalised as the following examples show, although a reasonable attempt is made to get them close to each other. Users will need to know what each orbital is by knowing the basis set inside out, rather than relying on this data. Such is life, as GAMESS does not provide enough information.
+This attribute contains the atomic orbital names. These are not normalised as the following examples show, although a reasonable attempt is made to get them close to each other. Users will need to know what each orbital is by knowing the basis set inside out, rather than relying on this data. Such is life, as GAMESS does not provide enough information.
 
 * Gaussian gives names of the form: ['C1_1S', 'C1_2S', 'C1_2PX', 'C1_2PY', 'C1_2PZ', 'C2_1S', 'C2_2S', 'C2_2PX', 'C2_2PY', 'C2_2PZ', 'C3_1S', 'C3_2S', 'C3_2PX', 'C3_2PY', 'C3_2PZ', 'C4_1S', 'C4_2S', 'C4_2PX', 'C4_2PY', 'C4_2PZ', 'C5_1S', 'C5_2S', 'C5_2PX', 'C5_2PY', 'C5_2PZ', 'H6_1S', 'H7_1S', 'H8_1S', 'C9_1S', 'C9_2S', 'C9_2PX', 'C9_2PY', 'C9_2PZ', 'C10_1S', 'C10_2S', 'C10_2PX', 'C10_2PY', 'C10_2PZ', 'H11_1S', 'H12_1S', 'H13_1S', 'C14_1S', 'C14_2S', 'C14_2PX', 'C14_2PY', 'C14_2PZ', 'H15_1S', 'C16_1S', 'C16_2S', 'C16_2PX', 'C16_2PY', 'C16_2PZ', 'H17_1S', 'H18_1S', 'C19_1S', 'C19_2S', 'C19_2PX', 'C19_2PY', 'C19_2PZ', 'H20_1S']
 * GAMESS gives names of the form: ['C1_1S', 'C1_2S', 'C1_3X', 'C1_3Y', 'C1_3Z', 'C2_1S', 'C2_2S', 'C2_3X', 'C2_3Y', 'C2_3Z', 'C3_1S', 'C3_2S', 'C3_3X', 'C3_3Y', 'C3_3Z', 'C4_1S', 'C4_2S', 'C4_3X', 'C4_3Y', 'C4_3Z', 'C5_1S', 'C5_2S', 'C5_3X', 'C5_3Y', 'C5_3Z', 'C6_1S', 'C6_2S', 'C6_3X', 'C6_3Y', 'C6_3Z', 'H7_1S', 'H8_1S', 'H9_1S', 'H10_1S', 'C11_1S', 'C11_2S', 'C11_3X', 'C11_3Y', 'C11_3Z', 'C12_1S', 'C12_2S', 'C12_3X', 'C12_3Y', 'C12_3Z', 'H13_1S', 'H14_1S', 'C15_1S', 'C15_2S', 'C15_3X', 'C15_3Y', 'C15_3Z', 'C16_1S', 'C16_2S', 'C16_3X', 'C16_3Y', 'C16_3Z', 'H17_1S', 'H18_1S', 'H19_1S', 'H20_1S']
@@ -25,18 +23,20 @@ And for a large basis set calculation on a single C atom...:
 aooverlaps
 ----------
 
-The attribute ``aooverlaps`` is a 2-dimensional Numeric array which holds the numerical values of the overlap between basis functions (ie. orbitals). It is needed for most analyses like [[Mulliken]], [[C squared]], and Mayer's Bond Orders. The indices of the matrix correspond to the basis functions of interest. 
+This is a 2-dimensional array which holds the numerical values of the overlap between basis functions (also called atomic orbitals). It is needed for most analyses like `Mulliken`_, `C squared`_, and `Mayer's Bond Orders`_. The indices of the matrix correspond to the basis functions of interest. This matrix is symmetric, so ``aooverlaps[i,j]`` is the same as ``aooverlaps[j,i]``.
 
 Some examples:
 
-* aooverlaps[0,3] (overlap between the 1st and 4th basis function)
-* aooverlaps[2,:] (1-dimensional Numeric array containing overlap for every basis function with the 3rd basis function)
-
-Note: This matrix is symmetric, so ``aooverlaps[i,j]`` is the same as ``aooverlaps[j,i]``.
+* ``aooverlaps[0,3]`` is the overlap between the 1st and 4th basis function
+* ``aooverlaps[2,:]`` is a 1-dimensional array containing the overlap between every basis function and the 3rd basis function
 
 **Gaussian**: iop(3/33=1) must be specified in the input file
 
 **ADF**: Not present, because [[fooverlaps]] are used instead
+
+.. _`Mulliken`: methods.html#mulliken-population-analysis-mpa
+.. _`C squared`: methods.html#c-squared-population-analysis-cspa
+.. _`Mayer's Bond Orders`: methods.html#mayer-s-bond-orders
 
 atombasis
 ---------
@@ -57,7 +57,7 @@ Note that in practice these may differ somewhat from the values cclib calculates
 atomcoords
 ----------
 
-The attribute ``atomcoords`` contains the atomic coordinates as taken from the output file. This is a Numeric array of rank 3, with a shape (n,m,3) where n is 1 for a single point calculation and >=1 for a geometry optimisation and m is the number of atoms. 
+The attribute ``atomcoords`` contains the atomic coordinates as taken from the output file. This is an array of rank 3, with a shape (n,m,3) where n is 1 for a single point calculation and >=1 for a geometry optimisation and m is the number of atoms. 
 
 **Gaussian**: for geometry optimisations, the "Standard orientation" sections are extracted.
 
@@ -83,7 +83,7 @@ Currently, cclib parses Mulliken and Lowdin spin densities, whose respective dic
 ccenergies
 ----------
 
-The atttribute ``ccenergies`` is a one-dimensional array holds the total molecule energies including Coupled Cluster corrections. The array's length is 1 for single point calculations and larger for optimizations. Only the the highest theory level is parsed into this attribute (for example, CCSD energies as opposed to CCD energies).
+The atttribute ``ccenergies`` is a one-dimensional array holds the total molecule energies including Coupled Cluster corrections. The array's length is 1 for single point calculations and larger for optimizations. Only the highest theory level is parsed into this attribute (for example, CCSD energies as opposed to CCD energies, or CCSD(T) as opposed to CCSD energies).
 
 charge
 ------
@@ -123,7 +123,7 @@ Availability:
 * Time-dependent DFT (TD-DFT): Gaussian
 * Time-dependent Hartree-Fock (TD-HF): Gaussian
 
-Availability:
+Availability (development version):
 
 * Configuration Interaction (CIS): GAMESS, Gaussian, Jaguar
 * Time-dependent DFT (TD-DFT): Gaussian
@@ -133,6 +133,7 @@ etsecs
 ------
 
 The singly-excited configurations that contribute to electronic transitions are stored in ``etsecs``. It is a list (for each electronic transition from the reference ground state) of lists (for each singly-excited configuration) with three members each:
+
  * a tuple (moindex, alpha/beta), which indicates the MO where the transition begins
  * a tuple (moindex, alpha/beta), which indicates the MO where the transition ends
  * a float (which can be negative), the coefficient of this singly-excited configuration
@@ -192,7 +193,7 @@ Some examples:
 fooverlaps
 ----------
 
-Fooverlaps is a 2-dimensional Numeric array that holds numerical values for the spacial overlap between basis functions. It is very similar to [[aooverlaps]], but differs because of the way ADF performs the calculation (see below for more details). The matrix indices correspond to the fragment orbitals; see the examples listed for [[aonames]].
+Fooverlaps is a 2-dimensional array that holds numerical values for the spacial overlap between basis functions. It is very similar to [[aooverlaps]], but differs because of the way ADF performs the calculation (see below for more details). The matrix indices correspond to the fragment orbitals; see the examples listed for [[aonames]].
 
 **Background**
 
@@ -247,7 +248,7 @@ For different programs, you need to include different keywords in order for ``gb
 geotargets
 ----------
 
-Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in a Numeric array of length ``n``, where ``n`` is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute [[geovalues]].
+Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length ``n``, where ``n`` is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute [[geovalues]].
 
 In **GAMESS UK**, the geometry convergence criteria for OPTIMIZE are:
  * maximum change in variables  <  TOL
@@ -287,7 +288,7 @@ Note that a value for gconv7 is not available until the second iteration, so it 
 geovalues
 ---------
 
-These are the current values for the criteria used to determine whether a geometry has converged in the course of a geometry optimisation. It is a Numeric array of dimensions ``m x n``, where ``m`` is the number of geometry optimisation iterations and ``n`` the number of target criteria.
+These are the current values for the criteria used to determine whether a geometry has converged in the course of a geometry optimisation. It is an array of dimensions ``m x n``, where ``m`` is the number of geometry optimisation iterations and ``n`` the number of target criteria.
 
 Note that many programs print atomic coordinates before and after a geomtry optimization, which means that there will not necessarily be ``m`` elements in atomcoords_.
 
@@ -377,13 +378,13 @@ Developers:
 mpenergies
 ----------
 
-The attribute ``mpenergies`` holds the total molecule energies including Möller-Plesset correlation energy corrections in a two-dimensional array. The array's shape is (n,L), where ``n`` is 1 for single point calculations and larger for optimizations, and ``L`` is the order at which the correction is truncated. The order of elements is ascending, so a single point MP5 calculation will yield mpenergies as ``[[E<sub>MP2</sub>, E<sub>MP3</sub>, E<sub>MP4</sub>, E<sub>MP5</sub>]]``.
+The attribute ``mpenergies`` holds the total molecule energies including Möller-Plesset correlation energy corrections in a two-dimensional array. The array's shape is (n,L), where ``n`` is 1 for single point calculations and larger for optimizations, and ``L`` is the order at which the correction is truncated. The order of elements is ascending, so a single point MP5 calculation will yield mpenergies as :math:`E_{MP2}, E_{MP3}, E_{MP4}, E_{MP5}`.
 
-* ``ADF``: does not perform such calculations.
-* ``GAMESS``: second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calcualtions in PC-GAMESS (use ``mplevl=n`` in the ``$contrl`` section).
-* ``GAMESS-UK``: MP2 through MP3 corrections are avaialbe.
-* ``Gaussian``: MP2 through MP5 energies are available using the ``MP`` keyword. For MP4 corrections, the energy with the most substitutions is used (SDTQ by default).
-* ``Jaguar``: the LMP2 is available.
+* **ADF**: does not perform such calculations.
+* **GAMESS**: second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calcualtions in PC-GAMESS (use ``mplevl=n`` in the ``$contrl`` section).
+* **GAMESS-UK**: MP2 through MP3 corrections are avaialbe.
+* **Gaussian**: MP2 through MP5 energies are available using the ``MP`` keyword. For MP4 corrections, the energy with the most substitutions is used (SDTQ by default).
+* **Jaguar**: the LMP2 is available.
 
 mult
 ----
@@ -423,7 +424,7 @@ The attribute ``scfenergies`` is an array containing the converged SCF energies 
 scftargets
 ----------
 
-Target values for criteria for determining whether the SCF has converged, whose values are stored in a Numeric array of dimension ``n x m``, where ``n`` is the number of geometry optimisation cycles (1 for a single point calculation) and ``m`` is the number of criteria.
+Target values for criteria for determining whether the SCF has converged, whose values are stored in an array of dimension ``n x m``, where ``n`` is the number of geometry optimisation cycles (1 for a single point calculation) and ``m`` is the number of criteria.
 
 The criteria vary from program to program, and depending on the program they may be constant for the whole of a geometry optimisation or they may be different for each geometry optimisation cycle. A more complete description follows.
 
@@ -472,7 +473,7 @@ According to http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node6.html, SCF co
 scfvalues
 ---------
 
-The attribute ``scfvalues`` is a list (one element for each step in a geometry optimisation) of Numeric arrays of dimension ``n x m``, where ``n`` is the number of SCF cycles required for convergence and ``m`` is the number of SCF convergence target criteria.
+The attribute ``scfvalues`` is a list (one element for each step in a geometry optimisation) of arrays of dimension ``n x m``, where ``n`` is the number of SCF cycles required for convergence and ``m`` is the number of SCF convergence target criteria.
 
 For some packages, you may need to include a directive to make sure that SCF convergence information is printed to the log file:
 * Gaussian requires the [http://www.gaussian.com/g_tech/g_ur/k_route.htm route section] to start with #P

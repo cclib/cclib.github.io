@@ -192,8 +192,7 @@
 data</a> page and its <a class="reference external" href="data_dev.html">development</a> version.</p>
 <div class="section" id="aonames">
 <h2>aonames<a class="headerlink" href="#aonames" title="Permalink to this headline">¶</a></h2>
-<p>Atomic orbital names are stored in <tt class="docutils literal"><span class="pre">aonames</span></tt>.</p>
-<p>These data are not normalised as the following examples show, although a reasonable attempt is made to get them close to each other. Users will need to know what each orbital is by knowing the basis set inside out, rather than relying on this data. Such is life, as GAMESS does not provide enough information.</p>
+<p>This attribute contains the atomic orbital names. These are not normalised as the following examples show, although a reasonable attempt is made to get them close to each other. Users will need to know what each orbital is by knowing the basis set inside out, rather than relying on this data. Such is life, as GAMESS does not provide enough information.</p>
 <ul class="simple">
 <li>Gaussian gives names of the form: [&#8216;C1_1S&#8217;, &#8216;C1_2S&#8217;, &#8216;C1_2PX&#8217;, &#8216;C1_2PY&#8217;, &#8216;C1_2PZ&#8217;, &#8216;C2_1S&#8217;, &#8216;C2_2S&#8217;, &#8216;C2_2PX&#8217;, &#8216;C2_2PY&#8217;, &#8216;C2_2PZ&#8217;, &#8216;C3_1S&#8217;, &#8216;C3_2S&#8217;, &#8216;C3_2PX&#8217;, &#8216;C3_2PY&#8217;, &#8216;C3_2PZ&#8217;, &#8216;C4_1S&#8217;, &#8216;C4_2S&#8217;, &#8216;C4_2PX&#8217;, &#8216;C4_2PY&#8217;, &#8216;C4_2PZ&#8217;, &#8216;C5_1S&#8217;, &#8216;C5_2S&#8217;, &#8216;C5_2PX&#8217;, &#8216;C5_2PY&#8217;, &#8216;C5_2PZ&#8217;, &#8216;H6_1S&#8217;, &#8216;H7_1S&#8217;, &#8216;H8_1S&#8217;, &#8216;C9_1S&#8217;, &#8216;C9_2S&#8217;, &#8216;C9_2PX&#8217;, &#8216;C9_2PY&#8217;, &#8216;C9_2PZ&#8217;, &#8216;C10_1S&#8217;, &#8216;C10_2S&#8217;, &#8216;C10_2PX&#8217;, &#8216;C10_2PY&#8217;, &#8216;C10_2PZ&#8217;, &#8216;H11_1S&#8217;, &#8216;H12_1S&#8217;, &#8216;H13_1S&#8217;, &#8216;C14_1S&#8217;, &#8216;C14_2S&#8217;, &#8216;C14_2PX&#8217;, &#8216;C14_2PY&#8217;, &#8216;C14_2PZ&#8217;, &#8216;H15_1S&#8217;, &#8216;C16_1S&#8217;, &#8216;C16_2S&#8217;, &#8216;C16_2PX&#8217;, &#8216;C16_2PY&#8217;, &#8216;C16_2PZ&#8217;, &#8216;H17_1S&#8217;, &#8216;H18_1S&#8217;, &#8216;C19_1S&#8217;, &#8216;C19_2S&#8217;, &#8216;C19_2PX&#8217;, &#8216;C19_2PY&#8217;, &#8216;C19_2PZ&#8217;, &#8216;H20_1S&#8217;]</li>
 <li>GAMESS gives names of the form: [&#8216;C1_1S&#8217;, &#8216;C1_2S&#8217;, &#8216;C1_3X&#8217;, &#8216;C1_3Y&#8217;, &#8216;C1_3Z&#8217;, &#8216;C2_1S&#8217;, &#8216;C2_2S&#8217;, &#8216;C2_3X&#8217;, &#8216;C2_3Y&#8217;, &#8216;C2_3Z&#8217;, &#8216;C3_1S&#8217;, &#8216;C3_2S&#8217;, &#8216;C3_3X&#8217;, &#8216;C3_3Y&#8217;, &#8216;C3_3Z&#8217;, &#8216;C4_1S&#8217;, &#8216;C4_2S&#8217;, &#8216;C4_3X&#8217;, &#8216;C4_3Y&#8217;, &#8216;C4_3Z&#8217;, &#8216;C5_1S&#8217;, &#8216;C5_2S&#8217;, &#8216;C5_3X&#8217;, &#8216;C5_3Y&#8217;, &#8216;C5_3Z&#8217;, &#8216;C6_1S&#8217;, &#8216;C6_2S&#8217;, &#8216;C6_3X&#8217;, &#8216;C6_3Y&#8217;, &#8216;C6_3Z&#8217;, &#8216;H7_1S&#8217;, &#8216;H8_1S&#8217;, &#8216;H9_1S&#8217;, &#8216;H10_1S&#8217;, &#8216;C11_1S&#8217;, &#8216;C11_2S&#8217;, &#8216;C11_3X&#8217;, &#8216;C11_3Y&#8217;, &#8216;C11_3Z&#8217;, &#8216;C12_1S&#8217;, &#8216;C12_2S&#8217;, &#8216;C12_3X&#8217;, &#8216;C12_3Y&#8217;, &#8216;C12_3Z&#8217;, &#8216;H13_1S&#8217;, &#8216;H14_1S&#8217;, &#8216;C15_1S&#8217;, &#8216;C15_2S&#8217;, &#8216;C15_3X&#8217;, &#8216;C15_3Y&#8217;, &#8216;C15_3Z&#8217;, &#8216;C16_1S&#8217;, &#8216;C16_2S&#8217;, &#8216;C16_3X&#8217;, &#8216;C16_3Y&#8217;, &#8216;C16_3Z&#8217;, &#8216;H17_1S&#8217;, &#8216;H18_1S&#8217;, &#8216;H19_1S&#8217;, &#8216;H20_1S&#8217;]</li>
@@ -206,13 +205,12 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="aooverlaps">
 <h2>aooverlaps<a class="headerlink" href="#aooverlaps" title="Permalink to this headline">¶</a></h2>
-<p>The attribute <tt class="docutils literal"><span class="pre">aooverlaps</span></tt> is a 2-dimensional Numeric array which holds the numerical values of the overlap between basis functions (ie. orbitals). It is needed for most analyses like [[Mulliken]], [[C squared]], and Mayer&#8217;s Bond Orders. The indices of the matrix correspond to the basis functions of interest.</p>
+<p>This is a 2-dimensional array which holds the numerical values of the overlap between basis functions (also called atomic orbitals). It is needed for most analyses like <a class="reference external" href="methods.html#mulliken-population-analysis-mpa">Mulliken</a>, <a class="reference external" href="methods.html#c-squared-population-analysis-cspa">C squared</a>, and <a class="reference external" href="methods.html#mayer-s-bond-orders">Mayer&#8217;s Bond Orders</a>. The indices of the matrix correspond to the basis functions of interest. This matrix is symmetric, so <tt class="docutils literal"><span class="pre">aooverlaps[i,j]</span></tt> is the same as <tt class="docutils literal"><span class="pre">aooverlaps[j,i]</span></tt>.</p>
 <p>Some examples:</p>
 <ul class="simple">
-<li>aooverlaps[0,3] (overlap between the 1st and 4th basis function)</li>
-<li>aooverlaps[2,:] (1-dimensional Numeric array containing overlap for every basis function with the 3rd basis function)</li>
+<li><tt class="docutils literal"><span class="pre">aooverlaps[0,3]</span></tt> is the overlap between the 1st and 4th basis function</li>
+<li><tt class="docutils literal"><span class="pre">aooverlaps[2,:]</span></tt> is a 1-dimensional array containing the overlap between every basis function and the 3rd basis function</li>
 </ul>
-<p>Note: This matrix is symmetric, so <tt class="docutils literal"><span class="pre">aooverlaps[i,j]</span></tt> is the same as <tt class="docutils literal"><span class="pre">aooverlaps[j,i]</span></tt>.</p>
 <p><strong>Gaussian</strong>: iop(3/33=1) must be specified in the input file</p>
 <p><strong>ADF</strong>: Not present, because [[fooverlaps]] are used instead</p>
 </div>
@@ -229,7 +227,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="atomcoords">
 <h2>atomcoords<a class="headerlink" href="#atomcoords" title="Permalink to this headline">¶</a></h2>
-<p>The attribute <tt class="docutils literal"><span class="pre">atomcoords</span></tt> contains the atomic coordinates as taken from the output file. This is a Numeric array of rank 3, with a shape (n,m,3) where n is 1 for a single point calculation and &gt;=1 for a geometry optimisation and m is the number of atoms.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">atomcoords</span></tt> contains the atomic coordinates as taken from the output file. This is an array of rank 3, with a shape (n,m,3) where n is 1 for a single point calculation and &gt;=1 for a geometry optimisation and m is the number of atoms.</p>
 <p><strong>Gaussian</strong>: for geometry optimisations, the &#8220;Standard orientation&#8221; sections are extracted.</p>
 <p><strong>Molpro</strong>: typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.</p>
 </div>
@@ -248,7 +246,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="ccenergies">
 <h2>ccenergies<a class="headerlink" href="#ccenergies" title="Permalink to this headline">¶</a></h2>
-<p>The atttribute <tt class="docutils literal"><span class="pre">ccenergies</span></tt> is a one-dimensional array holds the total molecule energies including Coupled Cluster corrections. The array&#8217;s length is 1 for single point calculations and larger for optimizations. Only the the highest theory level is parsed into this attribute (for example, CCSD energies as opposed to CCD energies).</p>
+<p>The atttribute <tt class="docutils literal"><span class="pre">ccenergies</span></tt> is a one-dimensional array holds the total molecule energies including Coupled Cluster corrections. The array&#8217;s length is 1 for single point calculations and larger for optimizations. Only the highest theory level is parsed into this attribute (for example, CCSD energies as opposed to CCD energies, or CCSD(T) as opposed to CCSD energies).</p>
 </div>
 <div class="section" id="charge">
 <h2>charge<a class="headerlink" href="#charge" title="Permalink to this headline">¶</a></h2>
@@ -283,7 +281,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <li>Time-dependent DFT (TD-DFT): Gaussian</li>
 <li>Time-dependent Hartree-Fock (TD-HF): Gaussian</li>
 </ul>
-<p>Availability:</p>
+<p>Availability (development version):</p>
 <ul class="simple">
 <li>Configuration Interaction (CIS): GAMESS, Gaussian, Jaguar</li>
 <li>Time-dependent DFT (TD-DFT): Gaussian</li>
@@ -292,15 +290,14 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="etsecs">
 <h2>etsecs<a class="headerlink" href="#etsecs" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>The singly-excited configurations that contribute to electronic transitions are stored in <tt class="docutils literal"><span class="pre">etsecs</span></tt>. It is a list (for each electronic transition from the reference ground state) of lists (for each singly-excited configuration) with three members each:</dt>
-<dd><ul class="first last simple">
+<p>The singly-excited configurations that contribute to electronic transitions are stored in <tt class="docutils literal"><span class="pre">etsecs</span></tt>. It is a list (for each electronic transition from the reference ground state) of lists (for each singly-excited configuration) with three members each:</p>
+<blockquote>
+<div><ul class="simple">
 <li>a tuple (moindex, alpha/beta), which indicates the MO where the transition begins</li>
 <li>a tuple (moindex, alpha/beta), which indicates the MO where the transition ends</li>
 <li>a float (which can be negative), the coefficient of this singly-excited configuration</li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 <p>In these tuples, the value of alpha/beta is 0 or 1, respectively. For a restricted calculation, this value is always 0, although some programs (GAMESS) sometimes print coefficients for both alpha and beta electrons.</p>
 <p>The excitation coefficient is always converted to its unnormalized value by cclib - so the sum of the squared coefficients of all alpha and beta excitations should be unity. It is important to keep in mind, however, that only the square of the excitation coefficient has a physical meaning, and its sign depends on the numerical procedures used by each program.</p>
 <p>Availability:</p>
@@ -345,7 +342,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="fooverlaps">
 <h2>fooverlaps<a class="headerlink" href="#fooverlaps" title="Permalink to this headline">¶</a></h2>
-<p>Fooverlaps is a 2-dimensional Numeric array that holds numerical values for the spacial overlap between basis functions. It is very similar to [[aooverlaps]], but differs because of the way ADF performs the calculation (see below for more details). The matrix indices correspond to the fragment orbitals; see the examples listed for [[aonames]].</p>
+<p>Fooverlaps is a 2-dimensional array that holds numerical values for the spacial overlap between basis functions. It is very similar to [[aooverlaps]], but differs because of the way ADF performs the calculation (see below for more details). The matrix indices correspond to the fragment orbitals; see the examples listed for [[aonames]].</p>
 <p><strong>Background</strong></p>
 <p>ADF uses symmetry-adapted fragment orbitals (SFOs) as its basis. These SFOs are generally orthonormal linear combinations of atomic orbitals. This makes it difficult to determine which individual atomic orbitals form the basis in calculations that have any symmetry. In addition, ADF allows &#8220;fragment&#8221; calculations which use the molecular orbitals of the fragments (FOs, or fragment orbitals) for building up the calculated molecular orbitals.</p>
 <p>The difficulty in handling the basis for a molecule with symmetry and the availability of extra information in the fragment calculations makes using aooverlaps (as specified for the other formats) inappropriate, except for certain circumstances. Therefore, an extra member called fooverlaps is available for the ADF parser.</p>
@@ -386,7 +383,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="geotargets">
 <span id="index-1"></span><h2>geotargets<a class="headerlink" href="#geotargets" title="Permalink to this headline">¶</a></h2>
-<p>Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in a Numeric array of length <tt class="docutils literal"><span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute [[geovalues]].</p>
+<p>Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length <tt class="docutils literal"><span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute [[geovalues]].</p>
 <dl class="docutils">
 <dt>In <strong>GAMESS UK</strong>, the geometry convergence criteria for OPTIMIZE are:</dt>
 <dd><ul class="first last simple">
@@ -434,7 +431,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="geovalues">
 <span id="index-2"></span><h2>geovalues<a class="headerlink" href="#geovalues" title="Permalink to this headline">¶</a></h2>
-<p>These are the current values for the criteria used to determine whether a geometry has converged in the course of a geometry optimisation. It is a Numeric array of dimensions <tt class="docutils literal"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">m</span></tt> is the number of geometry optimisation iterations and <tt class="docutils literal"><span class="pre">n</span></tt> the number of target criteria.</p>
+<p>These are the current values for the criteria used to determine whether a geometry has converged in the course of a geometry optimisation. It is an array of dimensions <tt class="docutils literal"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">m</span></tt> is the number of geometry optimisation iterations and <tt class="docutils literal"><span class="pre">n</span></tt> the number of target criteria.</p>
 <p>Note that many programs print atomic coordinates before and after a geomtry optimization, which means that there will not necessarily be <tt class="docutils literal"><span class="pre">m</span></tt> elements in <a class="reference internal" href="#atomcoords">atomcoords</a>.</p>
 <p>If the optimization has finished successfully, the values in the last row should be smaller than the values in <a class="reference internal" href="#geotargets">geotargets</a> (unless the convergence criteria require otherwise).</p>
 </div>
@@ -591,13 +588,18 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="mpenergies">
 <h2>mpenergies<a class="headerlink" href="#mpenergies" title="Permalink to this headline">¶</a></h2>
-<p>The attribute <tt class="docutils literal"><span class="pre">mpenergies</span></tt> holds the total molecule energies including Möller-Plesset correlation energy corrections in a two-dimensional array. The array&#8217;s shape is (n,L), where <tt class="docutils literal"><span class="pre">n</span></tt> is 1 for single point calculations and larger for optimizations, and <tt class="docutils literal"><span class="pre">L</span></tt> is the order at which the correction is truncated. The order of elements is ascending, so a single point MP5 calculation will yield mpenergies as <tt class="docutils literal"><span class="pre">[[E&lt;sub&gt;MP2&lt;/sub&gt;,</span> <span class="pre">E&lt;sub&gt;MP3&lt;/sub&gt;,</span> <span class="pre">E&lt;sub&gt;MP4&lt;/sub&gt;,</span> <span class="pre">E&lt;sub&gt;MP5&lt;/sub&gt;]]</span></tt>.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">mpenergies</span></tt> holds the total molecule energies including Möller-Plesset correlation energy corrections in a two-dimensional array. The array&#8217;s shape is (n,L), where <tt class="docutils literal"><span class="pre">n</span></tt> is 1 for single point calculations and larger for optimizations, and <tt class="docutils literal"><span class="pre">L</span></tt> is the order at which the correction is truncated. The order of elements is ascending, so a single point MP5 calculation will yield mpenergies as <math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow><msub><mi>E</mi>
+<mrow><mi>M</mi><mi>P</mi><mn>2</mn></mrow></msub><mo>,</mo><msub><mi>E</mi>
+<mrow><mi>M</mi><mi>P</mi><mn>3</mn></mrow></msub><mo>,</mo><msub><mi>E</mi>
+<mrow><mi>M</mi><mi>P</mi><mn>4</mn></mrow></msub><mo>,</mo><msub><mi>E</mi>
+<mrow><mi>M</mi><mi>P</mi><mn>5</mn></mrow></msub></mrow></math>.</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">ADF</span></tt>: does not perform such calculations.</li>
-<li><tt class="docutils literal"><span class="pre">GAMESS</span></tt>: second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calcualtions in PC-GAMESS (use <tt class="docutils literal"><span class="pre">mplevl=n</span></tt> in the <tt class="docutils literal"><span class="pre">$contrl</span></tt> section).</li>
-<li><tt class="docutils literal"><span class="pre">GAMESS-UK</span></tt>: MP2 through MP3 corrections are avaialbe.</li>
-<li><tt class="docutils literal"><span class="pre">Gaussian</span></tt>: MP2 through MP5 energies are available using the <tt class="docutils literal"><span class="pre">MP</span></tt> keyword. For MP4 corrections, the energy with the most substitutions is used (SDTQ by default).</li>
-<li><tt class="docutils literal"><span class="pre">Jaguar</span></tt>: the LMP2 is available.</li>
+<li><strong>ADF</strong>: does not perform such calculations.</li>
+<li><strong>GAMESS</strong>: second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calcualtions in PC-GAMESS (use <tt class="docutils literal"><span class="pre">mplevl=n</span></tt> in the <tt class="docutils literal"><span class="pre">$contrl</span></tt> section).</li>
+<li><strong>GAMESS-UK</strong>: MP2 through MP3 corrections are avaialbe.</li>
+<li><strong>Gaussian</strong>: MP2 through MP5 energies are available using the <tt class="docutils literal"><span class="pre">MP</span></tt> keyword. For MP4 corrections, the energy with the most substitutions is used (SDTQ by default).</li>
+<li><strong>Jaguar</strong>: the LMP2 is available.</li>
 </ul>
 </div>
 <div class="section" id="mult">
@@ -630,7 +632,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="scftargets">
 <h2>scftargets<a class="headerlink" href="#scftargets" title="Permalink to this headline">¶</a></h2>
-<p>Target values for criteria for determining whether the SCF has converged, whose values are stored in a Numeric array of dimension <tt class="docutils literal"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">m</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of geometry optimisation cycles (1 for a single point calculation) and <tt class="docutils literal"><span class="pre">m</span></tt> is the number of criteria.</p>
+<p>Target values for criteria for determining whether the SCF has converged, whose values are stored in an array of dimension <tt class="docutils literal"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">m</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of geometry optimisation cycles (1 for a single point calculation) and <tt class="docutils literal"><span class="pre">m</span></tt> is the number of criteria.</p>
 <p>The criteria vary from program to program, and depending on the program they may be constant for the whole of a geometry optimisation or they may be different for each geometry optimisation cycle. A more complete description follows.</p>
 <p>Gaussian:</p>
 <ul class="simple">
@@ -667,7 +669,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="scfvalues">
 <h2>scfvalues<a class="headerlink" href="#scfvalues" title="Permalink to this headline">¶</a></h2>
-<p>The attribute <tt class="docutils literal"><span class="pre">scfvalues</span></tt> is a list (one element for each step in a geometry optimisation) of Numeric arrays of dimension <tt class="docutils literal"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">m</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of SCF cycles required for convergence and <tt class="docutils literal"><span class="pre">m</span></tt> is the number of SCF convergence target criteria.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">scfvalues</span></tt> is a list (one element for each step in a geometry optimisation) of arrays of dimension <tt class="docutils literal"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">m</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of SCF cycles required for convergence and <tt class="docutils literal"><span class="pre">m</span></tt> is the number of SCF convergence target criteria.</p>
 <p>For some packages, you may need to include a directive to make sure that SCF convergence information is printed to the log file:
 * Gaussian requires the [<a class="reference external" href="http://www.gaussian.com/g_tech/g_ur/k_route.htm">http://www.gaussian.com/g_tech/g_ur/k_route.htm</a> route section] to start with #P
 * GAMESS UK requires IPRINT SCF</p>
