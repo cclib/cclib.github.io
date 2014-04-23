@@ -2,7 +2,7 @@
 attributes     ADF            GAMESS         GAMESSUK       Gaussian       Jaguar         Molpro         NWChem         ORCA           Psi            
 ============== ============== ============== ============== ============== ============== ============== ============== ============== ============== 
 aonames        N/A            √              √              √              √              √              T/D            √              T/D            
-aooverlaps     √              √              √              √              √              √              √              √              T/D            
+aooverlaps     √              √              √              √              √              √              √              √              N/P            
 atombasis      T/D            √              √              √              √              √              √              √              T/D            
 atomcharges    √              √              √              √              √              √              √              √              T/D            
 atomcoords     √              √              √              √              √              √              √              √              √              

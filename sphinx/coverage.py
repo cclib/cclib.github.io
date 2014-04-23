@@ -42,7 +42,7 @@ if __name__ == "__main__":
     print(dashes)
 
     # Eventually we want to move this to cclib.
-    not_available = {
+    not_applicable = {
         'ADF' : ['aonames', 'aooverlaps', 'ccenergies', 'mpenergies'],
         'GAMESS' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
         'GAMESSUK' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
@@ -52,6 +52,9 @@ if __name__ == "__main__":
         'NWChem' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
         'ORCA' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
         'Psi' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
+    }
+    not_possible = {
+        'Psi' : ['aooverlaps'],
     }
 
     # For each attribute, get a list of Boolean values for each parser that flags if it has
@@ -64,8 +67,10 @@ if __name__ == "__main__":
             if p:
                 parsed[ip] = "√"
             else:
-                if attr in not_available[parsers[ip]]:
+                if attr in not_applicable.get(parsers[ip], []):
                     parsed[ip] = "N/A"
+                elif attr in not_possible.get(parsers[ip], []):
+                    parsed[ip] = "N/P"
                 else:
                     parsed[ip] = "T/D"
         print(colfmt*ncols % tuple([attr] + parsed))
