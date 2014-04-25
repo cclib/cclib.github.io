@@ -11,8 +11,11 @@ if __name__ == "__main__":
     check_cclib(cclib)
 
     # Change directory to where tests are and import testall correctly.
+    # Because there are separate directories for different branches/versions,
+    # we are taking the easy way out and require the directory containing
+    # tests to be passed as an argument (the only one).
     thispath = os.path.dirname(os.path.realpath(__file__))
-    testpath = thispath + '/_build/cclib/test/'
+    testpath = sys.argv[1]
     os.chdir(testpath)
     sys.path.append('.')
     from testall import parsers, testall

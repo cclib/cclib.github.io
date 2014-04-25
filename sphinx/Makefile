@@ -14,7 +14,7 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
-.PHONY: help clean attributes coverage html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
+.PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
 
 default: cclib update attributes coverage html copy
 copy:
@@ -44,38 +44,67 @@ help:
 
 clean:
 	-rm -rf $(BUILDDIR)/*
-	-rm -rf cclib
+	-rm -rf cclib*
 	-rm -rf attributes*.rst
 	-rm -rf converage*.rst
 
-cclib:
-	-rm -rf $(BUILDDIR)/cclib
-	-rm -rf  cclib
-	git clone git@github.com:cclib/cclib.git $(BUILDDIR)/cclib
-	ln -s $(BUILDDIR)/cclib/src/cclib
-
-update:
-	cd cclib; git fetch --all; git checkout master; git pull; git checkout $(PRODUCTION_VERSION); git pull; cd ..
-
 PRODUCTION_VERSION = v1.2
+CCLIB_PROD = $(BUILDDIR)/cclib_prod
+CCLIB_DEV = $(BUILDDIR)/cclib_dev
+SRC_PROD = $(CCLIB_PROD)/src/cclib
+SRC_DEV = $(CCLIB_DEV)/src/cclib
 
-attributes: attributes.rst attributes_dev.rst
-attributes_dev.rst: attributes.py
-	cd cclib; git checkout master; git pull; find . -type d -name __pycache__ | xargs rm -rf; cd ..
-	python3 attributes.py > $@
-attributes.rst: attributes.py
-	cd cclib; git checkout $(PRODUCTION_VERSION); cd ..
-	python3 attributes.py > $@
-	cd cclib; git checkout master; cd ..
+# Have the production and masterin two separate directories so that
+# dependencies are triggered correctly. If we had one, it would not
+# work correctly, since git updates timestamps on each checkout, which
+# would trigger some targets unnecessarily.
+.PHONY: cclib
+cclib: $(CCLIB_PROD) $(CCLIB_DEV)
+$(CCLIB_PROD):
+	git clone -b $(PRODUCTION_VERSION) git@github.com:cclib/cclib.git $@
+$(CCLIB_DEV):
+	git clone -b master git@github.com:cclib/cclib.git $@
 
-coverage: coverage.rst coverage_dev.rst
-coverage_dev.rst: coverage.py
-	cd cclib; git checkout master; git pull; find . -type d -name __pycache__ | xargs rm -rf; cd ..
-	python3 coverage.py > $@
-coverage.rst: coverage.py
-	cd cclib; git checkout $(PRODUCTION_VERSION); cd ..
-	python3 coverage.py > $@
-	cd cclib; git checkout master; cd ..
+.PHONY: update update_prod update_dev
+update: update_prod update_dev
+update_prod:
+	cd $(CCLIB_PROD); git pull; git fetch --all
+update_dev:
+	cd $(CCLIB_DEV); git pull; git fetch --all
+
+# Since we have two separate directories, 'checking out' a branch actually
+# means making a symlink to the appropriate directory, because scripts should be
+# impervious to this Makefile and will import from always the same name (cclib).
+.PHONY:
+checkout_prod:
+	-rm -rf cclib
+	ln -s $(SRC_PROD) cclib
+checkout_dev:
+	-rm -rf cclib
+	ln -s $(SRC_DEV) cclib
+
+# We need three layers of targets in order to always get the checkout
+# to execute, but the actual file-generating target to run only if the
+# appropriate files have been updated (resolved via the right symlink).
+.PHONY: attributes
+attributes: attributes_prod attributes_dev
+attributes_prod: checkout_prod attributes.rst
+attributes_dev: checkout_dev attributes_dev.rst
+attributes.rst: attributes.py $(SRC_PROD)/parser/data.py
+	python3 attributes.py > $@
+attributes_dev.rst: attributes.py $(SRC_DEV)/parser/data.py
+	python3 attributes.py > $@
+
+# Same as above, we need three layers of targets, since this script
+# especially takes some time as it performs all the tests.
+.PHONY: coverage
+coverage: coverage_prod coverage_dev
+coverage_prod: checkout_prod coverage.rst
+coverage_dev: checkout_dev coverage_dev.rst
+coverage.rst: coverage.py $(wildcard $(SRC_PROD)/parser/*parser.py) $(CCLIB_PROD)/test/*.py
+	python3 coverage.py $(CCLIB_PROD)/test > $@
+coverage_dev.rst: coverage.py $(wildcard $(SRC_PROD)/parser/*parser.py) $(CCLIB_DEV)/test/*.py
+	python3 coverage.py $(CCLIB_DEV)/test > $@
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html

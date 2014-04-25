@@ -12,7 +12,7 @@ atomspins      T/D            T/D            T/D            T/D            T/D  
 ccenergies     N/A            √              T/D            √              T/D            √              T/D            
 charge         √              √              √              √              √              √              √              
 coreelectrons  √              √              √              √              √              √              √              
-enthaply       T/D            T/D            T/D            √              T/D            T/D            T/D            
+enthaply       T/D            T/D            T/D            T/D            T/D            T/D            T/D            
 entropy        T/D            T/D            T/D            √              T/D            T/D            T/D            
 etenergies     √              √              T/D            √              √              T/D            √              
 etoscs         √              √              T/D            √              √              T/D            √              
