@@ -13,7 +13,7 @@ The goals of cclib are centered around the reuse of data contained in output fil
 Summary
 -------
 
-The current version is **cclib 1.2b** (see the changelog_ for what's new) and parses output files from several programs:
+The current version is **cclib 1.2** (see the changelog_ for what's new) and parses output files from several programs:
 
 - ADF_
 - Firefly_ (formerly PC GAMESS)
@@ -29,7 +29,7 @@ Many types of output data are parsed by cclib, including atom coordinates, orbit
 How to use cclib
 ----------------
 
-You can download the `source package for cclib 1.2b`_ or the `current development version`_ (from the `github repository`_). For information on packages available in various Linux distribution, installing the source code and requirements, as well as basic usage, the tutorial_ is a good place to start.
+You can download the `source package for cclib 1.2`_ or the `current development version`_ (from the `github repository`_). For information on packages available in various Linux distribution, installing the source code and requirements, as well as basic usage, the tutorial_ is a good place to start.
 
 If you need further help, find a bug, need new features or have any question, please send email to the `mailing list`_ or submit an issue to the `tracker`_.
 
@@ -64,7 +64,7 @@ If you use cclib in your scientific work, please support our work by adding a re
 .. _Molpro: http://www.molpro.net/
 .. _ORCA: http://www.thch.uni-bonn.de/tc/orca/
 
-.. _`source package for cclib 1.2b`: https://github.com/cclib/cclib/releases/download/v1.2b/cclib-1.2b.zip
+.. _`source package for cclib 1.2`: https://github.com/cclib/cclib/releases/download/v1.2/cclib-1.2.zip
 .. _`current development version`: https://github.com/cclib/cclib/archive/master.zip
 .. _`github repository`: https://github.com/cclib/cclib
 .. _`mailing list`: https://lists.sourceforge.net/lists/listinfo/cclib-users
