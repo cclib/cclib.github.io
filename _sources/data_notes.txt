@@ -251,10 +251,12 @@ geotargets
 Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length ``n``, where ``n`` is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute [[geovalues]].
 
 In **GAMESS UK**, the geometry convergence criteria for OPTIMIZE are:
- * maximum change in variables  <  TOL
- * average change in variables  <  TOL * 2/3
- * maximum gradient             <  TOL * 4/9
- * average gradient             <  TOL * 8/27
+
+* maximum change in variables  <  TOL
+* average change in variables  <  TOL * 2/3
+* maximum gradient             <  TOL * 4/9
+* average gradient             <  TOL * 8/27
+
 where TOL defaults to 0.003 and is set by the XTOL directive.
 
 For OPTXYZ, tol defaults to 0.001, and the criteria appears to be simply the maximum gradient, although this is not clear from the manual.
@@ -262,11 +264,12 @@ For OPTXYZ, tol defaults to 0.001, and the criteria appears to be simply the max
 For more info, see http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node12.html.
 
 **Jaguar** has the following geometry convergence criteria:
- * gconv1: maximum element of gradient (4.5E-04)
- * gconv2: rms of gradient elements (3.0E-04)
- * gconv5: maximum element of nuclear displacement (1.8E-03)
- * gconv6: rms of nuclear displacement elements (1.2E-03)
- * gconv7: difference between final energies from previous and current geometry optimization iterations (5.0E-05)
+
+* gconv1: maximum element of gradient (4.5E-04)
+* gconv2: rms of gradient elements (3.0E-04)
+* gconv5: maximum element of nuclear displacement (1.8E-03)
+* gconv6: rms of nuclear displacement elements (1.2E-03)
+* gconv7: difference between final energies from previous and current geometry optimization iterations (5.0E-05)
 
 Note that a value for gconv7 is not available until the second iteration, so it is set to zero in the first element of [[geovalues]].
 
@@ -277,10 +280,11 @@ Note that a value for gconv7 is not available until the second iteration, so it 
 .. _`manual`: https://www.molpro.net/info/2012.1/doc/manual/node592.html
 
 **ORCA** tracks the change in energy as well as RMS and maximum gradients and displacements. As of version 3.0, an optimization is considered converged when all the tolerances are met, and there are four exceptions:
- * the energy is within 25x the tolerance and all other criteria are met
- * the gradients are overachieved (1/3 of the tolerance) and displacements are reasonable (at most 3x the tolerance)
- * the displacements are overachieved (1/3 of the tolerance) and the gradients are reasonable (at most 3x the tolerance)
- * the energy gradients and internal coordinates are converged (bond distances, angles, dihedrals and impropers)
+
+* the energy is within 25x the tolerance and all other criteria are met
+* the gradients are overachieved (1/3 of the tolerance) and displacements are reasonable (at most 3x the tolerance)
+* the displacements are overachieved (1/3 of the tolerance) and the gradients are reasonable (at most 3x the tolerance)
+* the energy gradients and internal coordinates are converged (bond distances, angles, dihedrals and impropers)
 
 .. index::
     single: geomtry optimization; geovalues (attribute)
@@ -319,9 +323,8 @@ mocoeffs
 
 Examples:
 
-mocoeffs[0][2,5] -- The coefficient of the 6th basis function of the 3rd alpha molecular orbital
-
-mocoeffs[1][:,0] -- An array of the 1st basis function coefficients for the every beta molecular orbital
+* ``mocoeffs[0][2,5]`` -- The coefficient of the 6th basis function of the 3rd alpha molecular orbital
+* ``mocoeffs[1][:,0]`` -- An array of the 1st basis function coefficients for the every beta molecular orbital
 
 Note: For restricted calculation, ``mocoeffs`` is still a list, but it only contains a single rank 2 array so you access the matrix with mocoeffs[0].
 
@@ -335,9 +338,9 @@ moenergies
 
 ``moenergies`` is a list of rank 1 arrays containing the molecular orbital energies in eV. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations.
 
-* GAMESS-UK - need to use FORMAT HIGH if you want information on all of the eigenvalues to be available (see the [http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000 manual] for more information).
+* **GAMESS-UK** - need to use FORMAT HIGH if you want information on all of the eigenvalues to be available (see the [http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000 manual] for more information).
 
-* Jaguar - the first ten virtual orbitals are printed by default; in order to print more of them, use the ``ipvirt`` keyword in the input file, with ``ipvirt=-1`` printing all virtual orbitals (see the [http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675 manual] for more information).
+* **Jaguar** - the first ten virtual orbitals are printed by default; in order to print more of them, use the ``ipvirt`` keyword in the input file, with ``ipvirt=-1`` printing all virtual orbitals (see the [http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675 manual] for more information).
 
 .. index::
     single: molecular orbitals; mosyms (attribute)
@@ -419,7 +422,7 @@ scfenergies
 
 The attribute ``scfenergies`` is an array containing the converged SCF energies of the calculation, in eV. For an optimization log file, there will be as many elements in this array as there were optimization steps.
 
-* ``Molpro``: typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.
+***Molpro*** typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.
 
 scftargets
 ----------
@@ -428,25 +431,7 @@ Target values for criteria for determining whether the SCF has converged, whose 
 
 The criteria vary from program to program, and depending on the program they may be constant for the whole of a geometry optimisation or they may be different for each geometry optimisation cycle. A more complete description follows.
 
-Gaussian:
-
-* The RMS change in the density matrix elements. Default is 1.0E-4 (1.0E-8 for geo opts).
-* The maximum change in the density matrix elements. Default is 1.0E-2 (1.0E-6 for geo opts).
-* The change in energy. Default is 5.0E-05 (1.0E-06 for geo opts).
-
-GAMESS:
-
-* Maximum and root-mean-square (RMS) density matrix change: starts from 5.0E-05 by default and changes over the course of a geometry optimisation. ROHF calcualtions use SQCDF instead of the standard RMS change.
-
-Jaguar 4.2:
-
-The Jaguar 4.2 targets depend on whether it is a geometry optimisation or not:
-* For geometry optimisation and hyper/polarisability, the rms change in the density matrix elements is used as a criterion (controlled by the ``dconv`` keyword). Default is 5.0E6.
-* The energy convergence criterion (keyword ``econv``) is ignored for geometry optimisation calculations but is used for SCF calculations. Default is 5.0E5, except for hyper/polarisability where it is 1.0E6.
-
-(Note sure how correct this is - but it's taken from the manual)
-
-ADF:
+**ADF**:
 
 * Maximum element A < target criterion
 * Norm A < 10 * target criterion
@@ -466,9 +451,23 @@ The value of the target criterion depends on the calculation:
 
 (There is some information in the ADF manual [http://www.scm.com/Doc/Doc2005.01/ADF/ADFUsersGuide/page124.html#keyscheme%20SCF here].)
 
-GAMESS-UK:
+**GAMESS**: Maximum and root-mean-square (RMS) density matrix change: starts from 5.0E-05 by default and changes over the course of a geometry optimisation. ROHF calcualtions use SQCDF instead of the standard RMS change.
 
-According to http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node6.html, SCF convergence is determined by convergence of the elements of density matrix. The default value is 1E-5, but it appears to be 1E-7 for geoopts.
+**GAMESS-UK**: According to http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node6.html, SCF convergence is determined by convergence of the elements of density matrix. The default value is 1E-5, but it appears to be 1E-7 for geoopts.
+
+**Gaussian**:
+
+* The RMS change in the density matrix elements. Default is 1.0E-4 (1.0E-8 for geo opts).
+* The maximum change in the density matrix elements. Default is 1.0E-2 (1.0E-6 for geo opts).
+* The change in energy. Default is 5.0E-05 (1.0E-06 for geo opts).
+
+**Jaguar 4.2**
+
+The Jaguar 4.2 targets depend on whether it is a geometry optimisation or not:
+* For geometry optimisation and hyper/polarisability, the rms change in the density matrix elements is used as a criterion (controlled by the ``dconv`` keyword). Default is 5.0E6.
+* The energy convergence criterion (keyword ``econv``) is ignored for geometry optimisation calculations but is used for SCF calculations. Default is 5.0E5, except for hyper/polarisability where it is 1.0E6.
+
+(Note sure how correct this is - but it's taken from the manual)
 
 scfvalues
 ---------

@@ -384,30 +384,24 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <div class="section" id="geotargets">
 <span id="index-1"></span><h2>geotargets<a class="headerlink" href="#geotargets" title="Permalink to this headline">¶</a></h2>
 <p>Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length <tt class="docutils literal"><span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute [[geovalues]].</p>
-<dl class="docutils">
-<dt>In <strong>GAMESS UK</strong>, the geometry convergence criteria for OPTIMIZE are:</dt>
-<dd><ul class="first last simple">
+<p>In <strong>GAMESS UK</strong>, the geometry convergence criteria for OPTIMIZE are:</p>
+<ul class="simple">
 <li>maximum change in variables  &lt;  TOL</li>
 <li>average change in variables  &lt;  TOL * 2/3</li>
 <li>maximum gradient             &lt;  TOL * 4/9</li>
 <li>average gradient             &lt;  TOL * 8/27</li>
 </ul>
-</dd>
-</dl>
 <p>where TOL defaults to 0.003 and is set by the XTOL directive.</p>
 <p>For OPTXYZ, tol defaults to 0.001, and the criteria appears to be simply the maximum gradient, although this is not clear from the manual.</p>
 <p>For more info, see <a class="reference external" href="http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node12.html">http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node12.html</a>.</p>
-<dl class="docutils">
-<dt><strong>Jaguar</strong> has the following geometry convergence criteria:</dt>
-<dd><ul class="first last simple">
+<p><strong>Jaguar</strong> has the following geometry convergence criteria:</p>
+<ul class="simple">
 <li>gconv1: maximum element of gradient (4.5E-04)</li>
 <li>gconv2: rms of gradient elements (3.0E-04)</li>
 <li>gconv5: maximum element of nuclear displacement (1.8E-03)</li>
 <li>gconv6: rms of nuclear displacement elements (1.2E-03)</li>
 <li>gconv7: difference between final energies from previous and current geometry optimization iterations (5.0E-05)</li>
 </ul>
-</dd>
-</dl>
 <p>Note that a value for gconv7 is not available until the second iteration, so it is set to zero in the first element of [[geovalues]].</p>
 <p><strong>Molpro</strong> has custom convergence criteria, as described in the <a class="reference external" href="https://www.molpro.net/info/2012.1/doc/manual/node592.html">manual</a>:</p>
 <blockquote>
@@ -418,16 +412,13 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <mrow><mo>-</mo><mn>6</mn></mrow></msup></mrow></math> [H] or the maximum component of the gradient to be less then $ 3 cdot 10^{-4}$ [a.u.] and the maximum component of the step to be less then <math xmlns="http://www.w3.org/1998/Math/MathML">
 <mrow><mn>3</mn><mo>⋅</mo><mn>1</mn><msup><mn>0</mn>
 <mrow><mo>-</mo><mn>4</mn></mrow></msup></mrow></math> [a.u.].</div></blockquote>
-<dl class="docutils">
-<dt><strong>ORCA</strong> tracks the change in energy as well as RMS and maximum gradients and displacements. As of version 3.0, an optimization is considered converged when all the tolerances are met, and there are four exceptions:</dt>
-<dd><ul class="first last simple">
+<p><strong>ORCA</strong> tracks the change in energy as well as RMS and maximum gradients and displacements. As of version 3.0, an optimization is considered converged when all the tolerances are met, and there are four exceptions:</p>
+<ul class="simple">
 <li>the energy is within 25x the tolerance and all other criteria are met</li>
 <li>the gradients are overachieved (1/3 of the tolerance) and displacements are reasonable (at most 3x the tolerance)</li>
 <li>the displacements are overachieved (1/3 of the tolerance) and the gradients are reasonable (at most 3x the tolerance)</li>
 <li>the energy gradients and internal coordinates are converged (bond distances, angles, dihedrals and impropers)</li>
 </ul>
-</dd>
-</dl>
 </div>
 <div class="section" id="geovalues">
 <span id="index-2"></span><h2>geovalues<a class="headerlink" href="#geovalues" title="Permalink to this headline">¶</a></h2>
@@ -450,8 +441,10 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <span id="index-4"></span><h2>mocoeffs<a class="headerlink" href="#mocoeffs" title="Permalink to this headline">¶</a></h2>
 <p><tt class="docutils literal"><span class="pre">mocoeffs</span></tt> is a list of rank 2 arrays containing the molecular orbital coefficients. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations. For the array(s) in the list, the first axis corresponds to molecular orbitals, and the second corresponds to basis functions.</p>
 <p>Examples:</p>
-<p>mocoeffs[0][2,5] &#8211; The coefficient of the 6th basis function of the 3rd alpha molecular orbital</p>
-<p>mocoeffs[1][:,0] &#8211; An array of the 1st basis function coefficients for the every beta molecular orbital</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">mocoeffs[0][2,5]</span></tt> &#8211; The coefficient of the 6th basis function of the 3rd alpha molecular orbital</li>
+<li><tt class="docutils literal"><span class="pre">mocoeffs[1][:,0]</span></tt> &#8211; An array of the 1st basis function coefficients for the every beta molecular orbital</li>
+</ul>
 <p>Note: For restricted calculation, <tt class="docutils literal"><span class="pre">mocoeffs</span></tt> is still a list, but it only contains a single rank 2 array so you access the matrix with mocoeffs[0].</p>
 <ul class="simple">
 <li>GAMESS UK - need to use FORMAT HIGH if you want information on all of the eigenvalues to be available (see the [<a class="reference external" href="http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000">http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000</a> manual] for more info). Unfortunately, for unrestricted calculations FORMAT HIGH does not increase the number of orbitals for which the molecular orbital coefficents are printed. Note that there may be more orbital information on the alpha orbitals compared to the beta orbitals, and as a result, the extra beta molecular orbital coefficients for which information is not available will be padded out with zeros.</li>
@@ -461,8 +454,8 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <span id="index-5"></span><h2>moenergies<a class="headerlink" href="#moenergies" title="Permalink to this headline">¶</a></h2>
 <p><tt class="docutils literal"><span class="pre">moenergies</span></tt> is a list of rank 1 arrays containing the molecular orbital energies in eV. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations.</p>
 <ul class="simple">
-<li>GAMESS-UK - need to use FORMAT HIGH if you want information on all of the eigenvalues to be available (see the [<a class="reference external" href="http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000">http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000</a> manual] for more information).</li>
-<li>Jaguar - the first ten virtual orbitals are printed by default; in order to print more of them, use the <tt class="docutils literal"><span class="pre">ipvirt</span></tt> keyword in the input file, with <tt class="docutils literal"><span class="pre">ipvirt=-1</span></tt> printing all virtual orbitals (see the [<a class="reference external" href="http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675">http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675</a> manual] for more information).</li>
+<li><strong>GAMESS-UK</strong> - need to use FORMAT HIGH if you want information on all of the eigenvalues to be available (see the [<a class="reference external" href="http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000">http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000</a> manual] for more information).</li>
+<li><strong>Jaguar</strong> - the first ten virtual orbitals are printed by default; in order to print more of them, use the <tt class="docutils literal"><span class="pre">ipvirt</span></tt> keyword in the input file, with <tt class="docutils literal"><span class="pre">ipvirt=-1</span></tt> printing all virtual orbitals (see the [<a class="reference external" href="http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675">http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675</a> manual] for more information).</li>
 </ul>
 </div>
 <div class="section" id="mosyms">
@@ -626,30 +619,13 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <div class="section" id="scfenergies">
 <h2>scfenergies<a class="headerlink" href="#scfenergies" title="Permalink to this headline">¶</a></h2>
 <p>The attribute <tt class="docutils literal"><span class="pre">scfenergies</span></tt> is an array containing the converged SCF energies of the calculation, in eV. For an optimization log file, there will be as many elements in this array as there were optimization steps.</p>
-<ul class="simple">
-<li><tt class="docutils literal"><span class="pre">Molpro</span></tt>: typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.</li>
-</ul>
+<p><strong>*Molpro*</strong> typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.</p>
 </div>
 <div class="section" id="scftargets">
 <h2>scftargets<a class="headerlink" href="#scftargets" title="Permalink to this headline">¶</a></h2>
 <p>Target values for criteria for determining whether the SCF has converged, whose values are stored in an array of dimension <tt class="docutils literal"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">m</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of geometry optimisation cycles (1 for a single point calculation) and <tt class="docutils literal"><span class="pre">m</span></tt> is the number of criteria.</p>
 <p>The criteria vary from program to program, and depending on the program they may be constant for the whole of a geometry optimisation or they may be different for each geometry optimisation cycle. A more complete description follows.</p>
-<p>Gaussian:</p>
-<ul class="simple">
-<li>The RMS change in the density matrix elements. Default is 1.0E-4 (1.0E-8 for geo opts).</li>
-<li>The maximum change in the density matrix elements. Default is 1.0E-2 (1.0E-6 for geo opts).</li>
-<li>The change in energy. Default is 5.0E-05 (1.0E-06 for geo opts).</li>
-</ul>
-<p>GAMESS:</p>
-<ul class="simple">
-<li>Maximum and root-mean-square (RMS) density matrix change: starts from 5.0E-05 by default and changes over the course of a geometry optimisation. ROHF calcualtions use SQCDF instead of the standard RMS change.</li>
-</ul>
-<p>Jaguar 4.2:</p>
-<p>The Jaguar 4.2 targets depend on whether it is a geometry optimisation or not:
-* For geometry optimisation and hyper/polarisability, the rms change in the density matrix elements is used as a criterion (controlled by the <tt class="docutils literal"><span class="pre">dconv</span></tt> keyword). Default is 5.0E6.
-* The energy convergence criterion (keyword <tt class="docutils literal"><span class="pre">econv</span></tt>) is ignored for geometry optimisation calculations but is used for SCF calculations. Default is 5.0E5, except for hyper/polarisability where it is 1.0E6.</p>
-<p>(Note sure how correct this is - but it&#8217;s taken from the manual)</p>
-<p>ADF:</p>
+<p><strong>ADF</strong>:</p>
 <ul class="simple">
 <li>Maximum element A &lt; target criterion</li>
 <li>Norm A &lt; 10 * target criterion</li>
@@ -664,8 +640,19 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <p>:: new_convcriteria = max(SCFconv, min(old_convcriteria, grdmax/30, 10**(-accint))) )</p>
 <p>:where old_convcriteria is the value from the previous geometry cycle, grdmax is the max gradient from the last geometry cycle and accint is the current integration accuracy.</p>
 <p>(There is some information in the ADF manual [<a class="reference external" href="http://www.scm.com/Doc/Doc2005.01/ADF/ADFUsersGuide/page124.html#keyscheme%20SCF">http://www.scm.com/Doc/Doc2005.01/ADF/ADFUsersGuide/page124.html#keyscheme%20SCF</a> here].)</p>
-<p>GAMESS-UK:</p>
-<p>According to <a class="reference external" href="http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node6.html">http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node6.html</a>, SCF convergence is determined by convergence of the elements of density matrix. The default value is 1E-5, but it appears to be 1E-7 for geoopts.</p>
+<p><strong>GAMESS</strong>: Maximum and root-mean-square (RMS) density matrix change: starts from 5.0E-05 by default and changes over the course of a geometry optimisation. ROHF calcualtions use SQCDF instead of the standard RMS change.</p>
+<p><strong>GAMESS-UK</strong>: According to <a class="reference external" href="http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node6.html">http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node6.html</a>, SCF convergence is determined by convergence of the elements of density matrix. The default value is 1E-5, but it appears to be 1E-7 for geoopts.</p>
+<p><strong>Gaussian</strong>:</p>
+<ul class="simple">
+<li>The RMS change in the density matrix elements. Default is 1.0E-4 (1.0E-8 for geo opts).</li>
+<li>The maximum change in the density matrix elements. Default is 1.0E-2 (1.0E-6 for geo opts).</li>
+<li>The change in energy. Default is 5.0E-05 (1.0E-06 for geo opts).</li>
+</ul>
+<p><strong>Jaguar 4.2</strong></p>
+<p>The Jaguar 4.2 targets depend on whether it is a geometry optimisation or not:
+* For geometry optimisation and hyper/polarisability, the rms change in the density matrix elements is used as a criterion (controlled by the <tt class="docutils literal"><span class="pre">dconv</span></tt> keyword). Default is 5.0E6.
+* The energy convergence criterion (keyword <tt class="docutils literal"><span class="pre">econv</span></tt>) is ignored for geometry optimisation calculations but is used for SCF calculations. Default is 5.0E5, except for hyper/polarisability where it is 1.0E6.</p>
+<p>(Note sure how correct this is - but it&#8217;s taken from the manual)</p>
 </div>
 <div class="section" id="scfvalues">
 <h2>scfvalues<a class="headerlink" href="#scfvalues" title="Permalink to this headline">¶</a></h2>
