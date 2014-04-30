@@ -36,7 +36,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     ncols = len(parsers)+1
-    colwidth = 15
+    colwidth = 18
     colfmt = "%%-%is" % colwidth
     dashes = ("="*(colwidth-1) + " ") * ncols
 
@@ -76,6 +76,10 @@ if __name__ == "__main__":
                     parsed[ip] = "N/P"
                 else:
                     parsed[ip] = "T/D"
-        print(colfmt*ncols % tuple([attr] + parsed))
+        print(colfmt*ncols % tuple(["`%s`_" % attr] + parsed))
 
     print(dashes)
+    print()
+
+    for attr in attributes:
+        print(".. _`%s`: data_notes.html#%s" % (attr, attr))
