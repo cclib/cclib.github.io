@@ -349,6 +349,18 @@ moenergies
 .. index::
     single: molecular orbitals; mosyms (attribute)
 
+moments
+-------
+
+This attribute contains the dipole moment vector and any higher electrostatic multipole moments for the whole molecule. It comprises a list of one dimensional arrays,
+
+* the first is the reference point used in the multipole expansion, which is normally the center of mass,
+* the second is the dipole moment vector, in Debyes (:math:`\mathbf{\mathrm{D}}`),
+* the third array contains the raw molecular quadrupole moments in lexicographical order, that is the XX, XY, XZ, YY, YZ and ZZ moments, in Buckinghams (:math:`\mathbf{\mathrm{B}}`),
+* any further arrays contain the raw molecular multipole moments of higher rank, in lexicographical order and in units of :math:`\mathbf{\mathrm{D}} \cdot Å^{L-1} = 10^{-10} \mathrm{esu} \cdot Å^L`
+
+Note that by default cclib will provide the last moments printed, if several are printed in the course of a geometry optimization or other job type involving several more than one geometry. For post-Hartree-Fock calculations, such as MP2 or coupled cluster, the uncorrelated moments are reported if none are printed for the final wavefunction.
+
 mosyms
 ------
 

@@ -102,6 +102,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#homos">homos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mocoeffs">mocoeffs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#moenergies">moenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#moments">moments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mosyms">mosyms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mpenergies">mpenergies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mult">mult</a></li>
@@ -460,8 +461,27 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <li><strong>Jaguar</strong> - the first ten virtual orbitals are printed by default; in order to print more of them, use the <tt class="docutils literal"><span class="pre">ipvirt</span></tt> keyword in the input file, with <tt class="docutils literal"><span class="pre">ipvirt=-1</span></tt> printing all virtual orbitals (see the [<a class="reference external" href="http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675">http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675</a> manual] for more information).</li>
 </ul>
 </div>
+<div class="section" id="moments">
+<span id="index-6"></span><h2>moments<a class="headerlink" href="#moments" title="Permalink to this headline">¶</a></h2>
+<p>This attribute contains the dipole moment vector and any higher electrostatic multipole moments for the whole molecule. It comprises a list of one dimensional arrays,</p>
+<ul class="simple">
+<li>the first is the reference point used in the multipole expansion, which is normally the center of mass,</li>
+<li>the second is the dipole moment vector, in Debyes (<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow><mstyle fontweight="bold">
+<mrow><mtext>D</mtext></mrow></mstyle></mrow></math>),</li>
+<li>the third array contains the raw molecular quadrupole moments in lexicographical order, that is the XX, XY, XZ, YY, YZ and ZZ moments, in Buckinghams (<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow><mstyle fontweight="bold">
+<mrow><mtext>B</mtext></mrow></mstyle></mrow></math>),</li>
+<li>any further arrays contain the raw molecular multipole moments of higher rank, in lexicographical order and in units of <math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow><mstyle fontweight="bold">
+<mrow><mtext>D</mtext></mrow></mstyle><mo>⋅</mo><msup><mi>Å</mi>
+<mrow><mi>L</mi><mo>-</mo><mn>1</mn></mrow></msup><mo>=</mo><mn>1</mn><msup><mn>0</mn>
+<mrow><mo>-</mo><mn>1</mn><mn>0</mn></mrow></msup><mtext>esu</mtext><mo>⋅</mo><msup><mi>Å</mi><mi>L</mi></msup></mrow></math></li>
+</ul>
+<p>Note that by default cclib will provide the last moments printed, if several are printed in the course of a geometry optimization or other job type involving several more than one geometry. For post-Hartree-Fock calculations, such as MP2 or coupled cluster, the uncorrelated moments are reported if none are printed for the final wavefunction.</p>
+</div>
 <div class="section" id="mosyms">
-<span id="index-6"></span><h2>mosyms<a class="headerlink" href="#mosyms" title="Permalink to this headline">¶</a></h2>
+<h2>mosyms<a class="headerlink" href="#mosyms" title="Permalink to this headline">¶</a></h2>
 <p>For unrestricted calculations, <tt class="docutils literal"><span class="pre">mosyms</span></tt> is a list of two lists (i.e. [ [<tt class="docutils literal"><span class="pre">alpha_syms</span></tt>] [<tt class="docutils literal"><span class="pre">beta_syms</span></tt>] ]) containing strings for the orbital symmetries arranged in order of energy. In a restricted calculation, it takes the form [ [<tt class="docutils literal"><span class="pre">syms</span></tt>] ]. The symmetry labels are normalised to use standard labels (see examples below).</p>
 <p>Examples:</p>
 <blockquote>
