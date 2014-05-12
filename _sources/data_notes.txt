@@ -71,7 +71,7 @@ The attribute ``atommasses`` contains the masses of all atoms in unified atomic 
 atomnos
 -------
 
-The array of integers in ``atomnos`` containes the atomic numbers, or number of protons in the atom nuclei.
+An array of integers for the atomic numbers, or the number of protons in the atom nuclei.
 
 atomspins
 ---------
@@ -83,12 +83,12 @@ Currently, cclib parses Mulliken and Lowdin spin densities, whose respective dic
 ccenergies
 ----------
 
-The atttribute ``ccenergies`` is a one-dimensional array holds the total molecule energies including Coupled Cluster corrections. The array's length is 1 for single point calculations and larger for optimizations. Only the highest theory level is parsed into this attribute (for example, CCSD energies as opposed to CCD energies, or CCSD(T) as opposed to CCSD energies).
+A one-dimensional array holds the total molecule energies including Coupled Cluster corrections. The array's length is 1 for single point calculations and larger for optimizations. Only the highest theory level is parsed into this attribute (for example, CCSD energies as opposed to CCD energies, or CCSD(T) as opposed to CCSD energies).
 
 charge
 ------
 
-The attribute ``charge`` contains the net charge of the calculated system, in units of ``e``.
+Net charge of the calculated system, in units of ``e``.
 
 coreelectrons
 -------------
@@ -235,11 +235,15 @@ This attribute stores information about the Gaussian basis functions that were u
 
 Some programs print basis set details by deault, but for others you will need to include various keywords in order for ``gbasis`` to be parsed:
 
-* Gaussian - `GFINPUT`_ should be used (note that `GFPRINT`_ gives equivalent information in a different format and at the moment this output is ignored but may be supported in the future).
-* GAMESS - no special keywords are required, but the basis is only available for symmetry inequivalent atoms. There does not seem to be any way to get GAMESS to say which atoms are related through symmetry. As a result, if you want to get basis set info for every atom, you need to reduce the symmetry to C<sub>1</sub>.
-* GAMESS UK - As for GAMESS
-* Jaguar - for more information see the [http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223 manual].
-* ORCA - include `Print[ P_Basis ] 2` in the `output` block
+**Gaussian**: `GFINPUT`_ should be used (note that `GFPRINT`_ gives equivalent information in a different format and at the moment this output is ignored but may be supported in the future).
+
+**GAMESS**: no special keywords are required, but the basis is only available for symmetry inequivalent atoms. There does not seem to be any way to get GAMESS to say which atoms are related through symmetry. As a result, if you want to get basis set info for every atom, you need to reduce the symmetry to C<sub>1</sub>.
+
+**GAMESS-UK**: same as for GAMESS above
+
+**Jaguar**: for more information see manual at http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223 manual
+
+**ORCA**: include `Print[ P_Basis ] 2` in the `output` block
 
 .. _`GFINPUT`: http://www.gaussian.com/g_tech/g_ur/k_gfinput.htm
 .. _`GFPRINT`: http://www.gaussian.com/g_tech/g_ur/k_gfprint.htm
@@ -305,7 +309,7 @@ If the optimization has finished successfully, the values in the last row should
 hessian
 -------
 
-The attribute ``hessian`` is an array of rank 1 that contains the elements of [http://en.wikipedia.org/wiki/Hessian_matrix hessian] or the force constant matrix. Only the lower triangular part of the 3Nx3N matrix is stored (this may change in the future, maybe also only the force-constant , unwighted matrix will be parsed).
+An array of rank 1 that contains the elements of [http://en.wikipedia.org/wiki/Hessian_matrix hessian] or the force constant matrix. Only the lower triangular part of the 3Nx3N matrix is stored (this may change in the future, maybe also only the force-constant , unwighted matrix will be parsed).
 
 * currently available only in ``Molpro``
 
@@ -315,7 +319,7 @@ The attribute ``hessian`` is an array of rank 1 that contains the elements of [h
 homos
 -----
 
-The attribute ``homos`` is a 1D array that holds the indexes of the highest occupied molecular orbitals (HOMOs), which contains one element for restricted and two elements for unrestricted calculations. These indexes can be applied to other attributes describing molecular orbitals, such as [[moenergies]] and [[mocoeffs]].
+A 1D array that holds the indexes of the highest occupied molecular orbitals (HOMOs), which contains one element for restricted and two elements for unrestricted calculations. These indexes can be applied to other attributes describing molecular orbitals, such as [[moenergies]] and [[mocoeffs]].
 
 .. index::
     single: molecular orbitals; mocoeffs (attribute)
@@ -323,7 +327,7 @@ The attribute ``homos`` is a 1D array that holds the indexes of the highest occu
 mocoeffs
 --------
 
-``mocoeffs`` is a list of rank 2 arrays containing the molecular orbital coefficients. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations. For the array(s) in the list, the first axis corresponds to molecular orbitals, and the second corresponds to basis functions.
+A list of rank 2 arrays containing the molecular orbital coefficients. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations. For the array(s) in the list, the first axis corresponds to molecular orbitals, and the second corresponds to basis functions.
 
 Examples:
 
@@ -340,11 +344,13 @@ Note: For restricted calculation, ``mocoeffs`` is still a list, but it only cont
 moenergies
 ----------
 
-``moenergies`` is a list of rank 1 arrays containing the molecular orbital energies in eV. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations.
+A list of rank 1 arrays containing the molecular orbital energies in eV. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations.
 
-* **GAMESS-UK** - need to use FORMAT HIGH if you want information on all of the eigenvalues to be available (see the [http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000 manual] for more information).
+**GAMESS-UK**: use `FORMAT HIGH`_ if you want all of the eigenvalues printed.
 
-* **Jaguar** - the first ten virtual orbitals are printed by default; in order to print more of them, use the ``ipvirt`` keyword in the input file, with ``ipvirt=-1`` printing all virtual orbitals (see the [http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675 manual] for more information).
+**Jaguar**: the first ten virtual orbitals are printed by default. In order to print more, use the ``ipvirt`` keyword, with ``ipvirt=-1`` printing all virtual orbitals.
+
+.. _`FORMAT HIGH`: http://www.cfs.dl.ac.uk/docs/html/part3/node8.html#SECTION00083000000000000000
 
 .. index::
     single: molecular orbitals; mosyms (attribute)
@@ -364,9 +370,9 @@ Note that by default cclib will provide the last moments printed, if several are
 mosyms
 ------
 
-For unrestricted calculations, ``mosyms`` is a list of two lists (i.e. [ [``alpha_syms``] [``beta_syms``] ]) containing strings for the orbital symmetries arranged in order of energy. In a restricted calculation, it takes the form [ [``syms``] ]. The symmetry labels are normalised to use standard labels (see examples below).
+For unrestricted calculations, this is a list of two lists containing alpha and beta symmetries (i.e. ``[[alpha_syms],[beta_syms]]``) containing strings for the orbital symmetries, arranged in order of energy. In a restricted calculation, there is only one nested list (``[[syms]]``).
 
-Examples:
+The symmetry labels are normalised and cclib reporteds standard symmetry names:
 
     ======= ======= ======= ==========  ==================          ======
     cclib   ADF     GAMESS  GAMESS-UK   Gaussian                    Jaguar
@@ -399,11 +405,15 @@ mpenergies
 
 The attribute ``mpenergies`` holds the total molecule energies including Möller-Plesset correlation energy corrections in a two-dimensional array. The array's shape is (n,L), where ``n`` is 1 for single point calculations and larger for optimizations, and ``L`` is the order at which the correction is truncated. The order of elements is ascending, so a single point MP5 calculation will yield mpenergies as :math:`E_{MP2}, E_{MP3}, E_{MP4}, E_{MP5}`.
 
-* **ADF**: does not perform such calculations.
-* **GAMESS**: second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calcualtions in PC-GAMESS (use ``mplevl=n`` in the ``$contrl`` section).
-* **GAMESS-UK**: MP2 through MP3 corrections are avaialbe.
-* **Gaussian**: MP2 through MP5 energies are available using the ``MP`` keyword. For MP4 corrections, the energy with the most substitutions is used (SDTQ by default).
-* **Jaguar**: the LMP2 is available.
+**ADF**: does not perform such calculations.
+
+**GAMESS**: second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calcualtions in PC-GAMESS (use ``mplevl=n`` in the ``$contrl`` section).
+
+**GAMESS-UK**: MP2 through MP3 corrections are avaialbe.
+
+**Gaussian**: MP2 through MP5 energies are available using the ``MP`` keyword. For MP4 corrections, the energy with the most substitutions is used (SDTQ by default).
+
+**Jaguar**: the LMP2 is available.
 
 mult
 ----
@@ -415,30 +425,34 @@ natom
 
 ``Natom`` is an integer, the number of atoms treated in the calculation.
 
-.. index::
-    single: basis sets; nbasis (attribute)
-
 nbasis
 ------
 
-The attribute ``nbasis`` is an integer representing the number of basis functions used in the calculation.
+An integer representing the number of basis functions used in the calculation.
+
+.. index::
+    single: basis sets; nbasis (attribute)
 
 nmo
 ---
 
-The ``nmo`` attribute gives the number of molecular orbitals in the calculation. It is an integer and is typically equal to ``[[nbasis]]``, but may be less than this if a linear dependency was identified between the basis functions.
+The number of molecular orbitals in the calculation. It is an integer and is typically equal to ``[[nbasis]]``, but may be less than this if a linear dependency was identified between the basis functions.
 
 Commands to get information on all orbitals:
 
-* GAMESS-UK only usually prints information on the 5 lowest virtual orbitals. "FORMAT HIGH" should make it do this for all of the orbitals, although GAMESS-UK 7.0 has a bug that means that this only works for restricted calculations.
-* Jaguar - the first ten virtual orbitals are printed by default; in order to print more of them, use the ``ipvirt`` keyword in the input file, with ``ipvirt=-1`` printing all virtual orbitals (see the [http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675 manual] for more information).
+**GAMESS-UK**: only usually prints information on the 5 lowest virtual orbitals. "FORMAT HIGH" should make it do this for all of the orbitals, although GAMESS-UK 7.0 has a bug that means that this only works for restricted calculations.
+
+**Jaguar**: the first ten virtual orbitals are printed by default; in order to print more of them, use the ``ipvirt`` keyword in the input file, with ``ipvirt=-1`` printing all virtual orbitals (see the [http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675 manual] for more information).
+
+.. index::
+    single: basis sets; nmo (attribute)
 
 scfenergies
 -----------
 
-The attribute ``scfenergies`` is an array containing the converged SCF energies of the calculation, in eV. For an optimization log file, there will be as many elements in this array as there were optimization steps.
+An array containing the converged SCF energies of the calculation, in eV. For an optimization log file, there will be as many elements in this array as there were optimization steps.
 
-***Molpro*** typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.
+**Molpro**: typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.
 
 scftargets
 ----------
@@ -491,8 +505,10 @@ scfvalues
 The attribute ``scfvalues`` is a list (one element for each step in a geometry optimisation) of arrays of dimension ``n x m``, where ``n`` is the number of SCF cycles required for convergence and ``m`` is the number of SCF convergence target criteria.
 
 For some packages, you may need to include a directive to make sure that SCF convergence information is printed to the log file:
-* Gaussian requires the [http://www.gaussian.com/g_tech/g_ur/k_route.htm route section] to start with #P
-* GAMESS UK requires IPRINT SCF
+
+**Gaussian**: requires the route section to start with #P (http://www.gaussian.com/g_tech/g_ur/k_route.htm route section)
+
+**GAMESS-UK**: requires IPRINT SCF
 
 vibdisps
 --------

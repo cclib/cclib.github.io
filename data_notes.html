@@ -238,7 +238,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="atomnos">
 <h2>atomnos<a class="headerlink" href="#atomnos" title="Permalink to this headline">¶</a></h2>
-<p>The array of integers in <tt class="docutils literal"><span class="pre">atomnos</span></tt> containes the atomic numbers, or number of protons in the atom nuclei.</p>
+<p>An array of integers for the atomic numbers, or the number of protons in the atom nuclei.</p>
 </div>
 <div class="section" id="atomspins">
 <h2>atomspins<a class="headerlink" href="#atomspins" title="Permalink to this headline">¶</a></h2>
@@ -247,11 +247,11 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="ccenergies">
 <h2>ccenergies<a class="headerlink" href="#ccenergies" title="Permalink to this headline">¶</a></h2>
-<p>The atttribute <tt class="docutils literal"><span class="pre">ccenergies</span></tt> is a one-dimensional array holds the total molecule energies including Coupled Cluster corrections. The array&#8217;s length is 1 for single point calculations and larger for optimizations. Only the highest theory level is parsed into this attribute (for example, CCSD energies as opposed to CCD energies, or CCSD(T) as opposed to CCSD energies).</p>
+<p>A one-dimensional array holds the total molecule energies including Coupled Cluster corrections. The array&#8217;s length is 1 for single point calculations and larger for optimizations. Only the highest theory level is parsed into this attribute (for example, CCSD energies as opposed to CCD energies, or CCSD(T) as opposed to CCSD energies).</p>
 </div>
 <div class="section" id="charge">
 <h2>charge<a class="headerlink" href="#charge" title="Permalink to this headline">¶</a></h2>
-<p>The attribute <tt class="docutils literal"><span class="pre">charge</span></tt> contains the net charge of the calculated system, in units of <tt class="docutils literal"><span class="pre">e</span></tt>.</p>
+<p>Net charge of the calculated system, in units of <tt class="docutils literal"><span class="pre">e</span></tt>.</p>
 </div>
 <div class="section" id="coreelectrons">
 <h2>coreelectrons<a class="headerlink" href="#coreelectrons" title="Permalink to this headline">¶</a></h2>
@@ -375,13 +375,11 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </dl>
 </div></blockquote>
 <p>Some programs print basis set details by deault, but for others you will need to include various keywords in order for <tt class="docutils literal"><span class="pre">gbasis</span></tt> to be parsed:</p>
-<ul class="simple">
-<li>Gaussian - <a class="reference external" href="http://www.gaussian.com/g_tech/g_ur/k_gfinput.htm">GFINPUT</a> should be used (note that <a class="reference external" href="http://www.gaussian.com/g_tech/g_ur/k_gfprint.htm">GFPRINT</a> gives equivalent information in a different format and at the moment this output is ignored but may be supported in the future).</li>
-<li>GAMESS - no special keywords are required, but the basis is only available for symmetry inequivalent atoms. There does not seem to be any way to get GAMESS to say which atoms are related through symmetry. As a result, if you want to get basis set info for every atom, you need to reduce the symmetry to C&lt;sub&gt;1&lt;/sub&gt;.</li>
-<li>GAMESS UK - As for GAMESS</li>
-<li>Jaguar - for more information see the [<a class="reference external" href="http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223">http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223</a> manual].</li>
-<li>ORCA - include <cite>Print[ P_Basis ] 2</cite> in the <cite>output</cite> block</li>
-</ul>
+<p><strong>Gaussian</strong>: <a class="reference external" href="http://www.gaussian.com/g_tech/g_ur/k_gfinput.htm">GFINPUT</a> should be used (note that <a class="reference external" href="http://www.gaussian.com/g_tech/g_ur/k_gfprint.htm">GFPRINT</a> gives equivalent information in a different format and at the moment this output is ignored but may be supported in the future).</p>
+<p><strong>GAMESS</strong>: no special keywords are required, but the basis is only available for symmetry inequivalent atoms. There does not seem to be any way to get GAMESS to say which atoms are related through symmetry. As a result, if you want to get basis set info for every atom, you need to reduce the symmetry to C&lt;sub&gt;1&lt;/sub&gt;.</p>
+<p><strong>GAMESS-UK</strong>: same as for GAMESS above</p>
+<p><strong>Jaguar</strong>: for more information see manual at <a class="reference external" href="http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223">http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223</a> manual</p>
+<p><strong>ORCA</strong>: include <cite>Print[ P_Basis ] 2</cite> in the <cite>output</cite> block</p>
 <p><strong>Development note</strong>: It also needs to be noted whether any D and F functions are pure (5D, 7F) or Cartesian (6D, 10F). PyQuante can only handle Cartesian functions, but we should extract this information in any case. We will need to extend the PyQuante basis set format to include this.</p>
 </div>
 <div class="section" id="geotargets">
@@ -431,18 +429,18 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="hessian">
 <h2>hessian<a class="headerlink" href="#hessian" title="Permalink to this headline">¶</a></h2>
-<p>The attribute <tt class="docutils literal"><span class="pre">hessian</span></tt> is an array of rank 1 that contains the elements of [<a class="reference external" href="http://en.wikipedia.org/wiki/Hessian_matrix">http://en.wikipedia.org/wiki/Hessian_matrix</a> hessian] or the force constant matrix. Only the lower triangular part of the 3Nx3N matrix is stored (this may change in the future, maybe also only the force-constant , unwighted matrix will be parsed).</p>
+<p>An array of rank 1 that contains the elements of [<a class="reference external" href="http://en.wikipedia.org/wiki/Hessian_matrix">http://en.wikipedia.org/wiki/Hessian_matrix</a> hessian] or the force constant matrix. Only the lower triangular part of the 3Nx3N matrix is stored (this may change in the future, maybe also only the force-constant , unwighted matrix will be parsed).</p>
 <ul class="simple">
 <li>currently available only in <tt class="docutils literal"><span class="pre">Molpro</span></tt></li>
 </ul>
 </div>
 <div class="section" id="homos">
 <span id="index-3"></span><h2>homos<a class="headerlink" href="#homos" title="Permalink to this headline">¶</a></h2>
-<p>The attribute <tt class="docutils literal"><span class="pre">homos</span></tt> is a 1D array that holds the indexes of the highest occupied molecular orbitals (HOMOs), which contains one element for restricted and two elements for unrestricted calculations. These indexes can be applied to other attributes describing molecular orbitals, such as [[moenergies]] and [[mocoeffs]].</p>
+<p>A 1D array that holds the indexes of the highest occupied molecular orbitals (HOMOs), which contains one element for restricted and two elements for unrestricted calculations. These indexes can be applied to other attributes describing molecular orbitals, such as [[moenergies]] and [[mocoeffs]].</p>
 </div>
 <div class="section" id="mocoeffs">
 <span id="index-4"></span><h2>mocoeffs<a class="headerlink" href="#mocoeffs" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">mocoeffs</span></tt> is a list of rank 2 arrays containing the molecular orbital coefficients. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations. For the array(s) in the list, the first axis corresponds to molecular orbitals, and the second corresponds to basis functions.</p>
+<p>A list of rank 2 arrays containing the molecular orbital coefficients. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations. For the array(s) in the list, the first axis corresponds to molecular orbitals, and the second corresponds to basis functions.</p>
 <p>Examples:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">mocoeffs[0][2,5]</span></tt> &#8211; The coefficient of the 6th basis function of the 3rd alpha molecular orbital</li>
@@ -455,11 +453,9 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="moenergies">
 <span id="index-5"></span><h2>moenergies<a class="headerlink" href="#moenergies" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">moenergies</span></tt> is a list of rank 1 arrays containing the molecular orbital energies in eV. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations.</p>
-<ul class="simple">
-<li><strong>GAMESS-UK</strong> - need to use FORMAT HIGH if you want information on all of the eigenvalues to be available (see the [<a class="reference external" href="http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000">http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000</a> manual] for more information).</li>
-<li><strong>Jaguar</strong> - the first ten virtual orbitals are printed by default; in order to print more of them, use the <tt class="docutils literal"><span class="pre">ipvirt</span></tt> keyword in the input file, with <tt class="docutils literal"><span class="pre">ipvirt=-1</span></tt> printing all virtual orbitals (see the [<a class="reference external" href="http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675">http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675</a> manual] for more information).</li>
-</ul>
+<p>A list of rank 1 arrays containing the molecular orbital energies in eV. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations.</p>
+<p><strong>GAMESS-UK</strong>: use <a class="reference external" href="http://www.cfs.dl.ac.uk/docs/html/part3/node8.html#SECTION00083000000000000000">FORMAT HIGH</a> if you want all of the eigenvalues printed.</p>
+<p><strong>Jaguar</strong>: the first ten virtual orbitals are printed by default. In order to print more, use the <tt class="docutils literal"><span class="pre">ipvirt</span></tt> keyword, with <tt class="docutils literal"><span class="pre">ipvirt=-1</span></tt> printing all virtual orbitals.</p>
 </div>
 <div class="section" id="moments">
 <span id="index-6"></span><h2>moments<a class="headerlink" href="#moments" title="Permalink to this headline">¶</a></h2>
@@ -482,8 +478,8 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="mosyms">
 <h2>mosyms<a class="headerlink" href="#mosyms" title="Permalink to this headline">¶</a></h2>
-<p>For unrestricted calculations, <tt class="docutils literal"><span class="pre">mosyms</span></tt> is a list of two lists (i.e. [ [<tt class="docutils literal"><span class="pre">alpha_syms</span></tt>] [<tt class="docutils literal"><span class="pre">beta_syms</span></tt>] ]) containing strings for the orbital symmetries arranged in order of energy. In a restricted calculation, it takes the form [ [<tt class="docutils literal"><span class="pre">syms</span></tt>] ]. The symmetry labels are normalised to use standard labels (see examples below).</p>
-<p>Examples:</p>
+<p>For unrestricted calculations, this is a list of two lists containing alpha and beta symmetries (i.e. <tt class="docutils literal"><span class="pre">[[alpha_syms],[beta_syms]]</span></tt>) containing strings for the orbital symmetries, arranged in order of energy. In a restricted calculation, there is only one nested list (<tt class="docutils literal"><span class="pre">[[syms]]</span></tt>).</p>
+<p>The symmetry labels are normalised and cclib reporteds standard symmetry names:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -609,13 +605,11 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <mrow><mi>M</mi><mi>P</mi><mn>3</mn></mrow></msub><mo>,</mo><msub><mi>E</mi>
 <mrow><mi>M</mi><mi>P</mi><mn>4</mn></mrow></msub><mo>,</mo><msub><mi>E</mi>
 <mrow><mi>M</mi><mi>P</mi><mn>5</mn></mrow></msub></mrow></math>.</p>
-<ul class="simple">
-<li><strong>ADF</strong>: does not perform such calculations.</li>
-<li><strong>GAMESS</strong>: second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calcualtions in PC-GAMESS (use <tt class="docutils literal"><span class="pre">mplevl=n</span></tt> in the <tt class="docutils literal"><span class="pre">$contrl</span></tt> section).</li>
-<li><strong>GAMESS-UK</strong>: MP2 through MP3 corrections are avaialbe.</li>
-<li><strong>Gaussian</strong>: MP2 through MP5 energies are available using the <tt class="docutils literal"><span class="pre">MP</span></tt> keyword. For MP4 corrections, the energy with the most substitutions is used (SDTQ by default).</li>
-<li><strong>Jaguar</strong>: the LMP2 is available.</li>
-</ul>
+<p><strong>ADF</strong>: does not perform such calculations.</p>
+<p><strong>GAMESS</strong>: second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calcualtions in PC-GAMESS (use <tt class="docutils literal"><span class="pre">mplevl=n</span></tt> in the <tt class="docutils literal"><span class="pre">$contrl</span></tt> section).</p>
+<p><strong>GAMESS-UK</strong>: MP2 through MP3 corrections are avaialbe.</p>
+<p><strong>Gaussian</strong>: MP2 through MP5 energies are available using the <tt class="docutils literal"><span class="pre">MP</span></tt> keyword. For MP4 corrections, the energy with the most substitutions is used (SDTQ by default).</p>
+<p><strong>Jaguar</strong>: the LMP2 is available.</p>
 </div>
 <div class="section" id="mult">
 <h2>mult<a class="headerlink" href="#mult" title="Permalink to this headline">¶</a></h2>
@@ -626,22 +620,20 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <p><tt class="docutils literal"><span class="pre">Natom</span></tt> is an integer, the number of atoms treated in the calculation.</p>
 </div>
 <div class="section" id="nbasis">
-<span id="index-7"></span><h2>nbasis<a class="headerlink" href="#nbasis" title="Permalink to this headline">¶</a></h2>
-<p>The attribute <tt class="docutils literal"><span class="pre">nbasis</span></tt> is an integer representing the number of basis functions used in the calculation.</p>
+<h2>nbasis<a class="headerlink" href="#nbasis" title="Permalink to this headline">¶</a></h2>
+<p>An integer representing the number of basis functions used in the calculation.</p>
 </div>
 <div class="section" id="nmo">
-<h2>nmo<a class="headerlink" href="#nmo" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="docutils literal"><span class="pre">nmo</span></tt> attribute gives the number of molecular orbitals in the calculation. It is an integer and is typically equal to <tt class="docutils literal"><span class="pre">[[nbasis]]</span></tt>, but may be less than this if a linear dependency was identified between the basis functions.</p>
+<span id="index-7"></span><h2>nmo<a class="headerlink" href="#nmo" title="Permalink to this headline">¶</a></h2>
+<p>The number of molecular orbitals in the calculation. It is an integer and is typically equal to <tt class="docutils literal"><span class="pre">[[nbasis]]</span></tt>, but may be less than this if a linear dependency was identified between the basis functions.</p>
 <p>Commands to get information on all orbitals:</p>
-<ul class="simple">
-<li>GAMESS-UK only usually prints information on the 5 lowest virtual orbitals. &#8220;FORMAT HIGH&#8221; should make it do this for all of the orbitals, although GAMESS-UK 7.0 has a bug that means that this only works for restricted calculations.</li>
-<li>Jaguar - the first ten virtual orbitals are printed by default; in order to print more of them, use the <tt class="docutils literal"><span class="pre">ipvirt</span></tt> keyword in the input file, with <tt class="docutils literal"><span class="pre">ipvirt=-1</span></tt> printing all virtual orbitals (see the [<a class="reference external" href="http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675">http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675</a> manual] for more information).</li>
-</ul>
+<p><strong>GAMESS-UK</strong>: only usually prints information on the 5 lowest virtual orbitals. &#8220;FORMAT HIGH&#8221; should make it do this for all of the orbitals, although GAMESS-UK 7.0 has a bug that means that this only works for restricted calculations.</p>
+<p><strong>Jaguar</strong>: the first ten virtual orbitals are printed by default; in order to print more of them, use the <tt class="docutils literal"><span class="pre">ipvirt</span></tt> keyword in the input file, with <tt class="docutils literal"><span class="pre">ipvirt=-1</span></tt> printing all virtual orbitals (see the [<a class="reference external" href="http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675">http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675</a> manual] for more information).</p>
 </div>
 <div class="section" id="scfenergies">
-<h2>scfenergies<a class="headerlink" href="#scfenergies" title="Permalink to this headline">¶</a></h2>
-<p>The attribute <tt class="docutils literal"><span class="pre">scfenergies</span></tt> is an array containing the converged SCF energies of the calculation, in eV. For an optimization log file, there will be as many elements in this array as there were optimization steps.</p>
-<p><strong>*Molpro*</strong> typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.</p>
+<span id="index-8"></span><h2>scfenergies<a class="headerlink" href="#scfenergies" title="Permalink to this headline">¶</a></h2>
+<p>An array containing the converged SCF energies of the calculation, in eV. For an optimization log file, there will be as many elements in this array as there were optimization steps.</p>
+<p><strong>Molpro</strong>: typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.</p>
 </div>
 <div class="section" id="scftargets">
 <h2>scftargets<a class="headerlink" href="#scftargets" title="Permalink to this headline">¶</a></h2>
@@ -679,9 +671,9 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <div class="section" id="scfvalues">
 <h2>scfvalues<a class="headerlink" href="#scfvalues" title="Permalink to this headline">¶</a></h2>
 <p>The attribute <tt class="docutils literal"><span class="pre">scfvalues</span></tt> is a list (one element for each step in a geometry optimisation) of arrays of dimension <tt class="docutils literal"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">m</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of SCF cycles required for convergence and <tt class="docutils literal"><span class="pre">m</span></tt> is the number of SCF convergence target criteria.</p>
-<p>For some packages, you may need to include a directive to make sure that SCF convergence information is printed to the log file:
-* Gaussian requires the [<a class="reference external" href="http://www.gaussian.com/g_tech/g_ur/k_route.htm">http://www.gaussian.com/g_tech/g_ur/k_route.htm</a> route section] to start with #P
-* GAMESS UK requires IPRINT SCF</p>
+<p>For some packages, you may need to include a directive to make sure that SCF convergence information is printed to the log file:</p>
+<p><strong>Gaussian</strong>: requires the route section to start with #P (<a class="reference external" href="http://www.gaussian.com/g_tech/g_ur/k_route.htm">http://www.gaussian.com/g_tech/g_ur/k_route.htm</a> route section)</p>
+<p><strong>GAMESS-UK</strong>: requires IPRINT SCF</p>
 </div>
 <div class="section" id="vibdisps">
 <h2>vibdisps<a class="headerlink" href="#vibdisps" title="Permalink to this headline">¶</a></h2>
