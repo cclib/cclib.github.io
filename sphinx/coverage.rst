@@ -12,7 +12,7 @@ attributes        ADF               GAMESS            GAMESSUK          Gaussian
 `ccenergies`_     N/A               √                 T/D               √                 T/D               √                 T/D               
 `charge`_         √                 √                 √                 √                 √                 √                 √                 
 `coreelectrons`_  √                 √                 √                 √                 √                 √                 √                 
-`enthaply`_       T/D               T/D               T/D               T/D               T/D               T/D               T/D               
+`enthalpy`_       T/D               T/D               T/D               √                 T/D               T/D               T/D               
 `entropy`_        T/D               T/D               T/D               T/D               T/D               T/D               T/D               
 `etenergies`_     √                 √                 T/D               √                 √                 T/D               √                 
 `etoscs`_         √                 √                 T/D               √                 √                 T/D               √                 
@@ -67,7 +67,7 @@ attributes        ADF               GAMESS            GAMESSUK          Gaussian
 .. _`ccenergies`: data_notes.html#ccenergies
 .. _`charge`: data_notes.html#charge
 .. _`coreelectrons`: data_notes.html#coreelectrons
-.. _`enthaply`: data_notes.html#enthaply
+.. _`enthalpy`: data_notes.html#enthalpy
 .. _`entropy`: data_notes.html#entropy
 .. _`etenergies`: data_notes.html#etenergies
 .. _`etoscs`: data_notes.html#etoscs
