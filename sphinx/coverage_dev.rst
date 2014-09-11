@@ -1,7 +1,7 @@
 ================= ================= ================= ================= ================= ================= ================= ================= ================= ================= ================= 
 attributes        ADF               GAMESS            GAMESSUK          Gaussian          Jaguar            Molpro            NWChem            ORCA              Psi               QChem             
 ================= ================= ================= ================= ================= ================= ================= ================= ================= ================= ================= 
-`aonames`_        N/A               √                 √                 √                 T/D               √                 T/D               √                 T/D               T/D               
+`aonames`_        N/A               √                 √                 √                 √                 √                 T/D               √                 T/D               T/D               
 `aooverlaps`_     √                 √                 √                 √                 √                 √                 √                 √                 N/P               T/D               
 `atombasis`_      T/D               √                 √                 √                 √                 √                 √                 √                 √                 T/D               
 `atomcharges`_    √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
@@ -32,6 +32,7 @@ attributes        ADF               GAMESS            GAMESSUK          Gaussian
 `homos`_          √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `mocoeffs`_       √                 √                 √                 √                 √                 √                 √                 √                 √                 T/D               
 `moenergies`_     √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
+`moments`_        √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `mosyms`_         √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `mpenergies`_     N/A               √                 √                 √                 √                 √                 √                 T/D               √                 √                 
 `mult`_           √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
@@ -87,6 +88,7 @@ attributes        ADF               GAMESS            GAMESSUK          Gaussian
 .. _`homos`: data_notes.html#homos
 .. _`mocoeffs`: data_notes.html#mocoeffs
 .. _`moenergies`: data_notes.html#moenergies
+.. _`moments`: data_notes.html#moments
 .. _`mosyms`: data_notes.html#mosyms
 .. _`mpenergies`: data_notes.html#mpenergies
 .. _`mult`: data_notes.html#mult

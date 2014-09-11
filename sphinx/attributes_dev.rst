@@ -32,6 +32,7 @@
     `homos`_            molecular orbital indices of HOMO(s)                                                         array of rank 1
     `mocoeffs`_         molecular orbital coefficients                                                               list of arrays of rank 2
     `moenergies`_       molecular orbital energies                                       eV                          list of arrays of rank 1
+    `moments`_          molecular multipole moments                                      a.u.                        list of arrays[]
     `mosyms`_           orbital symmetries                                                                           list of lists
     `mpenergies`_       molecular electronic energies with Möller-Plesset corrections    eV                          array of rank 2
     `mult`_             multiplicity of the system                                                                   integer
@@ -87,6 +88,7 @@
 .. _`homos`: data_notes.html#homos
 .. _`mocoeffs`: data_notes.html#mocoeffs
 .. _`moenergies`: data_notes.html#moenergies
+.. _`moments`: data_notes.html#moments
 .. _`mosyms`: data_notes.html#mosyms
 .. _`mpenergies`: data_notes.html#mpenergies
 .. _`mult`: data_notes.html#mult
