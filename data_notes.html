@@ -374,7 +374,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </dl>
 </div></blockquote>
 <p>Some programs print basis set details by deault, but for others you will need to include various keywords in order for <tt class="docutils literal"><span class="pre">gbasis</span></tt> to be parsed:</p>
-<p><strong>Gaussian</strong>: <a class="reference external" href="http://www.gaussian.com/g_tech/g_ur/k_gfinput.htm">GFINPUT</a> should be used (note that <a class="reference external" href="http://www.gaussian.com/g_tech/g_ur/k_gfprint.htm">GFPRINT</a> gives equivalent information in a different format and at the moment this output is ignored but may be supported in the future).</p>
+<p><strong>Gaussian</strong>: the <a class="reference external" href="http://www.gaussian.com/g_tech/g_ur/k_gfinput.htm">GFINPUT</a> keyword should normally be used (<a class="reference external" href="http://www.gaussian.com/g_tech/g_ur/k_gfprint.htm">GFPRINT</a> gives equivalent information in a different format and is supported in cclib after v1.2).</p>
 <p><strong>GAMESS</strong>: no special keywords are required, but the basis is only available for symmetry inequivalent atoms. There does not seem to be any way to get GAMESS to say which atoms are related through symmetry. As a result, if you want to get basis set info for every atom, you need to reduce the symmetry to C&lt;sub&gt;1&lt;/sub&gt;.</p>
 <p><strong>GAMESS-UK</strong>: same as for GAMESS above</p>
 <p><strong>Jaguar</strong>: for more information see manual at <a class="reference external" href="http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223">http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223</a> manual</p>

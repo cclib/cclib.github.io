@@ -235,7 +235,7 @@ This attribute stores information about the Gaussian basis functions that were u
 
 Some programs print basis set details by deault, but for others you will need to include various keywords in order for ``gbasis`` to be parsed:
 
-**Gaussian**: `GFINPUT`_ should be used (note that `GFPRINT`_ gives equivalent information in a different format and at the moment this output is ignored but may be supported in the future).
+**Gaussian**: the `GFINPUT`_ keyword should normally be used (`GFPRINT`_ gives equivalent information in a different format and is supported in cclib after v1.2).
 
 **GAMESS**: no special keywords are required, but the basis is only available for symmetry inequivalent atoms. There does not seem to be any way to get GAMESS to say which atoms are related through symmetry. As a result, if you want to get basis set info for every atom, you need to reduce the symmetry to C<sub>1</sub>.
 
