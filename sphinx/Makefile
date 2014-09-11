@@ -68,9 +68,9 @@ $(CCLIB_DEV):
 .PHONY: update update_prod update_dev
 update: update_prod update_dev
 update_prod:
-	cd $(CCLIB_PROD); git pull; git fetch --all
+	cd $(CCLIB_PROD); git fetch --all --tags
 update_dev:
-	cd $(CCLIB_DEV); git pull; git fetch --all
+	cd $(CCLIB_DEV); git pull origin; git fetch --all --tags
 
 # Since we have two separate directories, 'checking out' a branch actually
 # means making a symlink to the appropriate directory, because scripts should be
