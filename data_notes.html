@@ -187,7 +187,7 @@
           <div role="main">
             
   <div class="section" id="parsed-data-notes">
-<h1>Parsed data notes<a class="headerlink" href="#parsed-data-notes" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1>Parsed data notes<a class="headerlink" href="#parsed-data-notes" title="Permalink to this headline">¶</a></h1>
 <p>This is a list of descriptions and notes for all the data currently parsed by cclib, either in the official release (1.2) or development branch. For a summary and details of the current implementation by the different parsers, please see the <a class="reference external" href="data.html">extracted
 data</a> page and its <a class="reference external" href="data_dev.html">development</a> version.</p>
 <div class="section" id="aonames">
@@ -212,7 +212,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <li><tt class="docutils literal"><span class="pre">aooverlaps[2,:]</span></tt> is a 1-dimensional array containing the overlap between every basis function and the 3rd basis function</li>
 </ul>
 <p><strong>Gaussian</strong>: iop(3/33=1) must be specified in the input file</p>
-<p><strong>ADF</strong>: Not present, because [[fooverlaps]] are used instead</p>
+<p><strong>ADF</strong>: Not present, because <a class="reference internal" href="#fooverlaps">fooverlaps</a> are used instead</p>
 </div>
 <div class="section" id="atombasis">
 <h2>atombasis<a class="headerlink" href="#atombasis" title="Permalink to this headline">¶</a></h2>
@@ -241,7 +241,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="atomspins">
 <h2>atomspins<a class="headerlink" href="#atomspins" title="Permalink to this headline">¶</a></h2>
-<p>The attribute <tt class="docutils literal"><span class="pre">atomspins</span></tt> contains the atomic spin densities as calculated in a population analysis and taken from the output file. Since these densities are arbitrary and depend on the particular population analysis, this attribute is dictionary. In analogy to [[atomcharges]], the keys in this dictionary are strings naming the population analysis, and the values are arrays of rank 1 and contain the actual spin densities.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">atomspins</span></tt> contains the atomic spin densities as calculated in a population analysis and taken from the output file. Since these densities are arbitrary and depend on the particular population analysis, this attribute is dictionary. In analogy to <a class="reference internal" href="#atomcharges">atomcharges</a>, the keys in this dictionary are strings naming the population analysis, and the values are arrays of rank 1 and contain the actual spin densities.</p>
 <p>Currently, cclib parses Mulliken and Lowdin spin densities, whose respective dictionary keys are <tt class="docutils literal"><span class="pre">mulliken</span></tt> and <tt class="docutils literal"><span class="pre">lowdin</span></tt>.</p>
 </div>
 <div class="section" id="ccenergies">
@@ -274,7 +274,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="etoscs">
 <h2>etoscs<a class="headerlink" href="#etoscs" title="Permalink to this headline">¶</a></h2>
-<p>The attribute <tt class="docutils literal"><span class="pre">etoscs</span></tt> is a rank 1 array that contains the oscillator strengths of transitions from the reference (ground) state to the excited electornic states of the of the molecule. As for [[etenergies]] and other attributes related to excited states, there should as many elements in this array as there are excited states in the calculation.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">etoscs</span></tt> is a rank 1 array that contains the oscillator strengths of transitions from the reference (ground) state to the excited electornic states of the of the molecule. As for <a class="reference internal" href="#etenergies">etenergies</a> and other attributes related to excited states, there should as many elements in this array as there are excited states in the calculation.</p>
 <p>Availability:</p>
 <ul class="simple">
 <li>Configuration Interaction (CIS): Gaussian</li>
@@ -315,7 +315,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="etsyms">
 <h2>etsyms<a class="headerlink" href="#etsyms" title="Permalink to this headline">¶</a></h2>
-<p>The attributes <tt class="docutils literal"><span class="pre">etsyms</span></tt> is a list containing the symmetries (strings) of the excited states found in the calculation. As for [[etenergies]] and other attributes related to excited states, there should be as many elements in this list as there are excited states in the calcualtion.</p>
+<p>The attributes <tt class="docutils literal"><span class="pre">etsyms</span></tt> is a list containing the symmetries (strings) of the excited states found in the calculation. As for <a class="reference internal" href="#etenergies">etenergies</a> and other attributes related to excited states, there should be as many elements in this list as there are excited states in the calcualtion.</p>
 <p>Note that while the symmetry descriptions start with the string <tt class="docutils literal"><span class="pre">Singlet</span></tt> or <tt class="docutils literal"><span class="pre">Triplet</span></tt>, the exact format differs between programs.</p>
 <p>Availability:</p>
 <ul class="simple">
@@ -333,7 +333,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <div class="section" id="fonames">
 <h2>fonames<a class="headerlink" href="#fonames" title="Permalink to this headline">¶</a></h2>
 <p>ADF uses symmetry-adapted fragment orbitals (SFOs) as its basis. These SFOs are generally orthonormal linear combinations of atomic orbitals. This makes it difficult to determine which individual atomic orbitals form the basis in calculations that have any symmetry. In addition, ADF allows &#8220;fragment&#8221; calculations which use the molecular orbitals of the fragments (FOs, or fragment orbitals) for building up the calculated molecular orbitals.</p>
-<p>The difficulty in handling the basis for a molecule with symmetry and the availability of extra information in the fragment calculations makes using [[aonames]] (as specified for the other formats) inappropriate, except for certain circumstances. Therefore, an extra member called fonames is available for the adfparser.</p>
+<p>The difficulty in handling the basis for a molecule with symmetry and the availability of extra information in the fragment calculations makes using <a class="reference internal" href="#aonames">aonames</a> (as specified for the other formats) inappropriate, except for certain circumstances. Therefore, an extra member called fonames is available for the adfparser.</p>
 <p>Some examples:</p>
 <p><tt class="docutils literal"><span class="pre">C1+C4_1S+1S</span></tt> - Orbitals from carbon 1 and carbon 4 can interact, and their <tt class="docutils literal"><span class="pre">1S</span></tt> orbitals mix in a positive manner</p>
 <p><tt class="docutils literal"><span class="pre">C1+C4_1Px-1Px</span></tt> - Orbitals from carbon 1 and carbon 4 can interact, and their <tt class="docutils literal"><span class="pre">1Px</span></tt> orbitals mix in a negative manner</p>
@@ -342,14 +342,14 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="fooverlaps">
 <h2>fooverlaps<a class="headerlink" href="#fooverlaps" title="Permalink to this headline">¶</a></h2>
-<p>Fooverlaps is a 2-dimensional array that holds numerical values for the spacial overlap between basis functions. It is very similar to [[aooverlaps]], but differs because of the way ADF performs the calculation (see below for more details). The matrix indices correspond to the fragment orbitals; see the examples listed for [[aonames]].</p>
+<p>Fooverlaps is a 2-dimensional array that holds numerical values for the spacial overlap between basis functions. It is very similar to <a class="reference internal" href="#aooverlaps">aooverlaps</a>, but differs because of the way ADF performs the calculation (see below for more details). The matrix indices correspond to the fragment orbitals; see the examples listed for <a class="reference internal" href="#aonames">aonames</a>.</p>
 <p><strong>Background</strong></p>
 <p>ADF uses symmetry-adapted fragment orbitals (SFOs) as its basis. These SFOs are generally orthonormal linear combinations of atomic orbitals. This makes it difficult to determine which individual atomic orbitals form the basis in calculations that have any symmetry. In addition, ADF allows &#8220;fragment&#8221; calculations which use the molecular orbitals of the fragments (FOs, or fragment orbitals) for building up the calculated molecular orbitals.</p>
 <p>The difficulty in handling the basis for a molecule with symmetry and the availability of extra information in the fragment calculations makes using aooverlaps (as specified for the other formats) inappropriate, except for certain circumstances. Therefore, an extra member called fooverlaps is available for the ADF parser.</p>
 <p><strong>ADF</strong>: There are no required inputfile options for fooverlaps to be suppored; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the <tt class="docutils literal"><span class="pre">Symmetry</span> <span class="pre">NOSYM</span></tt> option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that <tt class="docutils literal"><span class="pre">Eigval</span> <span class="pre">99999</span> <span class="pre">99999</span></tt> be put into an <tt class="docutils literal"><span class="pre">Eprint</span></tt> block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.</p>
 </div>
 <div class="section" id="gbasis">
-<span id="index-0"></span><h2>gbasis<a class="headerlink" href="#gbasis" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>gbasis<a class="headerlink" href="#gbasis" title="Permalink to this headline">¶</a></h2>
 <p>This attribute stores information about the Gaussian basis functions that were used in the calculation. The information is stored per atom using the same conventions as [<a class="reference external" href="http://pyquante.sf.net">http://pyquante.sf.net</a> PyQuante]. Specifically, <tt class="docutils literal"><span class="pre">gbasis</span></tt> is a list (per atom) of lists (per Gaussian basis function) of tuples of length 2 consisting of orbital type (e.g. &#8216;S&#8217;, &#8216;P&#8217; or &#8216;D&#8217;) and a list (per contracted GTO) of tuples of size 2 consisting of the exponent and coefficient. Confused? Well, here&#8217;s <tt class="docutils literal"><span class="pre">gbasis</span></tt> for a molecule consisting of a single C atom with a STO-3G basis:</p>
 <blockquote>
 <div><p>[ # per atom
@@ -382,8 +382,8 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <p><strong>Development note</strong>: It also needs to be noted whether any D and F functions are pure (5D, 7F) or Cartesian (6D, 10F). PyQuante can only handle Cartesian functions, but we should extract this information in any case. We will need to extend the PyQuante basis set format to include this.</p>
 </div>
 <div class="section" id="geotargets">
-<span id="index-1"></span><h2>geotargets<a class="headerlink" href="#geotargets" title="Permalink to this headline">¶</a></h2>
-<p>Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length <tt class="docutils literal"><span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute [[geovalues]].</p>
+<span id="index-2"></span><h2>geotargets<a class="headerlink" href="#geotargets" title="Permalink to this headline">¶</a></h2>
+<p>Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length <tt class="docutils literal"><span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute <a class="reference internal" href="#geovalues">geovalues</a>.</p>
 <p>In <strong>GAMESS UK</strong>, the geometry convergence criteria for OPTIMIZE are:</p>
 <ul class="simple">
 <li>maximum change in variables  &lt;  TOL</li>
@@ -402,7 +402,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <li>gconv6: rms of nuclear displacement elements (1.2E-03)</li>
 <li>gconv7: difference between final energies from previous and current geometry optimization iterations (5.0E-05)</li>
 </ul>
-<p>Note that a value for gconv7 is not available until the second iteration, so it is set to zero in the first element of [[geovalues]].</p>
+<p>Note that a value for gconv7 is not available until the second iteration, so it is set to zero in the first element of <a class="reference internal" href="#geovalues">geovalues</a>.</p>
 <p><strong>Molpro</strong> has custom convergence criteria, as described in the <a class="reference external" href="https://www.molpro.net/info/2012.1/doc/manual/node592.html">manual</a>:</p>
 <blockquote>
 <div>The standard MOLPRO convergency criterion requires the maximum component of the gradient to be less then  [a.u.] and the maximum energy change to be less than  [H] or the maximum component of the gradient to be less then $ 3 cdot 10^{-4}$ [a.u.] and the maximum component of the step to be less then  [a.u.].</div></blockquote>
@@ -415,9 +415,9 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </ul>
 </div>
 <div class="section" id="geovalues">
-<span id="index-2"></span><h2>geovalues<a class="headerlink" href="#geovalues" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>geovalues<a class="headerlink" href="#geovalues" title="Permalink to this headline">¶</a></h2>
 <p>These are the current values for the criteria used to determine whether a geometry has converged in the course of a geometry optimisation. It is an array of dimensions <tt class="docutils literal"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">m</span></tt> is the number of geometry optimisation iterations and <tt class="docutils literal"><span class="pre">n</span></tt> the number of target criteria.</p>
-<p>Note that many programs print atomic coordinates before and after a geomtry optimization, which means that there will not necessarily be <tt class="docutils literal"><span class="pre">m</span></tt> elements in <a class="reference internal" href="#atomcoords">atomcoords</a>.</p>
+<p>Note that many programs print atomic coordinates before and after a geomtry optimization, which means that there will not necessarily be <tt class="docutils literal"><span class="pre">m</span></tt> elements in <a href="#id1"><span class="problematic" id="id2">``</span></a>atomcoords``_.</p>
 <p>If the optimization has finished successfully, the values in the last row should be smaller than the values in <a class="reference internal" href="#geotargets">geotargets</a> (unless the convergence criteria require otherwise).</p>
 </div>
 <div class="section" id="hessian">
@@ -428,11 +428,11 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </ul>
 </div>
 <div class="section" id="homos">
-<span id="index-3"></span><h2>homos<a class="headerlink" href="#homos" title="Permalink to this headline">¶</a></h2>
-<p>A 1D array that holds the indexes of the highest occupied molecular orbitals (HOMOs), which contains one element for restricted and two elements for unrestricted calculations. These indexes can be applied to other attributes describing molecular orbitals, such as [[moenergies]] and [[mocoeffs]].</p>
+<span id="index-4"></span><h2>homos<a class="headerlink" href="#homos" title="Permalink to this headline">¶</a></h2>
+<p>A 1D array that holds the indexes of the highest occupied molecular orbitals (HOMOs), which contains one element for restricted and two elements for unrestricted calculations. These indexes can be applied to other attributes describing molecular orbitals, such as <a class="reference internal" href="#moenergies">moenergies</a> and <a class="reference internal" href="#mocoeffs">mocoeffs</a>.</p>
 </div>
 <div class="section" id="mocoeffs">
-<span id="index-4"></span><h2>mocoeffs<a class="headerlink" href="#mocoeffs" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>mocoeffs<a class="headerlink" href="#mocoeffs" title="Permalink to this headline">¶</a></h2>
 <p>A list of rank 2 arrays containing the molecular orbital coefficients. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations. For the array(s) in the list, the first axis corresponds to molecular orbitals, and the second corresponds to basis functions.</p>
 <p>Examples:</p>
 <ul class="simple">
@@ -445,13 +445,13 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </ul>
 </div>
 <div class="section" id="moenergies">
-<span id="index-5"></span><h2>moenergies<a class="headerlink" href="#moenergies" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>moenergies<a class="headerlink" href="#moenergies" title="Permalink to this headline">¶</a></h2>
 <p>A list of rank 1 arrays containing the molecular orbital energies in eV. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations.</p>
 <p><strong>GAMESS-UK</strong>: use <a class="reference external" href="http://www.cfs.dl.ac.uk/docs/html/part3/node8.html#SECTION00083000000000000000">FORMAT HIGH</a> if you want all of the eigenvalues printed.</p>
 <p><strong>Jaguar</strong>: the first ten virtual orbitals are printed by default. In order to print more, use the <tt class="docutils literal"><span class="pre">ipvirt</span></tt> keyword, with <tt class="docutils literal"><span class="pre">ipvirt=-1</span></tt> printing all virtual orbitals.</p>
 </div>
 <div class="section" id="moments">
-<span id="index-6"></span><h2>moments<a class="headerlink" href="#moments" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>moments<a class="headerlink" href="#moments" title="Permalink to this headline">¶</a></h2>
 <p>This attribute contains the dipole moment vector and any higher electrostatic multipole moments for the whole molecule. It comprises a list of one dimensional arrays,</p>
 <ul class="simple">
 <li>the first is the reference point used in the multipole expansion, which is normally the center of mass,</li>
@@ -604,14 +604,14 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <p>An integer representing the number of basis functions used in the calculation.</p>
 </div>
 <div class="section" id="nmo">
-<span id="index-7"></span><h2>nmo<a class="headerlink" href="#nmo" title="Permalink to this headline">¶</a></h2>
-<p>The number of molecular orbitals in the calculation. It is an integer and is typically equal to <tt class="docutils literal"><span class="pre">[[nbasis]]</span></tt>, but may be less than this if a linear dependency was identified between the basis functions.</p>
+<span id="index-8"></span><h2>nmo<a class="headerlink" href="#nmo" title="Permalink to this headline">¶</a></h2>
+<p>The number of molecular orbitals in the calculation. It is an integer and is typically equal to <a class="reference internal" href="#nbasis">nbasis</a>, but may be less than this if a linear dependency was identified between the basis functions.</p>
 <p>Commands to get information on all orbitals:</p>
 <p><strong>GAMESS-UK</strong>: only usually prints information on the 5 lowest virtual orbitals. &#8220;FORMAT HIGH&#8221; should make it do this for all of the orbitals, although GAMESS-UK 7.0 has a bug that means that this only works for restricted calculations.</p>
 <p><strong>Jaguar</strong>: the first ten virtual orbitals are printed by default; in order to print more of them, use the <tt class="docutils literal"><span class="pre">ipvirt</span></tt> keyword in the input file, with <tt class="docutils literal"><span class="pre">ipvirt=-1</span></tt> printing all virtual orbitals (see the [<a class="reference external" href="http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675">http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675</a> manual] for more information).</p>
 </div>
 <div class="section" id="scfenergies">
-<span id="index-8"></span><h2>scfenergies<a class="headerlink" href="#scfenergies" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>scfenergies<a class="headerlink" href="#scfenergies" title="Permalink to this headline">¶</a></h2>
 <p>An array containing the converged SCF energies of the calculation, in eV. For an optimization log file, there will be as many elements in this array as there were optimization steps.</p>
 <p><strong>Molpro</strong>: typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.</p>
 </div>

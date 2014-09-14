@@ -1,3 +1,6 @@
+.. index::
+    module: data_notes
+
 Parsed data notes
 =================
 
@@ -32,7 +35,7 @@ Some examples:
 
 **Gaussian**: iop(3/33=1) must be specified in the input file
 
-**ADF**: Not present, because [[fooverlaps]] are used instead
+**ADF**: Not present, because `fooverlaps`_ are used instead
 
 .. _`Mulliken`: methods.html#mulliken-population-analysis-mpa
 .. _`C squared`: methods.html#c-squared-population-analysis-cspa
@@ -76,7 +79,7 @@ An array of integers for the atomic numbers, or the number of protons in the ato
 atomspins
 ---------
 
-The attribute ``atomspins`` contains the atomic spin densities as calculated in a population analysis and taken from the output file. Since these densities are arbitrary and depend on the particular population analysis, this attribute is dictionary. In analogy to [[atomcharges]], the keys in this dictionary are strings naming the population analysis, and the values are arrays of rank 1 and contain the actual spin densities.
+The attribute ``atomspins`` contains the atomic spin densities as calculated in a population analysis and taken from the output file. Since these densities are arbitrary and depend on the particular population analysis, this attribute is dictionary. In analogy to `atomcharges`_, the keys in this dictionary are strings naming the population analysis, and the values are arrays of rank 1 and contain the actual spin densities.
 
 Currently, cclib parses Mulliken and Lowdin spin densities, whose respective dictionary keys are ``mulliken`` and ``lowdin``.
 
@@ -115,7 +118,7 @@ Availability (development version):
 etoscs
 ------
 
-The attribute ``etoscs`` is a rank 1 array that contains the oscillator strengths of transitions from the reference (ground) state to the excited electornic states of the of the molecule. As for [[etenergies]] and other attributes related to excited states, there should as many elements in this array as there are excited states in the calculation.
+The attribute ``etoscs`` is a rank 1 array that contains the oscillator strengths of transitions from the reference (ground) state to the excited electornic states of the of the molecule. As for `etenergies`_ and other attributes related to excited states, there should as many elements in this array as there are excited states in the calculation.
 
 Availability:
 
@@ -157,7 +160,7 @@ Availability (development version):
 etsyms
 ------
 
-The attributes ``etsyms`` is a list containing the symmetries (strings) of the excited states found in the calculation. As for [[etenergies]] and other attributes related to excited states, there should be as many elements in this list as there are excited states in the calcualtion.
+The attributes ``etsyms`` is a list containing the symmetries (strings) of the excited states found in the calculation. As for `etenergies`_ and other attributes related to excited states, there should be as many elements in this list as there are excited states in the calcualtion.
 
 Note that while the symmetry descriptions start with the string ``Singlet`` or ``Triplet``, the exact format differs between programs.
 
@@ -178,7 +181,7 @@ fonames
 
 ADF uses symmetry-adapted fragment orbitals (SFOs) as its basis. These SFOs are generally orthonormal linear combinations of atomic orbitals. This makes it difficult to determine which individual atomic orbitals form the basis in calculations that have any symmetry. In addition, ADF allows "fragment" calculations which use the molecular orbitals of the fragments (FOs, or fragment orbitals) for building up the calculated molecular orbitals.
 
-The difficulty in handling the basis for a molecule with symmetry and the availability of extra information in the fragment calculations makes using [[aonames]] (as specified for the other formats) inappropriate, except for certain circumstances. Therefore, an extra member called fonames is available for the adfparser.
+The difficulty in handling the basis for a molecule with symmetry and the availability of extra information in the fragment calculations makes using `aonames`_ (as specified for the other formats) inappropriate, except for certain circumstances. Therefore, an extra member called fonames is available for the adfparser.
 
 Some examples:
 
@@ -193,7 +196,7 @@ Some examples:
 fooverlaps
 ----------
 
-Fooverlaps is a 2-dimensional array that holds numerical values for the spacial overlap between basis functions. It is very similar to [[aooverlaps]], but differs because of the way ADF performs the calculation (see below for more details). The matrix indices correspond to the fragment orbitals; see the examples listed for [[aonames]].
+Fooverlaps is a 2-dimensional array that holds numerical values for the spacial overlap between basis functions. It is very similar to `aooverlaps`_, but differs because of the way ADF performs the calculation (see below for more details). The matrix indices correspond to the fragment orbitals; see the examples listed for `aonames`_.
 
 **Background**
 
@@ -256,7 +259,7 @@ Some programs print basis set details by deault, but for others you will need to
 geotargets
 ----------
 
-Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length ``n``, where ``n`` is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute [[geovalues]].
+Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length ``n``, where ``n`` is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute `geovalues`_.
 
 In **GAMESS UK**, the geometry convergence criteria for OPTIMIZE are:
 
@@ -279,7 +282,7 @@ For more info, see http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node12.html.
 * gconv6: rms of nuclear displacement elements (1.2E-03)
 * gconv7: difference between final energies from previous and current geometry optimization iterations (5.0E-05)
 
-Note that a value for gconv7 is not available until the second iteration, so it is set to zero in the first element of [[geovalues]].
+Note that a value for gconv7 is not available until the second iteration, so it is set to zero in the first element of `geovalues`_.
 
 **Molpro** has custom convergence criteria, as described in the `manual`_:
 
@@ -302,7 +305,7 @@ geovalues
 
 These are the current values for the criteria used to determine whether a geometry has converged in the course of a geometry optimisation. It is an array of dimensions ``m x n``, where ``m`` is the number of geometry optimisation iterations and ``n`` the number of target criteria.
 
-Note that many programs print atomic coordinates before and after a geomtry optimization, which means that there will not necessarily be ``m`` elements in atomcoords_.
+Note that many programs print atomic coordinates before and after a geomtry optimization, which means that there will not necessarily be ``m`` elements in ``atomcoords``_.
 
 If the optimization has finished successfully, the values in the last row should be smaller than the values in geotargets_ (unless the convergence criteria require otherwise).
 
@@ -319,7 +322,7 @@ An array of rank 1 that contains the elements of [http://en.wikipedia.org/wiki/H
 homos
 -----
 
-A 1D array that holds the indexes of the highest occupied molecular orbitals (HOMOs), which contains one element for restricted and two elements for unrestricted calculations. These indexes can be applied to other attributes describing molecular orbitals, such as [[moenergies]] and [[mocoeffs]].
+A 1D array that holds the indexes of the highest occupied molecular orbitals (HOMOs), which contains one element for restricted and two elements for unrestricted calculations. These indexes can be applied to other attributes describing molecular orbitals, such as `moenergies`_ and `mocoeffs`_.
 
 .. index::
     single: molecular orbitals; mocoeffs (attribute)
@@ -436,7 +439,7 @@ An integer representing the number of basis functions used in the calculation.
 nmo
 ---
 
-The number of molecular orbitals in the calculation. It is an integer and is typically equal to ``[[nbasis]]``, but may be less than this if a linear dependency was identified between the basis functions.
+The number of molecular orbitals in the calculation. It is an integer and is typically equal to `nbasis`_, but may be less than this if a linear dependency was identified between the basis functions.
 
 Commands to get information on all orbitals:
 
