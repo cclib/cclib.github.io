@@ -12,14 +12,14 @@
     `charge`_           net charge of the system                                                                     integer
     `ccenergies`_       molecular energies with Coupled-Cluster corrections              eV                          array of rank 2
     `coreelectrons`_    number of core electrons in atom pseudopotentials                                            array of rank 1
-    `enthalpy`_         sum of electronic and thermal enthalpies                                                     float hartree/particle
-    `entropy`_          entropy                                                                                      float hartree/particle
+    `enthalpy`_         sum of electronic and thermal enthalpies                         hartree/particle            float
+    `entropy`_          entropy                                                          hartree/particle            float
     `etenergies`_       energies of electronic transitions                               1/cm                        array of rank 1
     `etoscs`_           oscillator strengths of electronic transitions                                               array of rank 1
     `etrotats`_         rotatory strengths of electronic transitions                     ??                          array of rank 1
     `etsecs`_           singly-excited configurations for electronic transitions                                     list of lists
     `etsyms`_           symmetries of electronic transitions                                                         list of string
-    `freeenergy`_       sum of electronic and thermal free energies                                                  float hartree/particle
+    `freeenergy`_       sum of electronic and thermal free energies                      hartree/particle            float
     `fonames`_          fragment orbital names                                                                       list of strings
     `fooverlaps`_       fragment orbital overlap matrix                                                              array of rank 2
     `fragnames`_        names of fragments                                                                           list of strings
@@ -48,7 +48,7 @@
     `scfenergies`_      molecular electronic energies after SCF (Hartree-Fock, DFT)      eV                          array of rank 1
     `scftargets`_       targets for convergence of the SCF                                                           array of rank 2
     `scfvalues`_        current values for convergence of the SCF                                                    list of arrays of rank 2
-    `temperature`_      tempature used for Thermochemistry                                                           float kelvin
+    `temperature`_      tempature used for Thermochemistry                               kelvin                      float
     `vibanharms`_       vibrational anharmonicity constants                              1/cm                        array of rank 2
     `vibdisps`_         cartesian displacement vectors                                   delta angstrom              array of rank 3
     `vibfreqs`_         vibrational frequencies                                          1/cm                        array of rank 1

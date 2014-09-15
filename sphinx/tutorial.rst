@@ -1,7 +1,7 @@
 Tutorial
 ========
 
-This page describes how to download, install and use cclib.
+This page describes how to download, install and use the basic functionality of cclib.
 
 Requirements
 ------------
@@ -10,13 +10,13 @@ Before you install cclib, you need to make sure that you have the following:
  * Python (at least version 3.0 is recommended, although 2.7 is still tested)
  * NumPy (at least version 1.5 is recommended)
 
-Python is an open-source programming language available from http://www.python.org. It is available for Windows as well as being included in most Linux distributions. In Debian it is installed as follows: (as root)
+Python is an open-source programming language available from http://www.python.org. It is available for Windows as well as being included in most Linux distributions. In Debian/Ubuntu it is installed as follows (as root):
 
 .. code-block:: bash
 
     apt-get install python python-dev
 
-NumPy (Numerical Python) adds a fast array facility and linear algebra routines to Python. It is available from http://www.numpy.org. Windows users should use the most recent NumPy installation for the Python version they have (e.g. numpy-1.0.3.1.win32-py2.4.exe for Python 2.4). Linux users are recommended to find a binary package for their distribution rather than compiling it themselves. In Debian it is installed as follows: (as root)
+NumPy (Numerical Python) adds a fast array facility and linear algebra routines to Python. It is available from http://www.numpy.org. Windows users should use the most recent NumPy installation for the Python version they have (e.g. numpy-1.0.3.1.win32-py2.4.exe for Python 2.4). Linux users are recommended to find a binary package for their distribution rather than compiling it themselves. In Debian/Ubuntu it is installed as follows (as root):
 
 .. code-block:: bash
 
