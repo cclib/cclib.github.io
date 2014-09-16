@@ -110,6 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#natom">natom</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nbasis">nbasis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nmo">nmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optdone">optdone</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#scfenergies">scfenergies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#scftargets">scftargets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#scfvalues">scfvalues</a></li>
@@ -612,8 +613,12 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <p><strong>GAMESS-UK</strong>: only usually prints information on the 5 lowest virtual orbitals. &#8220;FORMAT HIGH&#8221; should make it do this for all of the orbitals, although GAMESS-UK 7.0 has a bug that means that this only works for restricted calculations.</p>
 <p><strong>Jaguar</strong>: the first ten virtual orbitals are printed by default; in order to print more of them, use the <tt class="docutils literal"><span class="pre">ipvirt</span></tt> keyword in the input file, with <tt class="docutils literal"><span class="pre">ipvirt=-1</span></tt> printing all virtual orbitals (see the [<a class="reference external" href="http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675">http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675</a> manual] for more information).</p>
 </div>
+<div class="section" id="optdone">
+<span id="index-9"></span><h2>optdone<a class="headerlink" href="#optdone" title="Permalink to this headline">¶</a></h2>
+<p>Flags whether a geometry optimization has completed. Currently this attribute is a single Boolean value, which is set to True when the final <a class="reference internal" href="#atomcoords">atomcoords</a> represent a converged geometry optimization.</p>
+</div>
 <div class="section" id="scfenergies">
-<span id="index-9"></span><h2>scfenergies<a class="headerlink" href="#scfenergies" title="Permalink to this headline">¶</a></h2>
+<h2>scfenergies<a class="headerlink" href="#scfenergies" title="Permalink to this headline">¶</a></h2>
 <p>An array containing the converged SCF energies of the calculation, in eV. For an optimization log file, there will be as many elements in this array as there were optimization steps.</p>
 <p><strong>Molpro</strong>: typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.</p>
 </div>

@@ -450,6 +450,11 @@ Commands to get information on all orbitals:
 .. index::
     single: basis sets; nmo (attribute)
 
+optdone
+-------
+
+Flags whether a geometry optimization has completed. Currently this attribute is a single Boolean value, which is set to True when the final `atomcoords`_ represent a converged geometry optimization.
+
 scfenergies
 -----------
 
