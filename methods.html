@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -110,6 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="data_notes.html#natom">natom</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_notes.html#nbasis">nbasis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_notes.html#nmo">nmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#optdone">optdone</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_notes.html#scfenergies">scfenergies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_notes.html#scftargets">scftargets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_notes.html#scfvalues">scfvalues</a></li>
@@ -194,6 +196,17 @@
 <div class="section" id="c-squared-population-analysis-cspa">
 <span id="index-1"></span><h2>C squared population analysis (CSPA)<a class="headerlink" href="#c-squared-population-analysis-cspa" title="Permalink to this headline">¶</a></h2>
 <p><strong>CSPA</strong> can be used to determine and interpret the electron density of a molecule. The contribution of the a-th atomic orbital to the i-th molecular orbital can be written in terms of the molecular orbital coefficients:</p>
+<div>
+<math xmlns="http://www.w3.org/1998/Math/MathML" mode="display">
+<mtable>
+<mtr>
+<mtd><msub><mo>Φ</mo>
+<mrow><mi>a</mi><mi>i</mi></mrow></msub><mo>=</mo><mfrac>
+<mrow><msubsup><mi>c</mi>
+<mrow><mi>a</mi><mi>i</mi></mrow><mn>2</mn></msubsup></mrow>
+<mrow><munder><mo>∑</mo><mi>k</mi></munder><msubsup><mi>c</mi>
+<mrow><mi>k</mi><mi>i</mi></mrow><mn>2</mn></msubsup></mrow></mfrac></mtd></mtr></mtable></math>
+</div>
 <p>The CSPA class available from cclib.method performs C-squared population analysis and can be used as follows:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">CSPA</span>
 <span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">Gaussian</span>
@@ -230,7 +243,7 @@
 <div class="section" id="custom-progress">
 <h3>Custom progress<a class="headerlink" href="#custom-progress" title="Permalink to this headline">¶</a></h3>
 <p>The CSPA class also can take a progress class as an argument so that the progress of the calculation can be monitored:</p>
-<div class="highlight-python"><div class="highlight"><pre>from cclib.method import CSPA
+<div class="highlight-python"><pre>from cclib.method import CSPA
 from cclib.parser import Gaussian
 from cclib.progress import TextProgress
 
@@ -241,14 +254,23 @@ p = Gaussian(“mycalc.out”, logging.ERROR)
 d = p.parse(progress)
 
 m = CSPA(d, progress, logging.ERROR)
-m.calculate()
-</pre></div>
+m.calculate()</pre>
 </div>
 </div>
 </div>
 <div class="section" id="mulliken-population-analysis-mpa">
 <span id="index-2"></span><h2>Mulliken population analysis (MPA)<a class="headerlink" href="#mulliken-population-analysis-mpa" title="Permalink to this headline">¶</a></h2>
 <p>MPA can be used to determine and interpret the electron density of a molecule. The contribution of the a-th atomic orbital to the i-th molecular orbital in this method is written in terms of the molecular orbital coefficients, c, and the overlap matrix, S:</p>
+<div>
+<math xmlns="http://www.w3.org/1998/Math/MathML" mode="display">
+<mtable>
+<mtr>
+<mtd><msub><mo>Φ</mo>
+<mrow><mi>a</mi><mi>i</mi></mrow></msub><mo>=</mo><munder><mo>∑</mo><mi>b</mi></munder><msub><mi>c</mi>
+<mrow><mi>a</mi><mi>i</mi></mrow></msub><msub><mi>c</mi>
+<mrow><mi>b</mi><mi>i</mi></mrow></msub><msub><mi>S</mi>
+<mrow><mi>a</mi><mi>b</mi></mrow></msub></mtd></mtr></mtable></math>
+</div>
 <p>The MPA class available from cclib.method performs Mulliken population analysis and can be used as follows:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
 
@@ -273,17 +295,16 @@ m.calculate()
 <div class="section" id="id2">
 <h3>Custom progress<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>The Mulliken class also can take a progress class as an argument so that the progress of the calculation can be monitored:</p>
-<div class="highlight-python"><div class="highlight"><pre>from cclib.method import MPA
+<div class="highlight-python"><pre>from cclib.method import MPA
 from cclib.parser import ccopen
 from cclib.progress import TextProgress
 import logging
 
 progress = TextProgress()
-d = ccopen(“mycalc.out&quot;, logging.ERROR).parse(progress)
+d = ccopen(“mycalc.out", logging.ERROR).parse(progress)
 
 m = MPA(d, progress, logging.ERROR)
-m.calculate()
-</pre></div>
+m.calculate()</pre>
 </div>
 </div>
 </div>
@@ -435,7 +456,7 @@ Charge decomposition analysis of molecule.log
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
+            URL_ROOT:'',
             VERSION:'1.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
