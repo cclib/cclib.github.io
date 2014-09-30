@@ -175,6 +175,7 @@ Developers
 
 **cclib** developers include the following (in alphabetical order):
 
+* Eric Berquist
 * `Karol M. Langner`_
 * `Noel O'Boyle`_
 * Christopher Rowley
