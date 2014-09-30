@@ -48,7 +48,7 @@ clean:
 	-rm -rf attributes*.rst
 	-rm -rf converage*.rst
 
-PRODUCTION_VERSION = v1.2
+PRODUCTION_VERSION = v1.3b
 CCLIB_PROD = $(BUILDDIR)/cclib_prod
 CCLIB_DEV = $(BUILDDIR)/cclib_dev
 SRC_PROD = $(CCLIB_PROD)/src/cclib
@@ -61,7 +61,8 @@ SRC_DEV = $(CCLIB_DEV)/src/cclib
 .PHONY: cclib
 cclib: $(CCLIB_PROD) $(CCLIB_DEV)
 $(CCLIB_PROD):
-	git clone -b $(PRODUCTION_VERSION) git@github.com:cclib/cclib.git $@
+	git clone git@github.com:cclib/cclib.git $@
+	cd $(CCLIB_PROD); git checkout $(PRODUCTION_VERSION)
 $(CCLIB_DEV):
 	git clone -b master git@github.com:cclib/cclib.git $@
 

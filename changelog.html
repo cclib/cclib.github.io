@@ -142,6 +142,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#changes-since-cclib-1-2">Changes since cclib-1.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-since-cclib-1-1">Changes since cclib-1.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-since-cclib-1-0-1">Changes since cclib-1.0.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-since-cclib-1-0">Changes since cclib-1.0</a></li>
@@ -191,6 +192,27 @@
             
   <div class="section" id="changelog">
 <span id="index-0"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="changes-since-cclib-1-2">
+<h2>Changes since cclib-1.2<a class="headerlink" href="#changes-since-cclib-1-2" title="Permalink to this headline">¶</a></h2>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li>New parser: cclib can now parse NWChem files</li>
+<li>New parser: cclib can now parse Psi (versions 3 and 4) files</li>
+<li>New parser: cclib can now parse QChem files (by Eric Berquist)</li>
+<li>Handle Gaussian basis set output with GFPRINT keyword</li>
+<li>Attribute optdone reverted to single Boolean value by default</li>
+<li>Add &#8211;verbose and &#8211;future options to ccget and parsers</li>
+<li>Replaced PC-GAMESS test files with newer Firefly versions</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul class="simple">
+<li>Handle GAMESS-US file with LZ value analysis (Martin Rahm)</li>
+<li>Handle Gaussian jobs with stars in output (Russell Johnson, NIST)</li>
+<li>Handle ORCA singlet-only TD calculations (May A.)</li>
+<li>Fix parsing of Gaussian jobs with fragments and ONIOM output</li>
+<li>Use UTF-8 encodings for files that need them (Matt Ernst)</li>
+</ul>
+</div>
 <div class="section" id="changes-since-cclib-1-1">
 <h2>Changes since cclib-1.1<a class="headerlink" href="#changes-since-cclib-1-1" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
