@@ -1,7 +1,7 @@
 Development parsed data
 =======================
 
-This is a list of all the data parsed by the `current development code of cclib`_. For the same information for the current official release, see the regular `parsed data`_ page. Note that the information on this page may be outdated.
+This is a list of all the data parsed by the `current development code of cclib`_. For the same information for the current official release (version |release|), see the regular `parsed data`_ page. Note that the information on this page may be outdated.
 
 .. _`current development code of cclib`: https://github.com/cclib/cclib
 .. _`parsed data`: data.html
