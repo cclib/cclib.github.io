@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -410,13 +409,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <p>Note that a value for gconv7 is not available until the second iteration, so it is set to zero in the first element of <a class="reference internal" href="#geovalues">geovalues</a>.</p>
 <p><strong>Molpro</strong> has custom convergence criteria, as described in the <a class="reference external" href="https://www.molpro.net/info/2012.1/doc/manual/node592.html">manual</a>:</p>
 <blockquote>
-<div>The standard MOLPRO convergency criterion requires the maximum component of the gradient to be less then <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mn>3</mn><mo>⋅</mo><mn>1</mn><msup><mn>0</mn>
-<mrow><mo>-</mo><mn>4</mn></mrow></msup></mrow></math> [a.u.] and the maximum energy change to be less than <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mn>1</mn><mo>⋅</mo><mn>1</mn><msup><mn>0</mn>
-<mrow><mo>-</mo><mn>6</mn></mrow></msup></mrow></math> [H] or the maximum component of the gradient to be less then $ 3 cdot 10^{-4}$ [a.u.] and the maximum component of the step to be less then <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mn>3</mn><mo>⋅</mo><mn>1</mn><msup><mn>0</mn>
-<mrow><mo>-</mo><mn>4</mn></mrow></msup></mrow></math> [a.u.].</div></blockquote>
+<div>The standard MOLPRO convergency criterion requires the maximum component of the gradient to be less then <span class="math">\(3 \cdot 10^{-4}\)</span> [a.u.] and the maximum energy change to be less than <span class="math">\(1 \cdot 10^{-6}\)</span> [H] or the maximum component of the gradient to be less then $ 3 cdot 10^{-4}$ [a.u.] and the maximum component of the step to be less then <span class="math">\(3 \cdot 10^{-4}\)</span> [a.u.].</div></blockquote>
 <p><strong>ORCA</strong> tracks the change in energy as well as RMS and maximum gradients and displacements. As of version 3.0, an optimization is considered converged when all the tolerances are met, and there are four exceptions:</p>
 <ul class="simple">
 <li>the energy is within 25x the tolerance and all other criteria are met</li>
@@ -466,17 +459,9 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 <p>This attribute contains the dipole moment vector and any higher electrostatic multipole moments for the whole molecule. It comprises a list of one dimensional arrays,</p>
 <ul class="simple">
 <li>the first is the reference point used in the multipole expansion, which is normally the center of mass,</li>
-<li>the second is the dipole moment vector, in Debyes (<math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mstyle fontweight="bold">
-<mrow><mtext>D</mtext></mrow></mstyle></mrow></math>),</li>
-<li>the third array contains the raw molecular quadrupole moments in lexicographical order, that is the XX, XY, XZ, YY, YZ and ZZ moments, in Buckinghams (<math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mstyle fontweight="bold">
-<mrow><mtext>B</mtext></mrow></mstyle></mrow></math>),</li>
-<li>any further arrays contain the raw molecular multipole moments of higher rank, in lexicographical order and in units of <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mstyle fontweight="bold">
-<mrow><mtext>D</mtext></mrow></mstyle><mo>⋅</mo><msup><mi>Å</mi>
-<mrow><mi>L</mi><mo>-</mo><mn>1</mn></mrow></msup><mo>=</mo><mn>1</mn><msup><mn>0</mn>
-<mrow><mo>-</mo><mn>1</mn><mn>0</mn></mrow></msup><mtext>esu</mtext><mo>⋅</mo><msup><mi>Å</mi><mi>L</mi></msup></mrow></math></li>
+<li>the second is the dipole moment vector, in Debyes (<span class="math">\(\mathbf{\mathrm{D}}\)</span>),</li>
+<li>the third array contains the raw molecular quadrupole moments in lexicographical order, that is the XX, XY, XZ, YY, YZ and ZZ moments, in Buckinghams (<span class="math">\(\mathbf{\mathrm{B}}\)</span>),</li>
+<li>any further arrays contain the raw molecular multipole moments of higher rank, in lexicographical order and in units of <span class="math">\(\mathbf{\mathrm{D}} \cdot Å^{L-1} = 10^{-10} \mathrm{esu} \cdot Å^L\)</span></li>
 </ul>
 <p>Note that by default cclib will provide the last moments printed, if several are printed in the course of a geometry optimization or other job type involving several more than one geometry. For post-Hartree-Fock calculations, such as MP2 or coupled cluster, the uncorrelated moments are reported if none are printed for the final wavefunction.</p>
 </div>
@@ -603,12 +588,7 @@ data</a> page and its <a class="reference external" href="data_dev.html">develop
 </div>
 <div class="section" id="mpenergies">
 <h2>mpenergies<a class="headerlink" href="#mpenergies" title="Permalink to this headline">¶</a></h2>
-<p>The attribute <tt class="docutils literal"><span class="pre">mpenergies</span></tt> holds the total molecule energies including Möller-Plesset correlation energy corrections in a two-dimensional array. The array&#8217;s shape is (n,L), where <tt class="docutils literal"><span class="pre">n</span></tt> is 1 for single point calculations and larger for optimizations, and <tt class="docutils literal"><span class="pre">L</span></tt> is the order at which the correction is truncated. The order of elements is ascending, so a single point MP5 calculation will yield mpenergies as <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><msub><mi>E</mi>
-<mrow><mi>M</mi><mi>P</mi><mn>2</mn></mrow></msub><mo>,</mo><msub><mi>E</mi>
-<mrow><mi>M</mi><mi>P</mi><mn>3</mn></mrow></msub><mo>,</mo><msub><mi>E</mi>
-<mrow><mi>M</mi><mi>P</mi><mn>4</mn></mrow></msub><mo>,</mo><msub><mi>E</mi>
-<mrow><mi>M</mi><mi>P</mi><mn>5</mn></mrow></msub></mrow></math>.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">mpenergies</span></tt> holds the total molecule energies including Möller-Plesset correlation energy corrections in a two-dimensional array. The array&#8217;s shape is (n,L), where <tt class="docutils literal"><span class="pre">n</span></tt> is 1 for single point calculations and larger for optimizations, and <tt class="docutils literal"><span class="pre">L</span></tt> is the order at which the correction is truncated. The order of elements is ascending, so a single point MP5 calculation will yield mpenergies as <span class="math">\(E_{MP2}, E_{MP3}, E_{MP4}, E_{MP5}\)</span>.</p>
 <p><strong>ADF</strong>: does not perform such calculations.</p>
 <p><strong>GAMESS</strong>: second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calcualtions in PC-GAMESS (use <tt class="docutils literal"><span class="pre">mplevl=n</span></tt> in the <tt class="docutils literal"><span class="pre">$contrl</span></tt> section).</p>
 <p><strong>GAMESS-UK</strong>: MP2 through MP3 corrections are avaialbe.</p>
@@ -743,7 +723,7 @@ optdone:
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'',
+            URL_ROOT:'./',
             VERSION:'1.3b',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -753,6 +733,7 @@ optdone:
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
