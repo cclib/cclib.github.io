@@ -4,8 +4,7 @@
 Parsed data notes
 =================
 
-This is a list of descriptions and notes for all the data currently parsed by cclib, either in the official release (|release|) or development branch. For a summary and details of the current implementation by the different parsers, please see the `extracted 
-data`_ page and its `development`_ version.
+This is a list of descriptions and notes for all the data attributes currently parsed by cclib, either in the official release (|release|) or development branch. In particular, this page contains technical details about the interpretation of attributes, how to produce them in the various programs and examples in some cases. For a summary and details of the current implementation by the different parsers, please see the `extracted data`_ page and its `development`_ version.
 
 .. _`extracted data`: data.html
 .. _`development`: data_dev.html
@@ -339,7 +338,7 @@ Examples:
 
 Note: For restricted calculation, ``mocoeffs`` is still a list, but it only contains a single rank 2 array so you access the matrix with mocoeffs[0].
 
-* GAMESS UK - need to use FORMAT HIGH if you want information on all of the eigenvalues to be available (see the [http://www.cfs.dl.ac.uk/docs/gamess_manual/chap3/node8.html#SECTION00083000000000000000 manual] for more info). Unfortunately, for unrestricted calculations FORMAT HIGH does not increase the number of orbitals for which the molecular orbital coefficents are printed. Note that there may be more orbital information on the alpha orbitals compared to the beta orbitals, and as a result, the extra beta molecular orbital coefficients for which information is not available will be padded out with zeros.
+**GAMESS-UK** - the `FORMAT HIGH`_ directive needs to be included if you want information on all of the eigenvalues to be available. In versions before 8.0 for unrestricted calculations, ``FORMAT HIGH`` does not increase the number of orbitals for which the molecular orbital coefficents are printed, so that there may be more orbital information on the alpha orbitals compared to the beta orbitals, and as a result the extra beta molecular orbital coefficients for which information is not available will be padded out with zeros by cclib.
 
 .. index::
     single: molecular orbitals; moenergies (attribute)
@@ -349,7 +348,7 @@ moenergies
 
 A list of rank 1 arrays containing the molecular orbital energies in eV. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations.
 
-**GAMESS-UK**: use `FORMAT HIGH`_ if you want all of the eigenvalues printed.
+**GAMESS-UK**: similar to `mocoeffs`_, the directive `FORMAT HIGH`_ needs to be used if you want all of the eigenvalues printed.
 
 **Jaguar**: the first ten virtual orbitals are printed by default. In order to print more, use the ``ipvirt`` keyword, with ``ipvirt=-1`` printing all virtual orbitals.
 
@@ -507,11 +506,15 @@ The value of the target criterion depends on the calculation:
 
 :where old_convcriteria is the value from the previous geometry cycle, grdmax is the max gradient from the last geometry cycle and accint is the current integration accuracy.
 
-(There is some information in the ADF manual [http://www.scm.com/Doc/Doc2005.01/ADF/ADFUsersGuide/page124.html#keyscheme%20SCF here].)
+(There is some information in the `ADF manual`_.)
+
+.. _`ADF manual`: http://www.scm.com/Doc/Doc2005.01/ADF/ADFUsersGuide/page124.html#keyscheme%20SCF here
 
 **GAMESS**: Maximum and root-mean-square (RMS) density matrix change: starts from 5.0E-05 by default and changes over the course of a geometry optimisation. ROHF calcualtions use SQCDF instead of the standard RMS change.
 
-**GAMESS-UK**: According to http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node6.html, SCF convergence is determined by convergence of the elements of density matrix. The default value is 1E-5, but it appears to be 1E-7 for geoopts.
+**GAMESS-UK**: According to `the manual`_, convergence is determined by convergence of the elements of density matrix. The default value for SCF is 1E-5, but it appears to be 1E-7 for geoopts.
+
+.. _`the manual`: http://www.cfs.dl.ac.uk/docs/html/part4/node6.html
 
 **Gaussian**:
 
@@ -530,13 +533,13 @@ The Jaguar 4.2 targets depend on whether it is a geometry optimisation or not:
 scfvalues
 ---------
 
-The attribute ``scfvalues`` is a list (one element for each step in a geometry optimisation) of arrays of dimension ``n x m``, where ``n`` is the number of SCF cycles required for convergence and ``m`` is the number of SCF convergence target criteria.
+The attribute ``scfvalues`` is a list of arrays of dimension ``n x m`` (one element for each step in a geometry optimisation), where ``n`` is the number of SCF cycles required for convergence and ``m`` is the number of SCF convergence target criteria. For some packages, you may need to include a directive to make sure that SCF convergence information is printed to the log file
 
-For some packages, you may need to include a directive to make sure that SCF convergence information is printed to the log file:
+**Gaussian**: requires the `route section`_ to start with #P
 
-**Gaussian**: requires the route section to start with #P (http://www.gaussian.com/g_tech/g_ur/k_route.htm route section)
+.. _`route section`: http://www.gaussian.com/g_tech/g_ur/k_route.htm
 
-**GAMESS-UK**: requires IPRINT SCF
+**GAMESS-UK**: convergence information is printed only for the first optimization step by default, but can be forced at all steps by adding ``IPRINT SCF`` to the input file.
 
 vibdisps
 --------
