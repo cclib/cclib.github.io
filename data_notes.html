@@ -386,36 +386,41 @@
 </div>
 <div class="section" id="geotargets">
 <span id="index-2"></span><h2>geotargets<a class="headerlink" href="#geotargets" title="Permalink to this headline">¶</a></h2>
-<p>Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length <tt class="docutils literal"><span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute <a class="reference internal" href="#geovalues">geovalues</a>.</p>
-<p>In <strong>GAMESS UK</strong>, the geometry convergence criteria for OPTIMIZE are:</p>
-<ul class="simple">
-<li>maximum change in variables  &lt;  TOL</li>
-<li>average change in variables  &lt;  TOL * 2/3</li>
-<li>maximum gradient             &lt;  TOL * 4/9</li>
-<li>average gradient             &lt;  TOL * 8/27</li>
+<p>Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length <tt class="docutils literal"><span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of targets, and the actual values of these criteria are stored for every optimization step in the attribute <a class="reference internal" href="#geovalues">geovalues</a>. Note that cclib does not carry information about the meaning of these criteria, and it is up to the user to interpret the values properly for a particular program. Below we provide some details for several parsers, but it is always a good idea to refer to the source documentation.</p>
+<p>In some special cases, the values in <tt class="docutils literal"><span class="pre">geotargets</span></tt> will be <a class="reference external" href="http://docs.scipy.org/doc/numpy-1.8.1/user/misc.html#ieee-754-floating-point-special-values">numpy.inf</a>.</p>
+<p><strong>GAMESS UK</strong>: the criteria used for geometry convergence are based on the <tt class="docutils literal"><span class="pre">TOL</span></tt> parameter, which can be set using the <tt class="docutils literal"><span class="pre">XTOLL</span></tt> directive. The fault value of this parameter and the conditions required for convergence vary among the various optimization strategies (see the <a href="#id3"><span class="problematic" id="id4">`GAMESS-UK manual section on controlling optimization`_</span></a> for details). In <tt class="docutils literal"><span class="pre">OPTIMIZE</span></tt> mode, <tt class="docutils literal"><span class="pre">TOL</span></tt> defaults to 0.003 and the conditions are,</p>
+<blockquote>
+<div><ul class="simple">
+<li>maximum change in variables below TOL,</li>
+<li>average change in variables smaller than TOL * 2/3,</li>
+<li>maximum gradient below TOL * 1/4,</li>
+<li>average gradient below TOL * 1/6.</li>
 </ul>
-<p>where TOL defaults to 0.003 and is set by the XTOL directive.</p>
-<p>For OPTXYZ, tol defaults to 0.001, and the criteria appears to be simply the maximum gradient, although this is not clear from the manual.</p>
-<p>For more info, see <a class="reference external" href="http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node12.html">http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node12.html</a>.</p>
-<p><strong>Jaguar</strong> has the following geometry convergence criteria:</p>
-<ul class="simple">
+</div></blockquote>
+<p><strong>Jaguar</strong> has several geometry convergence criteria,</p>
+<blockquote>
+<div><ul class="simple">
 <li>gconv1: maximum element of gradient (4.5E-04)</li>
 <li>gconv2: rms of gradient elements (3.0E-04)</li>
 <li>gconv5: maximum element of nuclear displacement (1.8E-03)</li>
 <li>gconv6: rms of nuclear displacement elements (1.2E-03)</li>
 <li>gconv7: difference between final energies from previous and current geometry optimization iterations (5.0E-05)</li>
 </ul>
+</div></blockquote>
 <p>Note that a value for gconv7 is not available until the second iteration, so it is set to zero in the first element of <a class="reference internal" href="#geovalues">geovalues</a>.</p>
 <p><strong>Molpro</strong> has custom convergence criteria, as described in the <a class="reference external" href="https://www.molpro.net/info/2012.1/doc/manual/node592.html">manual</a>:</p>
 <blockquote>
 <div>The standard MOLPRO convergency criterion requires the maximum component of the gradient to be less then <span class="math">\(3 \cdot 10^{-4}\)</span> [a.u.] and the maximum energy change to be less than <span class="math">\(1 \cdot 10^{-6}\)</span> [H] or the maximum component of the gradient to be less then $ 3 cdot 10^{-4}$ [a.u.] and the maximum component of the step to be less then <span class="math">\(3 \cdot 10^{-4}\)</span> [a.u.].</div></blockquote>
 <p><strong>ORCA</strong> tracks the change in energy as well as RMS and maximum gradients and displacements. As of version 3.0, an optimization is considered converged when all the tolerances are met, and there are four exceptions:</p>
-<ul class="simple">
+<blockquote>
+<div><ul class="simple">
 <li>the energy is within 25x the tolerance and all other criteria are met</li>
 <li>the gradients are overachieved (1/3 of the tolerance) and displacements are reasonable (at most 3x the tolerance)</li>
 <li>the displacements are overachieved (1/3 of the tolerance) and the gradients are reasonable (at most 3x the tolerance)</li>
 <li>the energy gradients and internal coordinates are converged (bond distances, angles, dihedrals and impropers)</li>
 </ul>
+</div></blockquote>
+<p><strong>Psi</strong> normally tracks five different values, as described <a class="reference external" href="http://sirius.chem.vt.edu/psi4manual/latest/optking.html">in the documentation</a>, but their use various depending on the strategy employed. The default strategy (QCHEM) check whether the maximum force is converged and if the maximum energy change or displacement is converged. Additionally, to aid with flat potential energy surfaces, convergence is as assumed when the root mean square force converged to 0.01 of its default target. Note that Psi print values even for targets that are not being used &#8211; in these cases the targets are parsed as <a class="reference external" href="http://docs.scipy.org/doc/numpy-1.8.1/user/misc.html#ieee-754-floating-point-special-values">numpy.inf</a> so that they can still be used (any value will be converged).</p>
 </div>
 <div class="section" id="geovalues">
 <span id="index-3"></span><h2>geovalues<a class="headerlink" href="#geovalues" title="Permalink to this headline">¶</a></h2>

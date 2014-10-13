@@ -258,28 +258,26 @@ Some programs print basis set details by deault, but for others you will need to
 geotargets
 ----------
 
-Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length ``n``, where ``n`` is the number of targets. The actual values of these criteria are stored for every optimization step in the attribute `geovalues`_.
+Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length ``n``, where ``n`` is the number of targets, and the actual values of these criteria are stored for every optimization step in the attribute `geovalues`_. Note that cclib does not carry information about the meaning of these criteria, and it is up to the user to interpret the values properly for a particular program. Below we provide some details for several parsers, but it is always a good idea to refer to the source documentation.
 
-In **GAMESS UK**, the geometry convergence criteria for OPTIMIZE are:
+In some special cases, the values in ``geotargets`` will be `numpy.inf`_.
 
-* maximum change in variables  <  TOL
-* average change in variables  <  TOL * 2/3
-* maximum gradient             <  TOL * 4/9
-* average gradient             <  TOL * 8/27
+**GAMESS UK**: the criteria used for geometry convergence are based on the ``TOL`` parameter, which can be set using the ``XTOLL`` directive. The fault value of this parameter and the conditions required for convergence vary among the various optimization strategies (see the `GAMESS-UK manual section on controlling optimization`_ for details). In ``OPTIMIZE`` mode, ``TOL`` defaults to 0.003 and the conditions are,
 
-where TOL defaults to 0.003 and is set by the XTOL directive.
+    - maximum change in variables below TOL,
+    - average change in variables smaller than TOL * 2/3,
+    - maximum gradient below TOL * 1/4,
+    - average gradient below TOL * 1/6.
 
-For OPTXYZ, tol defaults to 0.001, and the criteria appears to be simply the maximum gradient, although this is not clear from the manual.
+.. _`GAMESS-UK manual section on controlling optimization`:http://www.cfs.dl.ac.uk/docs/html/part4/node14.html 
 
-For more info, see http://www.cfs.dl.ac.uk/docs/gamess_manual/chap4/node12.html.
+**Jaguar** has several geometry convergence criteria,
 
-**Jaguar** has the following geometry convergence criteria:
-
-* gconv1: maximum element of gradient (4.5E-04)
-* gconv2: rms of gradient elements (3.0E-04)
-* gconv5: maximum element of nuclear displacement (1.8E-03)
-* gconv6: rms of nuclear displacement elements (1.2E-03)
-* gconv7: difference between final energies from previous and current geometry optimization iterations (5.0E-05)
+    * gconv1: maximum element of gradient (4.5E-04)
+    * gconv2: rms of gradient elements (3.0E-04)
+    * gconv5: maximum element of nuclear displacement (1.8E-03)
+    * gconv6: rms of nuclear displacement elements (1.2E-03)
+    * gconv7: difference between final energies from previous and current geometry optimization iterations (5.0E-05)
 
 Note that a value for gconv7 is not available until the second iteration, so it is set to zero in the first element of `geovalues`_.
 
@@ -291,10 +289,16 @@ Note that a value for gconv7 is not available until the second iteration, so it 
 
 **ORCA** tracks the change in energy as well as RMS and maximum gradients and displacements. As of version 3.0, an optimization is considered converged when all the tolerances are met, and there are four exceptions:
 
-* the energy is within 25x the tolerance and all other criteria are met
-* the gradients are overachieved (1/3 of the tolerance) and displacements are reasonable (at most 3x the tolerance)
-* the displacements are overachieved (1/3 of the tolerance) and the gradients are reasonable (at most 3x the tolerance)
-* the energy gradients and internal coordinates are converged (bond distances, angles, dihedrals and impropers)
+    * the energy is within 25x the tolerance and all other criteria are met
+    * the gradients are overachieved (1/3 of the tolerance) and displacements are reasonable (at most 3x the tolerance)
+    * the displacements are overachieved (1/3 of the tolerance) and the gradients are reasonable (at most 3x the tolerance)
+    * the energy gradients and internal coordinates are converged (bond distances, angles, dihedrals and impropers)
+
+**Psi** normally tracks five different values, as described `in the documentation`_, but their use various depending on the strategy employed. The default strategy (QCHEM) check whether the maximum force is converged and if the maximum energy change or displacement is converged. Additionally, to aid with flat potential energy surfaces, convergence is as assumed when the root mean square force converged to 0.01 of its default target. Note that Psi print values even for targets that are not being used -- in these cases the targets are parsed as `numpy.inf`_ so that they can still be used (any value will be converged).
+
+.. _`in the documentation`: http://sirius.chem.vt.edu/psi4manual/latest/optking.html
+
+.. _`numpy.inf`: http://docs.scipy.org/doc/numpy-1.8.1/user/misc.html#ieee-754-floating-point-special-values
 
 .. index::
     single: geomtry optimization; geovalues (attribute)
