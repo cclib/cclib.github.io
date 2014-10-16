@@ -242,7 +242,6 @@ texinfo_documents = [
 #texinfo_show_urls = 'footnote'
 
 # Update template context with project information.
-
 context = {
     'conf_py_path': '/sphinx/',
     'github_user': 'cclib',
