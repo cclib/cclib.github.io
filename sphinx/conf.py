@@ -240,3 +240,19 @@ texinfo_documents = [
 
 # How to display URL addresses: 'footnote', 'no', or 'inline'.
 #texinfo_show_urls = 'footnote'
+
+# Update template context with project information.
+
+context = {
+    'conf_py_path': '/sphinx/',
+    'github_user': 'cclib',
+    'github_repo': 'cclib.github.io',
+    'github_version': 'master',
+    'display_github': True,
+    'source_suffix': source_suffix,
+}
+
+if 'html_context' in globals():
+    html_context.update(context)
+else:
+    html_context = context
