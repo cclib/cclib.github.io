@@ -249,6 +249,7 @@ context = {
     'github_repo': 'cclib.github.io',
     'github_version': 'master',
     'display_github': True,
+    'source_suffix': source_suffix,
 }
 
 if 'html_context' in globals():
