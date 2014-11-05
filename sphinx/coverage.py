@@ -55,6 +55,7 @@ if __name__ == "__main__":
         'NWChem' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
         'ORCA' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
         'Psi' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
+        'QChem' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
     }
     not_possible = {
         'Psi' : ['aooverlaps'],
