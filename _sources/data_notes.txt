@@ -333,7 +333,7 @@ A 1D array that holds the indexes of the highest occupied molecular orbitals (HO
 mocoeffs
 --------
 
-A list of rank 2 arrays containing the molecular orbital coefficients. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations. For the array(s) in the list, the first axis corresponds to molecular orbitals, and the second corresponds to basis functions.
+A list of rank 2 arrays containing the molecular orbital (MO) coefficients. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations. For the array(s) in the list, the first axis corresponds to molecular orbitals, and the second corresponds to basis functions.
 
 Examples:
 
@@ -343,6 +343,8 @@ Examples:
 Note: For restricted calculation, ``mocoeffs`` is still a list, but it only contains a single rank 2 array so you access the matrix with mocoeffs[0].
 
 **GAMESS-UK** - the `FORMAT HIGH`_ directive needs to be included if you want information on all of the eigenvalues to be available. In versions before 8.0 for unrestricted calculations, ``FORMAT HIGH`` does not increase the number of orbitals for which the molecular orbital coefficents are printed, so that there may be more orbital information on the alpha orbitals compared to the beta orbitals, and as a result the extra beta molecular orbital coefficients for which information is not available will be padded out with zeros by cclib.
+
+**Molpro** - does no print MO coefficients at all by default, and you must add in the input ``GPRINT,ORBITALS``. What's more, this prints only the occupied orbitals, and to get virtuals add also ``ORBPTIN,NVIRT``, where ``NVIRT`` is how many virtuals to print (can be a large number like 99999 to print all).
 
 .. index::
     single: molecular orbitals; moenergies (attribute)
