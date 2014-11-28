@@ -27,7 +27,7 @@ attributes        ADF               GAMESS            GAMESSUK          Gaussian
 `gbasis`_         T/D               √                 √                 √                 √                 √                 √                 T/D               √                 T/D               
 `geotargets`_     √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `geovalues`_      √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
-`grads`_          T/D               √                 √                 √                 T/D               T/D               T/D               T/D               √                 √                 
+`grads`_          T/D               √                 √                 √                 T/D               T/D               T/D               T/D               T/D               √                 
 `hessian`_        √                 √                 √                 T/D               T/D               √                 T/D               T/D               T/D               √                 
 `homos`_          √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `mocoeffs`_       √                 √                 √                 √                 √                 √                 √                 √                 √                 T/D               
