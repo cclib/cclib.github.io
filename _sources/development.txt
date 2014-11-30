@@ -2,17 +2,17 @@
 Development
 ===========
 
-Instructions for developers
+Basic instructions
 ===========================
 
-Note that the sources that are normally published and distributed, as described in the `tutorial`_, do not include the unit tests and logfiles necessary to run those tests. This section covers how to download the full source distribution and use it for development and testing.
+The default cclib files distributed with a release, as described in the `tutorial`_, do not include any unit tests and logfiles necessary to run those tests. This section covers how to download the full source along with all test data and scripts, and how to use these for development and testing.
 
 .. _`tutorial`: tutorial.html
 
 Cloning cclib from github
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-cclib is hosted by the fantastic people at `GitHub`_ (previously at `Sourceforge`_) in a `git`_ repository. You can download a `zipped archive`_ of the current development version (called `master`) for installation and testing. In order to contribute any changes, however, you will need to create a local copy of the repository:
+cclib is hosted by the fantastic people at `GitHub`_ (previously at `Sourceforge`_) in a `git`_ repository. You can download a `zipped archive`_ of the current development version (called `master`) for installation and testing or browse the available `releases`_. In order to contribute any changes, however, you will need to create a local copy of the repository:
 
 .. code-block:: bash
 
@@ -22,49 +22,12 @@ cclib is hosted by the fantastic people at `GitHub`_ (previously at `Sourceforge
 .. _`Sourceforge`: https://sourceforge.net
 .. _`git`: http://git-scm.com
 .. _`zipped archive`: https://github.com/cclib/cclib/archive/master.zip
-
-Releasing a version
-~~~~~~~~~~~~~~~~~~~
-
-* Update the `CHANGELOG`_ and `ANNOUNCE`_
-* Make sure that `setup.py`_ has the right version number, as well as __version__ in `__init__.py`_
-* Run `manifest.py`_ to update the MANIFEST if necessary
-* Do a final merge of the trunk to release branch
-* Run the tests for a final time after removing cclib (for example, ``rm -rf $PYTHONDIR/lib/site-packages/cclib``) and reinstalling from the source distribution
-* Tag the release (make sure to use an annotated tag using using ``git -a``) and upload it (``git push --tags``)
-* Create the source distributions and Windows binary
-
-.. code-block:: bash
-
-    python setup.py sdist --formats=gztar,zip
-    python3 setup.py bdist_wininst               # rename from cclib-1.x.win32.exe to cclib-1.x-py2.7.exe
-    python2.7 setup.py bdist_wininst             # rename to cclib-1.x-py2.7.exe
-
-* Create a release of Github (see `Creating releases`_) and upload the source distrobitions and Windows binary
-* Update the download and install instructions in the documentation, if appropriate
-* Email the users and developers mailing list with the ANNOUNCE
-* Update the Python cheeseshop (https://pypi.python.org/pypi/cclib)
-
-.. code-block:: bash
-
-    python setup.py register
-
-* For a major release, if appropriate, send an email to the `CCL list`_ and mailing lists for supported computational chemistry packages
-
-.. _`ANNOUNCE`: https://github.com/cclib/cclib/blob/master/ANNOUNCE
-.. _`CHANGELOG`: https://github.com/cclib/cclib/blob/master/CHANGELOG
-.. _`setup.py`: https://github.com/cclib/cclib/blob/master/setup.py
-.. _`__init__.py`: https://github.com/cclib/cclib/blob/master/src/cclib/__init__.py
-.. _`manifest.py`: https://github.com/cclib/cclib/blob/master/manifest.py
-
-.. _`Creating releases`: https://help.github.com/articles/creating-releases
-
-.. _`CCL list`: http://www.ccl.net
+.. _`releases`: https://github.com/cclib/cclib/releases
 
 Developer policy
 ~~~~~~~~~~~~~~~~
 
-We follow the typical GitHub collaborative model, which relies on `forks and pull requests`_. In short, the process consists of:
+We follow a typical GitHub collaborative model, relying on `forks and pull requests`_. In short, the development process consists of:
 
 * `Creating your own fork`_ of cclib in order to develop
 * `Creating a pull request`_ to contribute your changes
@@ -78,15 +41,43 @@ We follow the typical GitHub collaborative model, which relies on `forks and pul
 
 Here are some general guidelines for developers who are contributing code:
 
-* Run and review the unit tests before submitting a pull request
-* There should never be more failed tests than before your changes
-* For larger changes or features that take some time to implement, using branches is recommended:
+* Run and review the unit tests (see below) before submitting a pull request
+* There should normally not be more failed tests than before your changes
+* For larger changes or features that take some time to implement, `using branches`_ is recommended
 
-.. code-block:: bash
+.. _`using branches`: https://help.github.com/articles/branching-out
 
-    git branch mybranch
-    git checkout mybranch
-    git commit -m "my changes that break tests"
+Releasing a new version
+~~~~~~~~~~~~~~~~~~~~~~~
+
+The release cycle of cclib is irregular, with new versions being created as deemed necessary after significant changes or new features. We roughly follow semantic versioning with respect to the `parsed attributes`_.
+
+When creating a new release on GitHub, the typical procedure include the following steps:
+
+* Update the `CHANGELOG`_, `ANNOUNCE`_ and any other files that might change content with the new version
+* Make sure that `setup.py`_ has the right version number, as well as __version__ in `__init__.py`_ and any other relevant files
+* Run `manifest.py`_ to update the MANIFEST file if necessary
+* Do a final merge of the trunk to the release branch
+* Run the tests for a final time after removing cclib (for example, ``rm -rf $PYTHONDIR/lib/site-packages/cclib``) and reinstalling from the source distribution
+* Tag the release (make sure to use an annotated tag using using ``git -a``) and upload it (``git push --tags``)
+* Create the source distributions (``python setup.py sdist --formats=gztar,zip``) and Windows binary installers (``python setup.py bdist_wininst``)
+* Create a release on Github (see `Creating releases`_) and upload the source distribiuions and Windows binaries
+* Update the download and install instructions in the documentation, if appropriate
+* Email the users and developers mailing list with the message in `ANNOUNCE`_
+* Update the Python package index (https://pypi.python.org/pypi/cclib), normally done by ``python setup.py register``
+* For a significant minor release, if appropriate, send an email to the `CCL list`_ and any mailing lists for computational chemistry packages supported by cclib
+
+.. _`parsed attributes`: data.html
+
+.. _`ANNOUNCE`: https://github.com/cclib/cclib/blob/master/ANNOUNCE
+.. _`CHANGELOG`: https://github.com/cclib/cclib/blob/master/CHANGELOG
+.. _`setup.py`: https://github.com/cclib/cclib/blob/master/setup.py
+.. _`__init__.py`: https://github.com/cclib/cclib/blob/master/src/cclib/__init__.py
+.. _`manifest.py`: https://github.com/cclib/cclib/blob/master/manifest.py
+
+.. _`Creating releases`: https://help.github.com/articles/creating-releases
+
+.. _`CCL list`: http://www.ccl.net
 
 Testing
 =======
@@ -94,12 +85,15 @@ Testing
 .. index::
     single: testing; unit tests
 
-The ``test`` directory (not included in the release version at the moment) contains all of the test code that help keep cclib working, and keep us sane. The data files, which are logfiles from computational chemistry programs, are in the ``data`` directory. We use two types of data files for testing, as described below.
+Tests are a central part of cclib development, and work is often done in a test-driven fashion. The `test directory`_, which is not included in the default download, contains the test scripts that keep cclib working, and keep the developers sane. The corresponding data files, which are logfiles from computational chemistry programs, are located in the `data directory`_. 
+
+.. _`data directory`: https://github.com/cclib/cclib/tree/master/test
+.. _`test directory`: https://github.com/cclib/cclib/tree/master/test
 
 Unit tests
 ~~~~~~~~~~
 
-These basic logfiles, which are used for unit tests, are stored in folders like ``basicJaguar6.4`` and are standardized for all supported programs to the extent possible. These include B3LYP/STO-3G calculations on 1,4-divinylbenzene (dvb) with C2h symmetry, post-Hartree Fock calculations for ware and others. These jobs represent typical computation types such as geometry optimisation, a single point calculation (closed and open shell), frequency calculation, a TD-DFT calculation. These data files are stored in the git repository alongside the source dode, but are not included in the distributed source packages.
+These basic logfiles, which are used for unit tests, are stored in folders like ``basicJaguar6.4`` and are standardized for all supported programs to the extent possible. These include B3LYP/STO-3G calculations on 1,4-divinylbenzene (dvb) with C2h symmetry, post-Hartree Fock calculations for water and others. These jobs represent typical computation types such as geometry optimisation, a single point calculation (closed and open shell), frequency calculation, a TD-DFT calculation. These data files are stored in the git repository alongside the source dode, but are not included in the distributed source packages.
 
 In order to check whether our parsers extract information in the correct format, with the correct units, we have unit tests that parse a series of basic data files (see below) of the same calculation undertaken with different programs. Running testall.py in the test directory runs the whole test suite, but it is also possible to individually run the tests for GeoOpts (testGeoOpt.py), Single Point calculations, and so on.
 
@@ -119,6 +113,12 @@ New regression tests are added by creating a function ``testMyFileName_out`` fol
 
 .. _`cclib-data`: https://github.com/cclib/cclib-data
 .. _`regression.py`: https://github.com/cclib/cclib/blob/master/test/regression.py
+
+| Production version (|release|): |travis_prod|
+| Development branch (master): |travis_master|
+
+.. |travis_prod| image:: https://travis-ci.org/cclib/cclib.svg?branch=v1.3
+.. |travis_master| image:: https://travis-ci.org/cclib/cclib.svg?branch=master
 
 Doc tests
 ~~~~~~~~~
