@@ -131,7 +131,6 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="">Development</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#basic-instructions">Basic instructions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#other-useful-pages">Other useful pages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#websites-related-to-cclib">Websites related to cclib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#developers">Developers</a></li>
 </ul>
@@ -202,8 +201,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="developer-policy">
-<h3>Developer policy<a class="headerlink" href="#developer-policy" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="guidelines">
+<h3>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h3>
 <p>We follow a typical GitHub collaborative model, relying on <a class="reference external" href="https://help.github.com/articles/using-pull-requests">forks and pull requests</a>. In short, the development process consists of:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://help.github.com/articles/fork-a-repo">Creating your own fork</a> of cclib in order to develop</li>
@@ -221,70 +220,85 @@
 <div class="section" id="releasing-a-new-version">
 <h3>Releasing a new version<a class="headerlink" href="#releasing-a-new-version" title="Permalink to this headline">¶</a></h3>
 <p>The release cycle of cclib is irregular, with new versions being created as deemed necessary after significant changes or new features. We roughly follow semantic versioning with respect to the <a class="reference external" href="data.html">parsed attributes</a>.</p>
-<p>When creating a new release on GitHub, the typical procedure include the following steps:</p>
+<p>When creating a new release on GitHub, the typical procedure might include the following steps:</p>
 <ul class="simple">
 <li>Update the <a class="reference external" href="https://github.com/cclib/cclib/blob/master/CHANGELOG">CHANGELOG</a>, <a class="reference external" href="https://github.com/cclib/cclib/blob/master/ANNOUNCE">ANNOUNCE</a> and any other files that might change content with the new version</li>
 <li>Make sure that <a class="reference external" href="https://github.com/cclib/cclib/blob/master/setup.py">setup.py</a> has the right version number, as well as __version__ in <a class="reference external" href="https://github.com/cclib/cclib/blob/master/src/cclib/__init__.py">__init__.py</a> and any other relevant files</li>
-<li>Run <a class="reference external" href="https://github.com/cclib/cclib/blob/master/manifest.py">manifest.py</a> to update the MANIFEST file if necessary</li>
-<li>Do a final merge of the trunk to the release branch</li>
-<li>Run the tests for a final time after removing cclib (for example, <tt class="docutils literal"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">$PYTHONDIR/lib/site-packages/cclib</span></tt>) and reinstalling from the source distribution</li>
-<li>Tag the release (make sure to use an annotated tag using using <tt class="docutils literal"><span class="pre">git</span> <span class="pre">-a</span></tt>) and upload it (<tt class="docutils literal"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--tags</span></tt>)</li>
-<li>Create the source distributions (<tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">sdist</span> <span class="pre">--formats=gztar,zip</span></tt>) and Windows binary installers (<tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">bdist_wininst</span></tt>)</li>
-<li>Create a release on Github (see <a class="reference external" href="https://help.github.com/articles/creating-releases">Creating releases</a>) and upload the source distribiuions and Windows binaries</li>
 <li>Update the download and install instructions in the documentation, if appropriate</li>
+<li>Create a branch for the release, so that development can continue</li>
+<li>Run all tests for a final time and fix any remaining issues</li>
+<li>Tag the release (make sure to use an annotated tag using <tt class="docutils literal"><span class="pre">git</span> <span class="pre">-a</span></tt>) and upload it (<tt class="docutils literal"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--tags</span></tt>)</li>
+<li>Run <a class="reference external" href="https://github.com/cclib/cclib/blob/master/manifest.py">manifest.py</a> to update the MANIFEST file</li>
+<li>Create the source distributions (<tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">sdist</span> <span class="pre">--formats=gztar,zip</span></tt>) and Windows binary installers (<tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">bdist_wininst</span></tt>)</li>
+<li>Create a release on Github using the created tag (see <a class="reference external" href="https://help.github.com/articles/creating-releases">Creating releases</a>) and upload the source distribiuions and Windows binaries</li>
 <li>Email the users and developers mailing list with the message in <a class="reference external" href="https://github.com/cclib/cclib/blob/master/ANNOUNCE">ANNOUNCE</a></li>
 <li>Update the Python package index (<a class="reference external" href="https://pypi.python.org/pypi/cclib">https://pypi.python.org/pypi/cclib</a>), normally done by <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">register</span></tt></li>
-<li>For a significant minor release, if appropriate, send an email to the <a class="reference external" href="http://www.ccl.net">CCL list</a> and any mailing lists for computational chemistry packages supported by cclib</li>
+<li>For significant releases, if appropriate, send an email to the <a class="reference external" href="http://www.ccl.net">CCL list</a> and any mailing lists for computational chemistry packages supported by cclib</li>
 </ul>
 </div>
 </div>
 <div class="section" id="testing">
 <h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
-<p id="index-0">Tests are a central part of cclib development, and work is often done in a test-driven fashion. The <a class="reference external" href="https://github.com/cclib/cclib/tree/master/test">test directory</a>, which is not included in the default download, contains the test scripts that keep cclib working, and keep the developers sane. The corresponding data files, which are logfiles from computational chemistry programs, are located in the <a class="reference external" href="https://github.com/cclib/cclib/tree/master/test">data directory</a>.</p>
+<p id="index-0">The <a class="reference external" href="https://github.com/cclib/cclib/tree/master/test">test directory</a>, which is not included in the default download, contains the test scripts that keep cclib reliable, and keep the developers sane. With any new commit or pull request to cclib on GitHub the tests are triggered and run with <a class="reference external" href="https://travis-ci.org/cclib/cclib">Travis CI</a>, for both the current production version 1.3 (<img alt="travis_prod" src="https://travis-ci.org/cclib/cclib.svg?branch=v1.3" />) as well as master (<img alt="travis_master" src="https://travis-ci.org/cclib/cclib.svg?branch=master" />).</p>
+<p>The input files for tests, which are logfiles from computational chemistry programs, are located in the <a class="reference external" href="https://github.com/cclib/cclib/tree/master/test">data directory</a>. These are a central part of cclib, and any progress should always be supported by corresponding tests. When a user opens an issue or reports a bug, it is prudent to write a test that reproduces the bug as well as fixing it. This ensures it will remain fixed in the future. Likewise, extending the coverage of data attributes to more programs should proceed in parallel with the growth of unit tests.</p>
 <div class="section" id="unit-tests">
-<h3>Unit tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h3>
-<p>These basic logfiles, which are used for unit tests, are stored in folders like <tt class="docutils literal"><span class="pre">basicJaguar6.4</span></tt> and are standardized for all supported programs to the extent possible. These include B3LYP/STO-3G calculations on 1,4-divinylbenzene (dvb) with C2h symmetry, post-Hartree Fock calculations for water and others. These jobs represent typical computation types such as geometry optimisation, a single point calculation (closed and open shell), frequency calculation, a TD-DFT calculation. These data files are stored in the git repository alongside the source dode, but are not included in the distributed source packages.</p>
-<p>In order to check whether our parsers extract information in the correct format, with the correct units, we have unit tests that parse a series of basic data files (see below) of the same calculation undertaken with different programs. Running testall.py in the test directory runs the whole test suite, but it is also possible to individually run the tests for GeoOpts (testGeoOpt.py), Single Point calculations, and so on.</p>
-<p>Note that no change should be commited to the repository if it increases the number of failed tests (unless you are adding new tests, of course).</p>
+<span id="index-1"></span><h3>Unit tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h3>
+<p>Unit tests check that the parsers work correctly for typical calculation types on small molecules, usually water or 1,4-divinylbenzene (dvb) with C2h symmetry. The corresponding logfiles stored in folders like <tt class="docutils literal"><span class="pre">data/NWChem/basicNWChem6.0</span></tt> are intended to test logfiles for an approximate major version of a program, and are standardized for all supported programs to the extent possible. They are located alongside the code in the repository, but are not normally distributed with the source. Two different recent versions are often used in the unit tests, with older versions being moved to the regression suite (see below). Attributes are considered supported only if they are checked by at least one test, and the <a class="reference external" href="data_dev.html#details-of-current-implementation">table of attribute coverage</a> is generated automatically using this criterion.</p>
+<p>The job types currently included as unit tests:</p>
+<ul class="simple">
+<li>restricted and unrestricted single point energies for dvb (RHF/STO-3G <strong>and</strong> B3LYP/STO-3G)</li>
+<li>geometry optimization and scan for dvb (RHF/STO-3G and/or B3LYP/STO-3G)</li>
+<li>frequency calculation with IR and Raman intensities for dvb (RHF/STO-3G or B3LYP/STO-3G)</li>
+<li>single point energy for carbon atom using a large basis set such as aug-cc-pCVQZ</li>
+<li>Møller–Plesset and coupled cluster energies for water (STO-3G or 6-31G basis set)</li>
+</ul>
 </div>
 <div class="section" id="regression-tests">
-<span id="index-1"></span><h3>Regression tests<a class="headerlink" href="#regression-tests" title="Permalink to this headline">¶</a></h3>
-<p>Regression tests ensure that bugs, once fixed, stay fixed. These are real-life files that at some point broke a cclib parser, and are stored in folders like <tt class="docutils literal"><span class="pre">Jaguar6.4</span></tt>. The files associated with regression tests are not stored stored together with the source code as they are often quite large. A separate repository on github, <a class="reference external" href="https://github.com/cclib/cclib-data">cclib-data</a>, is used to track and use these files, and we do not distribute them in releases.</p>
-<p>For every bug found in the parsers, there should be a corresponding regression test that tests this bug stays fixed. The process is automated by <a class="reference external" href="https://github.com/cclib/cclib/blob/master/test/regression.py">regression.py</a>, which runs through all of our test data, both the basic data and regression files, opens them, tries to parse, and runs any relevant regression tests defined for that file.</p>
-<p>New regression tests are added by creating a function <tt class="docutils literal"><span class="pre">testMyFileName_out</span></tt> following the examples at the start of <a class="reference external" href="https://github.com/cclib/cclib/blob/master/test/regression.py">regression.py</a>.</p>
-<div class="line-block">
-<div class="line">Production version (1.3): <img alt="travis_prod" src="https://travis-ci.org/cclib/cclib.svg?branch=v1.3" /></div>
-<div class="line">Development branch (master): <img alt="travis_master" src="https://travis-ci.org/cclib/cclib.svg?branch=master" /></div>
+<span id="index-2"></span><h3>Regression tests<a class="headerlink" href="#regression-tests" title="Permalink to this headline">¶</a></h3>
+<p>Regression tests ensure that bugs, once fixed, stay fixed. These are real-life files that at some point broke a cclib parser, and are stored in folders like <tt class="docutils literal"><span class="pre">data/regression/Jaguar/Jaguar6.4</span></tt>. The files associated with regression tests are not stored stored together with the source code as they are often quite large. A separate repository on github, <a class="reference external" href="https://github.com/cclib/cclib-data">cclib-data</a>, is used to track these files, and we do not distribute them with any releases.</p>
+<p>For every bug found in the parsers, there should be a corresponding regression test that tests this bug stays fixed. The process is automated by <a class="reference external" href="https://github.com/cclib/cclib/blob/master/test/regression.py">regression.py</a>, which runs through all of our test data, both the basic data and regression files, opens them, tries to parse, and runs any relevant regression tests defined for that file. New regression tests are added by creating a function <tt class="docutils literal"><span class="pre">testMyFileName_out</span></tt> according to the examples at the start of <a class="reference external" href="https://github.com/cclib/cclib/blob/master/test/regression.py">regression.py</a>.</p>
+</div>
+<div class="section" id="doctests">
+<h3>Doctests<a class="headerlink" href="#doctests" title="Permalink to this headline">¶</a></h3>
+<p>Doctests are a useful Python feature for unit testing individual functions. To run the doctests in a particular file, you need to run the script. For example, <tt class="docutils literal"><span class="pre">python</span> <span class="pre">gaussianparser.py</span></tt> runs the doctests contained in <a class="reference external" href="https://github.com/cclib/cclib/blob/master/src/cclib/parser/gaussianparser.py">gaussianparser.py</a>. To run all of the doctests at once, you need to install a testing tool such as <a class="reference external" href="https://nose.readthedocs.org/en/latest/">nose</a>, and then use the following command (note that many errors may be due to missing libraries like <a class="reference external" href="http://biopython.org/wiki/Main_Page">biopython</a>):</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>nose cclib --with-doctest -e <span class="nb">test</span>* -v
+ERROR
+ERROR
+Doctest: cclib.bridge.cclib2openbabel.makeopenbabel ... ok
+ERROR
+ERROR
+Doctest: cclib.parser.adfparser.ADF.normalisesym ... ok
+Doctest: cclib.parser.gamessparser.GAMESS.normalise_aonames ... ok
+Doctest: cclib.parser.gamessparser.GAMESS.normalisesym ... ok
+Doctest: cclib.parser.gamessukparser.GAMESSUK.normalisesym ... ok
+Doctest: cclib.parser.gaussianparser.Gaussian.normalisesym ... ok
+Doctest: cclib.parser.jaguarparser.Jaguar.normalisesym ... ok
+Doctest: cclib.parser.logfileparser.Logfile.float ... ok
+Doctest: cclib.parser.utils.PeriodicTable ... ok
+Doctest: cclib.parser.utils.convertor ... ok
+ERROR
+ERROR
+......
+</pre></div>
 </div>
 </div>
-<div class="section" id="doc-tests">
-<h3>Doc tests<a class="headerlink" href="#doc-tests" title="Permalink to this headline">¶</a></h3>
-<p>Doc tests are a nice Python invention for unit testing individual functions. To run the doctests in a particular file, you need to run the script. For example, &#8220;python gaussianparser.py&#8221; runs the doctests contained in gaussianparser.py. To run all of the doctests at once, you need to install a testing tool like nose, and then use the following command (note that many errors may be due to missing libraries like BioPython):</p>
-</div>
-</div>
-<div class="section" id="other-useful-pages">
-<h2>Other useful pages<a class="headerlink" href="#other-useful-pages" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>The <a class="reference external" href="methods_dev.html">methods in the development version</a></li>
-<li>The <a class="reference external" href="data_dev.html">parsed data in the development version</a></li>
-<li>The <a class="reference external" href="progress.html">progress page</a>, which describes where we are and what we are trying to do</li>
-</ul>
 </div>
 <div class="section" id="websites-related-to-cclib">
 <h2>Websites related to cclib<a class="headerlink" href="#websites-related-to-cclib" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>The official <a class="reference external" href="https://github.com/cclib">cclib organization on github</a></li>
 <li>The <a class="reference external" href="http://sourceforge.net/projects/cclib/">cclib project page on Sourceforge</a> (inactive now)</li>
+<li>The <a class="reference external" href="https://travis-ci.org/cclib/cclib">cclib page for Travis CI</a></li>
+<li>The <a href="#id1"><span class="problematic" id="id2">`cclib entry on PyPI`_</span></a></li>
 <li>The <a class="reference external" href="https://www.ohloh.net/p/cclib">cclib entry on Ohloh</a></li>
-<li>The <a class="reference external" href="http://www.python.org/pypi/cclib">cclib entry on Cheeseshop</a></li>
 </ul>
 </div>
 <div class="section" id="developers">
 <h2>Developers<a class="headerlink" href="#developers" title="Permalink to this headline">¶</a></h2>
-<p><strong>cclib</strong> developers include the following (in alphabetical order):</p>
+<p>Besides input from a number of people <a class="reference external" href="https://github.com/cclib/cclib/blob/master/THANKS">listed in the repository</a>, the following developers have contributed code to cclib (in alphabetical order):</p>
 <ul class="simple">
 <li>Eric Berquist</li>
-<li><a class="reference external" href="http://mmqc.org">Karol M. Langner</a></li>
+<li><a class="reference external" href="https://github.com/langner">Karol M. Langner</a></li>
 <li><a class="reference external" href="http://www.redbrick.dcu.ie/~noel">Noel O&#8217;Boyle</a></li>
 <li>Christopher Rowley</li>
 <li>Adam Tenderholt</li>
