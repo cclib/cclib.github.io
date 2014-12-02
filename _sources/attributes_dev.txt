@@ -40,6 +40,7 @@
     `nbasis`_           number of basis functions                                                                    integer
     `nmo`_              number of molecular orbitals                                                                 integer
     `nocoeffs`_         natural orbital coefficients                                                                 array of rank 2
+    `nooccnos`_         natural orbital occupation numbers                                                           array of rank 1
     `optdone`_          flags whether an optimization has converged                                                  Boolean
     `scancoords`_       geometries of each scan step                                     angstroms                   array of rank 3
     `scanenergies`_     energies of potential energy surface                                                         list
@@ -96,6 +97,7 @@
 .. _`nbasis`: data_notes.html#nbasis
 .. _`nmo`: data_notes.html#nmo
 .. _`nocoeffs`: data_notes.html#nocoeffs
+.. _`nooccnos`: data_notes.html#nooccnos
 .. _`optdone`: data_notes.html#optdone
 .. _`scancoords`: data_notes.html#scancoords
 .. _`scanenergies`: data_notes.html#scanenergies
