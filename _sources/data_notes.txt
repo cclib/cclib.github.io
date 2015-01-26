@@ -50,7 +50,7 @@ atomcharges
 
 The attribute ``atomcharges`` contains the atomic partial charges as taken from the output file. Since these charges are arbitrary and depend on the details of a population analysis, this attribute is dictionary containing any number of various atomic charges. The keys in this dictionary are strings naming the population analysis, and the values are arrays of rank 1 and contain the actual charges.
 
-Currently, cclib parses Mulliken, Lowdin and NPA charges, whose respective dictionary keys are ``mulliken``, ``lowdin`` and ``natural``.
+Currently, cclib parses Mulliken, Löwdin and NPA charges, whose respective dictionary keys are ``mulliken``, ``lowdin`` and ``natural``.
 
 Note that in practice these may differ somewhat from the values cclib calculates in the various calculation methods.
 
@@ -63,7 +63,7 @@ The attribute ``atomcoords`` contains the atomic coordinates as taken from the o
 
 **Gaussian**: for geometry optimisations, the "Standard orientation" sections are extracted.
 
-**Molpro**: typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.
+**Molpro**: typically prints output about geometry optimisation in a separate logfile. So, both that and the initial output need to be passed to the cclib parser.
 
 atommasses
 ----------
@@ -80,12 +80,12 @@ atomspins
 
 The attribute ``atomspins`` contains the atomic spin densities as calculated in a population analysis and taken from the output file. Since these densities are arbitrary and depend on the particular population analysis, this attribute is dictionary. In analogy to `atomcharges`_, the keys in this dictionary are strings naming the population analysis, and the values are arrays of rank 1 and contain the actual spin densities.
 
-Currently, cclib parses Mulliken and Lowdin spin densities, whose respective dictionary keys are ``mulliken`` and ``lowdin``.
+Currently, cclib parses Mulliken and Löwdin spin densities, whose respective dictionary keys are ``mulliken`` and ``lowdin``.
 
 ccenergies
 ----------
 
-A one-dimensional array holds the total molecule energies including Coupled Cluster corrections. The array's length is 1 for single point calculations and larger for optimizations. Only the highest theory level is parsed into this attribute (for example, CCSD energies as opposed to CCD energies, or CCSD(T) as opposed to CCSD energies).
+A one-dimensional array holds the total molecule energies including Coupled Cluster corrections. The array's length is 1 for single point calculations and larger for optimisations. Only the highest theory level is parsed into this attribute (for example, CCSD energies as opposed to CCD energies, or CCSD(T) as opposed to CCSD energies).
 
 charge
 ------
@@ -117,7 +117,7 @@ Availability (development version):
 etoscs
 ------
 
-The attribute ``etoscs`` is a rank 1 array that contains the oscillator strengths of transitions from the reference (ground) state to the excited electornic states of the of the molecule. As for `etenergies`_ and other attributes related to excited states, there should as many elements in this array as there are excited states in the calculation.
+The attribute ``etoscs`` is a rank 1 array that contains the oscillator strengths of transitions from the reference (ground) state to the excited electronic states of the of the molecule. As for `etenergies`_ and other attributes related to excited states, there should as many elements in this array as there are excited states in the calculation.
 
 Availability:
 
@@ -159,7 +159,7 @@ Availability (development version):
 etsyms
 ------
 
-The attributes ``etsyms`` is a list containing the symmetries (strings) of the excited states found in the calculation. As for `etenergies`_ and other attributes related to excited states, there should be as many elements in this list as there are excited states in the calcualtion.
+The attributes ``etsyms`` is a list containing the symmetries (strings) of the excited states found in the calculation. As for `etenergies`_ and other attributes related to excited states, there should be as many elements in this list as there are excited states in the calculation.
 
 Note that while the symmetry descriptions start with the string ``Singlet`` or ``Triplet``, the exact format differs between programs.
 
@@ -190,12 +190,12 @@ Some examples:
 
 ``bdt1_37A`` - Molecular orbital 37A from the fragment bdt1
 
-**ADF**: There are no required inputfile options for fonames to be suppored; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the ``Symmetry NOSYM`` option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that ``Eigval 99999 99999`` be put into an ``Eprint`` block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.
+**ADF**: There are no required inputfile options for fonames to be supported; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the ``Symmetry NOSYM`` option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that ``Eigval 99999 99999`` be put into an ``Eprint`` block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.
 
 fooverlaps
 ----------
 
-Fooverlaps is a 2-dimensional array that holds numerical values for the spacial overlap between basis functions. It is very similar to `aooverlaps`_, but differs because of the way ADF performs the calculation (see below for more details). The matrix indices correspond to the fragment orbitals; see the examples listed for `aonames`_.
+This is a 2-dimensional array that holds numerical values for the spacial overlap between basis functions. It is very similar to `aooverlaps`_, but differs because of the way ADF performs the calculation (see below for more details). The matrix indices correspond to the fragment orbitals; see the examples listed for `aonames`_.
 
 **Background**
 
@@ -203,7 +203,7 @@ ADF uses symmetry-adapted fragment orbitals (SFOs) as its basis. These SFOs are 
 
 The difficulty in handling the basis for a molecule with symmetry and the availability of extra information in the fragment calculations makes using aooverlaps (as specified for the other formats) inappropriate, except for certain circumstances. Therefore, an extra member called fooverlaps is available for the ADF parser.
 
-**ADF**: There are no required inputfile options for fooverlaps to be suppored; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the ``Symmetry NOSYM`` option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that ``Eigval 99999 99999`` be put into an ``Eprint`` block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.
+**ADF**: There are no required inputfile options for fooverlaps to be supported; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the ``Symmetry NOSYM`` option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that ``Eigval 99999 99999`` be put into an ``Eprint`` block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.
 
 .. index::
     single: basis sets; gbasis (attribute)
@@ -235,7 +235,7 @@ This attribute stores information about the Gaussian basis functions that were u
     ]
     ]
 
-Some programs print basis set details by deault, but for others you will need to include various keywords in order for ``gbasis`` to be parsed:
+Some programs print basis set details by default, but for others you will need to include various keywords in order for ``gbasis`` to be parsed:
 
 **Gaussian**: the `GFINPUT`_ keyword should normally be used (`GFPRINT`_ gives equivalent information in a different format and is supported in cclib after v1.2).
 
@@ -253,23 +253,23 @@ Some programs print basis set details by deault, but for others you will need to
 **Development note**: It also needs to be noted whether any D and F functions are pure (5D, 7F) or Cartesian (6D, 10F). PyQuante can only handle Cartesian functions, but we should extract this information in any case. We will need to extend the PyQuante basis set format to include this.
 
 .. index::
-    single: geomtry optimization; geotargets (attribute)
+    single: geomtry optimisation; geotargets (attribute)
 
 geotargets
 ----------
 
-Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length ``n``, where ``n`` is the number of targets, and the actual values of these criteria are stored for every optimization step in the attribute `geovalues`_. Note that cclib does not carry information about the meaning of these criteria, and it is up to the user to interpret the values properly for a particular program. Below we provide some details for several parsers, but it is always a good idea to refer to the source documentation.
+Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length ``n``, where ``n`` is the number of targets, and the actual values of these criteria are stored for every optimisation step in the attribute `geovalues`_. Note that cclib does not carry information about the meaning of these criteria, and it is up to the user to interpret the values properly for a particular program. Below we provide some details for several parsers, but it is always a good idea to refer to the source documentation.
 
 In some special cases, the values in ``geotargets`` will be `numpy.inf`_.
 
-**GAMESS UK**: the criteria used for geometry convergence are based on the ``TOL`` parameter, which can be set using the ``XTOLL`` directive. The fault value of this parameter and the conditions required for convergence vary among the various optimization strategies (see the `GAMESS-UK manual section on controlling optimization`_ for details). In ``OPTIMIZE`` mode, ``TOL`` defaults to 0.003 and the conditions are,
+**GAMESS UK**: the criteria used for geometry convergence are based on the ``TOL`` parameter, which can be set using the ``XTOLL`` directive. The fault value of this parameter and the conditions required for convergence vary among the various optimisation strategies (see the `GAMESS-UK manual section on controlling optimisation`_ for details). In ``OPTIMIZE`` mode, ``TOL`` defaults to 0.003 and the conditions are,
 
     - maximum change in variables below TOL,
     - average change in variables smaller than TOL * 2/3,
     - maximum gradient below TOL * 1/4,
     - average gradient below TOL * 1/6.
 
-.. _`GAMESS-UK manual section on controlling optimization`:http://www.cfs.dl.ac.uk/docs/html/part4/node14.html 
+.. _`GAMESS-UK manual section on controlling optimisation`:http://www.cfs.dl.ac.uk/docs/html/part4/node14.html 
 
 **Jaguar** has several geometry convergence criteria,
 
@@ -277,7 +277,7 @@ In some special cases, the values in ``geotargets`` will be `numpy.inf`_.
     * gconv2: rms of gradient elements (3.0E-04)
     * gconv5: maximum element of nuclear displacement (1.8E-03)
     * gconv6: rms of nuclear displacement elements (1.2E-03)
-    * gconv7: difference between final energies from previous and current geometry optimization iterations (5.0E-05)
+    * gconv7: difference between final energies from previous and current geometry optimisation iterations (5.0E-05)
 
 Note that a value for gconv7 is not available until the second iteration, so it is set to zero in the first element of `geovalues`_.
 
@@ -287,7 +287,7 @@ Note that a value for gconv7 is not available until the second iteration, so it 
 
 .. _`manual`: https://www.molpro.net/info/2012.1/doc/manual/node592.html
 
-**ORCA** tracks the change in energy as well as RMS and maximum gradients and displacements. As of version 3.0, an optimization is considered converged when all the tolerances are met, and there are four exceptions:
+**ORCA** tracks the change in energy as well as RMS and maximum gradients and displacements. As of version 3.0, an optimisation is considered converged when all the tolerances are met, and there are four exceptions:
 
     * the energy is within 25x the tolerance and all other criteria are met
     * the gradients are overachieved (1/3 of the tolerance) and displacements are reasonable (at most 3x the tolerance)
@@ -301,16 +301,16 @@ Note that a value for gconv7 is not available until the second iteration, so it 
 .. _`numpy.inf`: http://docs.scipy.org/doc/numpy-1.8.1/user/misc.html#ieee-754-floating-point-special-values
 
 .. index::
-    single: geomtry optimization; geovalues (attribute)
+    single: geomtry optimisation; geovalues (attribute)
 
 geovalues
 ---------
 
 These are the current values for the criteria used to determine whether a geometry has converged in the course of a geometry optimisation. It is an array of dimensions ``m x n``, where ``m`` is the number of geometry optimisation iterations and ``n`` the number of target criteria.
 
-Note that many programs print atomic coordinates before and after a geomtry optimization, which means that there will not necessarily be ``m`` elements in ``atomcoords``_.
+Note that many programs print atomic coordinates before and after a geomtry optimisation, which means that there will not necessarily be ``m`` elements in ``atomcoords``_.
 
-If the optimization has finished successfully, the values in the last row should be smaller than the values in geotargets_ (unless the convergence criteria require otherwise).
+If the optimisation has finished successfully, the values in the last row should be smaller than the values in geotargets_ (unless the convergence criteria require otherwise).
 
 hessian
 -------
@@ -373,14 +373,14 @@ This attribute contains the dipole moment vector and any higher electrostatic mu
 * the third array contains the raw molecular quadrupole moments in lexicographical order, that is the XX, XY, XZ, YY, YZ and ZZ moments, in Buckinghams (:math:`\mathbf{\mathrm{B}}`),
 * any further arrays contain the raw molecular multipole moments of higher rank, in lexicographical order and in units of :math:`\mathbf{\mathrm{D}} \cdot Å^{L-1} = 10^{-10} \mathrm{esu} \cdot Å^L`
 
-Note that by default cclib will provide the last moments printed, if several are printed in the course of a geometry optimization or other job type involving several more than one geometry. For post-Hartree-Fock calculations, such as MP2 or coupled cluster, the uncorrelated moments are reported if none are printed for the final wavefunction.
+Note that by default cclib will provide the last moments printed, if several are printed in the course of a geometry optimisation or other job type involving several more than one geometry. For post-Hartree-Fock calculations, such as MP2 or coupled cluster, the uncorrelated moments are reported if none are printed for the final wavefunction.
 
 mosyms
 ------
 
 For unrestricted calculations, this is a list of two lists containing alpha and beta symmetries (i.e. ``[[alpha_syms],[beta_syms]]``) containing strings for the orbital symmetries, arranged in order of energy. In a restricted calculation, there is only one nested list (``[[syms]]``).
 
-The symmetry labels are normalised and cclib reporteds standard symmetry names:
+The symmetry labels are normalised and cclib reports standard symmetry names:
 
     ======= ======= ======= ==========  ==================          ======
     cclib   ADF     GAMESS  GAMESS-UK   Gaussian                    Jaguar
@@ -401,23 +401,23 @@ The symmetry labels are normalised and cclib reporteds standard symmetry names:
 
 * ADF - the full list can be found [http://www.scm.com/Doc/Doc2005.01/ADF/ADFUsersGuide/page339.html here].
 * GAMESS-UK - to get the list, 'grep "data yr" input.m' if you have access to the source. Note that for E, it's split into "e1+" and "e1-" for instance.
-* Jaguar - to get the list, look at the examples in schrodinger/jaguar-vwhatever/samples if you have access to Jaguar. Note that for E, it's written as E1pp/Ap, for instance.
+* Jaguar - to get the list, look at the examples in schrodinger/jaguar-whatever/samples if you have access to Jaguar. Note that for E, it's written as E1pp/Ap, for instance.
 * NWChem - if molecular symmetry is turned off or set to C1, symmetry adaption for orbitals is also deactivated, and can be explicitely turned on with `adapt on` in the SCF block
 
 Developers:
 * The use of a function with doctests for each of these cases is recommended, to make sure that the conversion is robust. There is a prototype called normalisesym() in logfileparser.py which should be overwritten in the subclasses if necessary (there is a unittest to make sure that this has been done).
-* The character tables [http://www.mpip-mainz.mpg.de/~gelessus/group.html here] may be useful in determining the correspondance between the labels used by the comp chem package and the commonly-used symbols.
+* The character tables [http://www.mpip-mainz.mpg.de/~gelessus/group.html here] may be useful in determining the correspondence between the labels used by the comp chem package and the commonly-used symbols.
 
 mpenergies
 ----------
 
-The attribute ``mpenergies`` holds the total molecule energies including Möller-Plesset correlation energy corrections in a two-dimensional array. The array's shape is (n,L), where ``n`` is 1 for single point calculations and larger for optimizations, and ``L`` is the order at which the correction is truncated. The order of elements is ascending, so a single point MP5 calculation will yield mpenergies as :math:`E_{MP2}, E_{MP3}, E_{MP4}, E_{MP5}`.
+The attribute ``mpenergies`` holds the total molecule energies including Møller-Plesset correlation energy corrections in a two-dimensional array. The array's shape is (n,L), where ``n`` is 1 for single point calculations and larger for optimisations, and ``L`` is the order at which the correction is truncated. The order of elements is ascending, so a single point MP5 calculation will yield mpenergies as :math:`E_{MP2}, E_{MP3}, E_{MP4}, E_{MP5}`.
 
 **ADF**: does not perform such calculations.
 
-**GAMESS**: second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calcualtions in PC-GAMESS (use ``mplevl=n`` in the ``$contrl`` section).
+**GAMESS**: second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calculations in PC-GAMESS (use ``mplevl=n`` in the ``$contrl`` section).
 
-**GAMESS-UK**: MP2 through MP3 corrections are avaialbe.
+**GAMESS-UK**: MP2 through MP3 corrections are available.
 
 **Gaussian**: MP2 through MP5 energies are available using the ``MP`` keyword. For MP4 corrections, the energy with the most substitutions is used (SDTQ by default).
 
@@ -458,7 +458,7 @@ Commands to get information on all orbitals:
 optdone
 -------
 
-Flags whether a geometry optimization has completed. Currently this attribute is a single Boolean value, which is set to True when the final `atomcoords`_ represent a converged geometry optimization. In the future, ``optdone`` will be a list that indexes which elements of `atomcoords`_ represent converged geometries. This functionality can be used starting from version 1.3, from the command line by passing the ``--future`` option to ``ccget``,
+Flags whether a geometry optimisation has completed. Currently this attribute is a single Boolean value, which is set to True when the final `atomcoords`_ represent a converged geometry optimisation. In the future, ``optdone`` will be a list that indexes which elements of `atomcoords`_ represent converged geometries. This functionality can be used starting from version 1.3, from the command line by passing the ``--future`` option to ``ccget``,
 
 .. code-block:: bash
 
@@ -483,9 +483,9 @@ or by providing the corresponding argument to ``ccopen``,
 scfenergies
 -----------
 
-An array containing the converged SCF energies of the calculation, in eV. For an optimization log file, there will be as many elements in this array as there were optimization steps.
+An array containing the converged SCF energies of the calculation, in eV. For an optimisation log file, there will be as many elements in this array as there were optimisation steps.
 
-**Molpro**: typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.
+**Molpro**: typically prints output about geometry optimisation in a separate logfile. So, both that and the initial output need to be passed to the cclib parser.
 
 scftargets
 ----------
@@ -502,11 +502,11 @@ The criteria vary from program to program, and depending on the program they may
 
 The value of the target criterion depends on the calculation:
 
-* The "hard" target, SCFconv, is used for single point calculations, and the last step of geometry optimizations. It defaults to 1.0E-6, and can be changed in the SCF keyword block.
+* The "hard" target, SCFconv, is used for single point calculations, and the last step of geometry optimisations. It defaults to 1.0E-6, and can be changed in the SCF keyword block.
 
 * The "soft" target, scfconv2, is used for the first step of a geometry opimization. It defaults to 1.0E-3, and can also be changed in the SCF keyword block.
 
-* For intermediate steps in a geometry optimization the situation is more complicated and depends on the gradient and the integration accuracy. After a post on the ADF user's forum, I found that it is calculated as follows:
+* For intermediate steps in a geometry optimisation the situation is more complicated and depends on the gradient and the integration accuracy. After a post on the ADF user's forum, I found that it is calculated as follows:
 
 :: new_convcriteria = max(SCFconv, min(old_convcriteria, grdmax/30, 10**(-accint))) )
 
@@ -516,7 +516,7 @@ The value of the target criterion depends on the calculation:
 
 .. _`ADF manual`: http://www.scm.com/Doc/Doc2005.01/ADF/ADFUsersGuide/page124.html#keyscheme%20SCF here
 
-**GAMESS**: Maximum and root-mean-square (RMS) density matrix change: starts from 5.0E-05 by default and changes over the course of a geometry optimisation. ROHF calcualtions use SQCDF instead of the standard RMS change.
+**GAMESS**: Maximum and root-mean-square (RMS) density matrix change: starts from 5.0E-05 by default and changes over the course of a geometry optimisation. ROHF calculations use SQCDF instead of the standard RMS change.
 
 **GAMESS-UK**: According to `the manual`_, convergence is determined by convergence of the elements of density matrix. The default value for SCF is 1E-5, but it appears to be 1E-7 for geoopts.
 
@@ -545,7 +545,7 @@ The attribute ``scfvalues`` is a list of arrays of dimension ``n x m`` (one elem
 
 .. _`route section`: http://www.gaussian.com/g_tech/g_ur/k_route.htm
 
-**GAMESS-UK**: convergence information is printed only for the first optimization step by default, but can be forced at all steps by adding ``IPRINT SCF`` to the input file.
+**GAMESS-UK**: convergence information is printed only for the first optimisation step by default, but can be forced at all steps by adding ``IPRINT SCF`` to the input file.
 
 vibdisps
 --------

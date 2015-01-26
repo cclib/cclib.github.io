@@ -131,7 +131,6 @@
 <li class="toctree-l1"><a class="reference internal" href="development.html">Development</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="development.html#basic-instructions">Basic instructions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development.html#testing">Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development.html#other-useful-pages">Other useful pages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development.html#websites-related-to-cclib">Websites related to cclib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development.html#developers">Developers</a></li>
 </ul>
@@ -224,7 +223,7 @@
 <div class="section" id="atomcharges">
 <h2>atomcharges<a class="headerlink" href="#atomcharges" title="Permalink to this headline">¶</a></h2>
 <p>The attribute <tt class="docutils literal"><span class="pre">atomcharges</span></tt> contains the atomic partial charges as taken from the output file. Since these charges are arbitrary and depend on the details of a population analysis, this attribute is dictionary containing any number of various atomic charges. The keys in this dictionary are strings naming the population analysis, and the values are arrays of rank 1 and contain the actual charges.</p>
-<p>Currently, cclib parses Mulliken, Lowdin and NPA charges, whose respective dictionary keys are <tt class="docutils literal"><span class="pre">mulliken</span></tt>, <tt class="docutils literal"><span class="pre">lowdin</span></tt> and <tt class="docutils literal"><span class="pre">natural</span></tt>.</p>
+<p>Currently, cclib parses Mulliken, Löwdin and NPA charges, whose respective dictionary keys are <tt class="docutils literal"><span class="pre">mulliken</span></tt>, <tt class="docutils literal"><span class="pre">lowdin</span></tt> and <tt class="docutils literal"><span class="pre">natural</span></tt>.</p>
 <p>Note that in practice these may differ somewhat from the values cclib calculates in the various calculation methods.</p>
 <p><strong>Molpro</strong>: use the <tt class="docutils literal"><span class="pre">pop</span></tt> command (see <a class="reference external" href="http://www.molpro.net/info/2010.1/doc/manual/node450.html">http://www.molpro.net/info/2010.1/doc/manual/node450.html</a>)</p>
 </div>
@@ -232,7 +231,7 @@
 <h2>atomcoords<a class="headerlink" href="#atomcoords" title="Permalink to this headline">¶</a></h2>
 <p>The attribute <tt class="docutils literal"><span class="pre">atomcoords</span></tt> contains the atomic coordinates as taken from the output file. This is an array of rank 3, with a shape (n,m,3) where n is 1 for a single point calculation and &gt;=1 for a geometry optimisation and m is the number of atoms.</p>
 <p><strong>Gaussian</strong>: for geometry optimisations, the &#8220;Standard orientation&#8221; sections are extracted.</p>
-<p><strong>Molpro</strong>: typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.</p>
+<p><strong>Molpro</strong>: typically prints output about geometry optimisation in a separate logfile. So, both that and the initial output need to be passed to the cclib parser.</p>
 </div>
 <div class="section" id="atommasses">
 <h2>atommasses<a class="headerlink" href="#atommasses" title="Permalink to this headline">¶</a></h2>
@@ -245,11 +244,11 @@
 <div class="section" id="atomspins">
 <h2>atomspins<a class="headerlink" href="#atomspins" title="Permalink to this headline">¶</a></h2>
 <p>The attribute <tt class="docutils literal"><span class="pre">atomspins</span></tt> contains the atomic spin densities as calculated in a population analysis and taken from the output file. Since these densities are arbitrary and depend on the particular population analysis, this attribute is dictionary. In analogy to <a class="reference internal" href="#atomcharges">atomcharges</a>, the keys in this dictionary are strings naming the population analysis, and the values are arrays of rank 1 and contain the actual spin densities.</p>
-<p>Currently, cclib parses Mulliken and Lowdin spin densities, whose respective dictionary keys are <tt class="docutils literal"><span class="pre">mulliken</span></tt> and <tt class="docutils literal"><span class="pre">lowdin</span></tt>.</p>
+<p>Currently, cclib parses Mulliken and Löwdin spin densities, whose respective dictionary keys are <tt class="docutils literal"><span class="pre">mulliken</span></tt> and <tt class="docutils literal"><span class="pre">lowdin</span></tt>.</p>
 </div>
 <div class="section" id="ccenergies">
 <h2>ccenergies<a class="headerlink" href="#ccenergies" title="Permalink to this headline">¶</a></h2>
-<p>A one-dimensional array holds the total molecule energies including Coupled Cluster corrections. The array&#8217;s length is 1 for single point calculations and larger for optimizations. Only the highest theory level is parsed into this attribute (for example, CCSD energies as opposed to CCD energies, or CCSD(T) as opposed to CCSD energies).</p>
+<p>A one-dimensional array holds the total molecule energies including Coupled Cluster corrections. The array&#8217;s length is 1 for single point calculations and larger for optimisations. Only the highest theory level is parsed into this attribute (for example, CCSD energies as opposed to CCD energies, or CCSD(T) as opposed to CCSD energies).</p>
 </div>
 <div class="section" id="charge">
 <h2>charge<a class="headerlink" href="#charge" title="Permalink to this headline">¶</a></h2>
@@ -277,7 +276,7 @@
 </div>
 <div class="section" id="etoscs">
 <h2>etoscs<a class="headerlink" href="#etoscs" title="Permalink to this headline">¶</a></h2>
-<p>The attribute <tt class="docutils literal"><span class="pre">etoscs</span></tt> is a rank 1 array that contains the oscillator strengths of transitions from the reference (ground) state to the excited electornic states of the of the molecule. As for <a class="reference internal" href="#etenergies">etenergies</a> and other attributes related to excited states, there should as many elements in this array as there are excited states in the calculation.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">etoscs</span></tt> is a rank 1 array that contains the oscillator strengths of transitions from the reference (ground) state to the excited electronic states of the of the molecule. As for <a class="reference internal" href="#etenergies">etenergies</a> and other attributes related to excited states, there should as many elements in this array as there are excited states in the calculation.</p>
 <p>Availability:</p>
 <ul class="simple">
 <li>Configuration Interaction (CIS): Gaussian</li>
@@ -318,7 +317,7 @@
 </div>
 <div class="section" id="etsyms">
 <h2>etsyms<a class="headerlink" href="#etsyms" title="Permalink to this headline">¶</a></h2>
-<p>The attributes <tt class="docutils literal"><span class="pre">etsyms</span></tt> is a list containing the symmetries (strings) of the excited states found in the calculation. As for <a class="reference internal" href="#etenergies">etenergies</a> and other attributes related to excited states, there should be as many elements in this list as there are excited states in the calcualtion.</p>
+<p>The attributes <tt class="docutils literal"><span class="pre">etsyms</span></tt> is a list containing the symmetries (strings) of the excited states found in the calculation. As for <a class="reference internal" href="#etenergies">etenergies</a> and other attributes related to excited states, there should be as many elements in this list as there are excited states in the calculation.</p>
 <p>Note that while the symmetry descriptions start with the string <tt class="docutils literal"><span class="pre">Singlet</span></tt> or <tt class="docutils literal"><span class="pre">Triplet</span></tt>, the exact format differs between programs.</p>
 <p>Availability:</p>
 <ul class="simple">
@@ -341,15 +340,15 @@
 <p><tt class="docutils literal"><span class="pre">C1+C4_1S+1S</span></tt> - Orbitals from carbon 1 and carbon 4 can interact, and their <tt class="docutils literal"><span class="pre">1S</span></tt> orbitals mix in a positive manner</p>
 <p><tt class="docutils literal"><span class="pre">C1+C4_1Px-1Px</span></tt> - Orbitals from carbon 1 and carbon 4 can interact, and their <tt class="docutils literal"><span class="pre">1Px</span></tt> orbitals mix in a negative manner</p>
 <p><tt class="docutils literal"><span class="pre">bdt1_37A</span></tt> - Molecular orbital 37A from the fragment bdt1</p>
-<p><strong>ADF</strong>: There are no required inputfile options for fonames to be suppored; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the <tt class="docutils literal"><span class="pre">Symmetry</span> <span class="pre">NOSYM</span></tt> option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that <tt class="docutils literal"><span class="pre">Eigval</span> <span class="pre">99999</span> <span class="pre">99999</span></tt> be put into an <tt class="docutils literal"><span class="pre">Eprint</span></tt> block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.</p>
+<p><strong>ADF</strong>: There are no required inputfile options for fonames to be supported; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the <tt class="docutils literal"><span class="pre">Symmetry</span> <span class="pre">NOSYM</span></tt> option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that <tt class="docutils literal"><span class="pre">Eigval</span> <span class="pre">99999</span> <span class="pre">99999</span></tt> be put into an <tt class="docutils literal"><span class="pre">Eprint</span></tt> block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.</p>
 </div>
 <div class="section" id="fooverlaps">
 <h2>fooverlaps<a class="headerlink" href="#fooverlaps" title="Permalink to this headline">¶</a></h2>
-<p>Fooverlaps is a 2-dimensional array that holds numerical values for the spacial overlap between basis functions. It is very similar to <a class="reference internal" href="#aooverlaps">aooverlaps</a>, but differs because of the way ADF performs the calculation (see below for more details). The matrix indices correspond to the fragment orbitals; see the examples listed for <a class="reference internal" href="#aonames">aonames</a>.</p>
+<p>This is a 2-dimensional array that holds numerical values for the spacial overlap between basis functions. It is very similar to <a class="reference internal" href="#aooverlaps">aooverlaps</a>, but differs because of the way ADF performs the calculation (see below for more details). The matrix indices correspond to the fragment orbitals; see the examples listed for <a class="reference internal" href="#aonames">aonames</a>.</p>
 <p><strong>Background</strong></p>
 <p>ADF uses symmetry-adapted fragment orbitals (SFOs) as its basis. These SFOs are generally orthonormal linear combinations of atomic orbitals. This makes it difficult to determine which individual atomic orbitals form the basis in calculations that have any symmetry. In addition, ADF allows &#8220;fragment&#8221; calculations which use the molecular orbitals of the fragments (FOs, or fragment orbitals) for building up the calculated molecular orbitals.</p>
 <p>The difficulty in handling the basis for a molecule with symmetry and the availability of extra information in the fragment calculations makes using aooverlaps (as specified for the other formats) inappropriate, except for certain circumstances. Therefore, an extra member called fooverlaps is available for the ADF parser.</p>
-<p><strong>ADF</strong>: There are no required inputfile options for fooverlaps to be suppored; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the <tt class="docutils literal"><span class="pre">Symmetry</span> <span class="pre">NOSYM</span></tt> option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that <tt class="docutils literal"><span class="pre">Eigval</span> <span class="pre">99999</span> <span class="pre">99999</span></tt> be put into an <tt class="docutils literal"><span class="pre">Eprint</span></tt> block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.</p>
+<p><strong>ADF</strong>: There are no required inputfile options for fooverlaps to be supported; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the <tt class="docutils literal"><span class="pre">Symmetry</span> <span class="pre">NOSYM</span></tt> option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that <tt class="docutils literal"><span class="pre">Eigval</span> <span class="pre">99999</span> <span class="pre">99999</span></tt> be put into an <tt class="docutils literal"><span class="pre">Eprint</span></tt> block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.</p>
 </div>
 <div class="section" id="gbasis">
 <span id="index-1"></span><h2>gbasis<a class="headerlink" href="#gbasis" title="Permalink to this headline">¶</a></h2>
@@ -376,7 +375,7 @@
 ]),</dd>
 </dl>
 </div></blockquote>
-<p>Some programs print basis set details by deault, but for others you will need to include various keywords in order for <tt class="docutils literal"><span class="pre">gbasis</span></tt> to be parsed:</p>
+<p>Some programs print basis set details by default, but for others you will need to include various keywords in order for <tt class="docutils literal"><span class="pre">gbasis</span></tt> to be parsed:</p>
 <p><strong>Gaussian</strong>: the <a class="reference external" href="http://www.gaussian.com/g_tech/g_ur/k_gfinput.htm">GFINPUT</a> keyword should normally be used (<a class="reference external" href="http://www.gaussian.com/g_tech/g_ur/k_gfprint.htm">GFPRINT</a> gives equivalent information in a different format and is supported in cclib after v1.2).</p>
 <p><strong>GAMESS</strong>: no special keywords are required, but the basis is only available for symmetry inequivalent atoms. There does not seem to be any way to get GAMESS to say which atoms are related through symmetry. As a result, if you want to get basis set info for every atom, you need to reduce the symmetry to C&lt;sub&gt;1&lt;/sub&gt;.</p>
 <p><strong>GAMESS-UK</strong>: same as for GAMESS above</p>
@@ -386,9 +385,9 @@
 </div>
 <div class="section" id="geotargets">
 <span id="index-2"></span><h2>geotargets<a class="headerlink" href="#geotargets" title="Permalink to this headline">¶</a></h2>
-<p>Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length <tt class="docutils literal"><span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of targets, and the actual values of these criteria are stored for every optimization step in the attribute <a class="reference internal" href="#geovalues">geovalues</a>. Note that cclib does not carry information about the meaning of these criteria, and it is up to the user to interpret the values properly for a particular program. Below we provide some details for several parsers, but it is always a good idea to refer to the source documentation.</p>
+<p>Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length <tt class="docutils literal"><span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of targets, and the actual values of these criteria are stored for every optimisation step in the attribute <a class="reference internal" href="#geovalues">geovalues</a>. Note that cclib does not carry information about the meaning of these criteria, and it is up to the user to interpret the values properly for a particular program. Below we provide some details for several parsers, but it is always a good idea to refer to the source documentation.</p>
 <p>In some special cases, the values in <tt class="docutils literal"><span class="pre">geotargets</span></tt> will be <a class="reference external" href="http://docs.scipy.org/doc/numpy-1.8.1/user/misc.html#ieee-754-floating-point-special-values">numpy.inf</a>.</p>
-<p><strong>GAMESS UK</strong>: the criteria used for geometry convergence are based on the <tt class="docutils literal"><span class="pre">TOL</span></tt> parameter, which can be set using the <tt class="docutils literal"><span class="pre">XTOLL</span></tt> directive. The fault value of this parameter and the conditions required for convergence vary among the various optimization strategies (see the <a href="#id3"><span class="problematic" id="id4">`GAMESS-UK manual section on controlling optimization`_</span></a> for details). In <tt class="docutils literal"><span class="pre">OPTIMIZE</span></tt> mode, <tt class="docutils literal"><span class="pre">TOL</span></tt> defaults to 0.003 and the conditions are,</p>
+<p><strong>GAMESS UK</strong>: the criteria used for geometry convergence are based on the <tt class="docutils literal"><span class="pre">TOL</span></tt> parameter, which can be set using the <tt class="docutils literal"><span class="pre">XTOLL</span></tt> directive. The fault value of this parameter and the conditions required for convergence vary among the various optimisation strategies (see the <a href="#id3"><span class="problematic" id="id4">`GAMESS-UK manual section on controlling optimisation`_</span></a> for details). In <tt class="docutils literal"><span class="pre">OPTIMIZE</span></tt> mode, <tt class="docutils literal"><span class="pre">TOL</span></tt> defaults to 0.003 and the conditions are,</p>
 <blockquote>
 <div><ul class="simple">
 <li>maximum change in variables below TOL,</li>
@@ -404,14 +403,14 @@
 <li>gconv2: rms of gradient elements (3.0E-04)</li>
 <li>gconv5: maximum element of nuclear displacement (1.8E-03)</li>
 <li>gconv6: rms of nuclear displacement elements (1.2E-03)</li>
-<li>gconv7: difference between final energies from previous and current geometry optimization iterations (5.0E-05)</li>
+<li>gconv7: difference between final energies from previous and current geometry optimisation iterations (5.0E-05)</li>
 </ul>
 </div></blockquote>
 <p>Note that a value for gconv7 is not available until the second iteration, so it is set to zero in the first element of <a class="reference internal" href="#geovalues">geovalues</a>.</p>
 <p><strong>Molpro</strong> has custom convergence criteria, as described in the <a class="reference external" href="https://www.molpro.net/info/2012.1/doc/manual/node592.html">manual</a>:</p>
 <blockquote>
 <div>The standard MOLPRO convergency criterion requires the maximum component of the gradient to be less then <span class="math">\(3 \cdot 10^{-4}\)</span> [a.u.] and the maximum energy change to be less than <span class="math">\(1 \cdot 10^{-6}\)</span> [H] or the maximum component of the gradient to be less then $ 3 cdot 10^{-4}$ [a.u.] and the maximum component of the step to be less then <span class="math">\(3 \cdot 10^{-4}\)</span> [a.u.].</div></blockquote>
-<p><strong>ORCA</strong> tracks the change in energy as well as RMS and maximum gradients and displacements. As of version 3.0, an optimization is considered converged when all the tolerances are met, and there are four exceptions:</p>
+<p><strong>ORCA</strong> tracks the change in energy as well as RMS and maximum gradients and displacements. As of version 3.0, an optimisation is considered converged when all the tolerances are met, and there are four exceptions:</p>
 <blockquote>
 <div><ul class="simple">
 <li>the energy is within 25x the tolerance and all other criteria are met</li>
@@ -425,8 +424,8 @@
 <div class="section" id="geovalues">
 <span id="index-3"></span><h2>geovalues<a class="headerlink" href="#geovalues" title="Permalink to this headline">¶</a></h2>
 <p>These are the current values for the criteria used to determine whether a geometry has converged in the course of a geometry optimisation. It is an array of dimensions <tt class="docutils literal"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">m</span></tt> is the number of geometry optimisation iterations and <tt class="docutils literal"><span class="pre">n</span></tt> the number of target criteria.</p>
-<p>Note that many programs print atomic coordinates before and after a geomtry optimization, which means that there will not necessarily be <tt class="docutils literal"><span class="pre">m</span></tt> elements in <a href="#id1"><span class="problematic" id="id2">``</span></a>atomcoords``_.</p>
-<p>If the optimization has finished successfully, the values in the last row should be smaller than the values in <a class="reference internal" href="#geotargets">geotargets</a> (unless the convergence criteria require otherwise).</p>
+<p>Note that many programs print atomic coordinates before and after a geomtry optimisation, which means that there will not necessarily be <tt class="docutils literal"><span class="pre">m</span></tt> elements in <a href="#id1"><span class="problematic" id="id2">``</span></a>atomcoords``_.</p>
+<p>If the optimisation has finished successfully, the values in the last row should be smaller than the values in <a class="reference internal" href="#geotargets">geotargets</a> (unless the convergence criteria require otherwise).</p>
 </div>
 <div class="section" id="hessian">
 <h2>hessian<a class="headerlink" href="#hessian" title="Permalink to this headline">¶</a></h2>
@@ -466,12 +465,12 @@
 <li>the third array contains the raw molecular quadrupole moments in lexicographical order, that is the XX, XY, XZ, YY, YZ and ZZ moments, in Buckinghams (<span class="math">\(\mathbf{\mathrm{B}}\)</span>),</li>
 <li>any further arrays contain the raw molecular multipole moments of higher rank, in lexicographical order and in units of <span class="math">\(\mathbf{\mathrm{D}} \cdot Å^{L-1} = 10^{-10} \mathrm{esu} \cdot Å^L\)</span></li>
 </ul>
-<p>Note that by default cclib will provide the last moments printed, if several are printed in the course of a geometry optimization or other job type involving several more than one geometry. For post-Hartree-Fock calculations, such as MP2 or coupled cluster, the uncorrelated moments are reported if none are printed for the final wavefunction.</p>
+<p>Note that by default cclib will provide the last moments printed, if several are printed in the course of a geometry optimisation or other job type involving several more than one geometry. For post-Hartree-Fock calculations, such as MP2 or coupled cluster, the uncorrelated moments are reported if none are printed for the final wavefunction.</p>
 </div>
 <div class="section" id="mosyms">
 <h2>mosyms<a class="headerlink" href="#mosyms" title="Permalink to this headline">¶</a></h2>
 <p>For unrestricted calculations, this is a list of two lists containing alpha and beta symmetries (i.e. <tt class="docutils literal"><span class="pre">[[alpha_syms],[beta_syms]]</span></tt>) containing strings for the orbital symmetries, arranged in order of energy. In a restricted calculation, there is only one nested list (<tt class="docutils literal"><span class="pre">[[syms]]</span></tt>).</p>
-<p>The symmetry labels are normalised and cclib reporteds standard symmetry names:</p>
+<p>The symmetry labels are normalised and cclib reports standard symmetry names:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -582,19 +581,19 @@
 <ul class="simple">
 <li>ADF - the full list can be found [<a class="reference external" href="http://www.scm.com/Doc/Doc2005.01/ADF/ADFUsersGuide/page339.html">http://www.scm.com/Doc/Doc2005.01/ADF/ADFUsersGuide/page339.html</a> here].</li>
 <li>GAMESS-UK - to get the list, &#8216;grep &#8220;data yr&#8221; input.m&#8217; if you have access to the source. Note that for E, it&#8217;s split into &#8220;e1+&#8221; and &#8220;e1-&#8221; for instance.</li>
-<li>Jaguar - to get the list, look at the examples in schrodinger/jaguar-vwhatever/samples if you have access to Jaguar. Note that for E, it&#8217;s written as E1pp/Ap, for instance.</li>
+<li>Jaguar - to get the list, look at the examples in schrodinger/jaguar-whatever/samples if you have access to Jaguar. Note that for E, it&#8217;s written as E1pp/Ap, for instance.</li>
 <li>NWChem - if molecular symmetry is turned off or set to C1, symmetry adaption for orbitals is also deactivated, and can be explicitely turned on with <cite>adapt on</cite> in the SCF block</li>
 </ul>
 <p>Developers:
 * The use of a function with doctests for each of these cases is recommended, to make sure that the conversion is robust. There is a prototype called normalisesym() in logfileparser.py which should be overwritten in the subclasses if necessary (there is a unittest to make sure that this has been done).
-* The character tables [<a class="reference external" href="http://www.mpip-mainz.mpg.de/~gelessus/group.html">http://www.mpip-mainz.mpg.de/~gelessus/group.html</a> here] may be useful in determining the correspondance between the labels used by the comp chem package and the commonly-used symbols.</p>
+* The character tables [<a class="reference external" href="http://www.mpip-mainz.mpg.de/~gelessus/group.html">http://www.mpip-mainz.mpg.de/~gelessus/group.html</a> here] may be useful in determining the correspondence between the labels used by the comp chem package and the commonly-used symbols.</p>
 </div>
 <div class="section" id="mpenergies">
 <h2>mpenergies<a class="headerlink" href="#mpenergies" title="Permalink to this headline">¶</a></h2>
-<p>The attribute <tt class="docutils literal"><span class="pre">mpenergies</span></tt> holds the total molecule energies including Möller-Plesset correlation energy corrections in a two-dimensional array. The array&#8217;s shape is (n,L), where <tt class="docutils literal"><span class="pre">n</span></tt> is 1 for single point calculations and larger for optimizations, and <tt class="docutils literal"><span class="pre">L</span></tt> is the order at which the correction is truncated. The order of elements is ascending, so a single point MP5 calculation will yield mpenergies as <span class="math">\(E_{MP2}, E_{MP3}, E_{MP4}, E_{MP5}\)</span>.</p>
+<p>The attribute <tt class="docutils literal"><span class="pre">mpenergies</span></tt> holds the total molecule energies including Møller-Plesset correlation energy corrections in a two-dimensional array. The array&#8217;s shape is (n,L), where <tt class="docutils literal"><span class="pre">n</span></tt> is 1 for single point calculations and larger for optimisations, and <tt class="docutils literal"><span class="pre">L</span></tt> is the order at which the correction is truncated. The order of elements is ascending, so a single point MP5 calculation will yield mpenergies as <span class="math">\(E_{MP2}, E_{MP3}, E_{MP4}, E_{MP5}\)</span>.</p>
 <p><strong>ADF</strong>: does not perform such calculations.</p>
-<p><strong>GAMESS</strong>: second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calcualtions in PC-GAMESS (use <tt class="docutils literal"><span class="pre">mplevl=n</span></tt> in the <tt class="docutils literal"><span class="pre">$contrl</span></tt> section).</p>
-<p><strong>GAMESS-UK</strong>: MP2 through MP3 corrections are avaialbe.</p>
+<p><strong>GAMESS</strong>: second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calculations in PC-GAMESS (use <tt class="docutils literal"><span class="pre">mplevl=n</span></tt> in the <tt class="docutils literal"><span class="pre">$contrl</span></tt> section).</p>
+<p><strong>GAMESS-UK</strong>: MP2 through MP3 corrections are available.</p>
 <p><strong>Gaussian</strong>: MP2 through MP5 energies are available using the <tt class="docutils literal"><span class="pre">MP</span></tt> keyword. For MP4 corrections, the energy with the most substitutions is used (SDTQ by default).</p>
 <p><strong>Jaguar</strong>: the LMP2 is available.</p>
 </div>
@@ -619,7 +618,7 @@
 </div>
 <div class="section" id="optdone">
 <span id="index-9"></span><h2>optdone<a class="headerlink" href="#optdone" title="Permalink to this headline">¶</a></h2>
-<p>Flags whether a geometry optimization has completed. Currently this attribute is a single Boolean value, which is set to True when the final <a class="reference internal" href="#atomcoords">atomcoords</a> represent a converged geometry optimization. In the future, <tt class="docutils literal"><span class="pre">optdone</span></tt> will be a list that indexes which elements of <a class="reference internal" href="#atomcoords">atomcoords</a> represent converged geometries. This functionality can be used starting from version 1.3, from the command line by passing the <tt class="docutils literal"><span class="pre">--future</span></tt> option to <tt class="docutils literal"><span class="pre">ccget</span></tt>,</p>
+<p>Flags whether a geometry optimisation has completed. Currently this attribute is a single Boolean value, which is set to True when the final <a class="reference internal" href="#atomcoords">atomcoords</a> represent a converged geometry optimisation. In the future, <tt class="docutils literal"><span class="pre">optdone</span></tt> will be a list that indexes which elements of <a class="reference internal" href="#atomcoords">atomcoords</a> represent converged geometries. This functionality can be used starting from version 1.3, from the command line by passing the <tt class="docutils literal"><span class="pre">--future</span></tt> option to <tt class="docutils literal"><span class="pre">ccget</span></tt>,</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ccget optdone data/Gaussian/basicGaussian09/dvb_gopt.out
 Attempting to parse data/Gaussian/basicGaussian09/dvb_gopt.out
 optdone:
@@ -640,8 +639,8 @@ optdone:
 </div>
 <div class="section" id="scfenergies">
 <h2>scfenergies<a class="headerlink" href="#scfenergies" title="Permalink to this headline">¶</a></h2>
-<p>An array containing the converged SCF energies of the calculation, in eV. For an optimization log file, there will be as many elements in this array as there were optimization steps.</p>
-<p><strong>Molpro</strong>: typically prints output about geometry optimization in a separate loffile. So, both that and the initial output need to be passed to the cclib parser.</p>
+<p>An array containing the converged SCF energies of the calculation, in eV. For an optimisation log file, there will be as many elements in this array as there were optimisation steps.</p>
+<p><strong>Molpro</strong>: typically prints output about geometry optimisation in a separate logfile. So, both that and the initial output need to be passed to the cclib parser.</p>
 </div>
 <div class="section" id="scftargets">
 <h2>scftargets<a class="headerlink" href="#scftargets" title="Permalink to this headline">¶</a></h2>
@@ -655,14 +654,14 @@ optdone:
 <p>: where A is the commutator of the Fock and P matrices</p>
 <p>The value of the target criterion depends on the calculation:</p>
 <ul class="simple">
-<li>The &#8220;hard&#8221; target, SCFconv, is used for single point calculations, and the last step of geometry optimizations. It defaults to 1.0E-6, and can be changed in the SCF keyword block.</li>
+<li>The &#8220;hard&#8221; target, SCFconv, is used for single point calculations, and the last step of geometry optimisations. It defaults to 1.0E-6, and can be changed in the SCF keyword block.</li>
 <li>The &#8220;soft&#8221; target, scfconv2, is used for the first step of a geometry opimization. It defaults to 1.0E-3, and can also be changed in the SCF keyword block.</li>
-<li>For intermediate steps in a geometry optimization the situation is more complicated and depends on the gradient and the integration accuracy. After a post on the ADF user&#8217;s forum, I found that it is calculated as follows:</li>
+<li>For intermediate steps in a geometry optimisation the situation is more complicated and depends on the gradient and the integration accuracy. After a post on the ADF user&#8217;s forum, I found that it is calculated as follows:</li>
 </ul>
 <p>:: new_convcriteria = max(SCFconv, min(old_convcriteria, grdmax/30, 10**(-accint))) )</p>
 <p>:where old_convcriteria is the value from the previous geometry cycle, grdmax is the max gradient from the last geometry cycle and accint is the current integration accuracy.</p>
 <p>(There is some information in the <a class="reference external" href="http://www.scm.com/Doc/Doc2005.01/ADF/ADFUsersGuide/page124.html#keyscheme%20SCFhere">ADF manual</a>.)</p>
-<p><strong>GAMESS</strong>: Maximum and root-mean-square (RMS) density matrix change: starts from 5.0E-05 by default and changes over the course of a geometry optimisation. ROHF calcualtions use SQCDF instead of the standard RMS change.</p>
+<p><strong>GAMESS</strong>: Maximum and root-mean-square (RMS) density matrix change: starts from 5.0E-05 by default and changes over the course of a geometry optimisation. ROHF calculations use SQCDF instead of the standard RMS change.</p>
 <p><strong>GAMESS-UK</strong>: According to <a class="reference external" href="http://www.cfs.dl.ac.uk/docs/html/part4/node6.html">the manual</a>, convergence is determined by convergence of the elements of density matrix. The default value for SCF is 1E-5, but it appears to be 1E-7 for geoopts.</p>
 <p><strong>Gaussian</strong>:</p>
 <ul class="simple">
@@ -680,7 +679,7 @@ optdone:
 <h2>scfvalues<a class="headerlink" href="#scfvalues" title="Permalink to this headline">¶</a></h2>
 <p>The attribute <tt class="docutils literal"><span class="pre">scfvalues</span></tt> is a list of arrays of dimension <tt class="docutils literal"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">m</span></tt> (one element for each step in a geometry optimisation), where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of SCF cycles required for convergence and <tt class="docutils literal"><span class="pre">m</span></tt> is the number of SCF convergence target criteria. For some packages, you may need to include a directive to make sure that SCF convergence information is printed to the log file</p>
 <p><strong>Gaussian</strong>: requires the <a class="reference external" href="http://www.gaussian.com/g_tech/g_ur/k_route.htm">route section</a> to start with #P</p>
-<p><strong>GAMESS-UK</strong>: convergence information is printed only for the first optimization step by default, but can be forced at all steps by adding <tt class="docutils literal"><span class="pre">IPRINT</span> <span class="pre">SCF</span></tt> to the input file.</p>
+<p><strong>GAMESS-UK</strong>: convergence information is printed only for the first optimisation step by default, but can be forced at all steps by adding <tt class="docutils literal"><span class="pre">IPRINT</span> <span class="pre">SCF</span></tt> to the input file.</p>
 </div>
 <div class="section" id="vibdisps">
 <h2>vibdisps<a class="headerlink" href="#vibdisps" title="Permalink to this headline">¶</a></h2>
