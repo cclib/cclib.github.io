@@ -40,6 +40,7 @@ attributes        ADF               GAMESS            GAMESSUK          Gaussian
 `nbasis`_         √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `nmo`_            √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `nocoeffs`_       T/D               T/D               T/D               √                 T/D               T/D               T/D               T/D               T/D               T/D               
+`nooccnos`_       T/D               T/D               √                 √                 T/D               T/D               T/D               T/D               T/D               T/D               
 `optdone`_        √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `scancoords`_     T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               
 `scanenergies`_   T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               
@@ -96,6 +97,7 @@ attributes        ADF               GAMESS            GAMESSUK          Gaussian
 .. _`nbasis`: data_notes.html#nbasis
 .. _`nmo`: data_notes.html#nmo
 .. _`nocoeffs`: data_notes.html#nocoeffs
+.. _`nooccnos`: data_notes.html#nooccnos
 .. _`optdone`: data_notes.html#optdone
 .. _`scancoords`: data_notes.html#scancoords
 .. _`scanenergies`: data_notes.html#scanenergies

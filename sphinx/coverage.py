@@ -46,7 +46,7 @@ if __name__ == "__main__":
 
     # Eventually we want to move this to cclib.
     not_applicable = {
-        'ADF' : ['aonames', 'aooverlaps', 'ccenergies', 'mpenergies'],
+        'ADF' : ['aonames', 'ccenergies', 'mpenergies'],
         'GAMESS' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
         'GAMESSUK' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
         'Gaussian' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
