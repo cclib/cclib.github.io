@@ -66,14 +66,14 @@ There are in fact two packages, `python-cclib`_ containing the Python module, an
 Manual download and install
 ---------------------------
 
-The source code of cclib 1.3 is distributed as:
- * A .zip file: https://github.com/cclib/cclib/releases/download/v1.3/cclib-1.3.zip
- * A .tar.gz file: https://github.com/cclib/cclib/releases/download/v1.3/cclib-1.3.tar.gz
- * Windows binary installers (see the `1.3 release page`_)
+The source code of the newest release of cclib (version 1.3.1) is distributed as:
+ * A .zip file: https://github.com/cclib/cclib/releases/download/v1.3.1/cclib-1.3.1.zip
+ * A .tar.gz file: https://github.com/cclib/cclib/releases/download/v1.3.1/cclib-1.3.1.tar.gz
+ * Windows binary installers (see the `newest release page`_)
 
 On Windows, if you choose to download the .exe files instead, you can install simply by doubleclicking on the file. To uninstall, use the "Add and Remove Programs" menu in the Control Panel.
 
-None of these files include the tests and logfiles used for testing. In order to download all tests, we also provide source archives on the `1.3 release page`_.
+None of these files include the tests and logfiles used for testing. In order to download all tests, we also provide source archives on the `newest release page`_.
 
 If you are using the .zip or .tar.gz files, extract the contents of the file at an appropriate location, which we will call INSTALLDIR. Open a command prompt and change directory to INSTALLDIR. Next, run the following commands to install cclib:
 
@@ -95,7 +95,7 @@ To test, trying importing '''cclib''' at the Python prompt. You should see somet
     '1.1'
     >>>
 
-.. _`1.3 release page`: https://github.com/cclib/cclib/releases/tag/v1.3
+.. _`newest release page`: https://github.com/cclib/cclib/releases/tag/v1.3.1
 
 What next?
 ----------
