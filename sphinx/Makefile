@@ -48,7 +48,7 @@ clean:
 	-rm -rf attributes*.rst
 	-rm -rf converage*.rst
 
-PRODUCTION_VERSION = v1.3
+PRODUCTION_VERSION = v1.3.1
 CCLIB_PROD = $(BUILDDIR)/cclib_prod
 CCLIB_DEV = $(BUILDDIR)/cclib_dev
 SRC_PROD = $(CCLIB_PROD)/src/cclib
