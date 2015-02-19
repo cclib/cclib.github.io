@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 import sys
 
@@ -60,16 +62,19 @@ if __name__ == "__main__":
         else:
             atype = other
             aunit = ''
-        
-        attr = ("`%s`_" % attr).ljust(20)
-        desc = desc.ljust(65)
-        aunit = aunit.ljust(28)
+
+        # Print the line with columns align to the table. Note that
+        # the description sometimes contain Unicode characters, so
+        # decode-encode when justifying to get the correct length.
+        attr = ("`%s`_" % attr).ljust(wattr)
+        desc = desc.decode('utf-8').ljust(wdesc).encode('utf-8')
+        aunit = aunit.ljust(wunit)
         for i in range(1,4):
             atype = atype.replace('[%i]' % i, ' of rank %i' % i)
         print("    " + attr + desc + aunit + atype)
 
     print(dashes)
-    print()
+    print("")
 
     for n in names:
         print(".. _`%s`: data_notes.html#%s" % (n, n))

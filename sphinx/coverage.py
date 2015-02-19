@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 import sys
 
@@ -61,15 +63,17 @@ if __name__ == "__main__":
         'Psi' : ['aooverlaps'],
     }
 
-    # For each attribute, get a list of Boolean values for each parser that flags if it has
-    # been parsed by at least one unit test. Substitute an OK sign or T/D string appropriately,
-    # with the exception of attributes that have been designated as N/A.
+    # For each attribute, get a list of Boolean values for each parser that flags
+    # if it has been parsed by at least one unit test. Substitute an OK sign or
+    # T/D appropriately, with the exception of attributes that have been explicitely
+    # designated as N/A. Note that the OK checkmark is Unicode, so we will need to
+    # decode it and them encode the line before printing.
     attributes = sorted(cclib.parser.data.ccData._attrlist)
     for attr in attributes:
         parsed = [any([attr in t.data.__dict__ for t in tests]) for tests in alltests]
         for ip, p in enumerate(parsed):
             if p:
-                parsed[ip] = "√"
+                parsed[ip] = "√".decode('utf-8')
             else:
                 if attr in not_applicable.get(parsers[ip], []):
                     parsed[ip] = "N/A"
@@ -77,10 +81,10 @@ if __name__ == "__main__":
                     parsed[ip] = "N/P"
                 else:
                     parsed[ip] = "T/D"
-        print(colfmt*ncols % tuple(["`%s`_" % attr] + parsed))
+        print((colfmt*ncols % tuple(["`%s`_" % attr] + parsed)).encode('utf-8'))
 
     print(dashes)
-    print()
+    print("")
 
     for attr in attributes:
         print(".. _`%s`: data_notes.html#%s" % (attr, attr))

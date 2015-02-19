@@ -92,9 +92,9 @@ attributes: attributes_prod attributes_dev
 attributes_prod: checkout_prod attributes.rst
 attributes_dev: checkout_dev attributes_dev.rst
 attributes.rst: attributes.py $(SRC_PROD)/parser/data.py
-	python3 attributes.py > $@
+	python attributes.py > $@
 attributes_dev.rst: attributes.py $(SRC_DEV)/parser/data.py
-	python3 attributes.py > $@
+	python attributes.py > $@
 
 # Same as above, we need three layers of targets, since this script
 # especially takes some time as it performs all the tests.
@@ -103,9 +103,9 @@ coverage: coverage_prod coverage_dev
 coverage_prod: checkout_prod coverage.rst
 coverage_dev: checkout_dev coverage_dev.rst
 coverage.rst: coverage.py $(wildcard $(SRC_PROD)/parser/*parser.py) $(wildcard $(CCLIB_PROD)/test/*.py)
-	python3 coverage.py $(CCLIB_PROD)/test > $@
+	python coverage.py $(CCLIB_PROD)/test > $@
 coverage_dev.rst: coverage.py $(wildcard $(SRC_PROD)/parser/*parser.py) $(wildcrd $(CCLIB_DEV)/test/*.py)
-	python3 coverage.py $(CCLIB_DEV)/test > $@
+	python coverage.py $(CCLIB_DEV)/test > $@
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
