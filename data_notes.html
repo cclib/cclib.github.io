@@ -222,7 +222,7 @@
 <p>The attribute <tt class="docutils literal"><span class="pre">atombasis</span></tt> is a list, each element being a list that contains the atomic orbital indices on the respective atom. For example, <tt class="docutils literal"><span class="pre">atombasis[1]</span></tt> will contain the indices of atomic orbitals on the second atom of the molecule.</p>
 </div>
 <div class="section" id="atomcharges">
-<h2>atomcharges<a class="headerlink" href="#atomcharges" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>atomcharges<a class="headerlink" href="#atomcharges" title="Permalink to this headline">¶</a></h2>
 <p>The attribute <tt class="docutils literal"><span class="pre">atomcharges</span></tt> contains the atomic partial charges as taken from the output file. Since these charges are arbitrary and depend on the details of a population analysis, this attribute is dictionary containing any number of various atomic charges. The keys in this dictionary are strings naming the population analysis, and the values are arrays of rank 1 and contain the actual charges.</p>
 <p>Currently, cclib parses Mulliken, Löwdin and NPA charges, whose respective dictionary keys are <tt class="docutils literal"><span class="pre">mulliken</span></tt>, <tt class="docutils literal"><span class="pre">lowdin</span></tt> and <tt class="docutils literal"><span class="pre">natural</span></tt>.</p>
 <p>Note that in practice these may differ somewhat from the values cclib calculates in the various calculation methods.</p>
@@ -248,7 +248,7 @@
 <p>Currently, cclib parses Mulliken and Löwdin spin densities, whose respective dictionary keys are <tt class="docutils literal"><span class="pre">mulliken</span></tt> and <tt class="docutils literal"><span class="pre">lowdin</span></tt>.</p>
 </div>
 <div class="section" id="ccenergies">
-<h2>ccenergies<a class="headerlink" href="#ccenergies" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>ccenergies<a class="headerlink" href="#ccenergies" title="Permalink to this headline">¶</a></h2>
 <p>A one-dimensional array holds the total molecule energies including Coupled Cluster corrections. The array&#8217;s length is 1 for single point calculations and larger for optimisations. Only the highest theory level is parsed into this attribute (for example, CCSD energies as opposed to CCD energies, or CCSD(T) as opposed to CCSD energies).</p>
 </div>
 <div class="section" id="charge">
@@ -352,7 +352,7 @@
 <p><strong>ADF</strong>: There are no required inputfile options for fooverlaps to be supported; however, if one wishes to have SFOs map directly to atomic basis functions, there are two requirements. First, the <tt class="docutils literal"><span class="pre">Symmetry</span> <span class="pre">NOSYM</span></tt> option must be given to force ADF to not linearly combine atomic orbitals into SFOs. Second, fragment calculations cannot be done (for obvious reasons). Also, it is suggested that <tt class="docutils literal"><span class="pre">Eigval</span> <span class="pre">99999</span> <span class="pre">99999</span></tt> be put into an <tt class="docutils literal"><span class="pre">Eprint</span></tt> block of the input file of a spin-restricted calculation so that every molecular orbital energy will be printed.</p>
 </div>
 <div class="section" id="gbasis">
-<span id="index-1"></span><h2>gbasis<a class="headerlink" href="#gbasis" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>gbasis<a class="headerlink" href="#gbasis" title="Permalink to this headline">¶</a></h2>
 <p>This attribute stores information about the Gaussian basis functions that were used in the calculation. The information is stored per atom using the same conventions as [<a class="reference external" href="http://pyquante.sf.net">http://pyquante.sf.net</a> PyQuante]. Specifically, <tt class="docutils literal"><span class="pre">gbasis</span></tt> is a list (per atom) of lists (per Gaussian basis function) of tuples of length 2 consisting of orbital type (e.g. &#8216;S&#8217;, &#8216;P&#8217; or &#8216;D&#8217;) and a list (per contracted GTO) of tuples of size 2 consisting of the exponent and coefficient. Confused? Well, here&#8217;s <tt class="docutils literal"><span class="pre">gbasis</span></tt> for a molecule consisting of a single C atom with a STO-3G basis:</p>
 <blockquote>
 <div><p>[ # per atom
@@ -385,7 +385,7 @@
 <p><strong>Development note</strong>: It also needs to be noted whether any D and F functions are pure (5D, 7F) or Cartesian (6D, 10F). PyQuante can only handle Cartesian functions, but we should extract this information in any case. We will need to extend the PyQuante basis set format to include this.</p>
 </div>
 <div class="section" id="geotargets">
-<span id="index-2"></span><h2>geotargets<a class="headerlink" href="#geotargets" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>geotargets<a class="headerlink" href="#geotargets" title="Permalink to this headline">¶</a></h2>
 <p>Geotargets are the target values of the criteria used to determine whether a geometry optimisation has converged. The targets are stored in an array of length <tt class="docutils literal"><span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">n</span></tt> is the number of targets, and the actual values of these criteria are stored for every optimisation step in the attribute <a class="reference internal" href="#geovalues">geovalues</a>. Note that cclib does not carry information about the meaning of these criteria, and it is up to the user to interpret the values properly for a particular program. Below we provide some details for several parsers, but it is always a good idea to refer to the source documentation.</p>
 <p>In some special cases, the values in <tt class="docutils literal"><span class="pre">geotargets</span></tt> will be <a class="reference external" href="http://docs.scipy.org/doc/numpy-1.8.1/user/misc.html#ieee-754-floating-point-special-values">numpy.inf</a>.</p>
 <p><strong>GAMESS UK</strong>: the criteria used for geometry convergence are based on the <tt class="docutils literal"><span class="pre">TOL</span></tt> parameter, which can be set using the <tt class="docutils literal"><span class="pre">XTOLL</span></tt> directive. The fault value of this parameter and the conditions required for convergence vary among the various optimisation strategies (see the <a href="#id3"><span class="problematic" id="id4">`GAMESS-UK manual section on controlling optimisation`_</span></a> for details). In <tt class="docutils literal"><span class="pre">OPTIMIZE</span></tt> mode, <tt class="docutils literal"><span class="pre">TOL</span></tt> defaults to 0.003 and the conditions are,</p>
@@ -423,7 +423,7 @@
 <p><strong>Psi</strong> normally tracks five different values, as described <a class="reference external" href="http://sirius.chem.vt.edu/psi4manual/latest/optking.html">in the documentation</a>, but their use various depending on the strategy employed. The default strategy (QCHEM) check whether the maximum force is converged and if the maximum energy change or displacement is converged. Additionally, to aid with flat potential energy surfaces, convergence is as assumed when the root mean square force converged to 0.01 of its default target. Note that Psi print values even for targets that are not being used &#8211; in these cases the targets are parsed as <a class="reference external" href="http://docs.scipy.org/doc/numpy-1.8.1/user/misc.html#ieee-754-floating-point-special-values">numpy.inf</a> so that they can still be used (any value will be converged).</p>
 </div>
 <div class="section" id="geovalues">
-<span id="index-3"></span><h2>geovalues<a class="headerlink" href="#geovalues" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>geovalues<a class="headerlink" href="#geovalues" title="Permalink to this headline">¶</a></h2>
 <p>These are the current values for the criteria used to determine whether a geometry has converged in the course of a geometry optimisation. It is an array of dimensions <tt class="docutils literal"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">n</span></tt>, where <tt class="docutils literal"><span class="pre">m</span></tt> is the number of geometry optimisation iterations and <tt class="docutils literal"><span class="pre">n</span></tt> the number of target criteria.</p>
 <p>Note that many programs print atomic coordinates before and after a geomtry optimisation, which means that there will not necessarily be <tt class="docutils literal"><span class="pre">m</span></tt> elements in <a href="#id1"><span class="problematic" id="id2">``</span></a>atomcoords``_.</p>
 <p>If the optimisation has finished successfully, the values in the last row should be smaller than the values in <a class="reference internal" href="#geotargets">geotargets</a> (unless the convergence criteria require otherwise).</p>
@@ -436,11 +436,11 @@
 </ul>
 </div>
 <div class="section" id="homos">
-<span id="index-4"></span><h2>homos<a class="headerlink" href="#homos" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>homos<a class="headerlink" href="#homos" title="Permalink to this headline">¶</a></h2>
 <p>A 1D array that holds the indexes of the highest occupied molecular orbitals (HOMOs), which contains one element for restricted and two elements for unrestricted calculations. These indexes can be applied to other attributes describing molecular orbitals, such as <a class="reference internal" href="#moenergies">moenergies</a> and <a class="reference internal" href="#mocoeffs">mocoeffs</a>.</p>
 </div>
 <div class="section" id="mocoeffs">
-<span id="index-5"></span><h2>mocoeffs<a class="headerlink" href="#mocoeffs" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>mocoeffs<a class="headerlink" href="#mocoeffs" title="Permalink to this headline">¶</a></h2>
 <p>A list of rank 2 arrays containing the molecular orbital (MO) coefficients. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations. For the array(s) in the list, the first axis corresponds to molecular orbitals, and the second corresponds to basis functions.</p>
 <p>Examples:</p>
 <ul class="simple">
@@ -449,16 +449,16 @@
 </ul>
 <p>Note: For restricted calculation, <tt class="docutils literal"><span class="pre">mocoeffs</span></tt> is still a list, but it only contains a single rank 2 array so you access the matrix with mocoeffs[0].</p>
 <p><strong>GAMESS-UK</strong> - the <a class="reference external" href="http://www.cfs.dl.ac.uk/docs/html/part3/node8.html#SECTION00083000000000000000">FORMAT HIGH</a> directive needs to be included if you want information on all of the eigenvalues to be available. In versions before 8.0 for unrestricted calculations, <tt class="docutils literal"><span class="pre">FORMAT</span> <span class="pre">HIGH</span></tt> does not increase the number of orbitals for which the molecular orbital coefficents are printed, so that there may be more orbital information on the alpha orbitals compared to the beta orbitals, and as a result the extra beta molecular orbital coefficients for which information is not available will be padded out with zeros by cclib.</p>
-<p><strong>Molpro</strong> - does no print MO coefficients at all by default, and you must add in the input <tt class="docutils literal"><span class="pre">GPRINT,ORBITALS</span></tt>. What&#8217;s more, this prints only the occupied orbitals, and to get virtuals add also <tt class="docutils literal"><span class="pre">ORBPTIN,NVIRT</span></tt>, where <tt class="docutils literal"><span class="pre">NVIRT</span></tt> is how many virtuals to print (can be a large number like 99999 to print all).</p>
+<p><strong>Molpro</strong> - does not print MO coefficients at all by default, and you must add in the input <tt class="docutils literal"><span class="pre">GPRINT,ORBITALS</span></tt>. What&#8217;s more, this prints only the occupied orbitals, and to get virtuals add also <tt class="docutils literal"><span class="pre">ORBPTIN,NVIRT</span></tt>, where <tt class="docutils literal"><span class="pre">NVIRT</span></tt> is how many virtuals to print (can be a large number like 99999 to print all).</p>
 </div>
 <div class="section" id="moenergies">
-<span id="index-6"></span><h2>moenergies<a class="headerlink" href="#moenergies" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>moenergies<a class="headerlink" href="#moenergies" title="Permalink to this headline">¶</a></h2>
 <p>A list of rank 1 arrays containing the molecular orbital energies in eV. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations.</p>
 <p><strong>GAMESS-UK</strong>: similar to <a class="reference internal" href="#mocoeffs">mocoeffs</a>, the directive <a class="reference external" href="http://www.cfs.dl.ac.uk/docs/html/part3/node8.html#SECTION00083000000000000000">FORMAT HIGH</a> needs to be used if you want all of the eigenvalues printed.</p>
 <p><strong>Jaguar</strong>: the first ten virtual orbitals are printed by default. In order to print more, use the <tt class="docutils literal"><span class="pre">ipvirt</span></tt> keyword, with <tt class="docutils literal"><span class="pre">ipvirt=-1</span></tt> printing all virtual orbitals.</p>
 </div>
 <div class="section" id="moments">
-<span id="index-7"></span><h2>moments<a class="headerlink" href="#moments" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>moments<a class="headerlink" href="#moments" title="Permalink to this headline">¶</a></h2>
 <p>This attribute contains the dipole moment vector and any higher electrostatic multipole moments for the whole molecule. It comprises a list of one dimensional arrays,</p>
 <ul class="simple">
 <li>the first is the reference point used in the multipole expansion, which is normally the center of mass,</li>
@@ -469,7 +469,7 @@
 <p>Note that by default cclib will provide the last moments printed, if several are printed in the course of a geometry optimisation or other job type involving several more than one geometry. For post-Hartree-Fock calculations, such as MP2 or coupled cluster, the uncorrelated moments are reported if none are printed for the final wavefunction.</p>
 </div>
 <div class="section" id="mosyms">
-<h2>mosyms<a class="headerlink" href="#mosyms" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>mosyms<a class="headerlink" href="#mosyms" title="Permalink to this headline">¶</a></h2>
 <p>For unrestricted calculations, this is a list of two lists containing alpha and beta symmetries (i.e. <tt class="docutils literal"><span class="pre">[[alpha_syms],[beta_syms]]</span></tt>) containing strings for the orbital symmetries, arranged in order of energy. In a restricted calculation, there is only one nested list (<tt class="docutils literal"><span class="pre">[[syms]]</span></tt>).</p>
 <p>The symmetry labels are normalised and cclib reports standard symmetry names:</p>
 <blockquote>
@@ -590,7 +590,7 @@
 * The character tables [<a class="reference external" href="http://www.mpip-mainz.mpg.de/~gelessus/group.html">http://www.mpip-mainz.mpg.de/~gelessus/group.html</a> here] may be useful in determining the correspondence between the labels used by the comp chem package and the commonly-used symbols.</p>
 </div>
 <div class="section" id="mpenergies">
-<h2>mpenergies<a class="headerlink" href="#mpenergies" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>mpenergies<a class="headerlink" href="#mpenergies" title="Permalink to this headline">¶</a></h2>
 <p>The attribute <tt class="docutils literal"><span class="pre">mpenergies</span></tt> holds the total molecule energies including Møller-Plesset correlation energy corrections in a two-dimensional array. The array&#8217;s shape is (n,L), where <tt class="docutils literal"><span class="pre">n</span></tt> is 1 for single point calculations and larger for optimisations, and <tt class="docutils literal"><span class="pre">L</span></tt> is the order at which the correction is truncated. The order of elements is ascending, so a single point MP5 calculation will yield mpenergies as <span class="math">\(E_{MP2}, E_{MP3}, E_{MP4}, E_{MP5}\)</span>.</p>
 <p><strong>ADF</strong>: does not perform such calculations.</p>
 <p><strong>GAMESS</strong>: second-order corrections (MP2) are available in GAMESS-US, and MP2 through MP3 calculations in PC-GAMESS (use <tt class="docutils literal"><span class="pre">mplevl=n</span></tt> in the <tt class="docutils literal"><span class="pre">$contrl</span></tt> section).</p>
@@ -607,18 +607,18 @@
 <p><tt class="docutils literal"><span class="pre">Natom</span></tt> is an integer, the number of atoms treated in the calculation.</p>
 </div>
 <div class="section" id="nbasis">
-<h2>nbasis<a class="headerlink" href="#nbasis" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>nbasis<a class="headerlink" href="#nbasis" title="Permalink to this headline">¶</a></h2>
 <p>An integer representing the number of basis functions used in the calculation.</p>
 </div>
 <div class="section" id="nmo">
-<span id="index-8"></span><h2>nmo<a class="headerlink" href="#nmo" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>nmo<a class="headerlink" href="#nmo" title="Permalink to this headline">¶</a></h2>
 <p>The number of molecular orbitals in the calculation. It is an integer and is typically equal to <a class="reference internal" href="#nbasis">nbasis</a>, but may be less than this if a linear dependency was identified between the basis functions.</p>
 <p>Commands to get information on all orbitals:</p>
 <p><strong>GAMESS-UK</strong>: only usually prints information on the 5 lowest virtual orbitals. &#8220;FORMAT HIGH&#8221; should make it do this for all of the orbitals, although GAMESS-UK 7.0 has a bug that means that this only works for restricted calculations.</p>
 <p><strong>Jaguar</strong>: the first ten virtual orbitals are printed by default; in order to print more of them, use the <tt class="docutils literal"><span class="pre">ipvirt</span></tt> keyword in the input file, with <tt class="docutils literal"><span class="pre">ipvirt=-1</span></tt> printing all virtual orbitals (see the [<a class="reference external" href="http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675">http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675</a> manual] for more information).</p>
 </div>
 <div class="section" id="optdone">
-<span id="index-9"></span><h2>optdone<a class="headerlink" href="#optdone" title="Permalink to this headline">¶</a></h2>
+<h2>optdone<a class="headerlink" href="#optdone" title="Permalink to this headline">¶</a></h2>
 <p>Flags whether a geometry optimisation has completed. Currently this attribute is a single Boolean value, which is set to True when the final <a class="reference internal" href="#atomcoords">atomcoords</a> represent a converged geometry optimisation. In the future, <tt class="docutils literal"><span class="pre">optdone</span></tt> will be a list that indexes which elements of <a class="reference internal" href="#atomcoords">atomcoords</a> represent converged geometries. This functionality can be used starting from version 1.3, from the command line by passing the <tt class="docutils literal"><span class="pre">--future</span></tt> option to <tt class="docutils literal"><span class="pre">ccget</span></tt>,</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ccget optdone data/Gaussian/basicGaussian09/dvb_gopt.out
 Attempting to parse data/Gaussian/basicGaussian09/dvb_gopt.out

@@ -45,6 +45,9 @@ atombasis
 
 The attribute ``atombasis`` is a list, each element being a list that contains the atomic orbital indices on the respective atom. For example, ``atombasis[1]`` will contain the indices of atomic orbitals on the second atom of the molecule.
 
+.. index::
+    single: properties; atoimcharges (attribute)
+
 atomcharges
 -----------
 
@@ -81,6 +84,9 @@ atomspins
 The attribute ``atomspins`` contains the atomic spin densities as calculated in a population analysis and taken from the output file. Since these densities are arbitrary and depend on the particular population analysis, this attribute is dictionary. In analogy to `atomcharges`_, the keys in this dictionary are strings naming the population analysis, and the values are arrays of rank 1 and contain the actual spin densities.
 
 Currently, cclib parses Mulliken and Löwdin spin densities, whose respective dictionary keys are ``mulliken`` and ``lowdin``.
+
+.. index::
+    single: energy; ccenergies (attribute)
 
 ccenergies
 ----------
@@ -344,7 +350,7 @@ Note: For restricted calculation, ``mocoeffs`` is still a list, but it only cont
 
 **GAMESS-UK** - the `FORMAT HIGH`_ directive needs to be included if you want information on all of the eigenvalues to be available. In versions before 8.0 for unrestricted calculations, ``FORMAT HIGH`` does not increase the number of orbitals for which the molecular orbital coefficents are printed, so that there may be more orbital information on the alpha orbitals compared to the beta orbitals, and as a result the extra beta molecular orbital coefficients for which information is not available will be padded out with zeros by cclib.
 
-**Molpro** - does no print MO coefficients at all by default, and you must add in the input ``GPRINT,ORBITALS``. What's more, this prints only the occupied orbitals, and to get virtuals add also ``ORBPTIN,NVIRT``, where ``NVIRT`` is how many virtuals to print (can be a large number like 99999 to print all).
+**Molpro** - does not print MO coefficients at all by default, and you must add in the input ``GPRINT,ORBITALS``. What's more, this prints only the occupied orbitals, and to get virtuals add also ``ORBPTIN,NVIRT``, where ``NVIRT`` is how many virtuals to print (can be a large number like 99999 to print all).
 
 .. index::
     single: molecular orbitals; moenergies (attribute)
@@ -361,7 +367,7 @@ A list of rank 1 arrays containing the molecular orbital energies in eV. The lis
 .. _`FORMAT HIGH`: http://www.cfs.dl.ac.uk/docs/html/part3/node8.html#SECTION00083000000000000000
 
 .. index::
-    single: molecular orbitals; mosyms (attribute)
+    single: properties; moments (attribute)
 
 moments
 -------
@@ -374,6 +380,9 @@ This attribute contains the dipole moment vector and any higher electrostatic mu
 * any further arrays contain the raw molecular multipole moments of higher rank, in lexicographical order and in units of :math:`\mathbf{\mathrm{D}} \cdot Å^{L-1} = 10^{-10} \mathrm{esu} \cdot Å^L`
 
 Note that by default cclib will provide the last moments printed, if several are printed in the course of a geometry optimisation or other job type involving several more than one geometry. For post-Hartree-Fock calculations, such as MP2 or coupled cluster, the uncorrelated moments are reported if none are printed for the final wavefunction.
+
+.. index::
+    single: molecular orbitals; mosyms (attribute)
 
 mosyms
 ------
@@ -408,6 +417,9 @@ Developers:
 * The use of a function with doctests for each of these cases is recommended, to make sure that the conversion is robust. There is a prototype called normalisesym() in logfileparser.py which should be overwritten in the subclasses if necessary (there is a unittest to make sure that this has been done).
 * The character tables [http://www.mpip-mainz.mpg.de/~gelessus/group.html here] may be useful in determining the correspondence between the labels used by the comp chem package and the commonly-used symbols.
 
+.. index::
+    single: energy; mpenergies (attribute)
+
 mpenergies
 ----------
 
@@ -433,13 +445,16 @@ natom
 
 ``Natom`` is an integer, the number of atoms treated in the calculation.
 
+.. index::
+    single: basis sets; nbasis (attribute)
+
 nbasis
 ------
 
 An integer representing the number of basis functions used in the calculation.
 
 .. index::
-    single: basis sets; nbasis (attribute)
+    single: basis sets; nmo (attribute)
 
 nmo
 ---
@@ -451,9 +466,6 @@ Commands to get information on all orbitals:
 **GAMESS-UK**: only usually prints information on the 5 lowest virtual orbitals. "FORMAT HIGH" should make it do this for all of the orbitals, although GAMESS-UK 7.0 has a bug that means that this only works for restricted calculations.
 
 **Jaguar**: the first ten virtual orbitals are printed by default; in order to print more of them, use the ``ipvirt`` keyword in the input file, with ``ipvirt=-1`` printing all virtual orbitals (see the [http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675 manual] for more information).
-
-.. index::
-    single: basis sets; nmo (attribute)
 
 optdone
 -------
