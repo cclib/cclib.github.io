@@ -34,12 +34,13 @@
     `moenergies`_       molecular orbital energies                                       eV                          list of arrays of rank 1
     `moments`_          molecular multipole moments                                      a.u.                        list of arrays[]
     `mosyms`_           orbital symmetries                                                                           list of lists
-    `mpenergies`_       molecular electronic energies with Möller-Plesset corrections    eV                          array of rank 2
+    `mpenergies`_       molecular electronic energies with Møller-Plesset corrections    eV                          array of rank 2
     `mult`_             multiplicity of the system                                                                   integer
     `natom`_            number of atoms                                                                              integer
     `nbasis`_           number of basis functions                                                                    integer
     `nmo`_              number of molecular orbitals                                                                 integer
     `nocoeffs`_         natural orbital coefficients                                                                 array of rank 2
+    `nooccnos`_         natural orbital occupation numbers                                                           array of rank 1
     `optdone`_          flags whether an optimization has converged                                                  Boolean
     `scancoords`_       geometries of each scan step                                     angstroms                   array of rank 3
     `scanenergies`_     energies of potential energy surface                                                         list
@@ -48,7 +49,7 @@
     `scfenergies`_      molecular electronic energies after SCF (Hartree-Fock, DFT)      eV                          array of rank 1
     `scftargets`_       targets for convergence of the SCF                                                           array of rank 2
     `scfvalues`_        current values for convergence of the SCF                                                    list of arrays of rank 2
-    `temperature`_      tempature used for Thermochemistry                               kelvin                      float
+    `temperature`_      temperature used for Thermochemistry                             kelvin                      float
     `vibanharms`_       vibrational anharmonicity constants                              1/cm                        array of rank 2
     `vibdisps`_         cartesian displacement vectors                                   delta angstrom              array of rank 3
     `vibfreqs`_         vibrational frequencies                                          1/cm                        array of rank 1
@@ -96,6 +97,7 @@
 .. _`nbasis`: data_notes.html#nbasis
 .. _`nmo`: data_notes.html#nmo
 .. _`nocoeffs`: data_notes.html#nocoeffs
+.. _`nooccnos`: data_notes.html#nooccnos
 .. _`optdone`: data_notes.html#optdone
 .. _`scancoords`: data_notes.html#scancoords
 .. _`scanenergies`: data_notes.html#scanenergies

@@ -39,8 +39,8 @@ attributes        ADF               GAMESS            GAMESSUK          Gaussian
 `natom`_          √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `nbasis`_         √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `nmo`_            √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
-`nocoeffs`_       T/D               T/D               T/D               √                 T/D               T/D               T/D               T/D               T/D               T/D               
-`nooccnos`_       T/D               T/D               √                 √                 T/D               T/D               T/D               T/D               T/D               T/D               
+`nocoeffs`_       T/D               √                 T/D               √                 T/D               T/D               T/D               T/D               T/D               T/D               
+`nooccnos`_       T/D               √                 √                 √                 T/D               T/D               T/D               T/D               T/D               T/D               
 `optdone`_        √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `scancoords`_     T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               
 `scanenergies`_   T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               
