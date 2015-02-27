@@ -2,7 +2,7 @@
 attributes        ADF               DALTON            GAMESS            GAMESSUK          Gaussian          Jaguar            Molpro            NWChem            ORCA              Psi               QChem             
 ================= ================= ================= ================= ================= ================= ================= ================= ================= ================= ================= ================= 
 `aonames`_        N/A               T/D               √                 √                 √                 √                 √                 T/D               √                 T/D               T/D               
-`aooverlaps`_     √                 T/D               √                 √                 √                 √                 √                 √                 √                 N/P               T/D               
+`aooverlaps`_     √                 N/A               √                 √                 √                 √                 √                 √                 √                 N/P               T/D               
 `atombasis`_      T/D               T/D               √                 √                 √                 √                 √                 √                 √                 √                 T/D               
 `atomcharges`_    √                 T/D               √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `atomcoords`_     √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 

@@ -32,9 +32,11 @@ Some examples:
 * ``aooverlaps[0,3]`` is the overlap between the 1st and 4th basis function
 * ``aooverlaps[2,:]`` is a 1-dimensional array containing the overlap between every basis function and the 3rd basis function
 
-**Gaussian**: iop(3/33=1) must be specified in the input file
+**ADF**: not present by default, printed when `PRINT Smat` is in the input; do not mistake with `fooverlaps`_
 
-**ADF**: Not present, because `fooverlaps`_ are used instead
+**DALTON**: no option to print as of version 2013
+
+**Gaussian**: iop(3/33=1) must be specified in the input file
 
 .. _`Mulliken`: methods.html#mulliken-population-analysis-mpa
 .. _`C squared`: methods.html#c-squared-population-analysis-cspa
