@@ -104,7 +104,7 @@ coverage_prod: checkout_prod coverage.rst
 coverage_dev: checkout_dev coverage_dev.rst
 coverage.rst: coverage.py $(wildcard $(SRC_PROD)/parser/*parser.py) $(wildcard $(CCLIB_PROD)/test/*.py)
 	python coverage.py $(CCLIB_PROD)/test > $@
-coverage_dev.rst: coverage.py $(wildcard $(SRC_PROD)/parser/*parser.py) $(wildcrd $(CCLIB_DEV)/test/*.py)
+coverage_dev.rst: coverage.py $(wildcard $(SRC_DEV)/parser/*parser.py) $(wildcrd $(CCLIB_DEV)/test/*.py)
 	python coverage.py $(CCLIB_DEV)/test > $@
 
 html:
