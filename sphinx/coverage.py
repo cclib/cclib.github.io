@@ -73,7 +73,7 @@ if __name__ == "__main__":
     # Eventually we want to move this to cclib.
     not_applicable = {
         'ADF' : ['aonames', 'ccenergies', 'mpenergies'],
-        'DALTON' : ['aooverlaps'],
+        'DALTON' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
         'GAMESS' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
         'GAMESSUK' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
         'Gaussian' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
@@ -85,6 +85,7 @@ if __name__ == "__main__":
         'QChem' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
     }
     not_possible = {
+        'DALTON' : ['aooverlaps'],
         'Psi' : ['aooverlaps'],
     }
 
