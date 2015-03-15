@@ -1,9 +1,33 @@
 # -*- coding: utf-8 -*-
 
+import inspect
 import os
 import sys
 
 from attributes import check_cclib
+
+
+def check_coverage(attr, tests):
+    """Determine whether an attribute is covered by the provided tests.
+
+    The current idea of coverage is that a test parses needs to parse an attribute
+    and also use it in at least one test method. This is not rock solid since
+    the attribute may be mentioned in the source but not actually tested.
+    """
+    for t in tests:
+
+        # If the attribute is parsed by the test, it will end up in its ccData object.
+        if attr in t.data.__dict__:
+
+            methods = [m for m in dir(t) if callable(getattr(t, m))]
+            testmethods = [m for m in methods if m[:4] == "test"]
+
+            # Ideally we would like to have the attribute inside an assertion, but that
+            # often does not happen if it's used to derive some value.
+            if any([attr in inspect.getsource(getattr(t, tm)) for tm in testmethods]):
+                return True
+
+    return False
 
 
 if __name__ == "__main__":
@@ -71,7 +95,7 @@ if __name__ == "__main__":
     # decode it and them encode the line before printing.
     attributes = sorted(cclib.parser.data.ccData._attrlist)
     for attr in attributes:
-        parsed = [any([attr in t.data.__dict__ for t in tests]) for tests in alltests]
+        parsed = [check_coverage(attr, tests) for tests in alltests]
         for ip, p in enumerate(parsed):
             if p:
                 parsed[ip] = "√".decode('utf-8')
