@@ -30,7 +30,7 @@ attributes        ADF               GAMESS            GAMESSUK          Gaussian
 `grads`_          T/D               √                 √                 √                 T/D               T/D               T/D               T/D               T/D               √                 
 `hessian`_        √                 √                 √                 T/D               T/D               √                 T/D               T/D               T/D               √                 
 `homos`_          √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
-`mocoeffs`_       √                 √                 √                 √                 √                 √                 √                 √                 √                 T/D               
+`mocoeffs`_       √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `moenergies`_     √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `moments`_        √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `mosyms`_         √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 

@@ -69,7 +69,7 @@ $(CCLIB_DEV):
 .PHONY: update update_prod update_dev
 update: update_prod update_dev
 update_prod:
-	cd $(CCLIB_PROD); git fetch --all --tags
+	cd $(CCLIB_PROD); git checkout $(PRODUCTION_VERSION); git fetch --all --tags
 update_dev:
 	cd $(CCLIB_DEV); git pull origin; git fetch --all --tags
 
