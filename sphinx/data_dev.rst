@@ -16,6 +16,6 @@ Click the attribute name in the table below for the specifications for a particu
 Details of current implementation
 ---------------------------------
 
-**N/A** = not applicable, **N/P** = applicable, but not possible, **T/D** = to do
+The table below shows the coverage of attributes in the current development version of cclib. An attribute is marked as covered for a program only if it is parsed and used by at least one test. Other possible statuses are: **N/A** = not applicable, **N/P** = applicable, but not possible, **T/D** = to do.
 
 .. include:: coverage_dev.rst
