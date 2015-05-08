@@ -504,51 +504,37 @@ An array containing the converged SCF energies of the calculation, in eV. For an
 scftargets
 ----------
 
-Target values for criteria for determining whether the SCF has converged, whose values are stored in an array of dimension ``n x m``, where ``n`` is the number of geometry optimisation cycles (1 for a single point calculation) and ``m`` is the number of criteria.
+Target thesholds for determining whether the current SCF run has converged, stored in a ``n x m`` array, where ``n`` is the number of geometry optimisation steps (1 for a single point calculation) and ``m`` is the number of criteria. The criteria vary between programs, and depending on the program they may be constant for the whole of a geometry optimisation or they may change between optimisation steps. A more complete description for each program follows.
 
-The criteria vary from program to program, and depending on the program they may be constant for the whole of a geometry optimisation or they may be different for each geometry optimisation cycle. A more complete description follows.
+**ADF**: There are two convergence criteria which are controlled by ``SCFcnv`` in the `CONVERGE subkey of the SCF block`_.
 
-**ADF**:
+* The maximum element of the commutator of the Fock matrix and P-matrix needs to be below ``SCFcnv``.
+* The norm of the same matrix needs to be below ``10*SCFcnv``.
 
-* Maximum element A < target criterion
-* Norm A < 10 * target criterion
-: where A is the commutator of the Fock and P matrices
+This hard target is normally used for single point calculations and the last step of geometry optimisations, and it defaults to 1.0E-6. There is also a soft target ``scfconv2`` that defaults to 1.0E-3, which can be switched on and is used by ADF automatically in some cases such as the first step in a geometry optimization.
 
-The value of the target criterion depends on the calculation:
+For intermediate steps in a geometry optimisation the situation is more complicated and depends on the gradient and the integration accuracy. A post on the ADF user's forum revealed that it is calculated as follows:
 
-* The "hard" target, SCFconv, is used for single point calculations, and the last step of geometry optimisations. It defaults to 1.0E-6, and can be changed in the SCF keyword block.
+.. math:: \mathrm{new\,criteria} = max( \mathrm{SCFcnv}, \, min(\mathrm{old\,criteria}, \, \mathrm{grdmax}/30, 10^{-\mathrm{accint}})) ),
 
-* The "soft" target, scfconv2, is used for the first step of a geometry opimization. It defaults to 1.0E-3, and can also be changed in the SCF keyword block.
+where ``old criteria`` is the initial value or from the previous geometry cycle, ``grdmax`` is the maximum gradient from the last geometry step and ``accint`` is the current integration accuracy.
 
-* For intermediate steps in a geometry optimisation the situation is more complicated and depends on the gradient and the integration accuracy. After a post on the ADF user's forum, I found that it is calculated as follows:
+.. _`CONVERGE subkey of the SCF block`: http://www.scm.com/Doc/Doc2014/ADF/ADFUsersGuide/page235.html#keyscheme%20INTEGRATION
 
-:: new_convcriteria = max(SCFconv, min(old_convcriteria, grdmax/30, 10**(-accint))) )
+**GAMESS**: Two criteria are, the maximum and root-mean-square (RMS) density matrix change, are used with a default starting value of 5.0E-05. It seems these values can change over the course of a geometry optimisation. ROHF calculations use SQCDF instead of the standard RMS change.
 
-:where old_convcriteria is the value from the previous geometry cycle, grdmax is the max gradient from the last geometry cycle and accint is the current integration accuracy.
-
-(There is some information in the `ADF manual`_.)
-
-.. _`ADF manual`: http://www.scm.com/Doc/Doc2005.01/ADF/ADFUsersGuide/page124.html#keyscheme%20SCF here
-
-**GAMESS**: Maximum and root-mean-square (RMS) density matrix change: starts from 5.0E-05 by default and changes over the course of a geometry optimisation. ROHF calculations use SQCDF instead of the standard RMS change.
-
-**GAMESS-UK**: According to `the manual`_, convergence is determined by convergence of the elements of density matrix. The default value for SCF is 1E-5, but it appears to be 1E-7 for geoopts.
+**GAMESS-UK**: According to `the manual`_, convergence is determined by convergence of density matrix elements. The default value for SCF is 1E-5, but it appears to be 1E-7 for geoopts.
 
 .. _`the manual`: http://www.cfs.dl.ac.uk/docs/html/part4/node6.html
 
-**Gaussian**:
+**Gaussian**: normally three criteria are used.
 
-* The RMS change in the density matrix elements. Default is 1.0E-4 (1.0E-8 for geo opts).
-* The maximum change in the density matrix elements. Default is 1.0E-2 (1.0E-6 for geo opts).
-* The change in energy. Default is 5.0E-05 (1.0E-06 for geo opts).
+* The RMS change in the density matrix elements, with a default of 1.0E-4 (1.0E-8 for geo opts).
+* Maximum change in the density matrix elements, with a default of 1.0E-2 (1.0E-6 for geo opts).
+* The change in energy, with a default threshold of 5.0E-05 (1.0E-06 for geo opts).
 
-**Jaguar 4.2**
-
-The Jaguar 4.2 targets depend on whether it is a geometry optimisation or not:
-* For geometry optimisation and hyper/polarisability, the rms change in the density matrix elements is used as a criterion (controlled by the ``dconv`` keyword). Default is 5.0E6.
-* The energy convergence criterion (keyword ``econv``) is ignored for geometry optimisation calculations but is used for SCF calculations. Default is 5.0E5, except for hyper/polarisability where it is 1.0E6.
-
-(Note sure how correct this is - but it's taken from the manual)
+**Jaguar 4.2**: The targets in Jaguar 4.2 (based on the manual) depend on whether the job is a geometry optimisation or not. For geometry optimisations and hyper/polarisability calculation, the RMS change in the density matrix elements is used as a criterion (controlled by the ``dconv`` keyword), with a default of 5.0E6.
+The energy convergence criterion (keyword ``econv``) is ignored for geometry optimisation calculations but is used for SCF calculations, and the default in this case is 5.0E5, except for hyper/polarisability calcualtions where it is 1.0E6.
 
 scfvalues
 ---------
