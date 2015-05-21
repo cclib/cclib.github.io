@@ -219,46 +219,42 @@ The difficulty in handling the basis for a molecule with symmetry and the availa
 gbasis
 ------
 
-This attribute stores information about the Gaussian basis functions that were used in the calculation. The information is stored per atom using the same conventions as [http://pyquante.sf.net PyQuante]. Specifically, ``gbasis`` is a list (per atom) of lists (per Gaussian basis function) of tuples of length 2 consisting of orbital type (e.g. 'S', 'P' or 'D') and a list (per contracted GTO) of tuples of size 2 consisting of the exponent and coefficient. Confused? Well, here's ``gbasis`` for a molecule consisting of a single C atom with a STO-3G basis:
+This attribute stores information about the Gaussian basis functions that were used in the calculation, per atom using the same conventions as [http://pyquante.sf.net PyQuante]. Specifically, ``gbasis`` is a list of lists iterating over atoms and Gaussian basis functions. The elements (basis functions) are tuples of length 2 consisting of orbital type (e.g. 'S', 'P' or 'D') and a list (per contracted GTO) of tuples of size 2 consisting of the exponent and coefficient. Confused? Well, here's ``gbasis`` for a molecule consisting of a single C atom with a STO-3G basis:
 
 ..
 
     [ # per atom
-    [
-    ('S',[
-        (71.616837, 0.154329),
-        (13.045096, 0.535328),
-        (3.530512, 0.444635),
-        ]),
-    ('S',[
-        (2.941249, -0.099967),
-        (0.683483, 0.399513),
-        (0.222290, 0.700115),
-        ]),
-    ('P',[
-        (2.941249, 0.155916),
-        (0.683483, 0.607684),
-        (0.222290, 0.391957),
-        ]),
-    ]
+        [
+            ('S', [
+                (71.616837, 0.154329),
+                (13.045096, 0.535328),
+                (3.530512, 0.444635),
+                ]),
+            ('S', [
+                (2.941249, -0.099967),
+                (0.683483, 0.399513),
+                (0.222290, 0.700115),
+                ]),
+            ('P', [
+                (2.941249, 0.155916),
+                (0.683483, 0.607684),
+                (0.222290, 0.391957),
+                ]),
+        ]
     ]
 
-Some programs print basis set details by default, but for others you will need to include various keywords in order for ``gbasis`` to be parsed:
+For D and F functions there is an important distinction between pure (5D, 7F) or Cartesian (6D, 10F) functions. PyQuante can only handle Cartesian functions, but we should extract this information in any case, and perhaps work to extend the PyQuante basis set format to include this.
 
 **Gaussian**: the `GFINPUT`_ keyword should normally be used (`GFPRINT`_ gives equivalent information in a different format and is supported in cclib after v1.2).
 
-**GAMESS**: no special keywords are required, but the basis is only available for symmetry inequivalent atoms. There does not seem to be any way to get GAMESS to say which atoms are related through symmetry. As a result, if you want to get basis set info for every atom, you need to reduce the symmetry to C<sub>1</sub>.
+**GAMESS/GAMESS-UK**: no special keywords are required, but the basis is only available for symmetry inequivalent atoms. There does not seem to be any way to get GAMESS to say which atoms are related through symmetry. As a result, if you want to get basis set info for every atom, you need to reduce the symmetry to C1.
 
-**GAMESS-UK**: same as for GAMESS above
+**Jaguar**: for more information see manual (for example at http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223)
 
-**Jaguar**: for more information see manual at http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223 manual
-
-**ORCA**: include `Print[ P_Basis ] 2` in the `output` block
+**ORCA**: include ``Print[ P_Basis ] 2`` in the ``output`` block
 
 .. _`GFINPUT`: http://www.gaussian.com/g_tech/g_ur/k_gfinput.htm
 .. _`GFPRINT`: http://www.gaussian.com/g_tech/g_ur/k_gfprint.htm
-
-**Development note**: It also needs to be noted whether any D and F functions are pure (5D, 7F) or Cartesian (6D, 10F). PyQuante can only handle Cartesian functions, but we should extract this information in any case. We will need to extend the PyQuante basis set format to include this.
 
 .. index::
     single: geomtry optimisation; geotargets (attribute)
