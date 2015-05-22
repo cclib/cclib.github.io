@@ -29,7 +29,10 @@ if __name__ == "__main__":
         with open(logpath, "w") as flog:
             stdout_backup = sys.stdout
             sys.stdout = flog
-            alltests = [testall([p], stream=flog) for p in parsers]
+            alltests = {}
+            for p in parsers:
+                tests = testall(parsers=[p], stream=flog)
+                alltests[p] = [{'data': t.data} for t in tests]
             sys.stdout = stdout_backup
     except Exception as e:
         print("Unit tests did not run correctly. Check log file for errors:")
@@ -71,7 +74,7 @@ if __name__ == "__main__":
     # decode it and them encode the line before printing.
     attributes = sorted(cclib.parser.data.ccData._attrlist)
     for attr in attributes:
-        parsed = [any([attr in t.data.__dict__ for t in tests]) for tests in alltests]
+        parsed = [any([attr in t['data'].__dict__ for t in alltests[p]]) for p in parsers]
         for ip, p in enumerate(parsed):
             if p:
                 parsed[ip] = "√".decode('utf-8')
