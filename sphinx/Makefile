@@ -70,8 +70,10 @@ $(CCLIB_DEV):
 update: update_prod update_dev
 update_prod:
 	cd $(CCLIB_PROD); git checkout $(PRODUCTION_VERSION); git fetch --all --tags
+	cd $(CCLIB_PROD); find . -name "*.pyc" -o -name "__pycache__" -delete
 update_dev:
 	cd $(CCLIB_DEV); git pull origin; git fetch --all --tags
+	cd $(CCLIB_DEV); find . -name "*.pyc" -o -name "__pycache__" -delete
 
 # Since we have two separate directories, 'checking out' a branch actually
 # means making a symlink to the appropriate directory, because scripts should be
