@@ -12,44 +12,81 @@ if __name__ == "__main__":
     import cclib
     check_cclib(cclib)
 
-    # Change directory to where tests are and import testall correctly.
-    # Because there are separate directories for different branches/versions,
-    # we are taking the easy way out and require the directory containing
-    # tests to be passed as an argument (the only one).
-    thispath = os.path.dirname(os.path.realpath(__file__))
-    testpath = sys.argv[1]
+    # Change directory to where tests are and add it to the path. Because there are
+    # separate directories for different branches/versions, and we use a symlink to
+    # point to the one we want, we need to test the real path this link resolves to.
+    if "cclib_prod" in os.path.realpath('cclib'):
+        testpath = "_build/cclib_prod/test"
+    else:
+        assert "cclib_dev" in os.path.realpath('cclib')
+        testpath = "_build/cclib_dev/test"
+
     os.chdir(testpath)
     sys.path.append('.')
-    from testall import parsers, testall
 
-    # Try running all unit tests, and dump output to a file. In case there is some
-    # rogue output from the tests, switch sys.stdout to the open log, too.
-    logpath = thispath + "/coverage.tests.log"
+    # The unittest code has changed in cclib, so try to run tests the new way and
+    # revert to the old way if that fails. The code in both cases is very similar,
+    # but don't merge it here at all. That's because cclib now generates coverage
+    # information during data tests, so we want to save it to a file and commit
+    # it along with the code, keeping the essence of this documentation closer
+    # to the code. Then we can just read it back here to generate the table.
+    #
+    # Warning! This code is quite fragile, because the test code adds attributes
+    # to classes dynamically (bad idea), so they get overwritten when we reuse
+    # classes for unittests. See bellow how we collect ccData instances to sidestep
+    # this issue; although that doesn't alleviate the issue entirely, and the fix
+    # needs to happen in the cclib code.
     try:
-        with open(logpath, "w") as flog:
-            stdout_backup = sys.stdout
-            sys.stdout = flog
-            alltests = {}
-            for p in parsers:
-                tests = testall(parsers=[p], stream=flog)
-                alltests[p] = [{'data': t.data} for t in tests]
-            sys.stdout = stdout_backup
-    except Exception as e:
-        print("Unit tests did not run correctly. Check log file for errors:")
-        print(open(logpath, 'r').read())
-        print(e)
-        sys.exit(1)
+        from test_data import parser_names
+        from test_data import DataSuite
+        thispath = os.path.dirname(os.path.realpath(__file__))
+        logpath = thispath + "/coverage.tests.log"
+        try:
+            with open(logpath, "w") as flog:
+                stdout_backup = sys.stdout
+                sys.stdout = flog
+                alltests = {}
+                for p in parser_names:
+                    suite = DataSuite(argv=[p], stream=flog)
+                    suite.testall()
+                    alltests[p] = [{'data': t.data} for t in suite.alltests]
+                sys.stdout = stdout_backup
+        except Exception as e:
+            print("Unit tests did not run correctly. Check log file for errors:")
+            print(open(logpath, 'r').read())
+            print(e)
+            sys.exit(1)
 
-    ncols = len(parsers)+1
+    except ImportError:
+        from testall import parsers as parser_names
+        from testall import testall
+        thispath = os.path.dirname(os.path.realpath(__file__))
+        logpath = thispath + "/coverage.tests.log"
+        try:
+            with open(logpath, "w") as flog:
+                stdout_backup = sys.stdout
+                sys.stdout = flog
+                alltests = {}
+                for p in parser_names:
+                    tests = testall(parsers=[p], stream=flog)
+                    alltests[p] = [{'data': t.data} for t in tests]
+                sys.stdout = stdout_backup
+        except Exception as e:
+            print("Unit tests did not run correctly. Check log file for errors:")
+            print(open(logpath, 'r').read())
+            print(e)
+            sys.exit(1)
+
+    ncols = len(parser_names)+1
     colwidth = 18
     colfmt = "%%-%is" % colwidth
     dashes = ("="*(colwidth-1) + " ") * ncols
 
     print(dashes)
-    print(colfmt*ncols % tuple(["attributes"] + parsers))
+    print(colfmt*ncols % tuple(["attributes"] + parser_names))
     print(dashes)
 
-    # Eventually we want to move this to cclib.
+    # Eventually we want to move this to cclib, too.
     not_applicable = {
         'ADF' : ['aonames', 'ccenergies', 'mpenergies'],
         'DALTON' : ['aooverlaps'],
@@ -74,14 +111,14 @@ if __name__ == "__main__":
     # decode it and them encode the line before printing.
     attributes = sorted(cclib.parser.data.ccData._attrlist)
     for attr in attributes:
-        parsed = [any([attr in t['data'].__dict__ for t in alltests[p]]) for p in parsers]
+        parsed = [any([attr in t['data'].__dict__ for t in alltests[p]]) for p in parser_names]
         for ip, p in enumerate(parsed):
             if p:
                 parsed[ip] = "√".decode('utf-8')
             else:
-                if attr in not_applicable.get(parsers[ip], []):
+                if attr in not_applicable.get(parser_names[ip], []):
                     parsed[ip] = "N/A"
-                elif attr in not_possible.get(parsers[ip], []):
+                elif attr in not_possible.get(parser_names[ip], []):
                     parsed[ip] = "N/P"
                 else:
                     parsed[ip] = "T/D"
