@@ -169,7 +169,7 @@ Websites related to cclib
 
 .. _`cclib organization on github`: https://github.com/cclib
 .. _`cclib project page on Sourceforge`: http://sourceforge.net/projects/cclib/
-.. _`cclib entry in PyPI`: http://www.python.org/pypi/cclib
+.. _`cclib entry on PyPI`: http://www.python.org/pypi/cclib
 .. _`cclib page for Travis CI`: https://travis-ci.org/cclib/cclib
 .. _`cclib entry on Ohloh`: https://www.ohloh.net/p/cclib
 
