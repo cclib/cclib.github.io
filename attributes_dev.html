@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; cclib 1.3.1 documentation</title>
+  <title>&lt;no title&gt; &mdash; cclib 1.3.2 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="cclib 1.3.1 documentation" href="index.html"/> 
+    <link rel="top" title="cclib 1.3.2 documentation" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -83,7 +83,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tutorial.html#what-next">What next?</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.3.1)</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.3.2)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="data.html#description-of-parsed-data">Description of parsed data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data.html#details-of-current-implementation">Details of current implementation</a></li>
 </ul>
@@ -445,72 +445,77 @@
 <td>&nbsp;</td>
 <td>Boolean</td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scancoords">scancoords</a></td>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#optstatus">optstatus</a></td>
+<td>optimization status for each set of atomic coordinates</td>
+<td>&nbsp;</td>
+<td>array of rank 1</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#scancoords">scancoords</a></td>
 <td>geometries of each scan step</td>
 <td>angstroms</td>
 <td>array of rank 3</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#scanenergies">scanenergies</a></td>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scanenergies">scanenergies</a></td>
 <td>energies of potential energy surface</td>
 <td>&nbsp;</td>
 <td>list</td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scannames">scannames</a></td>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#scannames">scannames</a></td>
 <td>names of varaibles scanned</td>
 <td>&nbsp;</td>
 <td>list of strings</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#scanparm">scanparm</a></td>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scanparm">scanparm</a></td>
 <td>values of parameters in potential energy surface</td>
 <td>&nbsp;</td>
 <td>list of tuples</td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scfenergies">scfenergies</a></td>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#scfenergies">scfenergies</a></td>
 <td>molecular electronic energies after SCF (Hartree-Fock, DFT)</td>
 <td>eV</td>
 <td>array of rank 1</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#scftargets">scftargets</a></td>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scftargets">scftargets</a></td>
 <td>targets for convergence of the SCF</td>
 <td>&nbsp;</td>
 <td>array of rank 2</td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scfvalues">scfvalues</a></td>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#scfvalues">scfvalues</a></td>
 <td>current values for convergence of the SCF</td>
 <td>&nbsp;</td>
 <td>list of arrays of rank 2</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#temperature">temperature</a></td>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#temperature">temperature</a></td>
 <td>temperature used for Thermochemistry</td>
 <td>kelvin</td>
 <td>float</td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#vibanharms">vibanharms</a></td>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#vibanharms">vibanharms</a></td>
 <td>vibrational anharmonicity constants</td>
 <td>1/cm</td>
 <td>array of rank 2</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#vibdisps">vibdisps</a></td>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#vibdisps">vibdisps</a></td>
 <td>cartesian displacement vectors</td>
 <td>delta angstrom</td>
 <td>array of rank 3</td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#vibfreqs">vibfreqs</a></td>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#vibfreqs">vibfreqs</a></td>
 <td>vibrational frequencies</td>
 <td>1/cm</td>
 <td>array of rank 1</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#vibirs">vibirs</a></td>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#vibirs">vibirs</a></td>
 <td>IR intensities</td>
 <td>km/mol</td>
 <td>array of rank 1</td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#vibramans">vibramans</a></td>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#vibramans">vibramans</a></td>
 <td>Raman intensities</td>
 <td>A^4/Da</td>
 <td>array of rank 1</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#vibsyms">vibsyms</a></td>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#vibsyms">vibsyms</a></td>
 <td>symmetries of vibrations</td>
 <td>&nbsp;</td>
 <td>list of strings</td>
@@ -528,7 +533,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2015, cclib Development Team.
+        &copy; Copyright 2014-2016, cclib Development Team.
     </p>
   </div>
   Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -549,7 +554,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.3.1',
+            VERSION:'1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
