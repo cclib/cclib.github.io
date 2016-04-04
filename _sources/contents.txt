@@ -14,6 +14,7 @@ Table of Contents
     development
     data_dev
     changelog
+    examples
 
 Indices and tables
 ==================

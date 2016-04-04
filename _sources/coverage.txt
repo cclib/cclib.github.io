@@ -6,7 +6,7 @@ attributes        ADF               DALTON            GAMESS            GAMESSUK
 `atombasis`_      T/D               √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `atomcharges`_    √                 T/D               √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `atomcoords`_     √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
-`atommasses`_     √                 T/D               T/D               T/D               √                 T/D               T/D               T/D               T/D               T/D               √                 
+`atommasses`_     √                 √                 √                 T/D               √                 T/D               T/D               T/D               T/D               T/D               √                 
 `atomnos`_        √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `atomspins`_      T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               √                 T/D               √                 
 `ccenergies`_     N/A               √                 √                 T/D               √                 T/D               √                 √                 T/D               √                 √                 
@@ -14,19 +14,19 @@ attributes        ADF               DALTON            GAMESS            GAMESSUK
 `coreelectrons`_  √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `enthalpy`_       T/D               T/D               T/D               T/D               √                 T/D               T/D               T/D               T/D               T/D               √                 
 `entropy`_        T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               √                 
-`etenergies`_     √                 T/D               √                 T/D               √                 √                 T/D               T/D               √                 T/D               √                 
+`etenergies`_     √                 √                 √                 T/D               √                 √                 T/D               T/D               √                 T/D               √                 
 `etoscs`_         √                 T/D               √                 T/D               √                 √                 T/D               T/D               √                 T/D               √                 
 `etrotats`_       T/D               T/D               T/D               T/D               √                 T/D               T/D               T/D               T/D               T/D               T/D               
-`etsecs`_         √                 T/D               √                 T/D               √                 √                 T/D               T/D               √                 T/D               √                 
-`etsyms`_         √                 T/D               √                 T/D               √                 √                 T/D               T/D               √                 T/D               √                 
+`etsecs`_         √                 √                 √                 T/D               √                 √                 T/D               T/D               √                 T/D               √                 
+`etsyms`_         √                 √                 √                 T/D               √                 √                 T/D               T/D               √                 T/D               √                 
 `fonames`_        √                 T/D               N/A               N/A               N/A               N/A               N/A               N/A               N/A               N/A               N/A               
 `fooverlaps`_     √                 T/D               N/A               N/A               N/A               N/A               N/A               N/A               N/A               N/A               N/A               
 `fragnames`_      √                 T/D               N/A               N/A               N/A               N/A               N/A               N/A               N/A               N/A               N/A               
 `frags`_          √                 T/D               N/A               N/A               N/A               N/A               N/A               N/A               N/A               N/A               N/A               
 `freeenergy`_     T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               √                 
-`gbasis`_         T/D               T/D               √                 √                 √                 √                 √                 √                 T/D               √                 √                 
-`geotargets`_     √                 T/D               √                 √                 √                 √                 √                 √                 √                 √                 √                 
-`geovalues`_      √                 T/D               √                 √                 √                 √                 √                 √                 √                 √                 √                 
+`gbasis`_         T/D               √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
+`geotargets`_     √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
+`geovalues`_      √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `grads`_          T/D               T/D               T/D               T/D               √                 T/D               T/D               T/D               T/D               T/D               √                 
 `hessian`_        T/D               T/D               T/D               T/D               T/D               T/D               √                 T/D               T/D               T/D               √                 
 `homos`_          √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
@@ -41,7 +41,8 @@ attributes        ADF               DALTON            GAMESS            GAMESSUK
 `nmo`_            √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `nocoeffs`_       T/D               T/D               √                 T/D               √                 T/D               T/D               T/D               T/D               T/D               T/D               
 `nooccnos`_       T/D               T/D               √                 √                 √                 T/D               T/D               T/D               T/D               T/D               T/D               
-`optdone`_        √                 T/D               √                 √                 √                 √                 √                 √                 √                 √                 √                 
+`optdone`_        √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
+`optstatus`_      T/D               T/D               T/D               T/D               √                 T/D               T/D               T/D               T/D               T/D               T/D               
 `scancoords`_     T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               
 `scanenergies`_   T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               
 `scannames`_      T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               
@@ -51,11 +52,11 @@ attributes        ADF               DALTON            GAMESS            GAMESSUK
 `scfvalues`_      √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 √                 
 `temperature`_    T/D               T/D               T/D               T/D               √                 T/D               T/D               T/D               T/D               T/D               √                 
 `vibanharms`_     T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               T/D               
-`vibdisps`_       √                 T/D               √                 √                 √                 √                 √                 T/D               √                 T/D               √                 
-`vibfreqs`_       √                 T/D               √                 √                 √                 √                 √                 T/D               √                 T/D               √                 
-`vibirs`_         √                 T/D               √                 √                 √                 √                 √                 T/D               √                 T/D               √                 
-`vibramans`_      T/D               T/D               √                 √                 √                 T/D               T/D               T/D               √                 T/D               √                 
-`vibsyms`_        T/D               T/D               T/D               T/D               √                 √                 √                 T/D               T/D               T/D               T/D               
+`vibdisps`_       √                 √                 √                 √                 √                 √                 √                 T/D               √                 T/D               √                 
+`vibfreqs`_       √                 √                 √                 √                 √                 √                 √                 T/D               √                 T/D               √                 
+`vibirs`_         √                 √                 √                 √                 √                 √                 √                 T/D               √                 T/D               √                 
+`vibramans`_      T/D               √                 √                 √                 √                 T/D               T/D               T/D               √                 T/D               √                 
+`vibsyms`_        T/D               √                 T/D               T/D               √                 √                 √                 T/D               T/D               T/D               T/D               
 ================= ================= ================= ================= ================= ================= ================= ================= ================= ================= ================= ================= 
 
 .. _`aonames`: data_notes.html#aonames
@@ -99,6 +100,7 @@ attributes        ADF               DALTON            GAMESS            GAMESSUK
 .. _`nocoeffs`: data_notes.html#nocoeffs
 .. _`nooccnos`: data_notes.html#nooccnos
 .. _`optdone`: data_notes.html#optdone
+.. _`optstatus`: data_notes.html#optstatus
 .. _`scancoords`: data_notes.html#scancoords
 .. _`scanenergies`: data_notes.html#scanenergies
 .. _`scannames`: data_notes.html#scannames
