@@ -90,9 +90,8 @@
 <li class="toctree-l1"><a class="reference internal" href="data_dev.html">Development parsed data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#input">Input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#output">Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#chaining-of-attributes">Chaining of attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ccget">ccget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ccwrite">ccwrite</a></li>
 </ul>
 </li>
 </ul>
@@ -141,9 +140,16 @@
             
   <div class="section" id="examples">
 <h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
-<p>This page describes how to use ccget to obtain data from output files.</p>
-<div class="section" id="input">
-<h2>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h2>
+<p>The cclib package provides three powerful scripts to parse and write data i.e. <code class="docutils literal"><span class="pre">ccget</span></code>, <code class="docutils literal"><span class="pre">ccwrite</span></code>, and <code class="docutils literal"><span class="pre">cda</span></code></p>
+<ol class="arabic simple">
+<li><strong>ccget</strong> is used to parse attribute data from output files.</li>
+<li><strong>ccwrite</strong> has the ability to list out all valid attribute data that can be parsed from an output format. It has the added feature of writing the output file into four different formats i.e. <code class="docutils literal"><span class="pre">json</span></code>, <code class="docutils literal"><span class="pre">cjson</span></code>, <code class="docutils literal"><span class="pre">cml</span></code>, <code class="docutils literal"><span class="pre">xyz</span></code>.</li>
+<li><strong>cda</strong> is used for the chemical decomposition analysis of output files.</li>
+</ol>
+<p>This page describes how to use the ccget and ccwrite scripts to obtain data from output files.</p>
+<div class="section" id="ccget">
+<h2>ccget<a class="headerlink" href="#ccget" title="Permalink to this headline">¶</a></h2>
+<p><strong>Input</strong></p>
 <p>The output file used as an example is a Benzeneselenol(C6H5-SeH) molecule optimized using Gaussian09. The input geometry was optimized at the <code class="docutils literal"><span class="pre">B3LYP</span> <span class="pre">+</span> <span class="pre">6-311++g(3df,3pd)</span></code> level of calculation.</p>
 <p>The input file used is given below:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>%mem<span class="o">=</span>2800MB
@@ -169,9 +175,7 @@
   H                  1.97993148    1.08839585    0.93442872
 </pre></div>
 </div>
-</div>
-<div class="section" id="output">
-<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p><strong>Output</strong></p>
 <p>The data types that can be parsed from the output file depends on the type of simulation being conducted. The name of the output file used to show example usage is <code class="docutils literal"><span class="pre">Benzeneselenol.out</span></code>.</p>
 <p>Data type can be parsed from the output file by following this format</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>ccget &lt;attribute&gt; <span class="o">[</span>&lt;attribute&gt;<span class="o">]</span> &lt;CompChemLogFile&gt; <span class="o">[</span>&lt;CompChemLogFile&gt;<span class="o">]</span>
@@ -182,7 +186,7 @@
 <li>Atomic Charges</li>
 </ol>
 <blockquote>
-<div>The atomic orbital names are obtained by using the <code class="docutils literal"><span class="pre">atomcharges</span></code> attribute with <code class="docutils literal"><span class="pre">ccget</span></code></div></blockquote>
+<div>The atomic charges are obtained by using the <code class="docutils literal"><span class="pre">atomcharges</span></code> attribute with <code class="docutils literal"><span class="pre">ccget</span></code></div></blockquote>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ ccget atomcharges Benzeneselenol.out
 Attempting to <span class="nb">read</span> Benzeneselenol.out
 atomcharges:
@@ -192,7 +196,7 @@ atomcharges:
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Enthalpy</li>
+<li>Electronic Energies</li>
 </ol>
 <blockquote>
 <div>The molecular electronic energies after SCF (DFT) optimization of the input molecule is obtained by using the <code class="docutils literal"><span class="pre">scfenergies</span></code> attribute with <code class="docutils literal"><span class="pre">ccget</span></code></div></blockquote>
@@ -217,9 +221,7 @@ geotargets:
 <span class="o">[</span> 0.00045  0.0003   0.0018   0.0012 <span class="o">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="chaining-of-attributes">
-<h2>Chaining of attributes<a class="headerlink" href="#chaining-of-attributes" title="Permalink to this headline">¶</a></h2>
+<p><strong>Chaining of attributes</strong></p>
 <p>ccget provides the user with the option to chain attributes to obtain more than one type of data with a command call. The attributes can be chained in any particular order. A few chained examples are provided below.</p>
 <ol class="arabic simple">
 <li>Molecular Orbitals and Multiplicity</li>
@@ -250,6 +252,105 @@ vibfreqs:
   1102.3417  1183.3857  1209.2727  1311.3497  1355.6441  1471.4447
   1510.1919  1611.9088  1619.0156  2391.2487  3165.1596  3171.3909
   3182.0753  3188.5786  3198.0359<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ccwrite">
+<h2>ccwrite<a class="headerlink" href="#ccwrite" title="Permalink to this headline">¶</a></h2>
+<p>The same Benzeneselenol.out file used in the previous examples will be used as the input file for ccwrite. When the ccwrite script is used with a valid input, it prints out the valid attributes that can be parsed from the file.</p>
+<p>Command line format:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ccwrite &lt;OutputFileFormat&gt;  &lt;CompChemLogFile&gt; <span class="o">[</span>&lt;CompChemLogFile&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<p>The valid output file formats are <code class="docutils literal"><span class="pre">json</span></code>, <code class="docutils literal"><span class="pre">cjson</span></code>, <code class="docutils literal"><span class="pre">cml</span></code>, <code class="docutils literal"><span class="pre">xyz</span></code></p>
+<ol class="arabic simple">
+<li>CML</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ccwrite cml Benzeneselenol.out
+Attempting to parse Benzeneselenol.out
+cclib can parse the following attributes from Benzeneselenol.out:
+  atomcharges
+  atomcoords
+  atomnos
+  charge
+  coreelectrons
+  enthalpy
+  geotargets
+  geovalues
+  grads
+  homos
+  moenergies
+  mosyms
+  mult
+  natom
+  nbasis
+  nmo
+  optdone
+  optstatus
+  scfenergies
+  scftargets
+  temperature
+  vibdisps
+  vibfreqs
+  vibirs
+  vibsyms
+</pre></div>
+</div>
+<p>A <em>Benzeneselenol.cml</em> output file is generated in the same directory as the Benzeneselenol.out file.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s1">&#39;1.0&#39;</span> <span class="nv">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span>?&gt;
+&lt;molecule <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;Benzeneselenol.out&quot;</span> <span class="nv">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.xml-cml.org/schema&quot;</span>&gt;
+  &lt;atomArray&gt;
+    &lt;atom <span class="nv">elementType</span><span class="o">=</span><span class="s2">&quot;C&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;a1&quot;</span> <span class="nv">x3</span><span class="o">=</span><span class="s2">&quot;-2.8947620000&quot;</span> <span class="nv">y3</span><span class="o">=</span><span class="s2">&quot;-0.0136420000&quot;</span> <span class="nv">z3</span><span class="o">=</span><span class="s2">&quot;-0.0015280000&quot;</span> /&gt;
+    &lt;atom <span class="nv">elementType</span><span class="o">=</span><span class="s2">&quot;C&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;a2&quot;</span> <span class="nv">x3</span><span class="o">=</span><span class="s2">&quot;-2.2062510000&quot;</span> <span class="nv">y3</span><span class="o">=</span><span class="s2">&quot;1.1938510000&quot;</span> <span class="nv">z3</span><span class="o">=</span><span class="s2">&quot;-0.0025210000&quot;</span> /&gt;
+    &lt;atom <span class="nv">elementType</span><span class="o">=</span><span class="s2">&quot;C&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;a3&quot;</span> <span class="nv">x3</span><span class="o">=</span><span class="s2">&quot;-0.8164260000&quot;</span> <span class="nv">y3</span><span class="o">=</span><span class="s2">&quot;1.2153020000&quot;</span> <span class="nv">z3</span><span class="o">=</span><span class="s2">&quot;-0.0022010000&quot;</span> /&gt;
+    &lt;atom <span class="nv">elementType</span><span class="o">=</span><span class="s2">&quot;C&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;a4&quot;</span> <span class="nv">x3</span><span class="o">=</span><span class="s2">&quot;-0.1033520000&quot;</span> <span class="nv">y3</span><span class="o">=</span><span class="s2">&quot;0.0183920000&quot;</span> <span class="nv">z3</span><span class="o">=</span><span class="s2">&quot;0.0031060000&quot;</span> /&gt;
+    &lt;atom <span class="nv">elementType</span><span class="o">=</span><span class="s2">&quot;C&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;a5&quot;</span> <span class="nv">x3</span><span class="o">=</span><span class="s2">&quot;-0.7906630000&quot;</span> <span class="nv">y3</span><span class="o">=</span><span class="s2">&quot;-1.1943840000&quot;</span> <span class="nv">z3</span><span class="o">=</span><span class="s2">&quot;0.0058500000&quot;</span> /&gt;
+    &lt;atom <span class="nv">elementType</span><span class="o">=</span><span class="s2">&quot;C&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;a6&quot;</span> <span class="nv">x3</span><span class="o">=</span><span class="s2">&quot;-2.1799570000&quot;</span> <span class="nv">y3</span><span class="o">=</span><span class="s2">&quot;-1.2059710000&quot;</span> <span class="nv">z3</span><span class="o">=</span><span class="s2">&quot;0.0017890000&quot;</span> /&gt;
+    &lt;atom <span class="nv">elementType</span><span class="o">=</span><span class="s2">&quot;H&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;a7&quot;</span> <span class="nv">x3</span><span class="o">=</span><span class="s2">&quot;-3.9758430000&quot;</span> <span class="nv">y3</span><span class="o">=</span><span class="s2">&quot;-0.0253010000&quot;</span> <span class="nv">z3</span><span class="o">=</span><span class="s2">&quot;-0.0029040000&quot;</span> /&gt;
+    &lt;atom <span class="nv">elementType</span><span class="o">=</span><span class="s2">&quot;H&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;a8&quot;</span> <span class="nv">x3</span><span class="o">=</span><span class="s2">&quot;-2.7502340000&quot;</span> <span class="nv">y3</span><span class="o">=</span><span class="s2">&quot;2.1291370000&quot;</span> <span class="nv">z3</span><span class="o">=</span><span class="s2">&quot;-0.0052760000&quot;</span> /&gt;
+    &lt;atom <span class="nv">elementType</span><span class="o">=</span><span class="s2">&quot;H&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;a9&quot;</span> <span class="nv">x3</span><span class="o">=</span><span class="s2">&quot;-0.2961840000&quot;</span> <span class="nv">y3</span><span class="o">=</span><span class="s2">&quot;2.1630180000&quot;</span> <span class="nv">z3</span><span class="o">=</span><span class="s2">&quot;-0.0073260000&quot;</span> /&gt;
+    &lt;atom <span class="nv">elementType</span><span class="o">=</span><span class="s2">&quot;H&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;a10&quot;</span> <span class="nv">x3</span><span class="o">=</span><span class="s2">&quot;-0.2474670000&quot;</span> <span class="nv">y3</span><span class="o">=</span><span class="s2">&quot;-2.1302310000&quot;</span> <span class="nv">z3</span><span class="o">=</span><span class="s2">&quot;0.0132260000&quot;</span> /&gt;
+    &lt;atom <span class="nv">elementType</span><span class="o">=</span><span class="s2">&quot;H&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;a11&quot;</span> <span class="nv">x3</span><span class="o">=</span><span class="s2">&quot;-2.7028960000&quot;</span> <span class="nv">y3</span><span class="o">=</span><span class="s2">&quot;-2.1530750000&quot;</span> <span class="nv">z3</span><span class="o">=</span><span class="s2">&quot;0.0036640000&quot;</span> /&gt;
+    &lt;atom <span class="nv">elementType</span><span class="o">=</span><span class="s2">&quot;Se&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;a12&quot;</span> <span class="nv">x3</span><span class="o">=</span><span class="s2">&quot;1.8210800000&quot;</span> <span class="nv">y3</span><span class="o">=</span><span class="s2">&quot;-0.0433780000&quot;</span> <span class="nv">z3</span><span class="o">=</span><span class="s2">&quot;-0.0038760000&quot;</span> /&gt;
+    &lt;atom <span class="nv">elementType</span><span class="o">=</span><span class="s2">&quot;H&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;a13&quot;</span> <span class="nv">x3</span><span class="o">=</span><span class="s2">&quot;2.0043580000&quot;</span> <span class="nv">y3</span><span class="o">=</span><span class="s2">&quot;1.4100070000&quot;</span> <span class="nv">z3</span><span class="o">=</span><span class="s2">&quot;0.1034490000&quot;</span> /&gt;
+  &lt;/atomArray&gt;
+  &lt;bondArray&gt;
+    &lt;bond <span class="nv">atomRefs2</span><span class="o">=</span><span class="s2">&quot;a9 a3&quot;</span> <span class="nv">order</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> /&gt;
+    &lt;bond <span class="nv">atomRefs2</span><span class="o">=</span><span class="s2">&quot;a8 a2&quot;</span> <span class="nv">order</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> /&gt;
+    &lt;bond <span class="nv">atomRefs2</span><span class="o">=</span><span class="s2">&quot;a12 a4&quot;</span> <span class="nv">order</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> /&gt;
+    &lt;bond <span class="nv">atomRefs2</span><span class="o">=</span><span class="s2">&quot;a12 a13&quot;</span> <span class="nv">order</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> /&gt;
+    &lt;bond <span class="nv">atomRefs2</span><span class="o">=</span><span class="s2">&quot;a7 a1&quot;</span> <span class="nv">order</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> /&gt;
+    &lt;bond <span class="nv">atomRefs2</span><span class="o">=</span><span class="s2">&quot;a2 a3&quot;</span> <span class="nv">order</span><span class="o">=</span><span class="s2">&quot;2&quot;</span> /&gt;
+    &lt;bond <span class="nv">atomRefs2</span><span class="o">=</span><span class="s2">&quot;a2 a1&quot;</span> <span class="nv">order</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> /&gt;
+    &lt;bond <span class="nv">atomRefs2</span><span class="o">=</span><span class="s2">&quot;a3 a4&quot;</span> <span class="nv">order</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> /&gt;
+    &lt;bond <span class="nv">atomRefs2</span><span class="o">=</span><span class="s2">&quot;a1 a6&quot;</span> <span class="nv">order</span><span class="o">=</span><span class="s2">&quot;2&quot;</span> /&gt;
+    &lt;bond <span class="nv">atomRefs2</span><span class="o">=</span><span class="s2">&quot;a6 a11&quot;</span> <span class="nv">order</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> /&gt;
+    &lt;bond <span class="nv">atomRefs2</span><span class="o">=</span><span class="s2">&quot;a6 a5&quot;</span> <span class="nv">order</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> /&gt;
+    &lt;bond <span class="nv">atomRefs2</span><span class="o">=</span><span class="s2">&quot;a4 a5&quot;</span> <span class="nv">order</span><span class="o">=</span><span class="s2">&quot;2&quot;</span> /&gt;
+    &lt;bond <span class="nv">atomRefs2</span><span class="o">=</span><span class="s2">&quot;a5 a10&quot;</span> <span class="nv">order</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> /&gt;
+  &lt;/bondArray&gt;
+&lt;/molecule&gt;
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>xyz</li>
+</ol>
+<p>Using <code class="docutils literal"><span class="pre">xyz</span></code> as the &lt;OutputFileFormat&gt; with Benzeneselenol.out, we obtain the following <em>Benzeneselenol.xyz</em> file</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>13
+Benzeneselenol.out: Geometry 17
+C     -2.8947620000   -0.0136420000   -0.0015280000
+C     -2.2062510000    1.1938510000   -0.0025210000
+C     -0.8164260000    1.2153020000   -0.0022010000
+C     -0.1033520000    0.0183920000    0.0031060000
+C     -0.7906630000   -1.1943840000    0.0058500000
+C     -2.1799570000   -1.2059710000    0.0017890000
+H     -3.9758430000   -0.0253010000   -0.0029040000
+H     -2.7502340000    2.1291370000   -0.0052760000
+H     -0.2961840000    2.1630180000   -0.0073260000
+H     -0.2474670000   -2.1302310000    0.0132260000
+H     -2.7028960000   -2.1530750000    0.0036640000
+Se     1.8210800000   -0.0433780000   -0.0038760000
+H      2.0043580000    1.4100070000    0.1034490000
 </pre></div>
 </div>
 </div>
