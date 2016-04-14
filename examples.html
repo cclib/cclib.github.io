@@ -140,7 +140,7 @@
             
   <div class="section" id="examples">
 <h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
-<p>The cclib package provides three powerful scripts to parse and write data i.e. <code class="docutils literal"><span class="pre">ccget</span></code>, <code class="docutils literal"><span class="pre">ccwrite</span></code>, and <code class="docutils literal"><span class="pre">cda</span></code></p>
+<p>The cclib package provides three scripts to parse and write data i.e. <code class="docutils literal"><span class="pre">ccget</span></code>, <code class="docutils literal"><span class="pre">ccwrite</span></code>, and <code class="docutils literal"><span class="pre">cda</span></code></p>
 <ol class="arabic simple">
 <li><strong>ccget</strong> is used to parse attribute data from output files.</li>
 <li><strong>ccwrite</strong> has the ability to list out all valid attribute data that can be parsed from an output format. It has the added feature of writing the output file into four different formats i.e. <code class="docutils literal"><span class="pre">json</span></code>, <code class="docutils literal"><span class="pre">cjson</span></code>, <code class="docutils literal"><span class="pre">cml</span></code>, <code class="docutils literal"><span class="pre">xyz</span></code>.</li>
@@ -149,34 +149,7 @@
 <p>This page describes how to use the ccget and ccwrite scripts to obtain data from output files.</p>
 <div class="section" id="ccget">
 <h2>ccget<a class="headerlink" href="#ccget" title="Permalink to this headline">¶</a></h2>
-<p><strong>Input</strong></p>
-<p>The output file used as an example is a Benzeneselenol(C6H5-SeH) molecule optimized using Gaussian09. The input geometry was optimized at the <code class="docutils literal"><span class="pre">B3LYP</span> <span class="pre">+</span> <span class="pre">6-311++g(3df,3pd)</span></code> level of calculation.</p>
-<p>The input file used is given below:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>%mem<span class="o">=</span>2800MB
- %nprocshared<span class="o">=</span>4
- %chk<span class="o">=</span>BSe-B1-2.chk
- <span class="c1"># opt freq rb3lyp/6-311++g(3df,3pd)</span>
-
- BenzeneSelenol B3LYP-6311++g<span class="o">(</span>3df,3pd<span class="o">)</span>
-
- <span class="m">0</span> 1
-  C                 -2.89824687   -0.00233690    0.00407979
-  C                 -2.20110587    1.20427657   -0.03738778
-  C                 -0.80680301    1.20847251   -0.04207404
-  C                 -0.10598800    0.00030600    0.00497800
-  C                 -0.80441513   -1.20928578    0.04103186
-  C                 -2.19910287   -1.20752072    0.04123846
-  H                 -3.98978249   -0.00323448    0.00435505
-  H                 -2.74390344    2.15073101   -0.07049588
-  H                 -0.25959615    2.15143883   -0.08256300
-  H                 -0.25533702   -2.15154247    0.07059511
-  H                 -2.74005799   -2.15513767    0.07078971
-  Se                 1.82625500   -0.00367200   -0.04339300
-  H                  1.97993148    1.08839585    0.93442872
-</pre></div>
-</div>
-<p><strong>Output</strong></p>
-<p>The data types that can be parsed from the output file depends on the type of simulation being conducted. The name of the output file used to show example usage is <code class="docutils literal"><span class="pre">Benzeneselenol.out</span></code>.</p>
+<p>The data types that can be parsed from the output file depends on the type of computation being conducted. The name of the output file used to show example usage is <code class="docutils literal"><span class="pre">Benzeneselenol.out</span></code>.</p>
 <p>Data type can be parsed from the output file by following this format</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>ccget &lt;attribute&gt; <span class="o">[</span>&lt;attribute&gt;<span class="o">]</span> &lt;CompChemLogFile&gt; <span class="o">[</span>&lt;CompChemLogFile&gt;<span class="o">]</span>
 </pre></div>

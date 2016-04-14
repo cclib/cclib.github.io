@@ -1,7 +1,7 @@
 Examples
 ========
 
-The cclib package provides three powerful scripts to parse and write data i.e. ``ccget``, ``ccwrite``, and ``cda``
+The cclib package provides three scripts to parse and write data i.e. ``ccget``, ``ccwrite``, and ``cda``
 
 1. **ccget** is used to parse attribute data from output files.
 2. **ccwrite** has the ability to list out all valid attribute data that can be parsed from an output format. It has the added feature of writing the output file into four different formats i.e. ``json``, ``cjson``, ``cml``, ``xyz``.
@@ -12,40 +12,7 @@ This page describes how to use the ccget and ccwrite scripts to obtain data from
 ccget
 -----
 
-**Input**
-
-The output file used as an example is a Benzeneselenol(C6H5-SeH) molecule optimized using Gaussian09. The input geometry was optimized at the ``B3LYP + 6-311++g(3df,3pd)`` level of calculation.
-
-The input file used is given below:
-
-.. code-block:: bash
-
-   %mem=2800MB
-    %nprocshared=4
-    %chk=BSe-B1-2.chk
-    # opt freq rb3lyp/6-311++g(3df,3pd)
-
-    BenzeneSelenol B3LYP-6311++g(3df,3pd)
-
-    0 1
-     C                 -2.89824687   -0.00233690    0.00407979
-     C                 -2.20110587    1.20427657   -0.03738778
-     C                 -0.80680301    1.20847251   -0.04207404
-     C                 -0.10598800    0.00030600    0.00497800
-     C                 -0.80441513   -1.20928578    0.04103186
-     C                 -2.19910287   -1.20752072    0.04123846
-     H                 -3.98978249   -0.00323448    0.00435505
-     H                 -2.74390344    2.15073101   -0.07049588
-     H                 -0.25959615    2.15143883   -0.08256300
-     H                 -0.25533702   -2.15154247    0.07059511
-     H                 -2.74005799   -2.15513767    0.07078971
-     Se                 1.82625500   -0.00367200   -0.04339300
-     H                  1.97993148    1.08839585    0.93442872
-
-
-**Output**
-
-The data types that can be parsed from the output file depends on the type of simulation being conducted. The name of the output file used to show example usage is ``Benzeneselenol.out``.
+The data types that can be parsed from the output file depends on the type of computation being conducted. The name of the output file used to show example usage is ``Benzeneselenol.out``.
 
 Data type can be parsed from the output file by following this format
 
