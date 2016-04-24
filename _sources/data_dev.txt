@@ -9,7 +9,7 @@ This is a list of all the data parsed by the `current development code of cclib`
 Description of parsed data
 --------------------------
 
-Click the attribute name in the table below for the specifications for a particular attribute. All arrays are Numpy arrays of type 'd' (if containing floats) or 'i' (if containing integers).
+Click the attribute name in the table below to go to the notes and specifications for a particular attribute. All arrays are Numpy arrays of type 'd' (if containing floats) or 'i' (if containing integers).
 
 .. include:: attributes_dev.rst
 
