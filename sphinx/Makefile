@@ -55,7 +55,7 @@ CCLIB_DEV = $(BUILDDIR)/cclib_dev
 SRC_PROD = $(CCLIB_PROD)/src/cclib
 SRC_DEV = $(CCLIB_DEV)/src/cclib
 
-# Have the production and masterin two separate directories so that
+# Have the production and master in two separate directories so that
 # dependencies are triggered correctly. If we had one, it would not
 # work correctly, since git updates timestamps on each checkout, which
 # would trigger some targets unnecessarily.
