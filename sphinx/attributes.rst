@@ -42,6 +42,7 @@
     `nocoeffs`_         natural orbital coefficients                                                                 array of rank 2
     `nooccnos`_         natural orbital occupation numbers                                                           array of rank 1
     `optdone`_          flags whether an optimization has converged                                                  Boolean
+    `optstatus`_        optimization status for each set of atomic coordinates                                       array of rank 1
     `scancoords`_       geometries of each scan step                                     angstroms                   array of rank 3
     `scanenergies`_     energies of potential energy surface                                                         list
     `scannames`_        names of varaibles scanned                                                                   list of strings
@@ -99,6 +100,7 @@
 .. _`nocoeffs`: data_notes.html#nocoeffs
 .. _`nooccnos`: data_notes.html#nooccnos
 .. _`optdone`: data_notes.html#optdone
+.. _`optstatus`: data_notes.html#optstatus
 .. _`scancoords`: data_notes.html#scancoords
 .. _`scanenergies`: data_notes.html#scanenergies
 .. _`scannames`: data_notes.html#scannames

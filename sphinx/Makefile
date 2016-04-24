@@ -49,7 +49,7 @@ clean:
 	-rm -rf attributes*.rst
 	-rm -rf converage*.rst
 
-PRODUCTION_VERSION = v1.3.2
+PRODUCTION_VERSION = v1.4
 CCLIB_PROD = $(BUILDDIR)/cclib_prod
 CCLIB_DEV = $(BUILDDIR)/cclib_dev
 SRC_PROD = $(CCLIB_PROD)/src/cclib
@@ -111,7 +111,7 @@ attributes_dev.rst: attributes.py $(SRC_DEV)/parser/data.py
 coverage: coverage.rst coverage_dev.rst
 coverage.rst: coverage.py $(wildcard $(SRC_PROD)/parser/*parser.py) $(wildcard $(CCLIB_PROD)/test/*.py)
 	@echo "Generating prod coverage..."
-	@$(MAKE) --no-print-directory checkout_proyd
+	@$(MAKE) --no-print-directory checkout_prod
 	python coverage.py $(CCLIB_PROD)/test > $@
 coverage_dev.rst: coverage.py $(wildcard $(SRC_DEV)/parser/*parser.py) $(wildcard $(CCLIB_DEV)/test/*.py)
 	@echo "Generating dev coverage..."
