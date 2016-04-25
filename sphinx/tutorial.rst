@@ -66,9 +66,9 @@ There are in fact two packages, `python-cclib`_ containing the Python module, an
 Manual download and install
 ---------------------------
 
-The source code of the newest release of cclib (version 1.3.2) is distributed as:
- * A .zip file: https://github.com/cclib/cclib/releases/download/v1.3.2/cclib-1.3.2.zip
- * A .tar.gz file: https://github.com/cclib/cclib/releases/download/v1.3.2/cclib-1.3.2.tar.gz
+The source code of the newest release of cclib (version 1.4) is distributed as:
+ * A .zip file: https://github.com/cclib/cclib/releases/download/v1.4/cclib-1.4.zip
+ * A .tar.gz file: https://github.com/cclib/cclib/releases/download/v1.4/cclib-1.4.tar.gz
  * Windows binary installers (see the `newest release page`_)
 
 On Windows, if you choose to download the .exe files instead, you can install simply by doubleclicking on the file. To uninstall, use the "Add and Remove Programs" menu in the Control Panel.
@@ -95,7 +95,7 @@ To test, trying importing '''cclib''' at the Python prompt. You should see somet
     '1.1'
     >>>
 
-.. _`newest release page`: https://github.com/cclib/cclib/releases/tag/v1.3.2
+.. _`newest release page`: https://github.com/cclib/cclib/releases/tag/v1.4
 
 What next?
 ----------

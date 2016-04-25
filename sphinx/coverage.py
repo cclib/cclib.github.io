@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
+
 import os
 import sys
 
@@ -89,7 +91,7 @@ if __name__ == "__main__":
     # Eventually we want to move this to cclib, too.
     not_applicable = {
         'ADF' : ['aonames', 'ccenergies', 'mpenergies'],
-        'DALTON' : ['aooverlaps'],
+        'DALTON' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
         'GAMESS' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
         'GAMESSUK' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
         'Gaussian' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
@@ -101,7 +103,8 @@ if __name__ == "__main__":
         'QChem' : ['fonames', 'fooverlaps', 'fragnames', 'frags'],
     }
     not_possible = {
-        'Psi' : ['aooverlaps'],
+        'Psi' : ['aooverlaps', 'vibirs'],
+        'QChem' : ['aooverlaps'],
     }
 
     # For each attribute, get a list of Boolean values for each parser that flags
