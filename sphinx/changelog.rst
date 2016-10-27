@@ -7,7 +7,7 @@ Changelog
 Changes since cclib-1.3.2
 -------------------------
 
-**Feaures**
+**Features**
 
 * New parser: cclib can now parse DALTON files 
 * New parser: cclib can now parse ORCA files
