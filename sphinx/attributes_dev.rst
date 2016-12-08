@@ -30,6 +30,7 @@
     `grads`_            current values of forces (gradients) in geometry optimization                                array of rank 3
     `hessian`_          elements of the force constant matrix                                                        array of rank 1
     `homos`_            molecular orbital indices of HOMO(s)                                                         array of rank 1
+    `metadata`_         various metadata about the package and computation                                           dict
     `mocoeffs`_         molecular orbital coefficients                                                               list of arrays of rank 2
     `moenergies`_       molecular orbital energies                                       eV                          list of arrays of rank 1
     `moments`_          molecular multipole moments                                      a.u.                        list of arrays[]
@@ -43,6 +44,7 @@
     `nooccnos`_         natural orbital occupation numbers                                                           array of rank 1
     `optdone`_          flags whether an optimization has converged                                                  Boolean
     `optstatus`_        optimization status for each set of atomic coordinates                                       array of rank 1
+    `polarizabilities`_ (dipole) polarizabilities, static or dynamic                                                 list of arrays of rank 2
     `scancoords`_       geometries of each scan step                                     angstroms                   array of rank 3
     `scanenergies`_     energies of potential energy surface                                                         list
     `scannames`_        names of varaibles scanned                                                                   list of strings
@@ -51,6 +53,7 @@
     `scftargets`_       targets for convergence of the SCF                                                           array of rank 2
     `scfvalues`_        current values for convergence of the SCF                                                    list of arrays of rank 2
     `temperature`_      temperature used for Thermochemistry                             kelvin                      float
+    `time`_             time in molecular dynamics and other trajectories                fs                          array of rank 1
     `vibanharms`_       vibrational anharmonicity constants                              1/cm                        array of rank 2
     `vibdisps`_         cartesian displacement vectors                                   delta angstrom              array of rank 3
     `vibfreqs`_         vibrational frequencies                                          1/cm                        array of rank 1
@@ -88,6 +91,7 @@
 .. _`grads`: data_notes.html#grads
 .. _`hessian`: data_notes.html#hessian
 .. _`homos`: data_notes.html#homos
+.. _`metadata`: data_notes.html#metadata
 .. _`mocoeffs`: data_notes.html#mocoeffs
 .. _`moenergies`: data_notes.html#moenergies
 .. _`moments`: data_notes.html#moments
@@ -101,6 +105,7 @@
 .. _`nooccnos`: data_notes.html#nooccnos
 .. _`optdone`: data_notes.html#optdone
 .. _`optstatus`: data_notes.html#optstatus
+.. _`polarizabilities`: data_notes.html#polarizabilities
 .. _`scancoords`: data_notes.html#scancoords
 .. _`scanenergies`: data_notes.html#scanenergies
 .. _`scannames`: data_notes.html#scannames
@@ -109,6 +114,7 @@
 .. _`scftargets`: data_notes.html#scftargets
 .. _`scfvalues`: data_notes.html#scfvalues
 .. _`temperature`: data_notes.html#temperature
+.. _`time`: data_notes.html#time
 .. _`vibanharms`: data_notes.html#vibanharms
 .. _`vibdisps`: data_notes.html#vibdisps
 .. _`vibfreqs`: data_notes.html#vibfreqs

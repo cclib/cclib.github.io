@@ -80,7 +80,7 @@ if __name__ == "__main__":
             sys.exit(1)
 
     ncols = len(parser_names)+1
-    colwidth = 18
+    colwidth = 20
     colfmt = "%%-%is" % colwidth
     dashes = ("="*(colwidth-1) + " ") * ncols
 
