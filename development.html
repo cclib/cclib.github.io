@@ -217,7 +217,7 @@
 <div class="section" id="regression-tests">
 <span id="index-2"></span><h3>Regression tests<a class="headerlink" href="#regression-tests" title="Permalink to this headline">¶</a></h3>
 <p>Regression tests ensure that bugs, once fixed, stay fixed. These are real-life files that at some point broke a cclib parser, and are stored in folders like <code class="docutils literal"><span class="pre">data/regression/Jaguar/Jaguar6.4</span></code>. The files associated with regression tests are not stored stored together with the source code as they are often quite large. A separate repository on github, <a class="reference external" href="https://github.com/cclib/cclib-data">cclib-data</a>, is used to track these files, and we do not distribute them with any releases.</p>
-<p>For every bug found in the parsers, there should be a corresponding regression test that tests this bug stays fixed. The process is automated by <a class="reference external" href="https://github.com/cclib/cclib/blob/master/test/regression.py">regression.py</a>, which runs through all of our test data, both the basic data and regression files, opens them, tries to parse, and runs any relevant regression tests defined for that file. New regression tests are added by creating a function <code class="docutils literal"><span class="pre">testMyFileName_out</span></code> according to the examples at the start of <a class="reference external" href="https://github.com/cclib/cclib/blob/master/test/regression.py">regression.py</a>.</p>
+<p>For every bug found in the parsers, there should be a corresponding regression test that tests this bug stays fixed. The process is automated by <a class="reference external" href="https://github.com/cclib/cclib/blob/master/test/run_regressions.py">run_regressions.py</a>, which runs through all of our test data, both the basic data and regression files, opens them, tries to parse, and runs any relevant regression tests defined for that file. New regression tests are added by creating a function <code class="docutils literal"><span class="pre">testMyFileName_out</span></code> according to the examples at the start of <a class="reference external" href="https://github.com/cclib/cclib/blob/master/test/run_regressions.py">run_regressions.py</a>.</p>
 </div>
 <div class="section" id="doctests">
 <h3>Doctests<a class="headerlink" href="#doctests" title="Permalink to this headline">¶</a></h3>
@@ -337,3 +337,4 @@ ERROR
 
 </body>
 </html>
+
