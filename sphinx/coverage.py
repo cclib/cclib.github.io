@@ -39,8 +39,12 @@ if __name__ == "__main__":
     # this issue; although that doesn't alleviate the issue entirely, and the fix
     # needs to happen in the cclib code.
     try:
+        from test_data import all_modules
+        from test_data import all_parsers
         from test_data import parser_names
         from test_data import DataSuite
+        import inspect
+        ds_args = inspect.getargspec(DataSuite.__init__).args
         thispath = os.path.dirname(os.path.realpath(__file__))
         logpath = thispath + "/coverage.tests.log"
         try:
@@ -49,7 +53,12 @@ if __name__ == "__main__":
                 sys.stdout = flog
                 alltests = {}
                 for p in parser_names:
-                    suite = DataSuite(argv=[p], stream=flog)
+                    # newer versions, changed in rev 17b5b263
+                    if 'parsers' in ds_args:
+                        suite = DataSuite(parsers={p: all_parsers[p]}, modules=all_modules, stream=flog)
+                    else:
+                        assert 'argv' in ds_args
+                        suite = DataSuite(argv=[p], stream=flog)
                     suite.testall()
                     alltests[p] = [{'data': t.data} for t in suite.alltests]
                 sys.stdout = stdout_backup
