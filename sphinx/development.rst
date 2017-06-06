@@ -123,10 +123,10 @@ Regression tests
 
 Regression tests ensure that bugs, once fixed, stay fixed. These are real-life files that at some point broke a cclib parser, and are stored in folders like ``data/regression/Jaguar/Jaguar6.4``. The files associated with regression tests are not stored stored together with the source code as they are often quite large. A separate repository on github, `cclib-data`_, is used to track these files, and we do not distribute them with any releases.
 
-For every bug found in the parsers, there should be a corresponding regression test that tests this bug stays fixed. The process is automated by `regression.py`_, which runs through all of our test data, both the basic data and regression files, opens them, tries to parse, and runs any relevant regression tests defined for that file. New regression tests are added by creating a function ``testMyFileName_out`` according to the examples at the start of `regression.py`_.
+For every bug found in the parsers, there should be a corresponding regression test that tests this bug stays fixed. The process is automated by `run_regressions.py`_, which runs through all of our test data, both the basic data and regression files, opens them, tries to parse, and runs any relevant regression tests defined for that file. New regression tests are added by creating a function ``testMyFileName_out`` according to the examples at the start of `run_regressions.py`_.
 
 .. _`cclib-data`: https://github.com/cclib/cclib-data
-.. _`regression.py`: https://github.com/cclib/cclib/blob/master/test/regression.py
+.. _`run_regressions.py`: https://github.com/cclib/cclib/blob/master/test/run_regressions.py
 
 Doctests
 ~~~~~~~~~
