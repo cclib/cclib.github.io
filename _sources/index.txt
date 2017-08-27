@@ -32,7 +32,7 @@ Many types of output data are parsed by cclib, including atom coordinates, orbit
 How to use cclib
 ----------------
 
-You can download the `source package for cclib 1.5`_ or the `current development version`_ (from the `GitHub repository`_). For information on packages available in various Linux distributions, installing the source code and requirements, as well as basic usage, the tutorial_ is a good place to start.
+You can download the `source package for cclib 1.5`_ or the `current development version`_ (from the `GitHub repository`_). For information on packages available in various Linux distributions, installing the source code and requirements, as well as basic usage, the `How to install`_ is a good place to start.
 
 If you need further help, find a bug, need new features or have any question, please send email to the `mailing list`_ or submit an issue to the `tracker`_.
 
@@ -56,7 +56,7 @@ A record for the latest release is also available on Zenodo_.
 .. _`extracted data`: data.html
 .. _`calculation methods`: methods.html
 .. _`installation page`: installation.html
-.. _tutorial: tutorial.html
+.. _`How to install`: how_to_install.html
 .. _development: development.html
 
 .. _ADF: https://www.scm.com/product/adf/

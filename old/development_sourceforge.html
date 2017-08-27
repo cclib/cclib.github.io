@@ -81,14 +81,14 @@
             
                 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to_install.html">How to install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to_parse.html">How to parse and write</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Parsed data (version 1.5)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_notes.html">Parsed data notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../methods.html">Calculation methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development.html">Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_dev.html">Development parsed data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 </ul>
 
             
@@ -151,7 +151,7 @@
 <div class="section" id="checking-cclib-out-of-subversion">
 <h3>Checking cclib out of subversion<a class="headerlink" href="#checking-cclib-out-of-subversion" title="Permalink to this headline">¶</a></h3>
 <p>cclib is hosted by the fantastic people at Sourceforge. The development version of cclib is stored in a Subversion (SVN) repository at Sourceforge (you can read some background material on this at [1]). The following command will download the current development version into a folder called cclib:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>svn checkout https://cclib.svn.sourceforge.net/svnroot/cclib/trunk cclib
+<div class="highlight-bash"><div class="highlight"><pre>svn checkout https://cclib.svn.sourceforge.net/svnroot/cclib/trunk cclib
 </pre></div>
 </div>
 <p>To install, follow the guidelines described on the Install page.</p>
@@ -181,7 +181,7 @@ python2.4 setup.py bdist_wininst                       <span class="c1"># rename
 <li>Update <a class="reference external" href="http://www.freshmeat.net">http://www.freshmeat.net</a> (click &#8220;Add release&#8221; - summarise the changelog in changes, and give the link to the changelog in the appropriate box)</li>
 <li>Update the Python cheeseshop</li>
 </ul>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>python setup.py register
+<div class="highlight-bash"><div class="highlight"><pre>python setup.py register
 </pre></div>
 </div>
 <ul class="simple">
@@ -210,13 +210,13 @@ tar -c -f logfiles.tar -T regressionfiles.txt
 <ul class="simple">
 <li>Create a release branch for cclib-1.0.1</li>
 </ul>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>svn copy https://cclib.svn.sourceforge.net/svnroot/cclib/trunk https://cclib.svn.sourceforge.net/svnroot/cclib/branches/cclib-1.0.1
+<div class="highlight-bash"><div class="highlight"><pre>svn copy https://cclib.svn.sourceforge.net/svnroot/cclib/trunk https://cclib.svn.sourceforge.net/svnroot/cclib/branches/cclib-1.0.1
 </pre></div>
 </div>
 <ul class="simple">
 <li>Check it out</li>
 </ul>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>svn checkout https://svn.sourceforge.net/svnroot/branches/cclib-1.0.1 branchcclib101
+<div class="highlight-bash"><div class="highlight"><pre>svn checkout https://svn.sourceforge.net/svnroot/branches/cclib-1.0.1 branchcclib101
 </pre></div>
 </div>
 <ul class="simple">
@@ -243,7 +243,7 @@ svn commit -F svnmerge-commit-message.txt
 <li>Run the tests before commiting (at least testall.py)</li>
 <li>If tests that previously passed now no longer do (when we have a more complete and stable release, this will read &#8220;If any tests fail&#8221;), and you don&#8217;t have time to fix things before commiting, commits your changes to a branch as follows:</li>
 </ul>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>svn copy https://svn.sourceforge.net/svnroot/cclib/trunk https://..../branches/brokenadfparser
+<div class="highlight-bash"><div class="highlight"><pre>svn copy https://svn.sourceforge.net/svnroot/cclib/trunk https://..../branches/brokenadfparser
        -m <span class="s2">&quot;Informative log message about why you&#39;re branching&quot;</span>
 <span class="c1"># change directory into the &#39;top&#39; of your working copy where setup.py is</span>
 svn switch https://svn.sourceforge.net/svnroot/cclib/branches/brokenadfparser

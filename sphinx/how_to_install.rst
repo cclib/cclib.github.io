@@ -1,5 +1,5 @@
-Tutorial
-========
+How to install
+==============
 
 This page describes how to download, install and use the basic functionality of cclib.
 

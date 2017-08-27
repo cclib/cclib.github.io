@@ -1,5 +1,5 @@
-Examples
-========
+How to parse and write
+======================
 
 The cclib package provides three scripts to parse and write data i.e. ``ccget``, ``ccwrite``, and ``cda``
 

@@ -83,7 +83,8 @@
             
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_install.html">How to install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_parse.html">How to parse and write</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.5)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_notes.html">Parsed data notes</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Calculation methods</a><ul>
@@ -111,7 +112,6 @@
 <li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_dev.html">Development parsed data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 </ul>
 
             
@@ -165,7 +165,7 @@
 <div class="math">
 \[\Phi_{ai} = \frac{c^2_{ai}}{\sum_k c^2_{ki}}\]</div>
 <p>The CSPA class available from cclib.method performs C-squared population analysis and can be used as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">CSPA</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">CSPA</span>
 <span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">Gaussian</span>
 
 <span class="n">p</span> <span class="o">=</span> <span class="n">Gaussian</span><span class="p">(</span><span class="s2">&quot;mycalc.out&quot;</span><span class="p">)</span>
@@ -184,7 +184,7 @@
 <div class="section" id="custom-fragments">
 <h3>Custom fragments<a class="headerlink" href="#custom-fragments" title="Permalink to this headline">¶</a></h3>
 <p>Calling the calculate method without an argument treats each atom as a fragment in the population analysis. An optional argument can be passed - a list of lists - containing the atomic orbital numbers to be included in each fragment. Calling with this additional argument is useful if one is more interested in the contributions of certain orbitals, such as metal d, to the molecular orbitals. For example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">CSPA</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">CSPA</span>
 <span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">Gaussian</span>
 
 <span class="n">p</span> <span class="o">=</span> <span class="n">Gaussian</span><span class="p">(</span><span class="s2">&quot;mycalc.out&quot;</span><span class="p">)</span>
@@ -200,7 +200,7 @@
 <div class="section" id="custom-progress">
 <h3>Custom progress<a class="headerlink" href="#custom-progress" title="Permalink to this headline">¶</a></h3>
 <p>The CSPA class also can take a progress class as an argument so that the progress of the calculation can be monitored:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>from cclib.method import CSPA
+<div class="highlight-python"><div class="highlight"><pre>from cclib.method import CSPA
 from cclib.parser import Gaussian
 from cclib.progress import TextProgress
 
@@ -222,7 +222,7 @@ m.calculate()
 <div class="math">
 \[\Phi_{ai} = \sum_b c_{ai} c_{bi} S_{ab}\]</div>
 <p>The MPA class available from cclib.method performs Mulliken population analysis and can be used as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">MPA</span>
 <span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
@@ -245,7 +245,7 @@ m.calculate()
 <div class="section" id="id2">
 <h3>Custom progress<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>The Mulliken class also can take a progress class as an argument so that the progress of the calculation can be monitored:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>from cclib.method import MPA
+<div class="highlight-python"><div class="highlight"><pre>from cclib.method import MPA
 from cclib.parser import ccopen
 from cclib.progress import TextProgress
 import logging
@@ -262,7 +262,7 @@ m.calculate()
 <div class="section" id="lowdin-population-analysis">
 <span id="index-3"></span><h2>Löwdin Population Analysis<a class="headerlink" href="#lowdin-population-analysis" title="Permalink to this headline">¶</a></h2>
 <p>The LPA class available from cclib.method performs Löwdin population analysis and can be used as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">LPA</span>
 <span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
@@ -279,7 +279,7 @@ m.calculate()
 <div class="section" id="density-matrix-calculation">
 <h2>Density Matrix calculation<a class="headerlink" href="#density-matrix-calculation" title="Permalink to this headline">¶</a></h2>
 <p>The Density class from cclib.method can be used to calculate the density matrix:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
 <span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Density</span>
 
 <span class="n">parser</span> <span class="o">=</span> <span class="n">ccopen</span><span class="p">(</span><span class="s2">&quot;myfile.out&quot;</span><span class="p">)</span>
@@ -294,7 +294,7 @@ m.calculate()
 <div class="section" id="mayer-s-bond-orders">
 <h2>Mayer&#8217;s Bond Orders<a class="headerlink" href="#mayer-s-bond-orders" title="Permalink to this headline">¶</a></h2>
 <p>This method calculates the Mayer&#8217;s bond orders for a given molecule:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
 <span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">MBO</span>
@@ -312,7 +312,7 @@ m.calculate()
 <h2>Charge Decomposition Analysis<a class="headerlink" href="#charge-decomposition-analysis" title="Permalink to this headline">¶</a></h2>
 <p>The Charge Decomposition Analysis (CDA) as developed by Gernot Frenking et al. is used to study the donor-acceptor interactions of a molecule in terms of two user-specified fragments.</p>
 <p>The CDA class available from cclib.method performs this analysis:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
 <span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">CDA</span>
 
 <span class="n">molecule</span> <span class="o">=</span> <span class="n">ccopen</span><span class="p">(</span><span class="s2">&quot;molecule.log&quot;</span><span class="p">)</span>
