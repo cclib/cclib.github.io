@@ -207,7 +207,7 @@
 <div class="section" id="atomcharges">
 <span id="index-1"></span><h2>atomcharges<a class="headerlink" href="#atomcharges" title="Permalink to this headline">¶</a></h2>
 <p>The attribute <code class="docutils literal"><span class="pre">atomcharges</span></code> contains the atomic partial charges as taken from the output file. Since these charges are arbitrary and depend on the details of a population analysis, this attribute is dictionary containing any number of various atomic charges. The keys in this dictionary are strings naming the population analysis, and the values are arrays of rank 1 and contain the actual charges.</p>
-<p>Currently, cclib parses Mulliken, Löwdin and NPA charges, whose respective dictionary keys are <code class="docutils literal"><span class="pre">mulliken</span></code>, <code class="docutils literal"><span class="pre">lowdin</span></code> and <code class="docutils literal"><span class="pre">natural</span></code>.</p>
+<p>Currently, cclib parses Mulliken, Löwdin, NPA and CHELPG charges, whose respective dictionary keys are <code class="docutils literal"><span class="pre">mulliken</span></code>, <code class="docutils literal"><span class="pre">lowdin</span></code>, <code class="docutils literal"><span class="pre">natural</span></code> and <code class="docutils literal"><span class="pre">chelpg</span></code>.</p>
 <p>Note that in practice these may differ somewhat from the values cclib calculates in the various calculation methods.</p>
 <p><strong>Molpro</strong>: use the <code class="docutils literal"><span class="pre">pop</span></code> command (see <a class="reference external" href="http://www.molpro.net/info/2010.1/doc/manual/node450.html">http://www.molpro.net/info/2010.1/doc/manual/node450.html</a>)</p>
 </div>
