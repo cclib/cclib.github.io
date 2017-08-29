@@ -7,7 +7,8 @@ Table of Contents
     :maxdepth: 2
 
     index
-    tutorial
+    how_to_install
+    how_to_parse
     data
     data_notes
     methods

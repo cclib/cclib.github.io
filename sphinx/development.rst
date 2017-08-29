@@ -5,9 +5,9 @@ Development
 Basic instructions
 ===========================
 
-The default cclib files distributed with a release, as described in the `tutorial`_, do not include any unit tests and logfiles necessary to run those tests. This section covers how to download the full source along with all test data and scripts, and how to use these for development and testing.
+The default cclib files distributed with a release, as described in `How to install`_, do not include any unit tests and logfiles necessary to run those tests. This section covers how to download the full source along with all test data and scripts, and how to use these for development and testing.
 
-.. _`tutorial`: tutorial.html
+.. _`How to install`: how_to_install.html
 
 Cloning cclib from GitHub
 ~~~~~~~~~~~~~~~~~~~~~~~~~
