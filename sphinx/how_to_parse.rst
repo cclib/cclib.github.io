@@ -1,6 +1,25 @@
 How to parse and write
 ======================
 
+This page outlines the various ways cclib can be used to parse and write logfiles and provides several examples to get you started.
+
+From Python
++++++++++
+
+Importing cclib and parsing a file is a few lines of Python code, making it simple to access data from the output file of any supported computational chemistry program. For example:
+
+.. code-block:: python
+
+  import cclib
+  
+  filename = "logfile.out"
+  parser = cclib.parser.ccopen(filename)
+  data = parser.parse()
+  print("There are %i atoms and %i MOs" % (data.natom, data.nmo))
+
+From command line
++++++++++++++++++
+
 The cclib package provides three scripts to parse and write data i.e. ``ccget``, ``ccwrite``, and ``cda``
 
 1. **ccget** is used to parse attribute data from output files.
