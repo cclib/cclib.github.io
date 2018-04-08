@@ -103,7 +103,7 @@ The input files for tests, which are logfiles from computational chemistry progr
 Unit tests
 ~~~~~~~~~~
 
-Unit tests check that the parsers work correctly for typical calculation types on small molecules, usually water or 1,4-divinylbenzene (dvb) with C2h symmetry. The corresponding logfiles stored in folders like ``data/NWChem/basicNWChem6.0`` are intended to test logfiles for an approximate major version of a program, and are standardized for all supported programs to the extent possible. They are located alongside the code in the repository, but are not normally distributed with the source. Two different recent versions are often used in the unit tests, with older versions being moved to the regression suite (see below). Attributes are considered supported only if they are checked by at least one test, and the `table of attribute coverage`_ is generated automatically using this criterion.
+Unit tests check that the parsers work correctly for typical calculation types on small molecules, usually water or 1,4-divinylbenzene (dvb) with C2h symmetry. The corresponding logfiles stored in folders like ``data/NWChem/basicNWChem6.0`` are intended to test logfiles for an approximate major version of a program, and are standardized for all supported programs to the extent possible. They are located alongside the code in the repository, but are not normally distributed with the source. Attributes are considered supported only if they are checked by at least one test, and the `table of attribute coverage`_ is generated automatically using this criterion.
 
 The job types currently included as unit tests:
 
@@ -114,6 +114,13 @@ The job types currently included as unit tests:
 * Møller–Plesset and coupled cluster energies for water (STO-3G or 6-31G basis set)
 
 .. _`table of attribute coverage`: data_dev.html#details-of-current-implementation
+
+Adding a new program version
+----------------------------
+
+There are a few conventions when adding a new supported program version to the unit tests:
+* Two different recent versions are typically used in the unit tests. If there already are two, move the older version(s) the regression suite (see below).
+* When adding files for the new version, first copy the corresponding files for the last version already in cclib. Afterwards, check in files from the new program version as changes to the copied files. This procedure makes it easy to look at the differences introduced with the new version in git clients.
 
 .. index::
     single: testing; regressions
