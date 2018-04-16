@@ -24,7 +24,9 @@ if __name__ == "__main__":
         testpath = "_build/cclib_dev/test"
 
     os.chdir(testpath)
-    sys.path.append('.')
+    sys.path.insert(1, '.')
+    print(os.getcwd())
+    print(sys.path)
 
     # The unittest code has changed in cclib, so try to run tests the new way and
     # revert to the old way if that fails. The code in both cases is very similar,
@@ -39,10 +41,14 @@ if __name__ == "__main__":
     # this issue; although that doesn't alleviate the issue entirely, and the fix
     # needs to happen in the cclib code.
     try:
-        from test_data import all_modules
-        from test_data import all_parsers
-        from test_data import parser_names
-        from test_data import DataSuite
+        # from test_data import all_modules
+        # from test_data import all_parsers
+        # from test_data import parser_names
+        # from test_data import DataSuite
+        import importlib
+        _imports = ('all_modules', 'all_parsers', 'parser_names', 'DataSuite')
+        for _import in _imports:
+            importlib.import_module('test_data.' + _import)
         import inspect
         ds_args = inspect.getargspec(DataSuite.__init__).args
         thispath = os.path.dirname(os.path.realpath(__file__))
@@ -119,14 +125,13 @@ if __name__ == "__main__":
     # For each attribute, get a list of Boolean values for each parser that flags
     # if it has been parsed by at least one unit test. Substitute an OK sign or
     # T/D appropriately, with the exception of attributes that have been explicitely
-    # designated as N/A. Note that the OK checkmark is Unicode, so we will need to
-    # decode it and them encode the line before printing.
+    # designated as N/A.
     attributes = sorted(cclib.parser.data.ccData._attrlist)
     for attr in attributes:
         parsed = [any([attr in t['data'].__dict__ for t in alltests[p]]) for p in parser_names]
         for ip, p in enumerate(parsed):
             if p:
-                parsed[ip] = "√".decode('utf-8')
+                parsed[ip] = "√"
             else:
                 if attr in not_applicable.get(parser_names[ip], []):
                     parsed[ip] = "N/A"
@@ -134,7 +139,7 @@ if __name__ == "__main__":
                     parsed[ip] = "N/P"
                 else:
                     parsed[ip] = "T/D"
-        print((colfmt*ncols % tuple(["`%s`_" % attr] + parsed)).encode('utf-8'))
+        print(colfmt*ncols % tuple(["`%s`_" % attr] + parsed))
 
     print(dashes)
     print("")

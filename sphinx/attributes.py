@@ -69,7 +69,7 @@ if __name__ == "__main__":
         # the description sometimes contain Unicode characters, so
         # decode-encode when justifying to get the correct length.
         attr = ("`%s`_" % attr).ljust(wattr)
-        desc = desc.decode('utf-8').ljust(wdesc).encode('utf-8')
+        desc = desc.ljust(wdesc)
         aunit = aunit.ljust(wunit)
         for i in range(1,4):
             atype = atype.replace('[%i]' % i, ' of rank %i' % i)

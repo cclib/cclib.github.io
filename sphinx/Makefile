@@ -49,11 +49,11 @@ clean:
 	-rm -rf attributes*.rst
 	-rm -rf converage*.rst
 
-PRODUCTION_VERSION = v1.5
+PRODUCTION_VERSION = v1.5.3
 CCLIB_PROD = $(BUILDDIR)/cclib_prod
 CCLIB_DEV = $(BUILDDIR)/cclib_dev
 SRC_PROD = $(CCLIB_PROD)/src/cclib
-SRC_DEV = $(CCLIB_DEV)/src/cclib
+SRC_DEV = $(CCLIB_DEV)/cclib
 
 # Have the production and master in two separate directories so that
 # dependencies are triggered correctly. If we had one, it would not
