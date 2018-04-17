@@ -112,11 +112,11 @@ coverage: coverage.rst coverage_dev.rst
 coverage.rst: coverage.py $(wildcard $(SRC_PROD)/parser/*parser.py) $(wildcard $(CCLIB_PROD)/test/*.py)
 	@echo "Generating prod coverage..."
 	@$(MAKE) --no-print-directory checkout_prod
-	python coverage.py $(CCLIB_PROD)/test > $@
+	python coverage.py $(CCLIB_PROD) > $@
 coverage_dev.rst: coverage.py $(wildcard $(SRC_DEV)/parser/*parser.py) $(wildcard $(CCLIB_DEV)/test/*.py)
 	@echo "Generating dev coverage..."
 	@$(MAKE) --no-print-directory checkout_dev
-	python coverage.py $(CCLIB_DEV)/test > $@
+	python coverage.py $(CCLIB_DEV) > $@
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html

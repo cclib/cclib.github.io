@@ -18,89 +18,45 @@ if __name__ == "__main__":
     # separate directories for different branches/versions, and we use a symlink to
     # point to the one we want, we need to test the real path this link resolves to.
     if "cclib_prod" in os.path.realpath('cclib'):
-        testpath = "_build/cclib_prod/test"
+        testpath = "_build/cclib_prod"
     else:
         assert "cclib_dev" in os.path.realpath('cclib')
-        testpath = "_build/cclib_dev/test"
+        testpath = "_build/cclib_dev"
 
     os.chdir(testpath)
-    sys.path.insert(1, '.')
-    print(os.getcwd())
-    print(sys.path)
 
-    # The unittest code has changed in cclib, so try to run tests the new way and
-    # revert to the old way if that fails. The code in both cases is very similar,
-    # but don't merge it here at all. That's because cclib now generates coverage
-    # information during data tests, so we want to save it to a file and commit
-    # it along with the code, keeping the essence of this documentation closer
-    # to the code. Then we can just read it back here to generate the table.
-    #
-    # Warning! This code is quite fragile, because the test code adds attributes
-    # to classes dynamically (bad idea), so they get overwritten when we reuse
-    # classes for unittests. See bellow how we collect ccData instances to sidestep
-    # this issue; although that doesn't alleviate the issue entirely, and the fix
-    # needs to happen in the cclib code.
+    thispath = os.path.dirname(os.path.realpath(__file__))
+    sys.path.insert(1, thispath)
+
+    from test.test_data import (all_modules, all_parsers, parser_names, DataSuite)
+    import inspect
+    ds_args = inspect.getargspec(DataSuite.__init__).args
+    logpath = thispath + "/coverage.tests.log"
     try:
-        # from test_data import all_modules
-        # from test_data import all_parsers
-        # from test_data import parser_names
-        # from test_data import DataSuite
-        import importlib
-        _imports = ('all_modules', 'all_parsers', 'parser_names', 'DataSuite')
-        for _import in _imports:
-            importlib.import_module('test_data.' + _import)
-        import inspect
-        ds_args = inspect.getargspec(DataSuite.__init__).args
-        thispath = os.path.dirname(os.path.realpath(__file__))
-        logpath = thispath + "/coverage.tests.log"
-        try:
-            with open(logpath, "w") as flog:
-                stdout_backup = sys.stdout
-                sys.stdout = flog
-                alltests = {}
-                for p in parser_names:
-                    # newer versions, changed in rev 17b5b263
-                    if 'parsers' in ds_args:
-                        suite = DataSuite(parsers={p: all_parsers[p]}, modules=all_modules, stream=flog)
-                    else:
-                        assert 'argv' in ds_args
-                        suite = DataSuite(argv=[p], stream=flog)
-                    suite.testall()
-                    alltests[p] = [{'data': t.data} for t in suite.alltests]
-                sys.stdout = stdout_backup
-        except Exception as e:
-            print("Unit tests did not run correctly. Check log file for errors:")
-            print(open(logpath, 'r').read())
-            print(e)
-            sys.exit(1)
+        with open(logpath, "w") as flog:
+            stdout_backup = sys.stdout
+            sys.stdout = flog
+            alltests = {}
+            for p in parser_names:
+                assert 'parsers' in ds_args
+                suite = DataSuite(parsers={p: all_parsers[p]}, modules=all_modules, stream=flog)
+                suite.testall()
+                alltests[p] = [{'data': t.data} for t in suite.alltests]
+            sys.stdout = stdout_backup
+    except Exception as e:
+        print("Unit tests did not run correctly. Check log file for errors:")
+        with open(logpath) as fh:
+            print(fh.read())
+        print(e)
+        sys.exit(1)
 
-    except ImportError:
-        from testall import parsers as parser_names
-        from testall import testall
-        thispath = os.path.dirname(os.path.realpath(__file__))
-        logpath = thispath + "/coverage.tests.log"
-        try:
-            with open(logpath, "w") as flog:
-                stdout_backup = sys.stdout
-                sys.stdout = flog
-                alltests = {}
-                for p in parser_names:
-                    tests = testall(parsers=[p], stream=flog)
-                    alltests[p] = [{'data': t.data} for t in tests]
-                sys.stdout = stdout_backup
-        except Exception as e:
-            print("Unit tests did not run correctly. Check log file for errors:")
-            print(open(logpath, 'r').read())
-            print(e)
-            sys.exit(1)
-
-    ncols = len(parser_names)+1
+    ncols = len(parser_names) + 1
     colwidth = 20
     colfmt = "%%-%is" % colwidth
-    dashes = ("="*(colwidth-1) + " ") * ncols
+    dashes = ("=" * (colwidth - 1) + " ") * ncols
 
     print(dashes)
-    print(colfmt*ncols % tuple(["attributes"] + parser_names))
+    print(colfmt * ncols % tuple(["attributes"] + parser_names))
     print(dashes)
 
     # Eventually we want to move this to cclib, too.
