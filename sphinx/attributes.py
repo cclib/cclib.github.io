@@ -1,25 +1,26 @@
 # -*- coding: utf-8 -*-
 
+"""Generate the attributes.rst and attributes_dev.rst files from the
+ccData docstring that describes attributes."""
+
 from __future__ import print_function
 
-import os
-import sys
+from docs_common import check_cclib
+
+import cclib
+check_cclib(cclib)
 
 
-def check_cclib(cclib):
-    """Make sure we are importing code from a subdirectory, which should exist
-    and should have been updated just before running this script. Note that
-    this script does not assume any version in the module and just takes
-    what it finds... so an appropriate checkout should be done first."""
-    if cclib.__file__[:len(os.getcwd())] != os.getcwd():
-        print("Do not seem to be importing from current directory")
-        sys.exit(1)
-
-
-if __name__ == "__main__":
-
-    import cclib
-    check_cclib(cclib)
+def generate_attributes():
+    """Generate a string containing a reStructuredText table
+    representation of the ccData docstring, which contains a list of
+    all supported attributes with
+    1. the name of each attribute,
+    2. the text definition of each attribute,
+    3. the attribute's container data type, shape (if relevant), and
+    4. the physical units for each attribute.
+    """
+    lines = []
 
     # Need to parse the ccData docstring, since only that currently
     # contains all the information needed for this table.
@@ -41,9 +42,9 @@ if __name__ == "__main__":
     header += "Description".ljust(wdesc)
     header += "Units".ljust(wunit)
     header += "Data type".ljust(wtype)
-    print(dashes)
-    print(header)
-    print(dashes)
+    lines.append(dashes)
+    lines.append(header)
+    lines.append(dashes)
 
     names = []
     for line in attributes:
@@ -69,14 +70,19 @@ if __name__ == "__main__":
         # the description sometimes contain Unicode characters, so
         # decode-encode when justifying to get the correct length.
         attr = ("`%s`_" % attr).ljust(wattr)
-        desc = desc.decode('utf-8').ljust(wdesc).encode('utf-8')
+        desc = desc.ljust(wdesc)
         aunit = aunit.ljust(wunit)
-        for i in range(1,4):
+        for i in range(1, 4):
             atype = atype.replace('[%i]' % i, ' of rank %i' % i)
-        print("    " + attr + desc + aunit + atype)
+        lines.append("    " + attr + desc + aunit + atype)
 
-    print(dashes)
-    print("")
+    lines.append(dashes)
+    lines.append("")
 
     for n in names:
-        print(".. _`%s`: data_notes.html#%s" % (n, n))
+        lines.append(".. _`%s`: data_notes.html#%s" % (n, n))
+
+    return "\n".join(lines)
+
+if __name__ == "__main__":
+    print(generate_attributes())

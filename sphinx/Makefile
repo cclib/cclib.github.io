@@ -49,11 +49,11 @@ clean:
 	-rm -rf attributes*.rst
 	-rm -rf converage*.rst
 
-PRODUCTION_VERSION = v1.5
+PRODUCTION_VERSION = v1.5.3
 CCLIB_PROD = $(BUILDDIR)/cclib_prod
 CCLIB_DEV = $(BUILDDIR)/cclib_dev
-SRC_PROD = $(CCLIB_PROD)/src/cclib
-SRC_DEV = $(CCLIB_DEV)/src/cclib
+SRC_PROD = $(CCLIB_PROD)/cclib
+SRC_DEV = $(CCLIB_DEV)/cclib
 
 # Have the production and master in two separate directories so that
 # dependencies are triggered correctly. If we had one, it would not
@@ -112,11 +112,11 @@ coverage: coverage.rst coverage_dev.rst
 coverage.rst: coverage.py $(wildcard $(SRC_PROD)/parser/*parser.py) $(wildcard $(CCLIB_PROD)/test/*.py)
 	@echo "Generating prod coverage..."
 	@$(MAKE) --no-print-directory checkout_prod
-	python coverage.py $(CCLIB_PROD)/test > $@
+	python coverage.py $(CCLIB_PROD) > $@
 coverage_dev.rst: coverage.py $(wildcard $(SRC_DEV)/parser/*parser.py) $(wildcard $(CCLIB_DEV)/test/*.py)
 	@echo "Generating dev coverage..."
 	@$(MAKE) --no-print-directory checkout_dev
-	python coverage.py $(CCLIB_DEV)/test > $@
+	python coverage.py $(CCLIB_DEV) > $@
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
