@@ -52,7 +52,7 @@ clean:
 PRODUCTION_VERSION = v1.5.3
 CCLIB_PROD = $(BUILDDIR)/cclib_prod
 CCLIB_DEV = $(BUILDDIR)/cclib_dev
-SRC_PROD = $(CCLIB_PROD)/src/cclib
+SRC_PROD = $(CCLIB_PROD)/cclib
 SRC_DEV = $(CCLIB_DEV)/cclib
 
 # Have the production and master in two separate directories so that
