@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+"""Generate the coverage.rst and coverage.rst files from test
+results."""
+
 from __future__ import print_function
 
 import os
@@ -13,6 +16,10 @@ check_cclib(cclib)
 
 
 def generate_coverage():
+    """Generate a string containing a reStructuredTest table
+    representation of which parsers support which attributes, based on
+    test results.
+    """
     lines = []
 
     # Change directory to where tests are and add it to the path. Because there are

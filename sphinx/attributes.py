@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+"""Generate the attributes.rst and attributes_dev.rst files from the
+ccData docstring that describes attributes."""
+
 from __future__ import print_function
 
 from docs_common import check_cclib
@@ -9,6 +12,14 @@ check_cclib(cclib)
 
 
 def generate_attributes():
+    """Generate a string containing a reStructuredText table
+    representation of the ccData docstring, which contains a list of
+    all supported attributes with
+    1. the name of each attribute,
+    2. the text definition of each attribute,
+    3. the attribute's container data type, shape (if relevant), and
+    4. the physical units for each attribute.
+    """
     lines = []
 
     # Need to parse the ccData docstring, since only that currently
@@ -61,7 +72,7 @@ def generate_attributes():
         attr = ("`%s`_" % attr).ljust(wattr)
         desc = desc.ljust(wdesc)
         aunit = aunit.ljust(wunit)
-        for i in range(1,4):
+        for i in range(1, 4):
             atype = atype.replace('[%i]' % i, ' of rank %i' % i)
         lines.append("    " + attr + desc + aunit + atype)
 
