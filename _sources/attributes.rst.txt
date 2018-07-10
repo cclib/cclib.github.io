@@ -54,6 +54,7 @@
     `scftargets`_       targets for convergence of the SCF                                                           array of rank 2
     `scfvalues`_        current values for convergence of the SCF                                                    list of arrays of rank 2
     `temperature`_      temperature used for Thermochemistry                             kelvin                      float
+    `transprop`_        all absorption and emission spectra (dictionary {name:           etoscs                      etenergies
     `time`_             time in molecular dynamics and other trajectories                fs                          array of rank 1
     `vibanharms`_       vibrational anharmonicity constants                              1/cm                        array of rank 2
     `vibdisps`_         cartesian displacement vectors                                   delta angstrom              array of rank 3
@@ -116,6 +117,7 @@
 .. _`scftargets`: data_notes.html#scftargets
 .. _`scfvalues`: data_notes.html#scfvalues
 .. _`temperature`: data_notes.html#temperature
+.. _`transprop`: data_notes.html#transprop
 .. _`time`: data_notes.html#time
 .. _`vibanharms`: data_notes.html#vibanharms
 .. _`vibdisps`: data_notes.html#vibdisps

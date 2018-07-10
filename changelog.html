@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; cclib 1.5 documentation</title>
+  <title>Changelog &mdash; cclib 1.5.3 documentation</title>
   
 
   
@@ -30,7 +30,10 @@
   
 
   
-    <link rel="top" title="cclib 1.5 documentation" href="index.html"/>
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="cclib 1.5.3 documentation" href="index.html"/>
         <link rel="prev" title="Development parsed data" href="data_dev.html"/> 
 
   
@@ -44,27 +47,17 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
+      <div class="wy-side-nav-search">
+        
 
-          
-            <a href="contents.html" class="icon icon-home"> cclib
-          
+        
+          <a href="contents.html" class="icon icon-home"> cclib
+        
 
-          
-          </a>
+        
+        </a>
 
-          
-            
-            
-              <div class="version">
-                1.5
-              </div>
-            
-          
-
-          
+        
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -73,23 +66,128 @@
   </form>
 </div>
 
-          
-        </div>
+        
+      </div>
 
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
           
-            
-            
-                <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="how_to_install.html">How to install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="how_to_parse.html">How to parse and write</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_notes.html">Parsed data notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="methods.html">Calculation methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_dev.html">Development parsed data</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Changelog</a><ul>
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#how-to-use-cclib">How to use cclib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#about-cclib">About cclib</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_install.html">How to install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#debian-gnu-linux-systems">Debian GNU/Linux systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#manual-download-and-install">Manual download and install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#what-next">What next?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_parse.html">How to parse and write</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how_to_parse.html#from-python">From Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_parse.html#from-command-line">From command line</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="how_to_parse.html#ccget">ccget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how_to_parse.html#ccwrite">ccwrite</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.5.3)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data.html#description-of-parsed-data">Description of parsed data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#details-of-current-implementation">Details of current implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_notes.html">Parsed data notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#aonames">aonames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#aooverlaps">aooverlaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atombasis">atombasis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atomcharges">atomcharges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atomcoords">atomcoords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atommasses">atommasses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atomnos">atomnos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atomspins">atomspins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#ccenergies">ccenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#charge">charge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#coreelectrons">coreelectrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#etenergies">etenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#etoscs">etoscs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#etsecs">etsecs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#etsyms">etsyms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#fonames">fonames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#fooverlaps">fooverlaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#gbasis">gbasis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#geotargets">geotargets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#geovalues">geovalues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#hessian">hessian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#homos">homos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#mocoeffs">mocoeffs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#moenergies">moenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#moments">moments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#mosyms">mosyms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#mpenergies">mpenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#mult">mult</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#natom">natom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#nbasis">nbasis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#nmo">nmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#optdone">optdone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#scfenergies">scfenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#scftargets">scftargets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#scfvalues">scfvalues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#vibdisps">vibdisps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="methods.html">Calculation methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#c-squared-population-analysis-cspa">C squared population analysis (CSPA)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#custom-fragments">Custom fragments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#custom-progress">Custom progress</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#mulliken-population-analysis-mpa">Mulliken population analysis (MPA)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#id1">Custom fragments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#id2">Custom progress</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#lowdin-population-analysis">Löwdin Population Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#overlap-population-analysis">Overlap Population Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#density-matrix-calculation">Density Matrix calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#mayer-s-bond-orders">Mayer’s Bond Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#charge-decomposition-analysis">Charge Decomposition Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#electron-density-calculation">Electron Density Calculation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development.html#basic-instructions">Basic instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development.html#cloning-cclib-from-github">Cloning cclib from GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#guidelines">Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#releasing-a-new-version">Releasing a new version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#testing">Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development.html#unit-tests">Unit tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="development.html#adding-a-new-program-version">Adding a new program version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#regression-tests">Regression tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#doctests">Doctests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#websites-related-to-cclib">Websites related to cclib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#developers">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_dev.html">Development parsed data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_dev.html#description-of-parsed-data">Description of parsed data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_dev.html#details-of-current-implementation">Details of current implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-5">Changes in cclib-1.5</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-4-1">Changes in cclib-1.4.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-4">Changes in cclib-1.4</a></li>
@@ -111,10 +209,10 @@
 </li>
 </ul>
 
-            
           
-        </div>
+        
       </div>
+      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -129,13 +227,7 @@
       
       <div class="wy-nav-content">
         <div class="rst-content">
-          
-
- 
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
+          <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="contents.html">Docs</a> &raquo;</li>
       
@@ -150,8 +242,7 @@
   </ul>
   <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+          <div role="main" class="document">
             
   <div class="section" id="changelog">
 <span id="index-0"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
@@ -262,7 +353,7 @@
 <li>New method: Nuclear (currently calculates the repulsion energy)</li>
 <li>Handle Gaussian basis set output with GFPRINT keyword</li>
 <li>Attribute optdone reverted to single Boolean value by default</li>
-<li>Add &#8211;verbose and &#8211;future options to ccget and parsers</li>
+<li>Add –verbose and –future options to ccget and parsers</li>
 <li>Replaced PC-GAMESS test files with newer Firefly versions</li>
 <li>Updated test file versions to GAMESS-UK 8.0</li>
 </ul>
@@ -381,15 +472,15 @@
 <li>Separation of parser and data objects: Parsed data is now returned is a ccData object that can be pickled, and converted to and from JSON</li>
 <li>Parsers: multiple files can be parsed with one parse command</li>
 <li>NumPy support: Dropped Numeric support in favour of NumPy</li>
-<li>API addition: &#8216;charge&#8217; for molecular charge</li>
-<li>API addition: &#8216;mult&#8217; for spin multiplicity</li>
-<li>API addition: &#8216;atombasis&#8217; for indices of atom orbitals on each atom</li>
-<li>API addition: &#8216;nocoeffs&#8217; for Natural Orbital (NO) coefficients</li>
-<li>GAMESS-US parser: added &#8216;etoscs&#8217; (CIS calculations)</li>
-<li>Jaguar parser: added &#8216;mpenergies&#8217; (LMP2 calcualtions)</li>
-<li>Jaguar parser: added &#8216;etenergies&#8217; and &#8216;etoscs&#8217; (CIS calculations)</li>
+<li>API addition: ‘charge’ for molecular charge</li>
+<li>API addition: ‘mult’ for spin multiplicity</li>
+<li>API addition: ‘atombasis’ for indices of atom orbitals on each atom</li>
+<li>API addition: ‘nocoeffs’ for Natural Orbital (NO) coefficients</li>
+<li>GAMESS-US parser: added ‘etoscs’ (CIS calculations)</li>
+<li>Jaguar parser: added ‘mpenergies’ (LMP2 calcualtions)</li>
+<li>Jaguar parser: added ‘etenergies’ and ‘etoscs’ (CIS calculations)</li>
 <li>New method: Lowdin Population Analysis (LPA)</li>
-<li>Tests: unittests can be run from the Python interpreter, and for a single parser; the number of &#8220;passed&#8221; tests is also counted and shown</li>
+<li>Tests: unittests can be run from the Python interpreter, and for a single parser; the number of “passed” tests is also counted and shown</li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
@@ -403,22 +494,22 @@
 <ul class="simple">
 <li>New parser: cclib can now parse Jaguar files</li>
 <li>ccopen: Can handle log files which have been compressed into .zip, .bz2 or .gz files.</li>
-<li>API addition: &#8216;gbasis&#8217; holds the Gaussian basis set</li>
-<li>API addition: &#8216;coreelectrons&#8217; contains the number of core electrons in each atom&#8217;s pseudopotential</li>
-<li>API addition: &#8216;mpenergies&#8217; holds the Moller-Plesset corrected molecular electronic energies</li>
-<li>API addition: &#8216;vibdisps&#8217; holds the Cartesian displacement vectors</li>
-<li>API change: &#8216;mocoeffs&#8217; is now a list of rank 2 arrays, rather than a rank 3 array</li>
-<li>API change: &#8216;moenergies&#8217; is now a list of rank 1 arrays, rather than rank 2 array</li>
-<li>GAMESS-UK parser: added &#8216;vibramans&#8217;</li>
+<li>API addition: ‘gbasis’ holds the Gaussian basis set</li>
+<li>API addition: ‘coreelectrons’ contains the number of core electrons in each atom’s pseudopotential</li>
+<li>API addition: ‘mpenergies’ holds the Moller-Plesset corrected molecular electronic energies</li>
+<li>API addition: ‘vibdisps’ holds the Cartesian displacement vectors</li>
+<li>API change: ‘mocoeffs’ is now a list of rank 2 arrays, rather than a rank 3 array</li>
+<li>API change: ‘moenergies’ is now a list of rank 1 arrays, rather than rank 2 array</li>
+<li>GAMESS-UK parser: added ‘vibramans’</li>
 <li>New method: Charge Decomposition Analysis (CDA) for studying electron donation, back donation, and repulsion between fragments in a molecule</li>
 <li>New method: Fragment Analysis for studing bonding interactions between two or more fragments in a molecule</li>
 <li>New method: Ability to calculate the electron density or wavefunction</li>
 </ul>
 <p><strong>Bugfixes</strong></p>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>GAMESS parser:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Failed to parse frequency calculation with imaginary frequencies</li>
 <li>Rotations and translations now not included in frequencies</li>
 <li>Failed to parse a DFT calculation</li>
@@ -428,22 +519,21 @@
 </li>
 <li><dl class="first docutils">
 <dt>GAMESS-UK parser:</dt>
-<dd><ul class="first last simple">
-<li>&#8216;atomnos&#8217; not being extracted</li>
+<dd><ul class="first last">
+<li>‘atomnos’ not being extracted</li>
 <li>Rotations and translations now not included in frequencies</li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p class="first">bridge to OpenBabel: No longer dependent on pyopenbabel</p>
-</li>
+<li>bridge to OpenBabel: No longer dependent on pyopenbabel</li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-0-6-1">
 <h2>Changes in cclib-0.6.1<a class="headerlink" href="#changes-in-cclib-0-6-1" title="Permalink to this headline">¶</a></h2>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>cclib: The &#8220;import cclib.parsers&#8221; statement failed due to references to Molpro and Jaguar parsers which are not present</li>
+<li>cclib: The “import cclib.parsers” statement failed due to references to Molpro and Jaguar parsers which are not present</li>
 <li>Gaussian parser: Failed to parse single point calculations where the input coords are a z-matrix, and symmetry is turned off.</li>
 </ul>
 </div>
@@ -457,7 +547,7 @@
 <ul class="simple">
 <li>ADF parser: The following bugs have been fixed P/D orbitals for single atoms not handled correctly Problem parsing homos in unrestricted calculations Problem skipping the Create sections in certain calculations</li>
 <li>Gaussian parser: The following bugs have been fixed Parser failed if standard orientation not found</li>
-<li>ccget: aooverlaps not included when using &#8211;list option</li>
+<li>ccget: aooverlaps not included when using –list option</li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-0-6b">
@@ -470,17 +560,15 @@
 <li>Speed up: Calculation of Overlap Density of States has been sped up by two orders of magnitude</li>
 </ul>
 <p><strong>Bugfixes</strong></p>
-<ul>
-<li><p class="first">ccopen: Minor problems fixed with identification of log files</p>
-</li>
-<li><p class="first">ccget: Passing multiple filenames now works on Windows too</p>
-</li>
+<ul class="simple">
+<li>ccopen: Minor problems fixed with identification of log files</li>
+<li>ccget: Passing multiple filenames now works on Windows too</li>
 <li><dl class="first docutils">
 <dt>ADF parser: The following bugs have been fixed</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>Problem with parsing SFOs in certain log files</li>
 <li>Handling of molecules with orbitals of E symmetry</li>
-<li>Couldn&#8217;t find the HOMO in log files from new versions of ADF</li>
+<li>Couldn’t find the HOMO in log files from new versions of ADF</li>
 <li>Parser used to miss attributes if SCF not converged</li>
 <li>For a symmetrical molecule, mocoeffs were in the wrong order and the homo was not identified correctly if degenerate</li>
 </ul>
@@ -489,7 +577,7 @@
 </li>
 <li><dl class="first docutils">
 <dt>Gaussian parser: The following bugs have been fixed</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>SCF values was not extracting the dEnergy value</li>
 <li>Was extracting Depolar P instead of Raman activity</li>
 </ul>
@@ -502,7 +590,7 @@
 <h2>Changes in cclib-0.5<a class="headerlink" href="#changes-in-cclib-0-5" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>(src/scripts/ccget): Added handling of multiple filenames. It&#8217;s now possible to use ccget as follows: <code class="docutils literal"><span class="pre">ccget</span> <span class="pre">*.log</span></code>. This is a good way of checking out whether cclib is able to parse all of the files in a given directory. Also possible is: <code class="docutils literal"><span class="pre">ccget</span> <span class="pre">homos</span> <span class="pre">*.log</span></code>.</li>
+<li>(src/scripts/ccget): Added handling of multiple filenames. It’s now possible to use ccget as follows: <code class="docutils literal notranslate"><span class="pre">ccget</span> <span class="pre">*.log</span></code>. This is a good way of checking out whether cclib is able to parse all of the files in a given directory. Also possible is: <code class="docutils literal notranslate"><span class="pre">ccget</span> <span class="pre">homos</span> <span class="pre">*.log</span></code>.</li>
 <li>Change of license: Changed license from GPL to LGPL</li>
 </ul>
 <p><strong>Bugfixes</strong></p>
@@ -511,13 +599,12 @@
 <li>src/cclib/parser/gamessparser.py: Remove assertion to catch instances where scftargets is unset. This occurs in the case of failed calculations (e.g. wrong multiplicity).</li>
 <li>src/cclib/parser/adfparser.py: Fixed one of the errors with the Mo5Obdt2-c2v-opt.adfout example, which had to do with the SFOs being made of more than two combinations of atoms (4, because of rotation in c2v point group). At least one error is still present with atomcoords. It looks like non-coordinate integers are being parsed as well, which makes some of the atomcoords list have more than the 3 values for x,y,z.</li>
 <li>src/cclib/parser/adfparser.py: Hopefully fixed the last error in Mo5Obdt2-c2v-opt. Problem was that it was adding line.split()[5:], but sometimes there was more than 3 fields left, so it was changed to [5:8]. Need to check actual parsed values to make sure it is parsed correctly.</li>
-<li>data/Gaussian, logfiledist, src/cclib/parser/gaussianparser.py, test/regression.py: Bug fix: Mo4OSibdt2-opt.log has no atomcoords despite being a geo-opt. This was due to the fact that the parser was extracting &#8220;Input orientation&#8221; and not &#8220;Standard orientation&#8221;. It&#8217;s now changed to &#8220;Standard orientation&#8221; which works for all of the files in the repository.</li>
+<li>data/Gaussian, logfiledist, src/cclib/parser/gaussianparser.py, test/regression.py: Bug fix: Mo4OSibdt2-opt.log has no atomcoords despite being a geo-opt. This was due to the fact that the parser was extracting “Input orientation” and not “Standard orientation”. It’s now changed to “Standard orientation” which works for all of the files in the repository.</li>
 </ul>
 </div>
 </div>
 
 
-           </div>
           </div>
           <footer>
   
@@ -533,11 +620,10 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2016, cclib Development Team.
-
+        &copy; Copyright 2014-2018, cclib Development Team.
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
 </footer>
 
@@ -555,7 +641,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.5',
+            VERSION:'1.5.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
@@ -564,7 +650,7 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

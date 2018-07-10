@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How to parse and write &mdash; cclib 1.5 documentation</title>
+  <title>How to parse and write &mdash; cclib 1.5.3 documentation</title>
   
 
   
@@ -30,8 +30,11 @@
   
 
   
-    <link rel="top" title="cclib 1.5 documentation" href="index.html"/>
-        <link rel="next" title="Parsed data (version 1.5)" href="data.html"/>
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="cclib 1.5.3 documentation" href="index.html"/>
+        <link rel="next" title="Parsed data (version 1.5.3)" href="data.html"/>
         <link rel="prev" title="How to install" href="how_to_install.html"/> 
 
   
@@ -45,27 +48,17 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
+      <div class="wy-side-nav-search">
+        
 
-          
-            <a href="contents.html" class="icon icon-home"> cclib
-          
+        
+          <a href="contents.html" class="icon icon-home"> cclib
+        
 
-          
-          </a>
+        
+        </a>
 
-          
-            
-            
-              <div class="version">
-                1.5
-              </div>
-            
-          
-
-          
+        
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -74,33 +67,153 @@
   </form>
 </div>
 
-          
-        </div>
+        
+      </div>
 
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
           
-            
-            
-                <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="how_to_install.html">How to install</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">How to parse and write</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ccget">ccget</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ccwrite">ccwrite</a></li>
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#how-to-use-cclib">How to use cclib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#about-cclib">About cclib</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_notes.html">Parsed data notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="methods.html">Calculation methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_dev.html">Development parsed data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_install.html">How to install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#debian-gnu-linux-systems">Debian GNU/Linux systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#manual-download-and-install">Manual download and install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#what-next">What next?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to parse and write</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#from-python">From Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#from-command-line">From command line</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ccget">ccget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ccwrite">ccwrite</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.5.3)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data.html#description-of-parsed-data">Description of parsed data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#details-of-current-implementation">Details of current implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_notes.html">Parsed data notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#aonames">aonames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#aooverlaps">aooverlaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atombasis">atombasis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atomcharges">atomcharges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atomcoords">atomcoords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atommasses">atommasses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atomnos">atomnos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atomspins">atomspins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#ccenergies">ccenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#charge">charge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#coreelectrons">coreelectrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#etenergies">etenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#etoscs">etoscs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#etsecs">etsecs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#etsyms">etsyms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#fonames">fonames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#fooverlaps">fooverlaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#gbasis">gbasis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#geotargets">geotargets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#geovalues">geovalues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#hessian">hessian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#homos">homos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#mocoeffs">mocoeffs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#moenergies">moenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#moments">moments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#mosyms">mosyms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#mpenergies">mpenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#mult">mult</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#natom">natom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#nbasis">nbasis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#nmo">nmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#optdone">optdone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#scfenergies">scfenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#scftargets">scftargets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#scfvalues">scfvalues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#vibdisps">vibdisps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="methods.html">Calculation methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#c-squared-population-analysis-cspa">C squared population analysis (CSPA)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#custom-fragments">Custom fragments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#custom-progress">Custom progress</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#mulliken-population-analysis-mpa">Mulliken population analysis (MPA)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#id1">Custom fragments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#id2">Custom progress</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#lowdin-population-analysis">Löwdin Population Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#overlap-population-analysis">Overlap Population Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#density-matrix-calculation">Density Matrix calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#mayer-s-bond-orders">Mayer’s Bond Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#charge-decomposition-analysis">Charge Decomposition Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#electron-density-calculation">Electron Density Calculation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development.html#basic-instructions">Basic instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development.html#cloning-cclib-from-github">Cloning cclib from GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#guidelines">Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#releasing-a-new-version">Releasing a new version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#testing">Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development.html#unit-tests">Unit tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="development.html#adding-a-new-program-version">Adding a new program version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#regression-tests">Regression tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#doctests">Doctests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#websites-related-to-cclib">Websites related to cclib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#developers">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_dev.html">Development parsed data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_dev.html#description-of-parsed-data">Description of parsed data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_dev.html#details-of-current-implementation">Details of current implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-5">Changes in cclib-1.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-4-1">Changes in cclib-1.4.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-4">Changes in cclib-1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-3-2">Changes in cclib-1.3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-3-1">Changes in cclib-1.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-3">Changes in cclib-1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-2">Changes in cclib-1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-1">Changes in cclib-1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-0-1">Changes in cclib-1.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-0">Changes in cclib-1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-9">Changes in cclib-0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-8">Changes in cclib-0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-7">Changes in cclib-0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-6-1">Changes in cclib-0.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-6-0">Changes in cclib-0.6.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-6b">Changes in cclib-0.6b</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-5">Changes in cclib-0.5</a></li>
+</ul>
+</li>
 </ul>
 
-            
           
-        </div>
+        
       </div>
+      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -115,13 +228,7 @@
       
       <div class="wy-nav-content">
         <div class="rst-content">
-          
-
- 
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
+          <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="contents.html">Docs</a> &raquo;</li>
       
@@ -136,23 +243,37 @@
   </ul>
   <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+          <div role="main" class="document">
             
   <div class="section" id="how-to-parse-and-write">
 <h1>How to parse and write<a class="headerlink" href="#how-to-parse-and-write" title="Permalink to this headline">¶</a></h1>
-<p>The cclib package provides three scripts to parse and write data i.e. <code class="docutils literal"><span class="pre">ccget</span></code>, <code class="docutils literal"><span class="pre">ccwrite</span></code>, and <code class="docutils literal"><span class="pre">cda</span></code></p>
+<p>This page outlines the various ways cclib can be used to parse and write logfiles and provides several examples to get you started.</p>
+<div class="section" id="from-python">
+<h2>From Python<a class="headerlink" href="#from-python" title="Permalink to this headline">¶</a></h2>
+<p>Importing cclib and parsing a file is a few lines of Python code, making it simple to access data from the output file of any supported computational chemistry program. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cclib</span>
+
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;logfile.out&quot;</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">cclib</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">ccopen</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;There are </span><span class="si">%i</span><span class="s2"> atoms and </span><span class="si">%i</span><span class="s2"> MOs&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">natom</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">nmo</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="from-command-line">
+<h2>From command line<a class="headerlink" href="#from-command-line" title="Permalink to this headline">¶</a></h2>
+<p>The cclib package provides three scripts to parse and write data i.e. <code class="docutils literal notranslate"><span class="pre">ccget</span></code>, <code class="docutils literal notranslate"><span class="pre">ccwrite</span></code>, and <code class="docutils literal notranslate"><span class="pre">cda</span></code></p>
 <ol class="arabic simple">
 <li><strong>ccget</strong> is used to parse attribute data from output files.</li>
-<li><strong>ccwrite</strong> has the ability to list out all valid attribute data that can be parsed from an output format. It has the added feature of writing the output file into four different formats i.e. <code class="docutils literal"><span class="pre">json</span></code>, <code class="docutils literal"><span class="pre">cjson</span></code>, <code class="docutils literal"><span class="pre">cml</span></code>, <code class="docutils literal"><span class="pre">xyz</span></code>.</li>
+<li><strong>ccwrite</strong> has the ability to list out all valid attribute data that can be parsed from an output format. It has the added feature of writing the output file into four different formats i.e. <code class="docutils literal notranslate"><span class="pre">json</span></code>, <code class="docutils literal notranslate"><span class="pre">cjson</span></code>, <code class="docutils literal notranslate"><span class="pre">cml</span></code>, <code class="docutils literal notranslate"><span class="pre">xyz</span></code>.</li>
 <li><strong>cda</strong> is used for the chemical decomposition analysis of output files.</li>
 </ol>
 <p>This page describes how to use the ccget and ccwrite scripts to obtain data from output files.</p>
 <div class="section" id="ccget">
-<h2>ccget<a class="headerlink" href="#ccget" title="Permalink to this headline">¶</a></h2>
-<p>The data types that can be parsed from the output file depends on the type of computation being conducted. The name of the output file used to show example usage is <code class="docutils literal"><span class="pre">Benzeneselenol.out</span></code>.</p>
+<h3>ccget<a class="headerlink" href="#ccget" title="Permalink to this headline">¶</a></h3>
+<p>The data types that can be parsed from the output file depends on the type of computation being conducted. The name of the output file used to show example usage is <code class="docutils literal notranslate"><span class="pre">Benzeneselenol.out</span></code>.</p>
 <p>Data type can be parsed from the output file by following this format</p>
-<div class="highlight-bash"><div class="highlight"><pre>ccget &lt;attribute&gt; <span class="o">[</span>&lt;attribute&gt;<span class="o">]</span> &lt;CompChemLogFile&gt; <span class="o">[</span>&lt;CompChemLogFile&gt;<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ccget &lt;attribute&gt; <span class="o">[</span>&lt;attribute&gt;<span class="o">]</span> &lt;CompChemLogFile&gt; <span class="o">[</span>&lt;CompChemLogFile&gt;<span class="o">]</span>
 </pre></div>
 </div>
 <p>where attribute can be any one of the attribute names available <a class="reference external" href="data_dev.html">here</a></p>
@@ -160,21 +281,21 @@
 <li>Atomic Charges</li>
 </ol>
 <blockquote>
-<div>The atomic charges are obtained by using the <code class="docutils literal"><span class="pre">atomcharges</span></code> attribute with <code class="docutils literal"><span class="pre">ccget</span></code></div></blockquote>
-<div class="highlight-bash"><div class="highlight"><pre>$ ccget atomcharges Benzeneselenol.out
+<div>The atomic charges are obtained by using the <code class="docutils literal notranslate"><span class="pre">atomcharges</span></code> attribute with <code class="docutils literal notranslate"><span class="pre">ccget</span></code></div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ccget atomcharges Benzeneselenol.out
 Attempting to <span class="nb">read</span> Benzeneselenol.out
 atomcharges:
-<span class="o">{</span><span class="s1">&#39;mulliken&#39;</span>: array<span class="o">([</span>-0.49915 ,  0.056965,  0.172161,  0.349794, -0.153072,  0.094583,
-    0.016487,  0.050249,  0.002149,  0.01161 ,  0.053777, -0.173671,
-    0.018118<span class="o">])}</span>
+<span class="o">{</span><span class="s1">&#39;mulliken&#39;</span>: array<span class="o">([</span>-0.49915 ,  <span class="m">0</span>.056965,  <span class="m">0</span>.172161,  <span class="m">0</span>.349794, -0.153072,  <span class="m">0</span>.094583,
+    <span class="m">0</span>.016487,  <span class="m">0</span>.050249,  <span class="m">0</span>.002149,  <span class="m">0</span>.01161 ,  <span class="m">0</span>.053777, -0.173671,
+    <span class="m">0</span>.018118<span class="o">])}</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li>Electronic Energies</li>
 </ol>
 <blockquote>
-<div>The molecular electronic energies after SCF (DFT) optimization of the input molecule is obtained by using the <code class="docutils literal"><span class="pre">scfenergies</span></code> attribute with <code class="docutils literal"><span class="pre">ccget</span></code></div></blockquote>
-<div class="highlight-bash"><div class="highlight"><pre>$ ccget scfenergies Benzeneselenol.out
+<div>The molecular electronic energies after SCF (DFT) optimization of the input molecule is obtained by using the <code class="docutils literal notranslate"><span class="pre">scfenergies</span></code> attribute with <code class="docutils literal notranslate"><span class="pre">ccget</span></code></div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ccget scfenergies Benzeneselenol.out
 Attempting to <span class="nb">read</span> Benzeneselenol.out
 scfenergies:
 <span class="o">[</span>-71671.43702915 -71671.4524142  -71671.4534768  -71671.45447492
@@ -188,11 +309,11 @@ scfenergies:
 <li>Geometry Targets</li>
 </ol>
 <blockquote>
-<div>The targets for convergence of geometry optimization can be obtained by using the <code class="docutils literal"><span class="pre">geotargets</span></code> attribute with <code class="docutils literal"><span class="pre">ccget</span></code></div></blockquote>
-<div class="highlight-bash"><div class="highlight"><pre>$ ccget  geotargets Benzeneselenol.out
+<div>The targets for convergence of geometry optimization can be obtained by using the <code class="docutils literal notranslate"><span class="pre">geotargets</span></code> attribute with <code class="docutils literal notranslate"><span class="pre">ccget</span></code></div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ccget  geotargets Benzeneselenol.out
 Attempting to <span class="nb">read</span> Benzeneselenol.out
 geotargets:
-<span class="o">[</span> 0.00045  0.0003   0.0018   0.0012 <span class="o">]</span>
+<span class="o">[</span> <span class="m">0</span>.00045  <span class="m">0</span>.0003   <span class="m">0</span>.0018   <span class="m">0</span>.0012 <span class="o">]</span>
 </pre></div>
 </div>
 <p><strong>Chaining of attributes</strong></p>
@@ -202,12 +323,12 @@ geotargets:
 </ol>
 <blockquote>
 <div>The number of molecular orbitals and the number of basis functions used to optimize the molecule can be obtained by running the following command</div></blockquote>
-<div class="highlight-bash"><div class="highlight"><pre>$ ccget nmo nbasis Benzeneselenol.out
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ccget nmo nbasis Benzeneselenol.out
 Attempting to <span class="nb">read</span> Benzeneselenol.out
 nmo:
-405
+<span class="m">405</span>
 nbasis:
-407
+<span class="m">407</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -215,32 +336,32 @@ nbasis:
 </ol>
 <blockquote>
 <div>The enthalpy and the vibrational frequencies of the optimized molecule is conducted is obtained below:</div></blockquote>
-<div class="highlight-bash"><div class="highlight"><pre>$ ccget enthalpy vibfreqs Benzeneselenol.out
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ccget enthalpy vibfreqs Benzeneselenol.out
 Attempting to <span class="nb">read</span> Benzeneselenol.out
 enthalpy:
 -2633.77264
 vibfreqs:
-<span class="o">[</span>  129.5512   170.6681   231.4278   304.8614   407.8299   472.5026
-   629.9087   679.9032   693.2509   746.7694   812.5113   850.2578
-   915.8742   987.1252   988.1785  1002.8922  1038.1073  1091.4005
-  1102.3417  1183.3857  1209.2727  1311.3497  1355.6441  1471.4447
-  1510.1919  1611.9088  1619.0156  2391.2487  3165.1596  3171.3909
-  3182.0753  3188.5786  3198.0359<span class="o">]</span>
+<span class="o">[</span>  <span class="m">129</span>.5512   <span class="m">170</span>.6681   <span class="m">231</span>.4278   <span class="m">304</span>.8614   <span class="m">407</span>.8299   <span class="m">472</span>.5026
+   <span class="m">629</span>.9087   <span class="m">679</span>.9032   <span class="m">693</span>.2509   <span class="m">746</span>.7694   <span class="m">812</span>.5113   <span class="m">850</span>.2578
+   <span class="m">915</span>.8742   <span class="m">987</span>.1252   <span class="m">988</span>.1785  <span class="m">1002</span>.8922  <span class="m">1038</span>.1073  <span class="m">1091</span>.4005
+  <span class="m">1102</span>.3417  <span class="m">1183</span>.3857  <span class="m">1209</span>.2727  <span class="m">1311</span>.3497  <span class="m">1355</span>.6441  <span class="m">1471</span>.4447
+  <span class="m">1510</span>.1919  <span class="m">1611</span>.9088  <span class="m">1619</span>.0156  <span class="m">2391</span>.2487  <span class="m">3165</span>.1596  <span class="m">3171</span>.3909
+  <span class="m">3182</span>.0753  <span class="m">3188</span>.5786  <span class="m">3198</span>.0359<span class="o">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="ccwrite">
-<h2>ccwrite<a class="headerlink" href="#ccwrite" title="Permalink to this headline">¶</a></h2>
+<h3>ccwrite<a class="headerlink" href="#ccwrite" title="Permalink to this headline">¶</a></h3>
 <p>The same Benzeneselenol.out file used in the previous examples will be used as the input file for ccwrite. When the ccwrite script is used with a valid input, it prints out the valid attributes that can be parsed from the file.</p>
 <p>Command line format:</p>
-<div class="highlight-bash"><div class="highlight"><pre>ccwrite &lt;OutputFileFormat&gt;  &lt;CompChemLogFile&gt; <span class="o">[</span>&lt;CompChemLogFile&gt;<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ccwrite &lt;OutputFileFormat&gt;  &lt;CompChemLogFile&gt; <span class="o">[</span>&lt;CompChemLogFile&gt;<span class="o">]</span>
 </pre></div>
 </div>
-<p>The valid output file formats are <code class="docutils literal"><span class="pre">json</span></code>, <code class="docutils literal"><span class="pre">cjson</span></code>, <code class="docutils literal"><span class="pre">cml</span></code>, <code class="docutils literal"><span class="pre">xyz</span></code></p>
+<p>The valid output file formats are <code class="docutils literal notranslate"><span class="pre">json</span></code>, <code class="docutils literal notranslate"><span class="pre">cjson</span></code>, <code class="docutils literal notranslate"><span class="pre">cml</span></code>, <code class="docutils literal notranslate"><span class="pre">xyz</span></code></p>
 <ol class="arabic simple">
 <li>CML</li>
 </ol>
-<div class="highlight-bash"><div class="highlight"><pre>$ ccwrite cml Benzeneselenol.out
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ccwrite cml Benzeneselenol.out
 Attempting to parse Benzeneselenol.out
 cclib can parse the following attributes from Benzeneselenol.out:
   atomcharges
@@ -271,7 +392,7 @@ cclib can parse the following attributes from Benzeneselenol.out:
 </pre></div>
 </div>
 <p>A <em>Benzeneselenol.cml</em> output file is generated in the same directory as the Benzeneselenol.out file.</p>
-<div class="highlight-bash"><div class="highlight"><pre>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s1">&#39;1.0&#39;</span> <span class="nv">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span>?&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s1">&#39;1.0&#39;</span> <span class="nv">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span>?&gt;
 &lt;molecule <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;Benzeneselenol.out&quot;</span> <span class="nv">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.xml-cml.org/schema&quot;</span>&gt;
   &lt;atomArray&gt;
     &lt;atom <span class="nv">elementType</span><span class="o">=</span><span class="s2">&quot;C&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;a1&quot;</span> <span class="nv">x3</span><span class="o">=</span><span class="s2">&quot;-2.8947620000&quot;</span> <span class="nv">y3</span><span class="o">=</span><span class="s2">&quot;-0.0136420000&quot;</span> <span class="nv">z3</span><span class="o">=</span><span class="s2">&quot;-0.0015280000&quot;</span> /&gt;
@@ -309,35 +430,35 @@ cclib can parse the following attributes from Benzeneselenol.out:
 <ol class="arabic simple" start="2">
 <li>xyz</li>
 </ol>
-<p>Using <code class="docutils literal"><span class="pre">xyz</span></code> as the &lt;OutputFileFormat&gt; with Benzeneselenol.out, we obtain the following <em>Benzeneselenol.xyz</em> file</p>
-<div class="highlight-bash"><div class="highlight"><pre>13
-Benzeneselenol.out: Geometry 17
+<p>Using <code class="docutils literal notranslate"><span class="pre">xyz</span></code> as the &lt;OutputFileFormat&gt; with Benzeneselenol.out, we obtain the following <em>Benzeneselenol.xyz</em> file</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">13</span>
+Benzeneselenol.out: Geometry <span class="m">17</span>
 C     -2.8947620000   -0.0136420000   -0.0015280000
-C     -2.2062510000    1.1938510000   -0.0025210000
-C     -0.8164260000    1.2153020000   -0.0022010000
-C     -0.1033520000    0.0183920000    0.0031060000
-C     -0.7906630000   -1.1943840000    0.0058500000
-C     -2.1799570000   -1.2059710000    0.0017890000
+C     -2.2062510000    <span class="m">1</span>.1938510000   -0.0025210000
+C     -0.8164260000    <span class="m">1</span>.2153020000   -0.0022010000
+C     -0.1033520000    <span class="m">0</span>.0183920000    <span class="m">0</span>.0031060000
+C     -0.7906630000   -1.1943840000    <span class="m">0</span>.0058500000
+C     -2.1799570000   -1.2059710000    <span class="m">0</span>.0017890000
 H     -3.9758430000   -0.0253010000   -0.0029040000
-H     -2.7502340000    2.1291370000   -0.0052760000
-H     -0.2961840000    2.1630180000   -0.0073260000
-H     -0.2474670000   -2.1302310000    0.0132260000
-H     -2.7028960000   -2.1530750000    0.0036640000
-Se     1.8210800000   -0.0433780000   -0.0038760000
-H      2.0043580000    1.4100070000    0.1034490000
+H     -2.7502340000    <span class="m">2</span>.1291370000   -0.0052760000
+H     -0.2961840000    <span class="m">2</span>.1630180000   -0.0073260000
+H     -0.2474670000   -2.1302310000    <span class="m">0</span>.0132260000
+H     -2.7028960000   -2.1530750000    <span class="m">0</span>.0036640000
+Se     <span class="m">1</span>.8210800000   -0.0433780000   -0.0038760000
+H      <span class="m">2</span>.0043580000    <span class="m">1</span>.4100070000    <span class="m">0</span>.1034490000
 </pre></div>
 </div>
 </div>
 </div>
+</div>
 
 
-           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="data.html" class="btn btn-neutral float-right" title="Parsed data (version 1.5)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="data.html" class="btn btn-neutral float-right" title="Parsed data (version 1.5.3)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="how_to_install.html" class="btn btn-neutral" title="How to install" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -349,11 +470,10 @@ H      2.0043580000    1.4100070000    0.1034490000
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2016, cclib Development Team.
-
+        &copy; Copyright 2014-2018, cclib Development Team.
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
 </footer>
 
@@ -371,7 +491,7 @@ H      2.0043580000    1.4100070000    0.1034490000
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.5',
+            VERSION:'1.5.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
@@ -380,7 +500,7 @@ H      2.0043580000    1.4100070000    0.1034490000
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

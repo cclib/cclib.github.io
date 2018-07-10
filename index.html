@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; cclib 1.5 documentation</title>
+  <title>Overview &mdash; cclib 1.5.3 documentation</title>
   
 
   
@@ -30,7 +30,10 @@
   
 
   
-    <link rel="top" title="cclib 1.5 documentation" href="#"/>
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="cclib 1.5.3 documentation" href="#"/>
         <link rel="next" title="How to install" href="how_to_install.html"/>
         <link rel="prev" title="Table of Contents" href="contents.html"/> 
 
@@ -45,27 +48,17 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
+      <div class="wy-side-nav-search">
+        
 
-          
-            <a href="contents.html" class="icon icon-home"> cclib
-          
+        
+          <a href="contents.html" class="icon icon-home"> cclib
+        
 
-          
-          </a>
+        
+        </a>
 
-          
-            
-            
-              <div class="version">
-                1.5
-              </div>
-            
-          
-
-          
+        
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -74,34 +67,153 @@
   </form>
 </div>
 
-          
-        </div>
+        
+      </div>
 
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
           
-            
-            
-                <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Overview</a><ul>
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-use-cclib">How to use cclib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#about-cclib">About cclib</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="how_to_install.html">How to install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="how_to_parse.html">How to parse and write</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_notes.html">Parsed data notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="methods.html">Calculation methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_dev.html">Development parsed data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_install.html">How to install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#debian-gnu-linux-systems">Debian GNU/Linux systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#manual-download-and-install">Manual download and install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#what-next">What next?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_parse.html">How to parse and write</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how_to_parse.html#from-python">From Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_parse.html#from-command-line">From command line</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="how_to_parse.html#ccget">ccget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how_to_parse.html#ccwrite">ccwrite</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.5.3)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data.html#description-of-parsed-data">Description of parsed data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#details-of-current-implementation">Details of current implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_notes.html">Parsed data notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#aonames">aonames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#aooverlaps">aooverlaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atombasis">atombasis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atomcharges">atomcharges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atomcoords">atomcoords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atommasses">atommasses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atomnos">atomnos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atomspins">atomspins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#ccenergies">ccenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#charge">charge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#coreelectrons">coreelectrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#etenergies">etenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#etoscs">etoscs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#etsecs">etsecs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#etsyms">etsyms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#fonames">fonames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#fooverlaps">fooverlaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#gbasis">gbasis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#geotargets">geotargets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#geovalues">geovalues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#hessian">hessian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#homos">homos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#mocoeffs">mocoeffs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#moenergies">moenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#moments">moments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#mosyms">mosyms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#mpenergies">mpenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#mult">mult</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#natom">natom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#nbasis">nbasis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#nmo">nmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#optdone">optdone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#scfenergies">scfenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#scftargets">scftargets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#scfvalues">scfvalues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#vibdisps">vibdisps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="methods.html">Calculation methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#c-squared-population-analysis-cspa">C squared population analysis (CSPA)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#custom-fragments">Custom fragments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#custom-progress">Custom progress</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#mulliken-population-analysis-mpa">Mulliken population analysis (MPA)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#id1">Custom fragments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#id2">Custom progress</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#lowdin-population-analysis">Löwdin Population Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#overlap-population-analysis">Overlap Population Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#density-matrix-calculation">Density Matrix calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#mayer-s-bond-orders">Mayer’s Bond Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#charge-decomposition-analysis">Charge Decomposition Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#electron-density-calculation">Electron Density Calculation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development.html#basic-instructions">Basic instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development.html#cloning-cclib-from-github">Cloning cclib from GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#guidelines">Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#releasing-a-new-version">Releasing a new version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#testing">Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development.html#unit-tests">Unit tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="development.html#adding-a-new-program-version">Adding a new program version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#regression-tests">Regression tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#doctests">Doctests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#websites-related-to-cclib">Websites related to cclib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#developers">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_dev.html">Development parsed data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_dev.html#description-of-parsed-data">Description of parsed data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_dev.html#details-of-current-implementation">Details of current implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-5">Changes in cclib-1.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-4-1">Changes in cclib-1.4.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-4">Changes in cclib-1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-3-2">Changes in cclib-1.3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-3-1">Changes in cclib-1.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-3">Changes in cclib-1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-2">Changes in cclib-1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-1">Changes in cclib-1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-0-1">Changes in cclib-1.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-0">Changes in cclib-1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-9">Changes in cclib-0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-8">Changes in cclib-0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-7">Changes in cclib-0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-6-1">Changes in cclib-0.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-6-0">Changes in cclib-0.6.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-6b">Changes in cclib-0.6b</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-5">Changes in cclib-0.5</a></li>
+</ul>
+</li>
 </ul>
 
-            
           
-        </div>
+        
       </div>
+      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -116,13 +228,7 @@
       
       <div class="wy-nav-content">
         <div class="rst-content">
-          
-
- 
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
+          <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="contents.html">Docs</a> &raquo;</li>
       
@@ -137,8 +243,7 @@
   </ul>
   <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+          <div role="main" class="document">
             
   <div class="section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
@@ -152,7 +257,7 @@ The goals of cclib are centered around the reuse of data obtained from these pro
 </ul>
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>The current version is <strong>cclib 1.5</strong> (see the <a class="reference external" href="changelog.html">changelog</a> for what&#8217;s new) and parses output files from the following programs (version in parentheses are tested):</p>
+<p>The current version is <strong>cclib 1.5</strong> (see the <a class="reference external" href="changelog.html">changelog</a> for what’s new) and parses output files from the following programs (version in parentheses are tested):</p>
 <ul class="simple">
 <li><a class="reference external" href="https://www.scm.com/product/adf/">ADF</a> (versions 2007 and 2013)</li>
 <li><a class="reference external" href="http://daltonprogram.org">DALTON</a> (versions 2013 and 2015)</li>
@@ -176,10 +281,10 @@ The goals of cclib are centered around the reuse of data obtained from these pro
 </div>
 <div class="section" id="about-cclib">
 <h2>About cclib<a class="headerlink" href="#about-cclib" title="Permalink to this headline">¶</a></h2>
-<p>The code behind cclib was started as a collaboration between Noel O&#8217;Boyle, Adam Tenderholt and Karol M. Langner (see page about <a class="reference external" href="development.html">Development</a> for details) and is licensed under the <a class="reference external" href="http://www.gnu.org/copyleft/lgpl.html">LGPL</a>. Other developers are encouraged to contribute to this open source project &#8211; send an email to the <a class="reference external" href="https://lists.sourceforge.net/lists/listinfo/cclib-devel">developers mailing list</a>. Applications that use cclib include <a class="reference external" href="http://gausssum.sourceforge.net/">GaussSum</a> and <a class="reference external" href="http://qmforge.sourceforge.net/">QMForge</a>. It has also been used in the <a class="reference external" href="http://pubs.acs.org/doi/abs/10.1021/jacs.5b05600">literature</a>.</p>
+<p>The code behind cclib was started as a collaboration between Noel O’Boyle, Adam Tenderholt and Karol M. Langner (see page about <a class="reference external" href="development.html">Development</a> for details) and is licensed under the <a class="reference external" href="http://www.gnu.org/copyleft/lgpl.html">LGPL</a>. Other developers are encouraged to contribute to this open source project – send an email to the <a class="reference external" href="https://lists.sourceforge.net/lists/listinfo/cclib-devel">developers mailing list</a>. Applications that use cclib include <a class="reference external" href="http://gausssum.sourceforge.net/">GaussSum</a> and <a class="reference external" href="http://qmforge.sourceforge.net/">QMForge</a>. It has also been used in the <a class="reference external" href="http://pubs.acs.org/doi/abs/10.1021/jacs.5b05600">literature</a>.</p>
 <p>If you use cclib in your scientific work, please support our work by adding a reference to the following article:</p>
 <div class="line-block">
-<div class="line">N. M. O&#8217;Boyle, A. L. Tenderholt, K. M. Langner, <em>cclib: a library for package-independent computational chemistry algorithms</em>, J. Comp. Chem. 29 (5), pp. 839-845, <strong>2008</strong> (<a class="reference external" href="http://dx.doi.org/10.1002/jcc.20823">DOI</a>).</div>
+<div class="line">N. M. O’Boyle, A. L. Tenderholt, K. M. Langner, <em>cclib: a library for package-independent computational chemistry algorithms</em>, J. Comp. Chem. 29 (5), pp. 839-845, <strong>2008</strong> (<a class="reference external" href="http://dx.doi.org/10.1002/jcc.20823">DOI</a>).</div>
 <div class="line"><br /></div>
 </div>
 <p>A record for the latest release is also available on <a class="reference external" href="http://dx.doi.org/10.5281/zenodo.44552">Zenodo</a>.</p>
@@ -187,7 +292,6 @@ The goals of cclib are centered around the reuse of data obtained from these pro
 </div>
 
 
-           </div>
           </div>
           <footer>
   
@@ -205,11 +309,10 @@ The goals of cclib are centered around the reuse of data obtained from these pro
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2016, cclib Development Team.
-
+        &copy; Copyright 2014-2018, cclib Development Team.
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
 </footer>
 
@@ -227,7 +330,7 @@ The goals of cclib are centered around the reuse of data obtained from these pro
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.5',
+            VERSION:'1.5.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
@@ -236,7 +339,7 @@ The goals of cclib are centered around the reuse of data obtained from these pro
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
