@@ -27,7 +27,7 @@ attributes          ADF                 DALTON              GAMESS              
 `gbasis`_           T/D                 √                   √                   √                   √                   √                   √                   T/D                 √                   √                   √                   √                   
 `geotargets`_       √                   √                   √                   √                   √                   √                   √                   T/D                 √                   √                   √                   √                   
 `geovalues`_        √                   √                   √                   √                   √                   √                   √                   T/D                 √                   √                   √                   √                   
-`grads`_            T/D                 T/D                 T/D                 T/D                 √                   T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 √                   
+`grads`_            T/D                 T/D                 T/D                 T/D                 √                   T/D                 √                   T/D                 T/D                 T/D                 √                   √                   
 `hessian`_          T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 √                   T/D                 T/D                 T/D                 T/D                 √                   
 `homos`_            √                   √                   √                   √                   √                   √                   √                   T/D                 √                   √                   √                   √                   
 `metadata`_         √                   √                   √                   √                   √                   √                   √                   T/D                 √                   √                   √                   √                   
@@ -55,6 +55,7 @@ attributes          ADF                 DALTON              GAMESS              
 `scfvalues`_        √                   √                   √                   √                   √                   √                   √                   T/D                 √                   √                   √                   √                   
 `temperature`_      T/D                 T/D                 T/D                 T/D                 √                   T/D                 T/D                 T/D                 T/D                 √                   T/D                 √                   
 `time`_             T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 
+`transprop`_        T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 √                   T/D                 T/D                 
 `vibanharms`_       T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 
 `vibdisps`_         √                   √                   √                   √                   √                   √                   √                   T/D                 T/D                 √                   √                   √                   
 `vibfreqs`_         √                   √                   √                   √                   √                   √                   √                   T/D                 T/D                 √                   √                   √                   
@@ -117,6 +118,7 @@ attributes          ADF                 DALTON              GAMESS              
 .. _`scfvalues`: data_notes.html#scfvalues
 .. _`temperature`: data_notes.html#temperature
 .. _`time`: data_notes.html#time
+.. _`transprop`: data_notes.html#transprop
 .. _`vibanharms`: data_notes.html#vibanharms
 .. _`vibdisps`: data_notes.html#vibdisps
 .. _`vibfreqs`: data_notes.html#vibfreqs

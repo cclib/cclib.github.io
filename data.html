@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Parsed data (version 1.5) &mdash; cclib 1.5 documentation</title>
+  <title>Parsed data (version 1.5.3) &mdash; cclib 1.5.3 documentation</title>
   
 
   
@@ -30,7 +30,10 @@
   
 
   
-    <link rel="top" title="cclib 1.5 documentation" href="index.html"/>
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="cclib 1.5.3 documentation" href="index.html"/>
         <link rel="next" title="Parsed data notes" href="data_notes.html"/>
         <link rel="prev" title="How to parse and write" href="how_to_parse.html"/> 
 
@@ -45,27 +48,17 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
+      <div class="wy-side-nav-search">
+        
 
-          
-            <a href="contents.html" class="icon icon-home"> cclib
-          
+        
+          <a href="contents.html" class="icon icon-home"> cclib
+        
 
-          
-          </a>
+        
+        </a>
 
-          
-            
-            
-              <div class="version">
-                1.5
-              </div>
-            
-          
-
-          
+        
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -74,33 +67,156 @@
   </form>
 </div>
 
-          
-        </div>
+        
+      </div>
 
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
           
-            
-            
-                <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="how_to_install.html">How to install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="how_to_parse.html">How to parse and write</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Parsed data (version 1.5)</a><ul>
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#how-to-use-cclib">How to use cclib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#about-cclib">About cclib</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_install.html">How to install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#installing-using-pip">Installing using pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#installing-using-a-system-package-manager">Installing using a system package manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#manual-download-and-install">Manual download and install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_install.html#what-next">What next?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_parse.html">How to parse and write</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how_to_parse.html#from-python">From Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_parse.html#from-command-line">From command line</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="how_to_parse.html#ccget">ccget</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="how_to_parse.html#chaining-of-attributes">Chaining of attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="how_to_parse.html#ccwrite">ccwrite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how_to_parse.html#ccframe">ccframe</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Parsed data (version 1.5.3)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#description-of-parsed-data">Description of parsed data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#details-of-current-implementation">Details of current implementation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data_notes.html">Parsed data notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="methods.html">Calculation methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_dev.html">Development parsed data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_notes.html">Parsed data notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#aonames">aonames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#aooverlaps">aooverlaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atombasis">atombasis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atomcharges">atomcharges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atomcoords">atomcoords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atommasses">atommasses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atomnos">atomnos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#atomspins">atomspins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#ccenergies">ccenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#charge">charge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#coreelectrons">coreelectrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#etenergies">etenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#etoscs">etoscs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#etsecs">etsecs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#etsyms">etsyms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#fonames">fonames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#fooverlaps">fooverlaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#gbasis">gbasis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#geotargets">geotargets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#geovalues">geovalues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#hessian">hessian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#homos">homos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#metadata">metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#mocoeffs">mocoeffs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#moenergies">moenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#moments">moments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#mosyms">mosyms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#mpenergies">mpenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#mult">mult</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#natom">natom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#nbasis">nbasis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#nmo">nmo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#optdone">optdone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#scfenergies">scfenergies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#scftargets">scftargets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#scfvalues">scfvalues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#vibdisps">vibdisps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="methods.html">Calculation methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#c-squared-population-analysis-cspa">C squared population analysis (CSPA)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#custom-fragments">Custom fragments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#custom-progress">Custom progress</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#mulliken-population-analysis-mpa">Mulliken population analysis (MPA)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#id1">Custom fragments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#id2">Custom progress</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#lowdin-population-analysis">Löwdin Population Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#density-matrix-calculation">Density Matrix calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#mayer-s-bond-orders">Mayer’s Bond Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#charge-decomposition-analysis">Charge Decomposition Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="methods.html#notes">Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development.html#basic-instructions">Basic instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development.html#cloning-cclib-from-github">Cloning cclib from GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#guidelines">Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#releasing-a-new-version">Releasing a new version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#testing">Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development.html#unit-tests">Unit tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="development.html#adding-a-new-program-version">Adding a new program version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#regression-tests">Regression tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#websites-related-to-cclib">Websites related to cclib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#developers">Developers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_dev.html">Development parsed data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_dev.html#description-of-parsed-data">Description of parsed data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_dev.html#details-of-current-implementation">Details of current implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-5">Changes in cclib-1.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-4-1">Changes in cclib-1.4.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-4">Changes in cclib-1.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-3-2">Changes in cclib-1.3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-3-1">Changes in cclib-1.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-3">Changes in cclib-1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-2">Changes in cclib-1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-1">Changes in cclib-1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-0-1">Changes in cclib-1.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-0">Changes in cclib-1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-9">Changes in cclib-0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-8">Changes in cclib-0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-7">Changes in cclib-0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-6-1">Changes in cclib-0.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-6-0">Changes in cclib-0.6.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-6b">Changes in cclib-0.6b</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-0-5">Changes in cclib-0.5</a></li>
+</ul>
+</li>
 </ul>
 
-            
           
-        </div>
+        
       </div>
+      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -115,17 +231,11 @@
       
       <div class="wy-nav-content">
         <div class="rst-content">
-          
-
- 
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
+          <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="contents.html">Docs</a> &raquo;</li>
       
-    <li>Parsed data (version 1.5)</li>
+    <li>Parsed data (version 1.5.3)</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -136,15 +246,14 @@
   </ul>
   <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+          <div role="main" class="document">
             
   <div class="section" id="parsed-data-version-release">
-<h1>Parsed data (version 1.5)<a class="headerlink" href="#parsed-data-version-release" title="Permalink to this headline">¶</a></h1>
-<p>This is a list of all the data parsed by the current official release of cclib (namely version 1.5). For the same list for the development version, see <a class="reference external" href="data_dev.html">development parsed data</a>. For details and miscellaneous notes on these attributes, see the <a class="reference external" href="data_notes.html">data notes</a> page.</p>
+<h1>Parsed data (version 1.5.3)<a class="headerlink" href="#parsed-data-version-release" title="Permalink to this headline">¶</a></h1>
+<p>This is a list of all the data parsed by the current official release of cclib (namely version 1.5.3). For the same list for the development version, see <a class="reference external" href="data_dev.html">development parsed data</a>. For details and miscellaneous notes on these attributes, see the <a class="reference external" href="data_notes.html">data notes</a> page.</p>
 <div class="section" id="description-of-parsed-data">
 <h2>Description of parsed data<a class="headerlink" href="#description-of-parsed-data" title="Permalink to this headline">¶</a></h2>
-<p>Click the attribute name in the table below to go the notes and specifications for a particular attribute. All arrays are Numpy arrays of type &#8216;d&#8217; (if containing floats) or &#8216;i&#8217; (if containing integers).</p>
+<p>Click the attribute name in the table below to go the notes and specifications for a particular attribute. All arrays are Numpy arrays of type ‘d’ (if containing floats) or ‘i’ (if containing integers).</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -163,22 +272,22 @@
 <tbody valign="top">
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#aonames">aonames</a></td>
 <td>atomic orbital names</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>list of strings</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#aooverlaps">aooverlaps</a></td>
 <td>atomic orbital overlap matrix</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>array of rank 2</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#atombasis">atombasis</a></td>
 <td>indices of atomic orbitals on each atom</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>list of lists</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#atomcharges">atomcharges</a></td>
 <td>atomic partial charges</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>dict of arrays of rank 1</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#atomcoords">atomcoords</a></td>
@@ -193,17 +302,17 @@
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#atomnos">atomnos</a></td>
 <td>atomic numbers</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>array of rank 1</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#atomspins">atomspins</a></td>
 <td>atomic spin densities</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>dict of arrays of rank 1</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#charge">charge</a></td>
 <td>net charge of the system</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>integer</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#ccenergies">ccenergies</a></td>
@@ -213,7 +322,7 @@
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#coreelectrons">coreelectrons</a></td>
 <td>number of core electrons in atom pseudopotentials</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>array of rank 1</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#enthalpy">enthalpy</a></td>
@@ -233,7 +342,7 @@
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#etoscs">etoscs</a></td>
 <td>oscillator strengths of electronic transitions</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>array of rank 1</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#etrotats">etrotats</a></td>
@@ -243,12 +352,12 @@
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#etsecs">etsecs</a></td>
 <td>singly-excited configurations for electronic transitions</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>list of lists</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#etsyms">etsyms</a></td>
 <td>symmetries of electronic transitions</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>list of string</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#freeenergy">freeenergy</a></td>
@@ -258,62 +367,62 @@
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#fonames">fonames</a></td>
 <td>fragment orbital names</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>list of strings</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#fooverlaps">fooverlaps</a></td>
 <td>fragment orbital overlap matrix</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>array of rank 2</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#fragnames">fragnames</a></td>
 <td>names of fragments</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>list of strings</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#frags">frags</a></td>
 <td>indices of atoms in a fragment</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>list of lists</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#gbasis">gbasis</a></td>
 <td>coefficients and exponents of Gaussian basis functions</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>PyQuante format</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#geotargets">geotargets</a></td>
 <td>targets for convergence of geometry optimization</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>array of rank 1</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#geovalues">geovalues</a></td>
 <td>current values for convergence of geometry optmization</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>array of rank 1</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#grads">grads</a></td>
 <td>current values of forces (gradients) in geometry optimization</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>array of rank 3</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#hessian">hessian</a></td>
 <td>elements of the force constant matrix</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>array of rank 1</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#homos">homos</a></td>
 <td>molecular orbital indices of HOMO(s)</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>array of rank 1</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#metadata">metadata</a></td>
 <td>various metadata about the package and computation</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>dict</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#mocoeffs">mocoeffs</a></td>
 <td>molecular orbital coefficients</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>list of arrays of rank 2</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#moenergies">moenergies</a></td>
@@ -328,7 +437,7 @@
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#mosyms">mosyms</a></td>
 <td>orbital symmetries</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>list of lists</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#mpenergies">mpenergies</a></td>
@@ -338,88 +447,98 @@
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#mult">mult</a></td>
 <td>multiplicity of the system</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>integer</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#natom">natom</a></td>
 <td>number of atoms</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>integer</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#nbasis">nbasis</a></td>
 <td>number of basis functions</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>integer</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#nmo">nmo</a></td>
 <td>number of molecular orbitals</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>integer</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#nocoeffs">nocoeffs</a></td>
 <td>natural orbital coefficients</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>array of rank 2</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#nooccnos">nooccnos</a></td>
 <td>natural orbital occupation numbers</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>array of rank 1</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#optdone">optdone</a></td>
 <td>flags whether an optimization has converged</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>Boolean</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#optstatus">optstatus</a></td>
 <td>optimization status for each set of atomic coordinates</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>array of rank 1</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#polarizabilities">polarizabilities</a></td>
 <td>(dipole) polarizabilities, static or dynamic</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>list of arrays of rank 2</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#scancoords">scancoords</a></td>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#pressure">pressure</a></td>
+<td>temperature used for Thermochemistry</td>
+<td>atm</td>
+<td>float</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scancoords">scancoords</a></td>
 <td>geometries of each scan step</td>
 <td>angstroms</td>
 <td>array of rank 3</td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scanenergies">scanenergies</a></td>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#scanenergies">scanenergies</a></td>
 <td>energies of potential energy surface</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>list</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#scannames">scannames</a></td>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scannames">scannames</a></td>
 <td>names of varaibles scanned</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>list of strings</td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scanparm">scanparm</a></td>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#scanparm">scanparm</a></td>
 <td>values of parameters in potential energy surface</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>list of tuples</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#scfenergies">scfenergies</a></td>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scfenergies">scfenergies</a></td>
 <td>molecular electronic energies after SCF (Hartree-Fock, DFT)</td>
 <td>eV</td>
 <td>array of rank 1</td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scftargets">scftargets</a></td>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#scftargets">scftargets</a></td>
 <td>targets for convergence of the SCF</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>array of rank 2</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#scfvalues">scfvalues</a></td>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scfvalues">scfvalues</a></td>
 <td>current values for convergence of the SCF</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>list of arrays of rank 2</td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#temperature">temperature</a></td>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#temperature">temperature</a></td>
 <td>temperature used for Thermochemistry</td>
 <td>kelvin</td>
 <td>float</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#transprop">transprop</a></td>
+<td>all absorption and emission spectra (dictionary {name:</td>
+<td>etoscs</td>
+<td>etenergies</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#time">time</a></td>
 <td>time in molecular dynamics and other trajectories</td>
@@ -453,7 +572,7 @@
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#vibsyms">vibsyms</a></td>
 <td>symmetries of vibrations</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>list of strings</td>
 </tr>
 </tbody>
@@ -477,6 +596,7 @@
 <col width="8%" />
 <col width="8%" />
 <col width="8%" />
+<col width="8%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">attributes</th>
@@ -487,6 +607,7 @@
 <th class="head">Gaussian</th>
 <th class="head">Jaguar</th>
 <th class="head">Molpro</th>
+<th class="head">MOPAC</th>
 <th class="head">NWChem</th>
 <th class="head">ORCA</th>
 <th class="head">Psi</th>
@@ -502,6 +623,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>T/D</td>
@@ -515,6 +637,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>N/P</td>
@@ -528,6 +651,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -541,6 +665,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -554,6 +679,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -571,6 +697,7 @@
 <td>T/D</td>
 <td>√</td>
 <td>√</td>
+<td>√</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#atomnos">atomnos</a></td>
 <td>√</td>
@@ -580,12 +707,14 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#atomspins">atomspins</a></td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -606,6 +735,7 @@
 <td>√</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>T/D</td>
 <td>√</td>
@@ -619,6 +749,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -632,6 +763,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -647,6 +779,7 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>√</td>
 <td>T/D</td>
 <td>√</td>
 </tr>
@@ -655,11 +788,12 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>√</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
-<td>T/D</td>
+<td>√</td>
 <td>T/D</td>
 <td>√</td>
 </tr>
@@ -670,6 +804,7 @@
 <td>T/D</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>√</td>
@@ -683,6 +818,7 @@
 <td>T/D</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>√</td>
@@ -701,6 +837,7 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>T/D</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#etsecs">etsecs</a></td>
 <td>√</td>
@@ -709,6 +846,7 @@
 <td>T/D</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>√</td>
@@ -724,6 +862,7 @@
 <td>√</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>T/D</td>
 <td>√</td>
 <td>T/D</td>
 <td>√</td>
@@ -736,6 +875,7 @@
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
+<td>T/D</td>
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
@@ -749,6 +889,7 @@
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
+<td>T/D</td>
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
@@ -762,6 +903,7 @@
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
+<td>T/D</td>
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
@@ -775,6 +917,7 @@
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
+<td>T/D</td>
 <td>N/A</td>
 <td>N/A</td>
 <td>N/A</td>
@@ -785,11 +928,12 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>√</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
-<td>T/D</td>
+<td>√</td>
 <td>T/D</td>
 <td>√</td>
 </tr>
@@ -801,6 +945,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -814,6 +959,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -827,6 +973,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -839,10 +986,11 @@
 <td>T/D</td>
 <td>√</td>
 <td>T/D</td>
+<td>√</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
-<td>T/D</td>
+<td>√</td>
 <td>√</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#hessian">hessian</a></td>
@@ -856,6 +1004,7 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>T/D</td>
 <td>√</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#homos">homos</a></td>
@@ -866,23 +1015,25 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#metadata">metadata</a></td>
-<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
 <td>√</td>
 <td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#mocoeffs">mocoeffs</a></td>
 <td>√</td>
@@ -892,6 +1043,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -905,6 +1057,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -918,6 +1071,7 @@
 <td>√</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -930,6 +1084,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>√</td>
 <td>T/D</td>
@@ -944,6 +1099,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>T/D</td>
 <td>√</td>
@@ -957,6 +1113,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -970,6 +1127,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -983,6 +1141,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -996,6 +1155,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -1007,6 +1167,7 @@
 <td>√</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -1026,6 +1187,7 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>T/D</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#optdone">optdone</a></td>
 <td>√</td>
@@ -1035,6 +1197,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -1050,6 +1213,7 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>T/D</td>
 <td>√</td>
 <td>T/D</td>
 </tr>
@@ -1061,38 +1225,28 @@
 <td>√</td>
 <td>T/D</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>T/D</td>
 <td>√</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#scancoords">scancoords</a></td>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#pressure">pressure</a></td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>√</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>√</td>
 <td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
+<td>√</td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scanenergies">scanenergies</a></td>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scancoords">scancoords</a></td>
 <td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-<td>T/D</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#scannames">scannames</a></td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -1105,7 +1259,8 @@
 <td>T/D</td>
 <td>T/D</td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scanparm">scanparm</a></td>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#scanenergies">scanenergies</a></td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -1118,7 +1273,35 @@
 <td>T/D</td>
 <td>T/D</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#scfenergies">scfenergies</a></td>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scannames">scannames</a></td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#scanparm">scanparm</a></td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scfenergies">scfenergies</a></td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -1126,12 +1309,13 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scftargets">scftargets</a></td>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#scftargets">scftargets</a></td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -1139,12 +1323,13 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#scfvalues">scfvalues</a></td>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#scfvalues">scfvalues</a></td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -1152,12 +1337,13 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#temperature">temperature</a></td>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#temperature">temperature</a></td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -1167,10 +1353,11 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>√</td>
 <td>T/D</td>
 <td>√</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#time">time</a></td>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#time">time</a></td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -1180,10 +1367,26 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#transprop">transprop</a></td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
 <td>T/D</td>
 <td>T/D</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#vibanharms">vibanharms</a></td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -1205,6 +1408,7 @@
 <td>√</td>
 <td>√</td>
 <td>T/D</td>
+<td>T/D</td>
 <td>√</td>
 <td>√</td>
 <td>√</td>
@@ -1217,6 +1421,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>√</td>
 <td>√</td>
@@ -1231,6 +1436,7 @@
 <td>√</td>
 <td>√</td>
 <td>T/D</td>
+<td>T/D</td>
 <td>√</td>
 <td>N/P</td>
 <td>√</td>
@@ -1241,6 +1447,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
+<td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -1258,6 +1465,7 @@
 <td>√</td>
 <td>T/D</td>
 <td>T/D</td>
+<td>T/D</td>
 <td>√</td>
 <td>T/D</td>
 </tr>
@@ -1267,7 +1475,6 @@
 </div>
 
 
-           </div>
           </div>
           <footer>
   
@@ -1285,11 +1492,10 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2016, cclib Development Team.
-
+        &copy; Copyright 2014-2018, cclib Development Team.
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
 </footer>
 
@@ -1307,7 +1513,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.5',
+            VERSION:'1.5.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
@@ -1316,7 +1522,7 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
