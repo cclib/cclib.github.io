@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; cclib 1.5.3 documentation</title>
+  <title>Changelog &mdash; cclib 1.6 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="cclib 1.5.3 documentation" href="index.html"/>
+    <link rel="top" title="cclib 1.6 documentation" href="index.html"/>
         <link rel="prev" title="Development parsed data" href="data_dev.html"/> 
 
   
@@ -101,7 +101,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.5.3)</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.6)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="data.html#description-of-parsed-data">Description of parsed data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data.html#details-of-current-implementation">Details of current implementation</a></li>
 </ul>
@@ -191,6 +191,10 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-6">Changes in cclib-1.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-5-3">Changes in cclib-1.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-5-2">Changes in cclib-1.5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-5-1">Changes in cclib-1.5.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-5">Changes in cclib-1.5</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-4-1">Changes in cclib-1.4.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-4">Changes in cclib-1.4</a></li>
@@ -249,6 +253,88 @@
             
   <div class="section" id="changelog">
 <span id="index-0"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="changes-in-cclib-1-6">
+<h2>Changes in cclib-1.6<a class="headerlink" href="#changes-in-cclib-1-6" title="Permalink to this headline">¶</a></h2>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li>New parser: cclib can now parse Molcas files (Kunal Sharma)</li>
+<li>New parser: cclib can now parse Turbomole files (Christopher Rowley, Kunal Sharma)</li>
+<li>New script: ccframe writes data table files from logfiles (Felipe Schneider)</li>
+<li>New method: stoichiometry builds the chemical formula of a system (Jaime Rodríguez-Guerra)</li>
+<li>Support package version in metadata for most parsers</li>
+<li>Support time attribute and BOMD output in Gaussian, NWChem, ORCA and QChem</li>
+<li>Support grads and metadata attributes in ORCA (Jonathon Vandezande)</li>
+<li>Experimental support for CASSCF output in ORCA (Jonathon Vandezande)</li>
+<li>Added entry in metadata for successful completion of jobs</li>
+<li>Updated test file versions to ORCA 4.0</li>
+<li>Update minimum Python3 version to 3.4</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul class="simple">
+<li>Fixed parsing ORCA output with linear molecules (Jonathon Vandezande)</li>
+<li>Fixed parsing NWChem output with incomplete SCF</li>
+</ul>
+</div>
+<div class="section" id="changes-in-cclib-1-5-3">
+<h2>Changes in cclib-1.5.3<a class="headerlink" href="#changes-in-cclib-1-5-3" title="Permalink to this headline">¶</a></h2>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li>New attribute transprop for electronic transitions (Jonathon Vandezande)</li>
+<li>Support grads attribute in Psi4 (Adam Abbott)</li>
+<li>Support grads attribute in Molpro (Oskar Weser)</li>
+<li>Support optstatus for IRCs and in Psi4 (Emmanuel LaTruelle)</li>
+<li>Updated test file versions to Gaussian16 (Andrew S. Rosen)</li>
+<li>Add ability to write XYZ coordinates for arbitrary indices</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul class="simple">
+<li>Fixed ccwrite script and added unit tests (Georgy Frolov)</li>
+<li>Fixed closed shell determination for Gaussian (Jaime Rodríguez-Guerra)</li>
+<li>Fixed parsing of natom for &gt;9999 atoms in Gaussian (Jaime Rodríguez-Guerra)</li>
+<li>Fixed parsing of ADF jobs with no title</li>
+<li>Fixed parsing of charge and core electrons when using ECPs in QChem</li>
+<li>Fixed parsing of scfvalues for malformed output in Gaussian</li>
+</ul>
+</div>
+<div class="section" id="changes-in-cclib-1-5-2">
+<h2>Changes in cclib-1.5.2<a class="headerlink" href="#changes-in-cclib-1-5-2" title="Permalink to this headline">¶</a></h2>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li>Support for writing Molden and WFX files (Sagar Gaur)</li>
+<li>Support for thermochemistry attributes in ORCA (Jonathon Vandezande)</li>
+<li>Support for chelpg atomic charges in ORCA (Richard Gowers)</li>
+<li>Updated test file versions to GAMESS-US 2017 (Sagar Gaur)</li>
+<li>Added option to print full arrays with ccget (Sagar Gaur)</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul class="simple">
+<li>Fixed polarizability parsing bug in DALTON (Maxim Stolyarchuk)</li>
+<li>Fixed IRC parsing in Gaussian for large trajectories (Dénes Berta, LaTruelle)</li>
+<li>Fixed coordinate parsing for heavy elements in ORCA (Jonathon Vandezande)</li>
+<li>Fixed parsing of large mocoeffs in fixed width format for QChem (srtlg)</li>
+<li>Fixed parsing of large polarizabilities in fixed width format for DALTON (Maxim Stolyarchuk)</li>
+<li>Fixed parsing molecular orbitals when there are more than basis set functions in QChem</li>
+</ul>
+</div>
+<div class="section" id="changes-in-cclib-1-5-1">
+<h2>Changes in cclib-1.5.1<a class="headerlink" href="#changes-in-cclib-1-5-1" title="Permalink to this headline">¶</a></h2>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li>New attribute polarizabilities for static or dynamic dipole polarizability</li>
+<li>New attribute pressure for thermochemistry (renpj)</li>
+<li>Add property to detect closed shells in parsed data</li>
+<li>Handle RPA excited state calculation in ORCA, in addition to TDA</li>
+<li>Support for Python 3.6</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul class="simple">
+<li>Restore alias cclib.parser.ccopen for backwards compatibility</li>
+<li>Fixed parsing thermochemistry for single atoms in QChem</li>
+<li>Fixed handling of URLs (Alexey Alnatanov)</li>
+<li>Fixed Atom object creation in Biopython bridge (Nitish Garg)</li>
+<li>Fixed ccopen when working with multiple files</li>
+</ul>
+</div>
 <div class="section" id="changes-in-cclib-1-5">
 <h2>Changes in cclib-1.5<a class="headerlink" href="#changes-in-cclib-1-5" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
@@ -280,7 +366,7 @@
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
 <li>Fix for non-standard basis sets in DALTON</li>
-<li>Fix for non-standard MO coefficient printin in GAMESS</li>
+<li>Fix for non-standard MO coefficient printing in GAMESS</li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-1-4">
@@ -305,7 +391,7 @@
 <li>Fix parsing basis section for Molpro job generated by Avogadro</li>
 <li>Fix parsing multi-job Gaussian output with different orbitals (Geoff Hutchinson)</li>
 <li>Fix parsing ORCA geometry optimization with improper internal coordinates (glideht)</li>
-<li>Fix units in atom corodinates parsed from GAMESS-UK files (mwykes)</li>
+<li>Fix units in atom coordinates parsed from GAMESS-UK files (mwykes)</li>
 <li>Fix test for vibrational frequencies in Turbomole (mwykes)</li>
 <li>Fix parsing vibration symmetries for Molpro (mwykes)</li>
 <li>Fix parsing eigenvectors in GAMESS-US (Alexis Otero-Calvis)</li>
@@ -373,7 +459,7 @@
 <h2>Changes in cclib-1.2<a class="headerlink" href="#changes-in-cclib-1-2" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>Move project to github</li>
+<li>Move project to GitHub</li>
 <li>Transition to Python 3 (Python 2.7 will still work)</li>
 <li>Add a multifile mode to ccget script</li>
 <li>Extract vibrational displacements for ORCA</li>
@@ -382,7 +468,7 @@
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Ignore unicode errors in logfiles</li>
+<li>Ignore Unicode errors in logfiles</li>
 <li>Handle Gaussian jobs with terse output (basis set count not reported)</li>
 <li>Handle Gaussian jobs using IndoGuess (Scott McKechnie)</li>
 <li>Handle Gaussian file with irregular ONION gradients (Tamilmani S)</li>
@@ -394,12 +480,12 @@
 </div>
 <div class="section" id="changes-in-cclib-1-1">
 <h2>Changes in cclib-1.1<a class="headerlink" href="#changes-in-cclib-1-1" title="Permalink to this headline">¶</a></h2>
-<p><strong>Feaures</strong></p>
+<p><strong>Features</strong></p>
 <ul class="simple">
 <li>Add progress info for all parsers</li>
 <li>Support ONIOM calculations in Gaussian (Karen Hemelsoet)</li>
-<li>New attribute atomcharges extracts Mulliken and Lowdin atomic charges if present</li>
-<li>New attribute atomspins extracts Mulliken and Lowdin atomic spin densities if present</li>
+<li>New attribute atomcharges extracts Mulliken and Löwdin atomic charges if present</li>
+<li>New attribute atomspins extracts Mulliken and Löwdin atomic spin densities if present</li>
 <li>New thermodynamic attributes: freeenergy, temperature, enthalpy (Edward Holland)</li>
 <li>Extract PES information: scanenergies, scancoords, scanparm, scannames (Edward Holland)</li>
 </ul>
@@ -422,7 +508,7 @@
 </div>
 <div class="section" id="changes-in-cclib-1-0-1">
 <h2>Changes in cclib-1.0.1<a class="headerlink" href="#changes-in-cclib-1-0-1" title="Permalink to this headline">¶</a></h2>
-<p><strong>Feaures</strong></p>
+<p><strong>Features</strong></p>
 <ul class="simple">
 <li>New attribute atommasses - atomic masses in Dalton</li>
 <li>Added support for Gaussian geometry optimisations that change the number of linearly independent basis functions over the course of the calculation</li>
@@ -440,7 +526,7 @@
 </div>
 <div class="section" id="changes-in-cclib-1-0">
 <h2>Changes in cclib-1.0<a class="headerlink" href="#changes-in-cclib-1-0" title="Permalink to this headline">¶</a></h2>
-<p><strong>Feaures</strong></p>
+<p><strong>Features</strong></p>
 <ul class="simple">
 <li>Handle PBC calculations from Gaussian</li>
 <li>Updates to handle Gaussian09</li>
@@ -455,7 +541,7 @@
 </div>
 <div class="section" id="changes-in-cclib-0-9">
 <h2>Changes in cclib-0.9<a class="headerlink" href="#changes-in-cclib-0-9" title="Permalink to this headline">¶</a></h2>
-<p><strong>Feaures</strong></p>
+<p><strong>Features</strong></p>
 <ul class="simple">
 <li>New parser: cclib can now parse ORCA files</li>
 <li>Added option to use setuptools instead of distutils.core for installing</li>
@@ -644,7 +730,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.5.3',
+            VERSION:'1.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Development &mdash; cclib 1.5.3 documentation</title>
+  <title>Development &mdash; cclib 1.6 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="cclib 1.5.3 documentation" href="index.html"/>
+    <link rel="top" title="cclib 1.6 documentation" href="index.html"/>
         <link rel="next" title="Development parsed data" href="data_dev.html"/>
         <link rel="prev" title="Calculation methods" href="methods.html"/> 
 
@@ -102,7 +102,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.5.3)</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.6)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="data.html#description-of-parsed-data">Description of parsed data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data.html#details-of-current-implementation">Details of current implementation</a></li>
 </ul>
@@ -192,6 +192,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-6">Changes in cclib-1.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-5-3">Changes in cclib-1.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-5-2">Changes in cclib-1.5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-5-1">Changes in cclib-1.5.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-5">Changes in cclib-1.5</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-4-1">Changes in cclib-1.4.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-4">Changes in cclib-1.4</a></li>
@@ -298,7 +302,7 @@
 </div>
 <div class="section" id="testing">
 <h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
-<p id="index-0">The <a class="reference external" href="https://github.com/cclib/cclib/tree/master/test">test directory</a>, which is not included in the default download, contains the test scripts that keep cclib reliable, and keep the developers sane. With any new commit or pull request to cclib on GitHub the tests are triggered and run with <a class="reference external" href="https://travis-ci.org/cclib/cclib">Travis CI</a>, for both the current production version 1.5.3 (<img alt="travis_prod" src="https://travis-ci.org/cclib/cclib.svg?branch=v1.5.3" />) as well as master (<img alt="travis_master" src="https://travis-ci.org/cclib/cclib.svg?branch=master" />).</p>
+<p id="index-0">The <a class="reference external" href="https://github.com/cclib/cclib/tree/master/test">test directory</a>, which is not included in the default download, contains the test scripts that keep cclib reliable, and keep the developers sane. With any new commit or pull request to cclib on GitHub the tests are triggered and run with <a class="reference external" href="https://travis-ci.org/cclib/cclib">Travis CI</a>, for both the current production version 1.6 (<img alt="travis_prod" src="https://travis-ci.org/cclib/cclib.svg?branch=v1.6" />) as well as master (<img alt="travis_master" src="https://travis-ci.org/cclib/cclib.svg?branch=master" />).</p>
 <p>The input files for tests, which are logfiles from computational chemistry programs, are located in the <a class="reference external" href="https://github.com/cclib/cclib/tree/master/data">data directory</a>. These are a central part of cclib, and any progress should always be supported by corresponding tests. When a user opens an issue or reports a bug, it is prudent to write a test that reproduces the bug as well as fixing it. This ensures it will remain fixed in the future. Likewise, extending the coverage of data attributes to more programs should proceed in parallel with the growth of unit tests.</p>
 <div class="section" id="unit-tests">
 <span id="index-1"></span><h3>Unit tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h3>
@@ -387,7 +391,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.5.3',
+            VERSION:'1.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
