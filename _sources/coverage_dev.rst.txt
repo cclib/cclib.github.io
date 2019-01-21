@@ -42,6 +42,8 @@ attributes          ADF                 DALTON              GAMESS              
 `nmo`_              √                   √                   √                   √                   √                   √                   √                   √                   T/D                 √                   √                   √                   √                   √                   √                   
 `nocoeffs`_         T/D                 T/D                 √                   T/D                 √                   T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 
 `nooccnos`_         T/D                 T/D                 √                   √                   √                   T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 
+`nsocoeffs`_        T/D                 T/D                 T/D                 T/D                 √                   T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 
+`nsooccnos`_        T/D                 T/D                 T/D                 T/D                 √                   T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 
 `optdone`_          √                   √                   √                   √                   √                   √                   √                   √                   T/D                 √                   √                   T/D                 √                   √                   T/D                 
 `optstatus`_        T/D                 T/D                 T/D                 T/D                 √                   T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 √                   T/D                 T/D                 
 `polarizabilities`_ T/D                 √                   √                   T/D                 √                   T/D                 √                   T/D                 T/D                 √                   √                   T/D                 T/D                 √                   T/D                 
@@ -105,6 +107,8 @@ attributes          ADF                 DALTON              GAMESS              
 .. _`nmo`: data_notes.html#nmo
 .. _`nocoeffs`: data_notes.html#nocoeffs
 .. _`nooccnos`: data_notes.html#nooccnos
+.. _`nsocoeffs`: data_notes.html#nsocoeffs
+.. _`nsooccnos`: data_notes.html#nsooccnos
 .. _`optdone`: data_notes.html#optdone
 .. _`optstatus`: data_notes.html#optstatus
 .. _`polarizabilities`: data_notes.html#polarizabilities

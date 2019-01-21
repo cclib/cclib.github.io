@@ -42,6 +42,8 @@
     `nmo`_              number of molecular orbitals                                                                 integer
     `nocoeffs`_         natural orbital coefficients                                                                 array of rank 2
     `nooccnos`_         natural orbital occupation numbers                                                           array of rank 1
+    `nsocoeffs`_        natural spin orbital coefficients                                                            list of array of rank 2
+    `nsooccnos`_        natural spin orbital occupation numbers                                                      list of array of rank 1
     `optdone`_          flags whether an optimization has converged                                                  Boolean
     `optstatus`_        optimization status for each set of atomic coordinates                                       array of rank 1
     `polarizabilities`_ (dipole) polarizabilities, static or dynamic                                                 list of arrays of rank 2
@@ -105,6 +107,8 @@
 .. _`nmo`: data_notes.html#nmo
 .. _`nocoeffs`: data_notes.html#nocoeffs
 .. _`nooccnos`: data_notes.html#nooccnos
+.. _`nsocoeffs`: data_notes.html#nsocoeffs
+.. _`nsooccnos`: data_notes.html#nsooccnos
 .. _`optdone`: data_notes.html#optdone
 .. _`optstatus`: data_notes.html#optstatus
 .. _`polarizabilities`: data_notes.html#polarizabilities
