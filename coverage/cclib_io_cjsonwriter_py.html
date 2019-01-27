@@ -515,7 +515,7 @@
 <p id="t219" class="stm run hide_run">            <span class="nam">self</span><span class="op">.</span><span class="nam">current_indent_str</span> <span class="op">=</span> <span class="str">""</span><span class="op">.</span><span class="nam">join</span><span class="op">(</span><span class="op">[</span><span class="str">" "</span> <span class="key">for</span> <span class="nam">x</span> <span class="key">in</span> <span class="nam">range</span><span class="op">(</span><span class="nam">self</span><span class="op">.</span><span class="nam">current_indent</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t220" class="stm run hide_run">            <span class="key">return</span> <span class="str">"{\n"</span> <span class="op">+</span> <span class="str">",\n"</span><span class="op">.</span><span class="nam">join</span><span class="op">(</span><span class="nam">output</span><span class="op">)</span> <span class="op">+</span> <span class="str">"\n"</span> <span class="op">+</span> <span class="nam">self</span><span class="op">.</span><span class="nam">current_indent_str</span> <span class="op">+</span> <span class="str">"}"</span><span class="strut">&nbsp;</span></p>
 <p id="t221" class="stm run hide_run">        <span class="key">elif</span> <span class="nam">isinstance</span><span class="op">(</span><span class="nam">o</span><span class="op">,</span> <span class="nam">np</span><span class="op">.</span><span class="nam">generic</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t222" class="stm run hide_run">            <span class="key">return</span> <span class="nam">json</span><span class="op">.</span><span class="nam">dumps</span><span class="op">(</span><span class="nam">np</span><span class="op">.</span><span class="nam">asscalar</span><span class="op">(</span><span class="nam">o</span><span class="op">)</span><span class="op">,</span> <span class="nam">cls</span><span class="op">=</span><span class="nam">NumpyAwareJSONEncoder</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t222" class="stm run hide_run">            <span class="key">return</span> <span class="nam">json</span><span class="op">.</span><span class="nam">dumps</span><span class="op">(</span><span class="nam">o</span><span class="op">.</span><span class="nam">item</span><span class="op">(</span><span class="op">)</span><span class="op">,</span> <span class="nam">cls</span><span class="op">=</span><span class="nam">NumpyAwareJSONEncoder</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t223" class="pln">        <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t224" class="stm run hide_run">            <span class="key">return</span> <span class="nam">json</span><span class="op">.</span><span class="nam">dumps</span><span class="op">(</span><span class="nam">o</span><span class="op">,</span> <span class="nam">cls</span><span class="op">=</span><span class="nam">NumpyAwareJSONEncoder</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 
@@ -528,7 +528,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2019-01-21 00:06
+            created at 2019-01-27 07:41
         </p>
     </div>
 </div>
