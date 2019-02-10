@@ -8,7 +8,7 @@
     
     
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for cclib/parser/logfileparser.py: 84%</title>
+    <title>Coverage for cclib/parser/logfileparser.py: 86%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -24,15 +24,15 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>cclib/parser/logfileparser.py</b> :
-            <span class="pc_cov">84%</span>
+            <span class="pc_cov">86%</span>
         </h1>
 
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
             253 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">213 run</span>
-            <span class="mis shortkey_m button_toggle_mis">40 missing</span>
+            <span class="run hide_run shortkey_r button_toggle_run">217 run</span>
+            <span class="mis shortkey_m button_toggle_mis">36 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
             
@@ -338,11 +338,11 @@
 <p id="n269" class="stm run hide_run"><a href="#n269">269</a></p>
 <p id="n270" class="pln"><a href="#n270">270</a></p>
 <p id="n271" class="pln"><a href="#n271">271</a></p>
-<p id="n272" class="stm mis"><a href="#n272">272</a></p>
-<p id="n273" class="stm mis"><a href="#n273">273</a></p>
-<p id="n274" class="stm mis"><a href="#n274">274</a></p>
+<p id="n272" class="stm run hide_run"><a href="#n272">272</a></p>
+<p id="n273" class="stm run hide_run"><a href="#n273">273</a></p>
+<p id="n274" class="stm run hide_run"><a href="#n274">274</a></p>
 <p id="n275" class="pln"><a href="#n275">275</a></p>
-<p id="n276" class="stm mis"><a href="#n276">276</a></p>
+<p id="n276" class="stm run hide_run"><a href="#n276">276</a></p>
 <p id="n277" class="pln"><a href="#n277">277</a></p>
 <p id="n278" class="pln"><a href="#n278">278</a></p>
 <p id="n279" class="stm run hide_run"><a href="#n279">279</a></p>
@@ -608,7 +608,7 @@
             <td class="text">
 <p id="t1" class="pln"><span class="com"># -*- coding: utf-8 -*-</span><span class="strut">&nbsp;</span></p>
 <p id="t2" class="pln"><span class="com">#</span><span class="strut">&nbsp;</span></p>
-<p id="t3" class="pln"><span class="com"># Copyright (c) 2018, the cclib development team</span><span class="strut">&nbsp;</span></p>
+<p id="t3" class="pln"><span class="com"># Copyright (c) 2019, the cclib development team</span><span class="strut">&nbsp;</span></p>
 <p id="t4" class="pln"><span class="com">#</span><span class="strut">&nbsp;</span></p>
 <p id="t5" class="pln"><span class="com"># This file is part of cclib (http://cclib.github.io) and is distributed under</span><span class="strut">&nbsp;</span></p>
 <p id="t6" class="pln"><span class="com"># the terms of the BSD 3-Clause License.</span><span class="strut">&nbsp;</span></p>
@@ -873,15 +873,15 @@
 <p id="t265" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t266" class="stm run hide_run">    <span class="key">def</span> <span class="nam">__setattr__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">name</span><span class="op">,</span> <span class="nam">value</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t267" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t268" class="pln">        <span class="com"># Send info to logger if the attribute is in the list self._attrlist.</span><span class="strut">&nbsp;</span></p>
-<p id="t269" class="stm run hide_run">        <span class="key">if</span> <span class="nam">name</span> <span class="key">in</span> <span class="nam">getattr</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="str">"_attrlist"</span><span class="op">,</span> <span class="op">{</span><span class="op">}</span><span class="op">)</span> <span class="key">and</span> <span class="nam">hasattr</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="str">"logger"</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t268" class="pln">        <span class="com"># Send info to logger if the attribute is in the list of attributes.</span><span class="strut">&nbsp;</span></p>
+<p id="t269" class="stm run hide_run">        <span class="key">if</span> <span class="nam">name</span> <span class="key">in</span> <span class="nam">ccData</span><span class="op">.</span><span class="nam">_attrlist</span> <span class="key">and</span> <span class="nam">hasattr</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="str">"logger"</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t270" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t271" class="pln">            <span class="com"># Call logger.info() only if the attribute is new.</span><span class="strut">&nbsp;</span></p>
-<p id="t272" class="stm mis">            <span class="key">if</span> <span class="key">not</span> <span class="nam">hasattr</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">name</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t273" class="stm mis">                <span class="key">if</span> <span class="nam">type</span><span class="op">(</span><span class="nam">value</span><span class="op">)</span> <span class="key">in</span> <span class="op">[</span><span class="nam">numpy</span><span class="op">.</span><span class="nam">ndarray</span><span class="op">,</span> <span class="nam">list</span><span class="op">]</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t274" class="stm mis">                    <span class="nam">self</span><span class="op">.</span><span class="nam">logger</span><span class="op">.</span><span class="nam">info</span><span class="op">(</span><span class="str">"Creating attribute %s[]"</span> <span class="op">%</span> <span class="nam">name</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t272" class="stm run hide_run">            <span class="key">if</span> <span class="key">not</span> <span class="nam">hasattr</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">name</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t273" class="stm run hide_run">                <span class="key">if</span> <span class="nam">type</span><span class="op">(</span><span class="nam">value</span><span class="op">)</span> <span class="key">in</span> <span class="op">[</span><span class="nam">numpy</span><span class="op">.</span><span class="nam">ndarray</span><span class="op">,</span> <span class="nam">list</span><span class="op">]</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
+<p id="t274" class="stm run hide_run">                    <span class="nam">self</span><span class="op">.</span><span class="nam">logger</span><span class="op">.</span><span class="nam">info</span><span class="op">(</span><span class="str">"Creating attribute %s[]"</span> <span class="op">%</span> <span class="nam">name</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t275" class="pln">                <span class="key">else</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t276" class="stm mis">                    <span class="nam">self</span><span class="op">.</span><span class="nam">logger</span><span class="op">.</span><span class="nam">info</span><span class="op">(</span><span class="str">"Creating attribute %s: %s"</span> <span class="op">%</span> <span class="op">(</span><span class="nam">name</span><span class="op">,</span> <span class="nam">str</span><span class="op">(</span><span class="nam">value</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t276" class="stm run hide_run">                    <span class="nam">self</span><span class="op">.</span><span class="nam">logger</span><span class="op">.</span><span class="nam">info</span><span class="op">(</span><span class="str">"Creating attribute %s: %s"</span> <span class="op">%</span> <span class="op">(</span><span class="nam">name</span><span class="op">,</span> <span class="nam">str</span><span class="op">(</span><span class="nam">value</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t277" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t278" class="pln">        <span class="com"># Set the attribute.</span><span class="strut">&nbsp;</span></p>
 <p id="t279" class="stm run hide_run">        <span class="nam">object</span><span class="op">.</span><span class="nam">__setattr__</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">name</span><span class="op">,</span> <span class="nam">value</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -1152,7 +1152,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.2</a>,
-            created at 2019-02-09 15:46
+            created at 2019-02-10 17:38
         </p>
     </div>
 </div>
