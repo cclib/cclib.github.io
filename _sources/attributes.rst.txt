@@ -9,8 +9,8 @@
     `atommasses`_       atom masses                                                      daltons                     array of rank 1
     `atomnos`_          atomic numbers                                                                               array of rank 1
     `atomspins`_        atomic spin densities                                                                        dict of arrays of rank 1
-    `charge`_           net charge of the system                                                                     integer
     `ccenergies`_       molecular energies with Coupled-Cluster corrections              eV                          array of rank 2
+    `charge`_           net charge of the system                                                                     integer
     `coreelectrons`_    number of core electrons in atom pseudopotentials                                            array of rank 1
     `enthalpy`_         sum of electronic and thermal enthalpies                         hartree/particle            float
     `entropy`_          entropy                                                          hartree/particle            float
@@ -42,6 +42,8 @@
     `nmo`_              number of molecular orbitals                                                                 integer
     `nocoeffs`_         natural orbital coefficients                                                                 array of rank 2
     `nooccnos`_         natural orbital occupation numbers                                                           array of rank 1
+    `nsocoeffs`_        natural spin orbital coefficients                                                            list of array of rank 2
+    `nsooccnos`_        natural spin orbital occupation numbers                                                      list of array of rank 1
     `optdone`_          flags whether an optimization has converged                                                  Boolean
     `optstatus`_        optimization status for each set of atomic coordinates                                       array of rank 1
     `polarizabilities`_ (dipole) polarizabilities, static or dynamic                                                 list of arrays of rank 2
@@ -54,8 +56,8 @@
     `scftargets`_       targets for convergence of the SCF                                                           array of rank 2
     `scfvalues`_        current values for convergence of the SCF                                                    list of arrays of rank 2
     `temperature`_      temperature used for Thermochemistry                             kelvin                      float
-    `transprop`_        all absorption and emission spectra (dictionary {name:           etoscs                      etenergies
     `time`_             time in molecular dynamics and other trajectories                fs                          array of rank 1
+    `transprop`_        all absorption and emission spectra (dictionary {name:           etoscs                      etenergies
     `vibanharms`_       vibrational anharmonicity constants                              1/cm                        array of rank 2
     `vibdisps`_         cartesian displacement vectors                                   delta angstrom              array of rank 3
     `vibfreqs`_         vibrational frequencies                                          1/cm                        array of rank 1
@@ -72,8 +74,8 @@
 .. _`atommasses`: data_notes.html#atommasses
 .. _`atomnos`: data_notes.html#atomnos
 .. _`atomspins`: data_notes.html#atomspins
-.. _`charge`: data_notes.html#charge
 .. _`ccenergies`: data_notes.html#ccenergies
+.. _`charge`: data_notes.html#charge
 .. _`coreelectrons`: data_notes.html#coreelectrons
 .. _`enthalpy`: data_notes.html#enthalpy
 .. _`entropy`: data_notes.html#entropy
@@ -105,6 +107,8 @@
 .. _`nmo`: data_notes.html#nmo
 .. _`nocoeffs`: data_notes.html#nocoeffs
 .. _`nooccnos`: data_notes.html#nooccnos
+.. _`nsocoeffs`: data_notes.html#nsocoeffs
+.. _`nsooccnos`: data_notes.html#nsooccnos
 .. _`optdone`: data_notes.html#optdone
 .. _`optstatus`: data_notes.html#optstatus
 .. _`polarizabilities`: data_notes.html#polarizabilities
@@ -117,8 +121,8 @@
 .. _`scftargets`: data_notes.html#scftargets
 .. _`scfvalues`: data_notes.html#scfvalues
 .. _`temperature`: data_notes.html#temperature
-.. _`transprop`: data_notes.html#transprop
 .. _`time`: data_notes.html#time
+.. _`transprop`: data_notes.html#transprop
 .. _`vibanharms`: data_notes.html#vibanharms
 .. _`vibdisps`: data_notes.html#vibdisps
 .. _`vibfreqs`: data_notes.html#vibfreqs

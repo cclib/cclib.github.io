@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; cclib 1.6 documentation</title>
+  <title>Changelog &mdash; cclib 1.6.1 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="cclib 1.6 documentation" href="index.html"/>
+    <link rel="top" title="cclib 1.6.1 documentation" href="index.html"/>
         <link rel="prev" title="Development parsed data" href="data_dev.html"/> 
 
   
@@ -101,7 +101,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.6)</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.6.1)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="data.html#description-of-parsed-data">Description of parsed data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data.html#details-of-current-implementation">Details of current implementation</a></li>
 </ul>
@@ -191,6 +191,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-6-1">Changes in cclib-1.6.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-6">Changes in cclib-1.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-5-3">Changes in cclib-1.5.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-5-2">Changes in cclib-1.5.2</a></li>
@@ -253,6 +254,33 @@
             
   <div class="section" id="changelog">
 <span id="index-0"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="changes-in-cclib-1-6-1">
+<h2>Changes in cclib-1.6.1<a class="headerlink" href="#changes-in-cclib-1-6-1" title="Permalink to this headline">¶</a></h2>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li>New attribute nsocoeffs for natural spin orbital coefficients (Shiv Upadhyay)</li>
+<li>New attribute nsooccnos for natural spin orbital occupation numbers (Shiv Upadhyay)</li>
+<li>New methods: alpha and beta electron counts (Jaime Rodríguez-Guerra)</li>
+<li>Support coreelectrons attribute in Molcas (Kunal Sharma)</li>
+<li>Support etoscs for response calculations in Dalton (Peter Reinholdt)</li>
+<li>Support etenergies for TDDFT in GAMESS</li>
+<li>Support etrotats attribute in ORCA</li>
+<li>Support functional name in metadata for Psi4 (Alessandro Genova)</li>
+<li>Updated testing framework (Jaime Rodríguez-Guerra, Maxim Stolyarchuk and others)</li>
+<li>Updated test file version to QChem 5.1</li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul class="simple">
+<li>Fixed parsing GAMESS output for EOM-CC output</li>
+<li>Fixed parsing Gaussian output for G3 jobs</li>
+<li>Fixed parsing ORCA output for certain invalid inputs (Felipe S. S. Schneider)</li>
+<li>Fixed parsing of mocoeffs in ORCA when they are glued together (Felipe S. S. Schneider)</li>
+<li>Fixed parsing of mocoeffs and vibfreqs in Psi4 (Alessandro Genova)</li>
+<li>Fixed parsing of mocoeffs in Molcas for some files (Shiv Upadhyay)</li>
+<li>Fixed parsing of etsecs in Dalton</li>
+<li>Fixed bond atom indices in CJSON output (Alessandro Genova)</li>
+</ul>
+</div>
 <div class="section" id="changes-in-cclib-1-6">
 <h2>Changes in cclib-1.6<a class="headerlink" href="#changes-in-cclib-1-6" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
@@ -730,7 +758,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.6',
+            VERSION:'1.6.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

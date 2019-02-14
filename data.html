@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Parsed data (version 1.6) &mdash; cclib 1.6 documentation</title>
+  <title>Parsed data (version 1.6.1) &mdash; cclib 1.6.1 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="cclib 1.6 documentation" href="index.html"/>
+    <link rel="top" title="cclib 1.6.1 documentation" href="index.html"/>
         <link rel="next" title="Parsed data notes" href="data_notes.html"/>
         <link rel="prev" title="How to parse and write" href="how_to_parse.html"/> 
 
@@ -102,7 +102,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Parsed data (version 1.6)</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Parsed data (version 1.6.1)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#description-of-parsed-data">Description of parsed data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#details-of-current-implementation">Details of current implementation</a></li>
 </ul>
@@ -192,6 +192,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-6-1">Changes in cclib-1.6.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-6">Changes in cclib-1.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-5-3">Changes in cclib-1.5.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-in-cclib-1-5-2">Changes in cclib-1.5.2</a></li>
@@ -239,7 +240,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="contents.html">Docs</a> &raquo;</li>
       
-    <li>Parsed data (version 1.6)</li>
+    <li>Parsed data (version 1.6.1)</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -253,8 +254,8 @@
           <div role="main" class="document">
             
   <div class="section" id="parsed-data-version-release">
-<h1>Parsed data (version 1.6)<a class="headerlink" href="#parsed-data-version-release" title="Permalink to this headline">¶</a></h1>
-<p>This is a list of all the data parsed by the current official release of cclib (namely version 1.6). For the same list for the development version, see <a class="reference external" href="data_dev.html">development parsed data</a>. For details and miscellaneous notes on these attributes, see the <a class="reference external" href="data_notes.html">data notes</a> page.</p>
+<h1>Parsed data (version 1.6.1)<a class="headerlink" href="#parsed-data-version-release" title="Permalink to this headline">¶</a></h1>
+<p>This is a list of all the data parsed by the current official release of cclib (namely version 1.6.1). For the same list for the development version, see <a class="reference external" href="data_dev.html">development parsed data</a>. For details and miscellaneous notes on these attributes, see the <a class="reference external" href="data_notes.html">data notes</a> page.</p>
 <div class="section" id="description-of-parsed-data">
 <h2>Description of parsed data<a class="headerlink" href="#description-of-parsed-data" title="Permalink to this headline">¶</a></h2>
 <p>Click the attribute name in the table below to go the notes and specifications for a particular attribute. All arrays are Numpy arrays of type ‘d’ (if containing floats) or ‘i’ (if containing integers).</p>
@@ -314,15 +315,15 @@
 <td>&#160;</td>
 <td>dict of arrays of rank 1</td>
 </tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#charge">charge</a></td>
-<td>net charge of the system</td>
-<td>&#160;</td>
-<td>integer</td>
-</tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#ccenergies">ccenergies</a></td>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#ccenergies">ccenergies</a></td>
 <td>molecular energies with Coupled-Cluster corrections</td>
 <td>eV</td>
 <td>array of rank 2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#charge">charge</a></td>
+<td>net charge of the system</td>
+<td>&#160;</td>
+<td>integer</td>
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#coreelectrons">coreelectrons</a></td>
 <td>number of core electrons in atom pseudopotentials</td>
@@ -479,6 +480,16 @@
 <td>&#160;</td>
 <td>array of rank 1</td>
 </tr>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#nsocoeffs">nsocoeffs</a></td>
+<td>natural spin orbital coefficients</td>
+<td>&#160;</td>
+<td>list of array of rank 2</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#nsooccnos">nsooccnos</a></td>
+<td>natural spin orbital occupation numbers</td>
+<td>&#160;</td>
+<td>list of array of rank 1</td>
+</tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#optdone">optdone</a></td>
 <td>flags whether an optimization has converged</td>
 <td>&#160;</td>
@@ -539,15 +550,15 @@
 <td>kelvin</td>
 <td>float</td>
 </tr>
-<tr class="row-odd"><td><a class="reference external" href="data_notes.html#transprop">transprop</a></td>
-<td>all absorption and emission spectra (dictionary {name:</td>
-<td>etoscs</td>
-<td>etenergies</td>
-</tr>
-<tr class="row-even"><td><a class="reference external" href="data_notes.html#time">time</a></td>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#time">time</a></td>
 <td>time in molecular dynamics and other trajectories</td>
 <td>fs</td>
 <td>array of rank 1</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#transprop">transprop</a></td>
+<td>all absorption and emission spectra (dictionary {name:</td>
+<td>etoscs</td>
+<td>etenergies</td>
 </tr>
 <tr class="row-odd"><td><a class="reference external" href="data_notes.html#vibanharms">vibanharms</a></td>
 <td>vibrational anharmonicity constants</td>
@@ -865,7 +876,7 @@
 </tr>
 <tr class="row-even"><td><a class="reference external" href="data_notes.html#etoscs">etoscs</a></td>
 <td>√</td>
-<td>T/D</td>
+<td>√</td>
 <td>√</td>
 <td>T/D</td>
 <td>√</td>
@@ -891,7 +902,7 @@
 <td>T/D</td>
 <td>T/D</td>
 <td>T/D</td>
-<td>T/D</td>
+<td>√</td>
 <td>T/D</td>
 <td>T/D</td>
 <td>N/P</td>
@@ -1024,7 +1035,7 @@
 <td>√</td>
 <td>√</td>
 <td>√</td>
-<td>T/D</td>
+<td>√</td>
 <td>T/D</td>
 <td>√</td>
 <td>√</td>
@@ -1310,6 +1321,40 @@
 <td>T/D</td>
 <td>√</td>
 <td>√</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="data_notes.html#nsocoeffs">nsocoeffs</a></td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>√</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="data_notes.html#nsooccnos">nsooccnos</a></td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
+<td>T/D</td>
 <td>√</td>
 <td>T/D</td>
 <td>T/D</td>
@@ -1706,7 +1751,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.6',
+            VERSION:'1.6.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
