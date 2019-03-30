@@ -269,16 +269,16 @@
 <h3>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h3>
 <p>We follow a typical GitHub collaborative model, relying on <a class="reference external" href="https://help.github.com/articles/using-pull-requests">forks and pull requests</a>. In short, the development process consists of:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://help.github.com/articles/fork-a-repo">Creating your own fork</a> of cclib in order to develop</li>
-<li><a class="reference external" href="https://help.github.com/articles/creating-a-pull-request">Creating a pull request</a> to contribute your changes</li>
-<li>Reviewing and merging open pull requests (by someone else)</li>
-<li>Using <a class="reference external" href="https://github.com/cclib/cclib/issues">issues</a> to plan and prioritize future work</li>
+<li><p><a class="reference external" href="https://help.github.com/articles/fork-a-repo">Creating your own fork</a> of cclib in order to develop</p></li>
+<li><p><a class="reference external" href="https://help.github.com/articles/creating-a-pull-request">Creating a pull request</a> to contribute your changes</p></li>
+<li><p>Reviewing and merging open pull requests (by someone else)</p></li>
+<li><p>Using <a class="reference external" href="https://github.com/cclib/cclib/issues">issues</a> to plan and prioritize future work</p></li>
 </ul>
 <p>Here are some general guidelines for developers who are contributing code:</p>
 <ul class="simple">
-<li>Run and review the unit tests (see below) before submitting a pull request.</li>
-<li>There should normally not be more failed tests than before your changes.</li>
-<li>For larger changes or features that take some time to implement, <a class="reference external" href="https://help.github.com/articles/branching-out">using branches</a> is recommended.</li>
+<li><p>Run and review the unit tests (see below) before submitting a pull request.</p></li>
+<li><p>There should normally not be more failed tests than before your changes.</p></li>
+<li><p>For larger changes or features that take some time to implement, <a class="reference external" href="https://help.github.com/articles/branching-out">using branches</a> is recommended.</p></li>
 </ul>
 </div>
 <div class="section" id="releasing-a-new-version">
@@ -286,18 +286,18 @@
 <p>The release cycle of cclib is irregular, with new versions being created as deemed necessary after significant changes or new features. We roughly follow semantic versioning with respect to the <a class="reference external" href="data.html">parsed attributes</a>.</p>
 <p>When creating a new release on GitHub, the typical procedure might include the following steps:</p>
 <ul class="simple">
-<li>Update the <a class="reference external" href="https://github.com/cclib/cclib/blob/master/CHANGELOG">CHANGELOG</a>, <a class="reference external" href="https://github.com/cclib/cclib/blob/master/ANNOUNCE">ANNOUNCE</a> and any other files that might change content with the new version</li>
-<li>Make sure that <a class="reference external" href="https://github.com/cclib/cclib/blob/master/setup.py">setup.py</a> has the right version number, as well as __version__ in <a class="reference external" href="https://github.com/cclib/cclib/blob/master/src/cclib/__init__.py">__init__.py</a> and any other relevant files</li>
-<li>Update the download and install instructions in the documentation, if appropriate</li>
-<li>Create a branch for the release, so that development can continue</li>
-<li>Run all tests for a final time and fix any remaining issues</li>
-<li>Tag the release (make sure to use an annotated tag using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">-a</span></code>) and upload it (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--tags</span></code>)</li>
-<li>Run <a class="reference external" href="https://github.com/cclib/cclib/blob/master/manifest.py">manifest.py</a> to update the MANIFEST file</li>
-<li>Create the source distributions (<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">sdist</span> <span class="pre">--formats=gztar,zip</span></code>) and Windows binary installers (<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">bdist_wininst</span></code>)</li>
-<li>Create a release on GitHub using the created tag (see <a class="reference external" href="https://help.github.com/articles/creating-releases">Creating releases</a>) and upload the source distributions and Windows binaries</li>
-<li>Email the users and developers mailing list with the message in <a class="reference external" href="https://github.com/cclib/cclib/blob/master/ANNOUNCE">ANNOUNCE</a></li>
-<li>Update the Python package index (<a class="reference external" href="https://pypi.python.org/pypi/cclib">https://pypi.python.org/pypi/cclib</a>), normally done by <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">register</span></code></li>
-<li>For significant releases, if appropriate, send an email to the <a class="reference external" href="http://www.ccl.net">CCL list</a> and any mailing lists for computational chemistry packages supported by cclib</li>
+<li><p>Update the <a class="reference external" href="https://github.com/cclib/cclib/blob/master/CHANGELOG">CHANGELOG</a>, <a class="reference external" href="https://github.com/cclib/cclib/blob/master/ANNOUNCE">ANNOUNCE</a> and any other files that might change content with the new version</p></li>
+<li><p>Make sure that <a class="reference external" href="https://github.com/cclib/cclib/blob/master/setup.py">setup.py</a> has the right version number, as well as __version__ in <a class="reference external" href="https://github.com/cclib/cclib/blob/master/src/cclib/__init__.py">__init__.py</a> and any other relevant files</p></li>
+<li><p>Update the download and install instructions in the documentation, if appropriate</p></li>
+<li><p>Create a branch for the release, so that development can continue</p></li>
+<li><p>Run all tests for a final time and fix any remaining issues</p></li>
+<li><p>Tag the release (make sure to use an annotated tag using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">-a</span></code>) and upload it (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--tags</span></code>)</p></li>
+<li><p>Run <a class="reference external" href="https://github.com/cclib/cclib/blob/master/manifest.py">manifest.py</a> to update the MANIFEST file</p></li>
+<li><p>Create the source distributions (<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">sdist</span> <span class="pre">--formats=gztar,zip</span></code>) and Windows binary installers (<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">bdist_wininst</span></code>)</p></li>
+<li><p>Create a release on GitHub using the created tag (see <a class="reference external" href="https://help.github.com/articles/creating-releases">Creating releases</a>) and upload the source distributions and Windows binaries</p></li>
+<li><p>Email the users and developers mailing list with the message in <a class="reference external" href="https://github.com/cclib/cclib/blob/master/ANNOUNCE">ANNOUNCE</a></p></li>
+<li><p>Update the Python package index (<a class="reference external" href="https://pypi.python.org/pypi/cclib">https://pypi.python.org/pypi/cclib</a>), normally done by <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">register</span></code></p></li>
+<li><p>For significant releases, if appropriate, send an email to the <a class="reference external" href="http://www.ccl.net">CCL list</a> and any mailing lists for computational chemistry packages supported by cclib</p></li>
 </ul>
 </div>
 </div>
@@ -310,12 +310,12 @@
 <p>Unit tests check that the parsers work correctly for typical calculation types on small molecules, usually water or 1,4-divinylbenzene (dvb) with <span class="math notranslate nohighlight">\(C_{\mathrm{2h}}\)</span> symmetry. The corresponding logfiles stored in folders like <code class="docutils literal notranslate"><span class="pre">data/NWChem/basicNWChem6.0</span></code> are intended to test logfiles for an approximate major version of a program, and are standardized for all supported programs to the extent possible. They are located alongside the code in the repository, but are not normally distributed with the source. Attributes are considered supported only if they are checked by at least one test, and the <a class="reference external" href="data_dev.html#details-of-current-implementation">table of attribute coverage</a> is generated automatically using this criterion.</p>
 <p>The job types currently included as unit tests:</p>
 <ul class="simple">
-<li>restricted and unrestricted single point energies for dvb (RHF/STO-3G <strong>and</strong> B3LYP/STO-3G)</li>
-<li>geometry optimization and scan for dvb (RHF/STO-3G and/or B3LYP/STO-3G)</li>
-<li>frequency calculation with IR and Raman intensities for dvb (RHF/STO-3G or B3LYP/STO-3G)</li>
-<li>single point energy for carbon atom using a large basis set such as aug-cc-pCVQZ</li>
-<li>Møller–Plesset and coupled cluster energies for water (STO-3G or 6-31G basis set)</li>
-<li>static polarizabilities for tryptophan (RHF/STO-3G)</li>
+<li><p>restricted and unrestricted single point energies for dvb (RHF/STO-3G <strong>and</strong> B3LYP/STO-3G)</p></li>
+<li><p>geometry optimization and scan for dvb (RHF/STO-3G and/or B3LYP/STO-3G)</p></li>
+<li><p>frequency calculation with IR and Raman intensities for dvb (RHF/STO-3G or B3LYP/STO-3G)</p></li>
+<li><p>single point energy for carbon atom using a large basis set such as aug-cc-pCVQZ</p></li>
+<li><p>Møller–Plesset and coupled cluster energies for water (STO-3G or 6-31G basis set)</p></li>
+<li><p>static polarizabilities for tryptophan (RHF/STO-3G)</p></li>
 </ul>
 <div class="section" id="adding-a-new-program-version">
 <h4>Adding a new program version<a class="headerlink" href="#adding-a-new-program-version" title="Permalink to this headline">¶</a></h4>
@@ -334,22 +334,22 @@
 <div class="section" id="websites-related-to-cclib">
 <h2>Websites related to cclib<a class="headerlink" href="#websites-related-to-cclib" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>The official <a class="reference external" href="https://github.com/cclib">cclib organization on github</a></li>
-<li>The <a class="reference external" href="http://sourceforge.net/projects/cclib/">cclib project page on Sourceforge</a> (inactive now)</li>
-<li>The <a class="reference external" href="https://travis-ci.org/cclib/cclib">cclib page for Travis CI</a></li>
-<li>The <a class="reference external" href="http://www.python.org/pypi/cclib">cclib entry on PyPI</a></li>
-<li>The <a class="reference external" href="https://www.ohloh.net/p/cclib">cclib entry on Ohloh</a></li>
+<li><p>The official <a class="reference external" href="https://github.com/cclib">cclib organization on github</a></p></li>
+<li><p>The <a class="reference external" href="http://sourceforge.net/projects/cclib/">cclib project page on Sourceforge</a> (inactive now)</p></li>
+<li><p>The <a class="reference external" href="https://travis-ci.org/cclib/cclib">cclib page for Travis CI</a></p></li>
+<li><p>The <a class="reference external" href="http://www.python.org/pypi/cclib">cclib entry on PyPI</a></p></li>
+<li><p>The <a class="reference external" href="https://www.ohloh.net/p/cclib">cclib entry on Ohloh</a></p></li>
 </ul>
 </div>
 <div class="section" id="developers">
 <h2>Developers<a class="headerlink" href="#developers" title="Permalink to this headline">¶</a></h2>
 <p>Besides input from a number of people <a class="reference external" href="https://github.com/cclib/cclib/blob/master/THANKS">listed in the repository</a>, the following developers have contributed code to cclib (in alphabetical order):</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/berquist">Eric Berquist</a></li>
-<li><a class="reference external" href="https://github.com/langner">Karol M. Langner</a></li>
-<li><a class="reference external" href="https://www.redbrick.dcu.ie/~noel/">Noel O’Boyle</a></li>
-<li>Christopher Rowley</li>
-<li>Adam Tenderholt</li>
+<li><p><a class="reference external" href="https://github.com/berquist">Eric Berquist</a></p></li>
+<li><p><a class="reference external" href="https://github.com/langner">Karol M. Langner</a></p></li>
+<li><p><a class="reference external" href="https://www.redbrick.dcu.ie/~noel/">Noel O’Boyle</a></p></li>
+<li><p>Christopher Rowley</p></li>
+<li><p>Adam Tenderholt</p></li>
 </ul>
 </div>
 </div>

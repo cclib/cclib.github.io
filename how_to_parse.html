@@ -280,10 +280,10 @@
 <h2>From command line<a class="headerlink" href="#from-command-line" title="Permalink to this headline">¶</a></h2>
 <p>The cclib package provides four scripts to parse and write data: <code class="docutils literal notranslate"><span class="pre">ccget</span></code>, <code class="docutils literal notranslate"><span class="pre">ccwrite</span></code>, <code class="docutils literal notranslate"><span class="pre">cda</span></code>, and <code class="docutils literal notranslate"><span class="pre">ccframe</span></code>.</p>
 <ol class="arabic simple">
-<li><strong>ccget</strong> is used to parse attribute data from output files.</li>
-<li><strong>ccwrite</strong> has the ability to list out all valid attribute data that can be parsed from an output format. It has the added feature of writing the output file into four different formats i.e. <code class="docutils literal notranslate"><span class="pre">json</span></code>, <code class="docutils literal notranslate"><span class="pre">cjson</span></code>, <code class="docutils literal notranslate"><span class="pre">cml</span></code>, <code class="docutils literal notranslate"><span class="pre">xyz</span></code>.</li>
-<li><strong>cda</strong> is used for the chemical decomposition analysis of output files.</li>
-<li><strong>ccframe</strong> is used to write data tables from output files.</li>
+<li><p><strong>ccget</strong> is used to parse attribute data from output files.</p></li>
+<li><p><strong>ccwrite</strong> has the ability to list out all valid attribute data that can be parsed from an output format. It has the added feature of writing the output file into four different formats i.e. <code class="docutils literal notranslate"><span class="pre">json</span></code>, <code class="docutils literal notranslate"><span class="pre">cjson</span></code>, <code class="docutils literal notranslate"><span class="pre">cml</span></code>, <code class="docutils literal notranslate"><span class="pre">xyz</span></code>.</p></li>
+<li><p><strong>cda</strong> is used for the chemical decomposition analysis of output files.</p></li>
+<li><p><strong>ccframe</strong> is used to write data tables from output files.</p></li>
 </ol>
 <p>This page describes how to use the ccget, ccwrite and ccframe scripts to obtain data from output files.</p>
 <div class="section" id="ccget">
@@ -295,7 +295,7 @@
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">attribute</span></code> can be any one of the attribute names available <a class="reference external" href="data_dev.html">here</a>.</p>
 <ol class="arabic">
-<li><p class="first">Atomic Charges</p>
+<li><p>Atomic Charges</p>
 <blockquote>
 <div><p>The atomic charges are obtained by using the <code class="docutils literal notranslate"><span class="pre">atomcharges</span></code> attribute:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ccget atomcharges Benzeneselenol.out
@@ -308,7 +308,7 @@ atomcharges:
 </div>
 </div></blockquote>
 </li>
-<li><p class="first">Electronic Energies</p>
+<li><p>Electronic Energies</p>
 <blockquote>
 <div><p>The molecular electronic energies after SCF (DFT) optimization of the input molecule are printed by using the <code class="docutils literal notranslate"><span class="pre">scfenergies</span></code> attribute:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ccget scfenergies Benzeneselenol.out
@@ -323,7 +323,7 @@ scfenergies:
 </div>
 </div></blockquote>
 </li>
-<li><p class="first">Geometry Targets</p>
+<li><p>Geometry Targets</p>
 <blockquote>
 <div><p>The targets for convergence of geometry optimization can be obtained by using the <code class="docutils literal notranslate"><span class="pre">geotargets</span></code> attribute:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ccget geotargets Benzeneselenol.out
@@ -339,7 +339,7 @@ geotargets:
 <h4>Chaining of attributes<a class="headerlink" href="#chaining-of-attributes" title="Permalink to this headline">¶</a></h4>
 <p>ccget provides the user with the option to chain attributes to obtain more than one type of data with a command call. The attributes can be chained in any particular order. A few chained examples are provided below.</p>
 <ol class="arabic">
-<li><p class="first">Molecular Orbitals and Multiplicity</p>
+<li><p>Molecular Orbitals and Multiplicity</p>
 <blockquote>
 <div><p>The number of molecular orbitals and the number of basis functions used to optimize the molecule can be obtained by running the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ccget nmo nbasis Benzeneselenol.out
@@ -352,7 +352,7 @@ nbasis:
 </div>
 </div></blockquote>
 </li>
-<li><p class="first">Enthalpy and Vibrational Frequency</p>
+<li><p>Enthalpy and Vibrational Frequency</p>
 <blockquote>
 <div><p>The enthalpy and the vibrational frequencies of the optimized molecule is conducted is obtained below:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ccget enthalpy vibfreqs Benzeneselenol.out
@@ -382,7 +382,7 @@ vibfreqs:
 </div>
 <p>The valid output file formats are <code class="docutils literal notranslate"><span class="pre">cjson</span></code>, <code class="docutils literal notranslate"><span class="pre">cml</span></code>, and <code class="docutils literal notranslate"><span class="pre">xyz</span></code>.</p>
 <ol class="arabic">
-<li><p class="first"><a class="reference external" href="http://www.xml-cml.org/">Chemical markup language</a> (CML):</p>
+<li><p><a class="reference external" href="http://www.xml-cml.org/">Chemical markup language</a> (CML):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ccwrite cml Benzeneselenol.out
 Attempting to parse Benzeneselenol.out
 cclib can parse the following attributes from Benzeneselenol.out:
@@ -452,7 +452,7 @@ cclib can parse the following attributes from Benzeneselenol.out:
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/XYZ_file_format">XYZ</a></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/XYZ_file_format">XYZ</a></p></li>
 </ol>
 <p>Using <code class="docutils literal notranslate"><span class="pre">xyz</span></code> as the <code class="docutils literal notranslate"><span class="pre">&lt;OutputFileFormat&gt;</span></code> with <code class="docutils literal notranslate"><span class="pre">Benzeneselenol.out</span></code>, we obtain the following <code class="docutils literal notranslate"><span class="pre">Benzeneselenol.xyz</span></code> file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">13</span>

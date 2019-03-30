@@ -258,445 +258,441 @@
 <h2>Changes in cclib-1.6.1<a class="headerlink" href="#changes-in-cclib-1-6-1" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>New attribute nsocoeffs for natural spin orbital coefficients (Shiv Upadhyay)</li>
-<li>New attribute nsooccnos for natural spin orbital occupation numbers (Shiv Upadhyay)</li>
-<li>New methods: alpha and beta electron counts (Jaime Rodríguez-Guerra)</li>
-<li>Support coreelectrons attribute in Molcas (Kunal Sharma)</li>
-<li>Support etoscs for response calculations in Dalton (Peter Reinholdt)</li>
-<li>Support etenergies for TDDFT in GAMESS</li>
-<li>Support etrotats attribute in ORCA</li>
-<li>Support functional name in metadata for Psi4 (Alessandro Genova)</li>
-<li>Updated testing framework (Jaime Rodríguez-Guerra, Maxim Stolyarchuk and others)</li>
-<li>Updated test file version to QChem 5.1</li>
+<li><p>New attribute nsocoeffs for natural spin orbital coefficients (Shiv Upadhyay)</p></li>
+<li><p>New attribute nsooccnos for natural spin orbital occupation numbers (Shiv Upadhyay)</p></li>
+<li><p>New methods: alpha and beta electron counts (Jaime Rodríguez-Guerra)</p></li>
+<li><p>Support coreelectrons attribute in Molcas (Kunal Sharma)</p></li>
+<li><p>Support etoscs for response calculations in Dalton (Peter Reinholdt)</p></li>
+<li><p>Support etenergies for TDDFT in GAMESS</p></li>
+<li><p>Support etrotats attribute in ORCA</p></li>
+<li><p>Support functional name in metadata for Psi4 (Alessandro Genova)</p></li>
+<li><p>Updated testing framework (Jaime Rodríguez-Guerra, Maxim Stolyarchuk and others)</p></li>
+<li><p>Updated test file version to QChem 5.1</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Fixed parsing GAMESS output for EOM-CC output</li>
-<li>Fixed parsing Gaussian output for G3 jobs</li>
-<li>Fixed parsing ORCA output for certain invalid inputs (Felipe S. S. Schneider)</li>
-<li>Fixed parsing of mocoeffs in ORCA when they are glued together (Felipe S. S. Schneider)</li>
-<li>Fixed parsing of mocoeffs and vibfreqs in Psi4 (Alessandro Genova)</li>
-<li>Fixed parsing of mocoeffs in Molcas for some files (Shiv Upadhyay)</li>
-<li>Fixed parsing of etsecs in Dalton</li>
-<li>Fixed bond atom indices in CJSON output (Alessandro Genova)</li>
+<li><p>Fixed parsing GAMESS output for EOM-CC output</p></li>
+<li><p>Fixed parsing Gaussian output for G3 jobs</p></li>
+<li><p>Fixed parsing ORCA output for certain invalid inputs (Felipe S. S. Schneider)</p></li>
+<li><p>Fixed parsing of mocoeffs in ORCA when they are glued together (Felipe S. S. Schneider)</p></li>
+<li><p>Fixed parsing of mocoeffs and vibfreqs in Psi4 (Alessandro Genova)</p></li>
+<li><p>Fixed parsing of mocoeffs in Molcas for some files (Shiv Upadhyay)</p></li>
+<li><p>Fixed parsing of etsecs in Dalton</p></li>
+<li><p>Fixed bond atom indices in CJSON output (Alessandro Genova)</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-1-6">
 <h2>Changes in cclib-1.6<a class="headerlink" href="#changes-in-cclib-1-6" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>New parser: cclib can now parse Molcas files (Kunal Sharma)</li>
-<li>New parser: cclib can now parse Turbomole files (Christopher Rowley, Kunal Sharma)</li>
-<li>New script: ccframe writes data table files from logfiles (Felipe Schneider)</li>
-<li>New method: stoichiometry builds the chemical formula of a system (Jaime Rodríguez-Guerra)</li>
-<li>Support package version in metadata for most parsers</li>
-<li>Support time attribute and BOMD output in Gaussian, NWChem, ORCA and QChem</li>
-<li>Support grads and metadata attributes in ORCA (Jonathon Vandezande)</li>
-<li>Experimental support for CASSCF output in ORCA (Jonathon Vandezande)</li>
-<li>Added entry in metadata for successful completion of jobs</li>
-<li>Updated test file versions to ORCA 4.0</li>
-<li>Update minimum Python3 version to 3.4</li>
+<li><p>New parser: cclib can now parse Molcas files (Kunal Sharma)</p></li>
+<li><p>New parser: cclib can now parse Turbomole files (Christopher Rowley, Kunal Sharma)</p></li>
+<li><p>New script: ccframe writes data table files from logfiles (Felipe Schneider)</p></li>
+<li><p>New method: stoichiometry builds the chemical formula of a system (Jaime Rodríguez-Guerra)</p></li>
+<li><p>Support package version in metadata for most parsers</p></li>
+<li><p>Support time attribute and BOMD output in Gaussian, NWChem, ORCA and QChem</p></li>
+<li><p>Support grads and metadata attributes in ORCA (Jonathon Vandezande)</p></li>
+<li><p>Experimental support for CASSCF output in ORCA (Jonathon Vandezande)</p></li>
+<li><p>Added entry in metadata for successful completion of jobs</p></li>
+<li><p>Updated test file versions to ORCA 4.0</p></li>
+<li><p>Update minimum Python3 version to 3.4</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Fixed parsing ORCA output with linear molecules (Jonathon Vandezande)</li>
-<li>Fixed parsing NWChem output with incomplete SCF</li>
+<li><p>Fixed parsing ORCA output with linear molecules (Jonathon Vandezande)</p></li>
+<li><p>Fixed parsing NWChem output with incomplete SCF</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-1-5-3">
 <h2>Changes in cclib-1.5.3<a class="headerlink" href="#changes-in-cclib-1-5-3" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>New attribute transprop for electronic transitions (Jonathon Vandezande)</li>
-<li>Support grads attribute in Psi4 (Adam Abbott)</li>
-<li>Support grads attribute in Molpro (Oskar Weser)</li>
-<li>Support optstatus for IRCs and in Psi4 (Emmanuel LaTruelle)</li>
-<li>Updated test file versions to Gaussian16 (Andrew S. Rosen)</li>
-<li>Add ability to write XYZ coordinates for arbitrary indices</li>
+<li><p>New attribute transprop for electronic transitions (Jonathon Vandezande)</p></li>
+<li><p>Support grads attribute in Psi4 (Adam Abbott)</p></li>
+<li><p>Support grads attribute in Molpro (Oskar Weser)</p></li>
+<li><p>Support optstatus for IRCs and in Psi4 (Emmanuel LaTruelle)</p></li>
+<li><p>Updated test file versions to Gaussian16 (Andrew S. Rosen)</p></li>
+<li><p>Add ability to write XYZ coordinates for arbitrary indices</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Fixed ccwrite script and added unit tests (Georgy Frolov)</li>
-<li>Fixed closed shell determination for Gaussian (Jaime Rodríguez-Guerra)</li>
-<li>Fixed parsing of natom for &gt;9999 atoms in Gaussian (Jaime Rodríguez-Guerra)</li>
-<li>Fixed parsing of ADF jobs with no title</li>
-<li>Fixed parsing of charge and core electrons when using ECPs in QChem</li>
-<li>Fixed parsing of scfvalues for malformed output in Gaussian</li>
+<li><p>Fixed ccwrite script and added unit tests (Georgy Frolov)</p></li>
+<li><p>Fixed closed shell determination for Gaussian (Jaime Rodríguez-Guerra)</p></li>
+<li><p>Fixed parsing of natom for &gt;9999 atoms in Gaussian (Jaime Rodríguez-Guerra)</p></li>
+<li><p>Fixed parsing of ADF jobs with no title</p></li>
+<li><p>Fixed parsing of charge and core electrons when using ECPs in QChem</p></li>
+<li><p>Fixed parsing of scfvalues for malformed output in Gaussian</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-1-5-2">
 <h2>Changes in cclib-1.5.2<a class="headerlink" href="#changes-in-cclib-1-5-2" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>Support for writing Molden and WFX files (Sagar Gaur)</li>
-<li>Support for thermochemistry attributes in ORCA (Jonathon Vandezande)</li>
-<li>Support for chelpg atomic charges in ORCA (Richard Gowers)</li>
-<li>Updated test file versions to GAMESS-US 2017 (Sagar Gaur)</li>
-<li>Added option to print full arrays with ccget (Sagar Gaur)</li>
+<li><p>Support for writing Molden and WFX files (Sagar Gaur)</p></li>
+<li><p>Support for thermochemistry attributes in ORCA (Jonathon Vandezande)</p></li>
+<li><p>Support for chelpg atomic charges in ORCA (Richard Gowers)</p></li>
+<li><p>Updated test file versions to GAMESS-US 2017 (Sagar Gaur)</p></li>
+<li><p>Added option to print full arrays with ccget (Sagar Gaur)</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Fixed polarizability parsing bug in DALTON (Maxim Stolyarchuk)</li>
-<li>Fixed IRC parsing in Gaussian for large trajectories (Dénes Berta, LaTruelle)</li>
-<li>Fixed coordinate parsing for heavy elements in ORCA (Jonathon Vandezande)</li>
-<li>Fixed parsing of large mocoeffs in fixed width format for QChem (srtlg)</li>
-<li>Fixed parsing of large polarizabilities in fixed width format for DALTON (Maxim Stolyarchuk)</li>
-<li>Fixed parsing molecular orbitals when there are more than basis set functions in QChem</li>
+<li><p>Fixed polarizability parsing bug in DALTON (Maxim Stolyarchuk)</p></li>
+<li><p>Fixed IRC parsing in Gaussian for large trajectories (Dénes Berta, LaTruelle)</p></li>
+<li><p>Fixed coordinate parsing for heavy elements in ORCA (Jonathon Vandezande)</p></li>
+<li><p>Fixed parsing of large mocoeffs in fixed width format for QChem (srtlg)</p></li>
+<li><p>Fixed parsing of large polarizabilities in fixed width format for DALTON (Maxim Stolyarchuk)</p></li>
+<li><p>Fixed parsing molecular orbitals when there are more than basis set functions in QChem</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-1-5-1">
 <h2>Changes in cclib-1.5.1<a class="headerlink" href="#changes-in-cclib-1-5-1" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>New attribute polarizabilities for static or dynamic dipole polarizability</li>
-<li>New attribute pressure for thermochemistry (renpj)</li>
-<li>Add property to detect closed shells in parsed data</li>
-<li>Handle RPA excited state calculation in ORCA, in addition to TDA</li>
-<li>Support for Python 3.6</li>
+<li><p>New attribute polarizabilities for static or dynamic dipole polarizability</p></li>
+<li><p>New attribute pressure for thermochemistry (renpj)</p></li>
+<li><p>Add property to detect closed shells in parsed data</p></li>
+<li><p>Handle RPA excited state calculation in ORCA, in addition to TDA</p></li>
+<li><p>Support for Python 3.6</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Restore alias cclib.parser.ccopen for backwards compatibility</li>
-<li>Fixed parsing thermochemistry for single atoms in QChem</li>
-<li>Fixed handling of URLs (Alexey Alnatanov)</li>
-<li>Fixed Atom object creation in Biopython bridge (Nitish Garg)</li>
-<li>Fixed ccopen when working with multiple files</li>
+<li><p>Restore alias cclib.parser.ccopen for backwards compatibility</p></li>
+<li><p>Fixed parsing thermochemistry for single atoms in QChem</p></li>
+<li><p>Fixed handling of URLs (Alexey Alnatanov)</p></li>
+<li><p>Fixed Atom object creation in Biopython bridge (Nitish Garg)</p></li>
+<li><p>Fixed ccopen when working with multiple files</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-1-5">
 <h2>Changes in cclib-1.5<a class="headerlink" href="#changes-in-cclib-1-5" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>Support for both reading and writing CJSON (Sanjeed Schamnad)</li>
-<li>New parser: cclib can now parse MOPAC files (Geoff Hutchison)</li>
-<li>New attribute time tracks coordinated for dynamics jobs (Ramon Crehuet)</li>
-<li>New attribute metadata holds miscellaneous information not in other attributes (bwang2453)</li>
-<li>Extract moments attribute for Gaussian (Geoff Hutchison)</li>
-<li>Extract atombasis for ADF in simple cases (Felix Plasser)</li>
-<li>License change to BSD 3-Clause License</li>
+<li><p>Support for both reading and writing CJSON (Sanjeed Schamnad)</p></li>
+<li><p>New parser: cclib can now parse MOPAC files (Geoff Hutchison)</p></li>
+<li><p>New attribute time tracks coordinated for dynamics jobs (Ramon Crehuet)</p></li>
+<li><p>New attribute metadata holds miscellaneous information not in other attributes (bwang2453)</p></li>
+<li><p>Extract moments attribute for Gaussian (Geoff Hutchison)</p></li>
+<li><p>Extract atombasis for ADF in simple cases (Felix Plasser)</p></li>
+<li><p>License change to BSD 3-Clause License</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Correct parsing of several attributes for ROHF calculations</li>
-<li>Fixed precision of scfvalues in ORCA</li>
-<li>Fixed MO parsing from older versions of Firefly (mkrompiec)</li>
+<li><p>Correct parsing of several attributes for ROHF calculations</p></li>
+<li><p>Fixed precision of scfvalues in ORCA</p></li>
+<li><p>Fixed MO parsing from older versions of Firefly (mkrompiec)</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-1-4-1">
 <h2>Changes in cclib-1.4.1<a class="headerlink" href="#changes-in-cclib-1-4-1" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>Preliminary support for writing CJSON (Sanjeed Schamnad)</li>
-<li>Tentative support for BOMD trajectories in Gaussian (Ramon Crehuet)</li>
-<li>Support for atombasis in ADF (Felix Plasser)</li>
-<li>Support for nocoeffs and nooccnos in Molpro</li>
+<li><p>Preliminary support for writing CJSON (Sanjeed Schamnad)</p></li>
+<li><p>Tentative support for BOMD trajectories in Gaussian (Ramon Crehuet)</p></li>
+<li><p>Support for atombasis in ADF (Felix Plasser)</p></li>
+<li><p>Support for nocoeffs and nooccnos in Molpro</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Fix for non-standard basis sets in DALTON</li>
-<li>Fix for non-standard MO coefficient printing in GAMESS</li>
+<li><p>Fix for non-standard basis sets in DALTON</p></li>
+<li><p>Fix for non-standard MO coefficient printing in GAMESS</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-1-4">
 <h2>Changes in cclib-1.4<a class="headerlink" href="#changes-in-cclib-1-4" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>New parser: cclib can now parse DALTON files</li>
-<li>New parser: cclib can now parse ORCA files</li>
-<li>New attribute optstatus for status during geometry optimizations and scans</li>
-<li>Extract atommasses for GAMESS-US (Sagar Gaur)</li>
-<li>Extract atombasis, gbasis and mocoeffs for QChem</li>
-<li>Extract gbasis for ORCA (Felix Plasser)</li>
-<li>Handle multi-step jobs by parsing only the supersystem</li>
-<li>Improve parsing vibrational symmetries and displacements for Gaussian (mwykes)</li>
-<li>Improve support for compressed files (mwykes)</li>
-<li>Improve and update unit test and regression suites</li>
-<li>Support for Python 3.5</li>
+<li><p>New parser: cclib can now parse DALTON files</p></li>
+<li><p>New parser: cclib can now parse ORCA files</p></li>
+<li><p>New attribute optstatus for status during geometry optimizations and scans</p></li>
+<li><p>Extract atommasses for GAMESS-US (Sagar Gaur)</p></li>
+<li><p>Extract atombasis, gbasis and mocoeffs for QChem</p></li>
+<li><p>Extract gbasis for ORCA (Felix Plasser)</p></li>
+<li><p>Handle multi-step jobs by parsing only the supersystem</p></li>
+<li><p>Improve parsing vibrational symmetries and displacements for Gaussian (mwykes)</p></li>
+<li><p>Improve support for compressed files (mwykes)</p></li>
+<li><p>Improve and update unit test and regression suites</p></li>
+<li><p>Support for Python 3.5</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Fix StopIteration crashes for most parsers</li>
-<li>Fix parsing basis section for Molpro job generated by Avogadro</li>
-<li>Fix parsing multi-job Gaussian output with different orbitals (Geoff Hutchinson)</li>
-<li>Fix parsing ORCA geometry optimization with improper internal coordinates (glideht)</li>
-<li>Fix units in atom coordinates parsed from GAMESS-UK files (mwykes)</li>
-<li>Fix test for vibrational frequencies in Turbomole (mwykes)</li>
-<li>Fix parsing vibration symmetries for Molpro (mwykes)</li>
-<li>Fix parsing eigenvectors in GAMESS-US (Alexis Otero-Calvis)</li>
-<li>Fix duplicate parsing of symmetry labels for Gaussian (Martin Peeks)</li>
+<li><p>Fix StopIteration crashes for most parsers</p></li>
+<li><p>Fix parsing basis section for Molpro job generated by Avogadro</p></li>
+<li><p>Fix parsing multi-job Gaussian output with different orbitals (Geoff Hutchinson)</p></li>
+<li><p>Fix parsing ORCA geometry optimization with improper internal coordinates (glideht)</p></li>
+<li><p>Fix units in atom coordinates parsed from GAMESS-UK files (mwykes)</p></li>
+<li><p>Fix test for vibrational frequencies in Turbomole (mwykes)</p></li>
+<li><p>Fix parsing vibration symmetries for Molpro (mwykes)</p></li>
+<li><p>Fix parsing eigenvectors in GAMESS-US (Alexis Otero-Calvis)</p></li>
+<li><p>Fix duplicate parsing of symmetry labels for Gaussian (Martin Peeks)</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-1-3-2">
 <h2>Changes in cclib-1.3.2<a class="headerlink" href="#changes-in-cclib-1-3-2" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>New attribute nooccnos for natural orbital occupation numbers</li>
-<li>Read data from XYZ files using Open Babel bridge</li>
-<li>Start basic tests for bridge functionality</li>
+<li><p>New attribute nooccnos for natural orbital occupation numbers</p></li>
+<li><p>Read data from XYZ files using Open Babel bridge</p></li>
+<li><p>Start basic tests for bridge functionality</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Better handling of ONIOM logfiles in Gaussian (Clyde Fare)</li>
-<li>Fix IR intensity bug in Gaussian parser (Clyde Fare)</li>
-<li>Fix QChem parser for OpenMP output</li>
-<li>Fix parsing TDDFT/RPA transitions (Felix Plasser)</li>
-<li>Fix encoding issues for UTF-8 symbols in parsers and bridges</li>
+<li><p>Better handling of ONIOM logfiles in Gaussian (Clyde Fare)</p></li>
+<li><p>Fix IR intensity bug in Gaussian parser (Clyde Fare)</p></li>
+<li><p>Fix QChem parser for OpenMP output</p></li>
+<li><p>Fix parsing TDDFT/RPA transitions (Felix Plasser)</p></li>
+<li><p>Fix encoding issues for UTF-8 symbols in parsers and bridges</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-1-3-1">
 <h2>Changes in cclib-1.3.1<a class="headerlink" href="#changes-in-cclib-1-3-1" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>New attribute nooccnos for natural orbital occupation numbers</li>
-<li>Read data from XYZ files using Open Babel bridge</li>
-<li>Start basic tests for bridge functionality</li>
+<li><p>New attribute nooccnos for natural orbital occupation numbers</p></li>
+<li><p>Read data from XYZ files using Open Babel bridge</p></li>
+<li><p>Start basic tests for bridge functionality</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Better handling of ONIOM logfiles in Gaussian (Clyde Fare)</li>
-<li>Fix IR intensity bug in Gaussian parser (Clyde Fare)</li>
-<li>Fix QChem parser for OpenMP output</li>
-<li>Fix parsing TDDFT/RPA transitions (Felix Plasser)</li>
-<li>Fix encoding issues for UTF-8 symbols in parsers and bridges</li>
+<li><p>Better handling of ONIOM logfiles in Gaussian (Clyde Fare)</p></li>
+<li><p>Fix IR intensity bug in Gaussian parser (Clyde Fare)</p></li>
+<li><p>Fix QChem parser for OpenMP output</p></li>
+<li><p>Fix parsing TDDFT/RPA transitions (Felix Plasser)</p></li>
+<li><p>Fix encoding issues for UTF-8 symbols in parsers and bridges</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-1-3">
 <h2>Changes in cclib-1.3<a class="headerlink" href="#changes-in-cclib-1-3" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>New parser: cclib can now parse NWChem files</li>
-<li>New parser: cclib can now parse Psi (versions 3 and 4) files</li>
-<li>New parser: cclib can now parse QChem files (by Eric Berquist)</li>
-<li>New method: Nuclear (currently calculates the repulsion energy)</li>
-<li>Handle Gaussian basis set output with GFPRINT keyword</li>
-<li>Attribute optdone reverted to single Boolean value by default</li>
-<li>Add –verbose and –future options to ccget and parsers</li>
-<li>Replaced PC-GAMESS test files with newer Firefly versions</li>
-<li>Updated test file versions to GAMESS-UK 8.0</li>
+<li><p>New parser: cclib can now parse NWChem files</p></li>
+<li><p>New parser: cclib can now parse Psi (versions 3 and 4) files</p></li>
+<li><p>New parser: cclib can now parse QChem files (by Eric Berquist)</p></li>
+<li><p>New method: Nuclear (currently calculates the repulsion energy)</p></li>
+<li><p>Handle Gaussian basis set output with GFPRINT keyword</p></li>
+<li><p>Attribute optdone reverted to single Boolean value by default</p></li>
+<li><p>Add –verbose and –future options to ccget and parsers</p></li>
+<li><p>Replaced PC-GAMESS test files with newer Firefly versions</p></li>
+<li><p>Updated test file versions to GAMESS-UK 8.0</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Handle GAMESS-US file with LZ value analysis (Martin Rahm)</li>
-<li>Handle Gaussian jobs with stars in output (Russell Johnson, NIST)</li>
-<li>Handle ORCA singlet-only TD calculations (May A.)</li>
-<li>Fix parsing of Gaussian jobs with fragments and ONIOM output</li>
-<li>Use UTF-8 encodings for files that need them (Matt Ernst)</li>
+<li><p>Handle GAMESS-US file with LZ value analysis (Martin Rahm)</p></li>
+<li><p>Handle Gaussian jobs with stars in output (Russell Johnson, NIST)</p></li>
+<li><p>Handle ORCA singlet-only TD calculations (May A.)</p></li>
+<li><p>Fix parsing of Gaussian jobs with fragments and ONIOM output</p></li>
+<li><p>Use UTF-8 encodings for files that need them (Matt Ernst)</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-1-2">
 <h2>Changes in cclib-1.2<a class="headerlink" href="#changes-in-cclib-1-2" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>Move project to GitHub</li>
-<li>Transition to Python 3 (Python 2.7 will still work)</li>
-<li>Add a multifile mode to ccget script</li>
-<li>Extract vibrational displacements for ORCA</li>
-<li>Extract natural atom charges for Gaussian (Fedor Zhuravlev)</li>
-<li>Updated test file versions to ADF2013.01, GAMESS-US 2012, Gaussian09, Molpro 2012 and ORCA 3.0.1</li>
+<li><p>Move project to GitHub</p></li>
+<li><p>Transition to Python 3 (Python 2.7 will still work)</p></li>
+<li><p>Add a multifile mode to ccget script</p></li>
+<li><p>Extract vibrational displacements for ORCA</p></li>
+<li><p>Extract natural atom charges for Gaussian (Fedor Zhuravlev)</p></li>
+<li><p>Updated test file versions to ADF2013.01, GAMESS-US 2012, Gaussian09, Molpro 2012 and ORCA 3.0.1</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Ignore Unicode errors in logfiles</li>
-<li>Handle Gaussian jobs with terse output (basis set count not reported)</li>
-<li>Handle Gaussian jobs using IndoGuess (Scott McKechnie)</li>
-<li>Handle Gaussian file with irregular ONION gradients (Tamilmani S)</li>
-<li>Handle ORCA file with SCF convergence issue (Melchor Sanchez)</li>
-<li>Handle Gaussian file with problematic IRC output (Clyde Fare)</li>
-<li>Handle ORCA file with AM1 output (Julien Idé)</li>
-<li>Handle GAMESS-US output with irregular frequency format (Andrew Warden)</li>
+<li><p>Ignore Unicode errors in logfiles</p></li>
+<li><p>Handle Gaussian jobs with terse output (basis set count not reported)</p></li>
+<li><p>Handle Gaussian jobs using IndoGuess (Scott McKechnie)</p></li>
+<li><p>Handle Gaussian file with irregular ONION gradients (Tamilmani S)</p></li>
+<li><p>Handle ORCA file with SCF convergence issue (Melchor Sanchez)</p></li>
+<li><p>Handle Gaussian file with problematic IRC output (Clyde Fare)</p></li>
+<li><p>Handle ORCA file with AM1 output (Julien Idé)</p></li>
+<li><p>Handle GAMESS-US output with irregular frequency format (Andrew Warden)</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-1-1">
 <h2>Changes in cclib-1.1<a class="headerlink" href="#changes-in-cclib-1-1" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>Add progress info for all parsers</li>
-<li>Support ONIOM calculations in Gaussian (Karen Hemelsoet)</li>
-<li>New attribute atomcharges extracts Mulliken and Löwdin atomic charges if present</li>
-<li>New attribute atomspins extracts Mulliken and Löwdin atomic spin densities if present</li>
-<li>New thermodynamic attributes: freeenergy, temperature, enthalpy (Edward Holland)</li>
-<li>Extract PES information: scanenergies, scancoords, scanparm, scannames (Edward Holland)</li>
+<li><p>Add progress info for all parsers</p></li>
+<li><p>Support ONIOM calculations in Gaussian (Karen Hemelsoet)</p></li>
+<li><p>New attribute atomcharges extracts Mulliken and Löwdin atomic charges if present</p></li>
+<li><p>New attribute atomspins extracts Mulliken and Löwdin atomic spin densities if present</p></li>
+<li><p>New thermodynamic attributes: freeenergy, temperature, enthalpy (Edward Holland)</p></li>
+<li><p>Extract PES information: scanenergies, scancoords, scanparm, scannames (Edward Holland)</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Handle coupled cluster energies in Gaussian 09 (Björn Dahlgren)</li>
-<li>Vibrational displacement vectors missing for Gaussian 09 (Björn Dahlgren)</li>
-<li>Fix problem parsing vibrational frequencies in some GAMESS-US files</li>
-<li>Fix missing final scfenergy in ADF geometry optimisations</li>
-<li>Fix missing final scfenergy for ORCA where a specific number of SCF cycles has been specified</li>
-<li>ORCA scfenergies not parsed if COSMO solvent effects included</li>
-<li>Allow spin unrestricted calculations to use the fragment MO overlaps correctly for the MPA and CDA calculations</li>
-<li>Handle Gaussian MO energies that are printed as a row of asterisks (Jerome Kieffer)</li>
-<li>Add more explicit license notices, and allow LGPL versions after 2.1</li>
-<li>Support Firefly calculations where nmo != nbasis (Pavel Solntsev)</li>
-<li>Fix problem parsing vibrational frequency information in recent GAMESS (US) files (Chengju Wang)</li>
-<li>Apply patch from Chengju Wang to handle GAMESS calculations with more than 99 atoms</li>
-<li>Handle Gaussian files with more than 99 atoms having pseudopotentials (Björn Baumeier)</li>
+<li><p>Handle coupled cluster energies in Gaussian 09 (Björn Dahlgren)</p></li>
+<li><p>Vibrational displacement vectors missing for Gaussian 09 (Björn Dahlgren)</p></li>
+<li><p>Fix problem parsing vibrational frequencies in some GAMESS-US files</p></li>
+<li><p>Fix missing final scfenergy in ADF geometry optimisations</p></li>
+<li><p>Fix missing final scfenergy for ORCA where a specific number of SCF cycles has been specified</p></li>
+<li><p>ORCA scfenergies not parsed if COSMO solvent effects included</p></li>
+<li><p>Allow spin unrestricted calculations to use the fragment MO overlaps correctly for the MPA and CDA calculations</p></li>
+<li><p>Handle Gaussian MO energies that are printed as a row of asterisks (Jerome Kieffer)</p></li>
+<li><p>Add more explicit license notices, and allow LGPL versions after 2.1</p></li>
+<li><p>Support Firefly calculations where nmo != nbasis (Pavel Solntsev)</p></li>
+<li><p>Fix problem parsing vibrational frequency information in recent GAMESS (US) files (Chengju Wang)</p></li>
+<li><p>Apply patch from Chengju Wang to handle GAMESS calculations with more than 99 atoms</p></li>
+<li><p>Handle Gaussian files with more than 99 atoms having pseudopotentials (Björn Baumeier)</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-1-0-1">
 <h2>Changes in cclib-1.0.1<a class="headerlink" href="#changes-in-cclib-1-0-1" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>New attribute atommasses - atomic masses in Dalton</li>
-<li>Added support for Gaussian geometry optimisations that change the number of linearly independent basis functions over the course of the calculation</li>
+<li><p>New attribute atommasses - atomic masses in Dalton</p></li>
+<li><p>Added support for Gaussian geometry optimisations that change the number of linearly independent basis functions over the course of the calculation</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Handle triplet PM3 calculations in Gaussian03 (Greg Magoon)</li>
-<li>Some Gaussian09 calculations were missing atomnos (Marius Retegan)</li>
-<li>Handle multiple pseudopotentials in Gaussian03 (Tiago Silva)</li>
-<li>Handle Gaussian calculations with &gt;999 basis functions</li>
-<li>ADF versions &gt; 2007 no longer print overlap info by default</li>
-<li>Handle parsing Firefly calculations that fail</li>
-<li>Fix parsing of ORCA calculation (Marius Retegan)</li>
+<li><p>Handle triplet PM3 calculations in Gaussian03 (Greg Magoon)</p></li>
+<li><p>Some Gaussian09 calculations were missing atomnos (Marius Retegan)</p></li>
+<li><p>Handle multiple pseudopotentials in Gaussian03 (Tiago Silva)</p></li>
+<li><p>Handle Gaussian calculations with &gt;999 basis functions</p></li>
+<li><p>ADF versions &gt; 2007 no longer print overlap info by default</p></li>
+<li><p>Handle parsing Firefly calculations that fail</p></li>
+<li><p>Fix parsing of ORCA calculation (Marius Retegan)</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-1-0">
 <h2>Changes in cclib-1.0<a class="headerlink" href="#changes-in-cclib-1-0" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>Handle PBC calculations from Gaussian</li>
-<li>Updates to handle Gaussian09</li>
-<li>Support TDDFT calculations from ADF</li>
-<li>A number of improvements for GAMESS support</li>
-<li>ccopen now supports any file-like object with a read() method, so it can parse across HTTP</li>
+<li><p>Handle PBC calculations from Gaussian</p></li>
+<li><p>Updates to handle Gaussian09</p></li>
+<li><p>Support TDDFT calculations from ADF</p></li>
+<li><p>A number of improvements for GAMESS support</p></li>
+<li><p>ccopen now supports any file-like object with a read() method, so it can parse across HTTP</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Many many additional files parsed thanks to bugs reported by users</li>
+<li><p>Many many additional files parsed thanks to bugs reported by users</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-0-9">
 <h2>Changes in cclib-0.9<a class="headerlink" href="#changes-in-cclib-0-9" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>New parser: cclib can now parse ORCA files</li>
-<li>Added option to use setuptools instead of distutils.core for installing</li>
-<li>Improved handling of CI and TD-DFT data: TD-DFT data extracted from GAMESS and etsecs standardised across all parsers</li>
-<li>Test suite changed to include output from only the newest program versions</li>
+<li><p>New parser: cclib can now parse ORCA files</p></li>
+<li><p>Added option to use setuptools instead of distutils.core for installing</p></li>
+<li><p>Improved handling of CI and TD-DFT data: TD-DFT data extracted from GAMESS and etsecs standardised across all parsers</p></li>
+<li><p>Test suite changed to include output from only the newest program versions</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>A small number of parsing errors were fixed</li>
+<li><p>A small number of parsing errors were fixed</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-0-8">
 <h2>Changes in cclib-0.8<a class="headerlink" href="#changes-in-cclib-0-8" title="Permalink to this headline">¶</a></h2>
 <p><strong>Feaures</strong></p>
 <ul class="simple">
-<li>New parser: cclib can now parse Molpro files</li>
-<li>Separation of parser and data objects: Parsed data is now returned is a ccData object that can be pickled, and converted to and from JSON</li>
-<li>Parsers: multiple files can be parsed with one parse command</li>
-<li>NumPy support: Dropped Numeric support in favour of NumPy</li>
-<li>API addition: ‘charge’ for molecular charge</li>
-<li>API addition: ‘mult’ for spin multiplicity</li>
-<li>API addition: ‘atombasis’ for indices of atom orbitals on each atom</li>
-<li>API addition: ‘nocoeffs’ for Natural Orbital (NO) coefficients</li>
-<li>GAMESS-US parser: added ‘etoscs’ (CIS calculations)</li>
-<li>Jaguar parser: added ‘mpenergies’ (LMP2 calculations)</li>
-<li>Jaguar parser: added ‘etenergies’ and ‘etoscs’ (CIS calculations)</li>
-<li>New method: Lowdin Population Analysis (LPA)</li>
-<li>Tests: unittests can be run from the Python interpreter, and for a single parser; the number of “passed” tests is also counted and shown</li>
+<li><p>New parser: cclib can now parse Molpro files</p></li>
+<li><p>Separation of parser and data objects: Parsed data is now returned is a ccData object that can be pickled, and converted to and from JSON</p></li>
+<li><p>Parsers: multiple files can be parsed with one parse command</p></li>
+<li><p>NumPy support: Dropped Numeric support in favour of NumPy</p></li>
+<li><p>API addition: ‘charge’ for molecular charge</p></li>
+<li><p>API addition: ‘mult’ for spin multiplicity</p></li>
+<li><p>API addition: ‘atombasis’ for indices of atom orbitals on each atom</p></li>
+<li><p>API addition: ‘nocoeffs’ for Natural Orbital (NO) coefficients</p></li>
+<li><p>GAMESS-US parser: added ‘etoscs’ (CIS calculations)</p></li>
+<li><p>Jaguar parser: added ‘mpenergies’ (LMP2 calculations)</p></li>
+<li><p>Jaguar parser: added ‘etenergies’ and ‘etoscs’ (CIS calculations)</p></li>
+<li><p>New method: Lowdin Population Analysis (LPA)</p></li>
+<li><p>Tests: unittests can be run from the Python interpreter, and for a single parser; the number of “passed” tests is also counted and shown</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>Several parsing errors were fixed</li>
-<li>Fixed some methods to work with different numbers of alpha and beta MO coefficients in mocoeffs (MPA, CSPA, OPA)</li>
+<li><p>Several parsing errors were fixed</p></li>
+<li><p>Fixed some methods to work with different numbers of alpha and beta MO coefficients in mocoeffs (MPA, CSPA, OPA)</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-0-7">
 <h2>Changes in cclib-0.7<a class="headerlink" href="#changes-in-cclib-0-7" title="Permalink to this headline">¶</a></h2>
 <p><strong>Feaures</strong></p>
 <ul class="simple">
-<li>New parser: cclib can now parse Jaguar files</li>
-<li>ccopen: Can handle log files which have been compressed into .zip, .bz2 or .gz files.</li>
-<li>API addition: ‘gbasis’ holds the Gaussian basis set</li>
-<li>API addition: ‘coreelectrons’ contains the number of core electrons in each atom’s pseudopotential</li>
-<li>API addition: ‘mpenergies’ holds the Moller-Plesset corrected molecular electronic energies</li>
-<li>API addition: ‘vibdisps’ holds the Cartesian displacement vectors</li>
-<li>API change: ‘mocoeffs’ is now a list of rank 2 arrays, rather than a rank 3 array</li>
-<li>API change: ‘moenergies’ is now a list of rank 1 arrays, rather than rank 2 array</li>
-<li>GAMESS-UK parser: added ‘vibramans’</li>
-<li>New method: Charge Decomposition Analysis (CDA) for studying electron donation, back donation, and repulsion between fragments in a molecule</li>
-<li>New method: Fragment Analysis for studying bonding interactions between two or more fragments in a molecule</li>
-<li>New method: Ability to calculate the electron density or wavefunction</li>
+<li><p>New parser: cclib can now parse Jaguar files</p></li>
+<li><p>ccopen: Can handle log files which have been compressed into .zip, .bz2 or .gz files.</p></li>
+<li><p>API addition: ‘gbasis’ holds the Gaussian basis set</p></li>
+<li><p>API addition: ‘coreelectrons’ contains the number of core electrons in each atom’s pseudopotential</p></li>
+<li><p>API addition: ‘mpenergies’ holds the Moller-Plesset corrected molecular electronic energies</p></li>
+<li><p>API addition: ‘vibdisps’ holds the Cartesian displacement vectors</p></li>
+<li><p>API change: ‘mocoeffs’ is now a list of rank 2 arrays, rather than a rank 3 array</p></li>
+<li><p>API change: ‘moenergies’ is now a list of rank 1 arrays, rather than rank 2 array</p></li>
+<li><p>GAMESS-UK parser: added ‘vibramans’</p></li>
+<li><p>New method: Charge Decomposition Analysis (CDA) for studying electron donation, back donation, and repulsion between fragments in a molecule</p></li>
+<li><p>New method: Fragment Analysis for studying bonding interactions between two or more fragments in a molecule</p></li>
+<li><p>New method: Ability to calculate the electron density or wavefunction</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>GAMESS parser:</dt>
-<dd><ul class="first last">
-<li>Failed to parse frequency calculation with imaginary frequencies</li>
-<li>Rotations and translations now not included in frequencies</li>
-<li>Failed to parse a DFT calculation</li>
+<li><dl class="simple">
+<dt>GAMESS parser:</dt><dd><ul>
+<li><p>Failed to parse frequency calculation with imaginary frequencies</p></li>
+<li><p>Rotations and translations now not included in frequencies</p></li>
+<li><p>Failed to parse a DFT calculation</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>GAMESS-UK parser:</dt>
-<dd><ul class="first last">
-<li>‘atomnos’ not being extracted</li>
-<li>Rotations and translations now not included in frequencies</li>
+<li><dl class="simple">
+<dt>GAMESS-UK parser:</dt><dd><ul>
+<li><p>‘atomnos’ not being extracted</p></li>
+<li><p>Rotations and translations now not included in frequencies</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li>bridge to Open Babel: No longer dependent on pyopenbabel</li>
+<li><p>bridge to Open Babel: No longer dependent on pyopenbabel</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-0-6-1">
 <h2>Changes in cclib-0.6.1<a class="headerlink" href="#changes-in-cclib-0-6-1" title="Permalink to this headline">¶</a></h2>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>cclib: The “import cclib.parsers” statement failed due to references to Molpro and Jaguar parsers which are not present</li>
-<li>Gaussian parser: Failed to parse single point calculations where the input coords are a z-matrix, and symmetry is turned off.</li>
+<li><p>cclib: The “import cclib.parsers” statement failed due to references to Molpro and Jaguar parsers which are not present</p></li>
+<li><p>Gaussian parser: Failed to parse single point calculations where the input coords are a z-matrix, and symmetry is turned off.</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-0-6-0">
 <h2>Changes in cclib-0.6.0<a class="headerlink" href="#changes-in-cclib-0-6-0" title="Permalink to this headline">¶</a></h2>
 <p><strong>Feaures</strong></p>
 <ul class="simple">
-<li>ADF parser: If some MO eigenvalues are not present, the parser does not fail, but uses values of 99999 instead and A symmetry</li>
+<li><p>ADF parser: If some MO eigenvalues are not present, the parser does not fail, but uses values of 99999 instead and A symmetry</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>ADF parser: The following bugs have been fixed P/D orbitals for single atoms not handled correctly Problem parsing homos in unrestricted calculations Problem skipping the Create sections in certain calculations</li>
-<li>Gaussian parser: The following bugs have been fixed Parser failed if standard orientation not found</li>
-<li>ccget: aooverlaps not included when using –list option</li>
+<li><p>ADF parser: The following bugs have been fixed P/D orbitals for single atoms not handled correctly Problem parsing homos in unrestricted calculations Problem skipping the Create sections in certain calculations</p></li>
+<li><p>Gaussian parser: The following bugs have been fixed Parser failed if standard orientation not found</p></li>
+<li><p>ccget: aooverlaps not included when using –list option</p></li>
 </ul>
 </div>
 <div class="section" id="changes-in-cclib-0-6b">
 <h2>Changes in cclib-0.6b<a class="headerlink" href="#changes-in-cclib-0-6b" title="Permalink to this headline">¶</a></h2>
 <p><strong>Feaures</strong></p>
 <ul class="simple">
-<li>New parser: GAMESS-UK parser</li>
-<li>API addition: the .clean() method; the .clean() method of a parser clears all of the parsed attributes. This is useful if you need to reparse during the course of a calculation.</li>
-<li>Function rename: guesstype() has been renamed to ccopen()</li>
-<li>Speed up: Calculation of Overlap Density of States has been sped up by two orders of magnitude</li>
+<li><p>New parser: GAMESS-UK parser</p></li>
+<li><p>API addition: the .clean() method; the .clean() method of a parser clears all of the parsed attributes. This is useful if you need to reparse during the course of a calculation.</p></li>
+<li><p>Function rename: guesstype() has been renamed to ccopen()</p></li>
+<li><p>Speed up: Calculation of Overlap Density of States has been sped up by two orders of magnitude</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>ccopen: Minor problems fixed with identification of log files</li>
-<li>ccget: Passing multiple filenames now works on Windows too</li>
-<li><dl class="first docutils">
-<dt>ADF parser: The following bugs have been fixed</dt>
-<dd><ul class="first last">
-<li>Problem with parsing SFOs in certain log files</li>
-<li>Handling of molecules with orbitals of E symmetry</li>
-<li>Couldn’t find the HOMO in log files from new versions of ADF</li>
-<li>Parser used to miss attributes if SCF not converged</li>
-<li>For a symmetrical molecule, mocoeffs were in the wrong order and the homo was not identified correctly if degenerate</li>
+<li><p>ccopen: Minor problems fixed with identification of log files</p></li>
+<li><p>ccget: Passing multiple filenames now works on Windows too</p></li>
+<li><dl class="simple">
+<dt>ADF parser: The following bugs have been fixed</dt><dd><ul>
+<li><p>Problem with parsing SFOs in certain log files</p></li>
+<li><p>Handling of molecules with orbitals of E symmetry</p></li>
+<li><p>Couldn’t find the HOMO in log files from new versions of ADF</p></li>
+<li><p>Parser used to miss attributes if SCF not converged</p></li>
+<li><p>For a symmetrical molecule, mocoeffs were in the wrong order and the homo was not identified correctly if degenerate</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>Gaussian parser: The following bugs have been fixed</dt>
-<dd><ul class="first last">
-<li>SCF values was not extracting the dEnergy value</li>
-<li>Was extracting Depolar P instead of Raman activity</li>
+<li><dl class="simple">
+<dt>Gaussian parser: The following bugs have been fixed</dt><dd><ul>
+<li><p>SCF values was not extracting the dEnergy value</p></li>
+<li><p>Was extracting Depolar P instead of Raman activity</p></li>
 </ul>
 </dd>
 </dl>
@@ -707,16 +703,16 @@
 <h2>Changes in cclib-0.5<a class="headerlink" href="#changes-in-cclib-0-5" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
 <ul class="simple">
-<li>(src/scripts/ccget): Added handling of multiple filenames. It’s now possible to use ccget as follows: <code class="docutils literal notranslate"><span class="pre">ccget</span> <span class="pre">*.log</span></code>. This is a good way of checking out whether cclib is able to parse all of the files in a given directory. Also possible is: <code class="docutils literal notranslate"><span class="pre">ccget</span> <span class="pre">homos</span> <span class="pre">*.log</span></code>.</li>
-<li>Change of license: Changed license from GPL to LGPL</li>
+<li><p>(src/scripts/ccget): Added handling of multiple filenames. It’s now possible to use ccget as follows: <code class="docutils literal notranslate"><span class="pre">ccget</span> <span class="pre">*.log</span></code>. This is a good way of checking out whether cclib is able to parse all of the files in a given directory. Also possible is: <code class="docutils literal notranslate"><span class="pre">ccget</span> <span class="pre">homos</span> <span class="pre">*.log</span></code>.</p></li>
+<li><p>Change of license: Changed license from GPL to LGPL</p></li>
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li>src/cclib/parser/gamessparser.py: gamessparser was dying on GAMESS VERSION = 12 DEC 2003 gopts, as it was unable to parse the scftargets.</li>
-<li>src/cclib/parser/gamessparser.py: Remove assertion to catch instances where scftargets is unset. This occurs in the case of failed calculations (e.g. wrong multiplicity).</li>
-<li>src/cclib/parser/adfparser.py: Fixed one of the errors with the Mo5Obdt2-c2v-opt.adfout example, which had to do with the SFOs being made of more than two combinations of atoms (4, because of rotation in c2v point group). At least one error is still present with atomcoords. It looks like non-coordinate integers are being parsed as well, which makes some of the atomcoords list have more than the 3 values for x,y,z.</li>
-<li>src/cclib/parser/adfparser.py: Hopefully fixed the last error in Mo5Obdt2-c2v-opt. Problem was that it was adding line.split()[5:], but sometimes there was more than 3 fields left, so it was changed to [5:8]. Need to check actual parsed values to make sure it is parsed correctly.</li>
-<li>data/Gaussian, logfiledist, src/cclib/parser/gaussianparser.py, test/regression.py: Bug fix: Mo4OSibdt2-opt.log has no atomcoords despite being a geo-opt. This was due to the fact that the parser was extracting “Input orientation” and not “Standard orientation”. It’s now changed to “Standard orientation” which works for all of the files in the repository.</li>
+<li><p>src/cclib/parser/gamessparser.py: gamessparser was dying on GAMESS VERSION = 12 DEC 2003 gopts, as it was unable to parse the scftargets.</p></li>
+<li><p>src/cclib/parser/gamessparser.py: Remove assertion to catch instances where scftargets is unset. This occurs in the case of failed calculations (e.g. wrong multiplicity).</p></li>
+<li><p>src/cclib/parser/adfparser.py: Fixed one of the errors with the Mo5Obdt2-c2v-opt.adfout example, which had to do with the SFOs being made of more than two combinations of atoms (4, because of rotation in c2v point group). At least one error is still present with atomcoords. It looks like non-coordinate integers are being parsed as well, which makes some of the atomcoords list have more than the 3 values for x,y,z.</p></li>
+<li><p>src/cclib/parser/adfparser.py: Hopefully fixed the last error in Mo5Obdt2-c2v-opt. Problem was that it was adding line.split()[5:], but sometimes there was more than 3 fields left, so it was changed to [5:8]. Need to check actual parsed values to make sure it is parsed correctly.</p></li>
+<li><p>data/Gaussian, logfiledist, src/cclib/parser/gaussianparser.py, test/regression.py: Bug fix: Mo4OSibdt2-opt.log has no atomcoords despite being a geo-opt. This was due to the fact that the parser was extracting “Input orientation” and not “Standard orientation”. It’s now changed to “Standard orientation” which works for all of the files in the repository.</p></li>
 </ul>
 </div>
 </div>
