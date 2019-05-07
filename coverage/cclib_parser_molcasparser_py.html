@@ -8,7 +8,7 @@
     
     
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for cclib/parser/molcasparser.py: 96%</title>
+    <title>Coverage for cclib/parser/molcasparser.py: 99%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -24,15 +24,15 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>cclib/parser/molcasparser.py</b> :
-            <span class="pc_cov">96%</span>
+            <span class="pc_cov">99%</span>
         </h1>
 
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
 
         <h2 class="stats">
-            392 statements &nbsp;
-            <span class="run hide_run shortkey_r button_toggle_run">377 run</span>
-            <span class="mis shortkey_m button_toggle_mis">15 missing</span>
+            380 statements &nbsp;
+            <span class="run hide_run shortkey_r button_toggle_run">376 run</span>
+            <span class="mis shortkey_m button_toggle_mis">4 missing</span>
             <span class="exc shortkey_x button_toggle_exc">0 excluded</span>
 
             
@@ -986,23 +986,6 @@
 <p id="n917" class="stm run hide_run"><a href="#n917">917</a></p>
 <p id="n918" class="pln"><a href="#n918">918</a></p>
 <p id="n919" class="stm run hide_run"><a href="#n919">919</a></p>
-<p id="n920" class="pln"><a href="#n920">920</a></p>
-<p id="n921" class="pln"><a href="#n921">921</a></p>
-<p id="n922" class="stm run hide_run"><a href="#n922">922</a></p>
-<p id="n923" class="stm mis"><a href="#n923">923</a></p>
-<p id="n924" class="stm mis"><a href="#n924">924</a></p>
-<p id="n925" class="pln"><a href="#n925">925</a></p>
-<p id="n926" class="stm mis"><a href="#n926">926</a></p>
-<p id="n927" class="stm mis"><a href="#n927">927</a></p>
-<p id="n928" class="pln"><a href="#n928">928</a></p>
-<p id="n929" class="stm mis"><a href="#n929">929</a></p>
-<p id="n930" class="stm mis"><a href="#n930">930</a></p>
-<p id="n931" class="stm mis"><a href="#n931">931</a></p>
-<p id="n932" class="pln"><a href="#n932">932</a></p>
-<p id="n933" class="stm mis"><a href="#n933">933</a></p>
-<p id="n934" class="stm mis"><a href="#n934">934</a></p>
-<p id="n935" class="stm mis"><a href="#n935">935</a></p>
-<p id="n936" class="stm mis"><a href="#n936">936</a></p>
 
             </td>
             <td class="text">
@@ -1925,23 +1908,6 @@
 <p id="t917" class="stm run hide_run">                    <span class="nam">ncore</span> <span class="op">=</span> <span class="num">0</span><span class="strut">&nbsp;</span></p>
 <p id="t918" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t919" class="stm run hide_run">                <span class="nam">line</span> <span class="op">=</span> <span class="nam">next</span><span class="op">(</span><span class="nam">inputfile</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t920" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t921" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t922" class="stm run hide_run"><span class="key">if</span> <span class="nam">__name__</span> <span class="op">==</span> <span class="str">'__main__'</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t923" class="stm mis">    <span class="key">import</span> <span class="nam">sys</span><span class="strut">&nbsp;</span></p>
-<p id="t924" class="stm mis">    <span class="key">import</span> <span class="nam">doctest</span><span class="op">,</span> <span class="nam">molcasparser</span><span class="strut">&nbsp;</span></p>
-<p id="t925" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t926" class="stm mis">    <span class="key">if</span> <span class="nam">len</span><span class="op">(</span><span class="nam">sys</span><span class="op">.</span><span class="nam">argv</span><span class="op">)</span> <span class="op">==</span> <span class="num">1</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t927" class="stm mis">        <span class="nam">doctest</span><span class="op">.</span><span class="nam">testmod</span><span class="op">(</span><span class="nam">molcasparser</span><span class="op">,</span> <span class="nam">verbose</span><span class="op">=</span><span class="key">False</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t928" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t929" class="stm mis">    <span class="key">if</span> <span class="nam">len</span><span class="op">(</span><span class="nam">sys</span><span class="op">.</span><span class="nam">argv</span><span class="op">)</span> <span class="op">==</span> <span class="num">2</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t930" class="stm mis">        <span class="nam">parser</span> <span class="op">=</span> <span class="nam">molcasparser</span><span class="op">.</span><span class="nam">Molcas</span><span class="op">(</span><span class="nam">sys</span><span class="op">.</span><span class="nam">argv</span><span class="op">[</span><span class="num">1</span><span class="op">]</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t931" class="stm mis">        <span class="nam">data</span> <span class="op">=</span> <span class="nam">parser</span><span class="op">.</span><span class="nam">parse</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t932" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t933" class="stm mis">    <span class="key">if</span> <span class="nam">len</span><span class="op">(</span><span class="nam">sys</span><span class="op">.</span><span class="nam">argv</span><span class="op">)</span> <span class="op">></span> <span class="num">2</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t934" class="stm mis">        <span class="key">for</span> <span class="nam">i</span> <span class="key">in</span> <span class="nam">range</span><span class="op">(</span><span class="nam">len</span><span class="op">(</span><span class="nam">sys</span><span class="op">.</span><span class="nam">argv</span><span class="op">[</span><span class="num">2</span><span class="op">:</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t935" class="stm mis">            <span class="key">if</span> <span class="nam">hasattr</span><span class="op">(</span><span class="nam">data</span><span class="op">,</span> <span class="nam">sys</span><span class="op">.</span><span class="nam">argv</span><span class="op">[</span><span class="num">2</span> <span class="op">+</span> <span class="nam">i</span><span class="op">]</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t936" class="stm mis">                <span class="nam">print</span><span class="op">(</span><span class="nam">getattr</span><span class="op">(</span><span class="nam">data</span><span class="op">,</span> <span class="nam">sys</span><span class="op">.</span><span class="nam">argv</span><span class="op">[</span><span class="num">2</span> <span class="op">+</span> <span class="nam">i</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 
             </td>
         </tr>
@@ -1952,7 +1918,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.3</a>,
-            created at 2019-05-06 15:25
+            created at 2019-05-07 03:23
         </p>
     </div>
 </div>
