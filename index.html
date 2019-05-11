@@ -265,23 +265,27 @@ The goals of cclib are centered around the reuse of data obtained from these pro
 </ul>
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>The current version is <strong>cclib 1.6.1</strong> (see the <a class="reference external" href="changelog.html">changelog</a> for what’s new) and parses output files from the following programs (version in parentheses are tested):</p>
+<p>The current version is <strong>cclib 1.6.1</strong> (see the <a class="reference external" href="changelog.html">changelog</a> for what’s new). The following programs are supported and systematically tested at the versions given in parentheses:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.scm.com/product/adf/">ADF</a> (versions 2007 and 2013)</p></li>
 <li><p><a class="reference external" href="http://daltonprogram.org">DALTON</a> (versions 2013 and 2015)</p></li>
 <li><p><a class="reference external" href="http://classic.chem.msu.su/gran/gamess/">Firefly</a>, formerly known as PC GAMESS (version 8.0)</p></li>
-<li><p><a class="reference external" href="http://www.msg.ameslab.gov/GAMESS/GAMESS.html">GAMESS (US)</a> (version 2012)</p></li>
-<li><p><a class="reference external" href="http://www.cfs.dl.ac.uk">GAMESS-UK</a> (version 7.0)</p></li>
-<li><p><a class="reference external" href="http://www.gaussian.com">Gaussian</a> (versions 03, 09 and 16)</p></li>
+<li><p><a class="reference external" href="http://www.msg.ameslab.gov/GAMESS/GAMESS.html">GAMESS (US)</a> (versions 2014 and 2017)</p></li>
+<li><p><a class="reference external" href="http://www.cfs.dl.ac.uk">GAMESS-UK</a> (versions 7.0 and 8.0)</p></li>
+<li><p><a class="reference external" href="http://www.gaussian.com">Gaussian</a> (versions 09 and 16)</p></li>
 <li><p><a class="reference external" href="https://www.schrodinger.com/jaguar">Jaguar</a> (versions 7.0 and 8.3)</p></li>
 <li><p><a class="reference external" href="https://gitlab.com/Molcas/OpenMolcas">Molcas</a> (version 18.0)</p></li>
 <li><p><a class="reference external" href="http://www.molpro.net/">Molpro</a> (versions 2006 and 2012)</p></li>
 <li><p><a class="reference external" href="http://openmopac.net/">MOPAC</a> (version 2016)</p></li>
-<li><p><a class="reference external" href="http://www.nwchem-sw.org/index.php/Main_Page">NWChem</a> (versions 6.0 and 6.5)</p></li>
-<li><p><a class="reference external" href="https://orcaforum.cec.mpg.de/">ORCA</a> (versions 3.0 and 4.0)</p></li>
-<li><p><a class="reference external" href="http://psicode.org/">Psi</a> (versions 3.4 and 4.0)</p></li>
-<li><p><a class="reference external" href="http://q-chem.com/">Q-Chem</a> (version 4.2)</p></li>
+<li><p><a class="reference external" href="http://www.nwchem-sw.org/index.php/Main_Page">NWChem</a> (versions 6.0, 6.1, 6.5 and 6.6)</p></li>
+<li><p><a class="reference external" href="https://orcaforum.cec.mpg.de/">ORCA</a> (versions 4.0 and 4.1)</p></li>
+<li><p><a class="reference external" href="http://psicode.org/">Psi4</a> (versions 1.0 and 1.2.1)</p></li>
+<li><p><a class="reference external" href="http://q-chem.com/">Q-Chem</a> (versions 4.2 and 5.1)</p></li>
 <li><p><a class="reference external" href="http://www.turbomole-gmbh.com/">Turbomole</a> (versions 5.9 and 7.2)</p></li>
+</ul>
+<p>Output files from other versions of the above programs may still work, and regression tests are always welcome. The following legacy parsers are still tested as regressions, but not actively maintained:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://openscience.org/psi3/">Psi3</a> (version 3.4)</p></li>
 </ul>
 <p>Many types of output data are parsed by cclib, including atom coordinates, orbital information, vibrational modes and TD-DFT calculations. See the page on <a class="reference external" href="data.html">Extracted Data</a> for a complete list with coverage for the different programs. Several <a class="reference external" href="methods.html">calculation methods</a> are also provided for interpreting the electronic properties of molecules.</p>
 </div>
