@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; cclib 1.6.1 documentation</title>
+  <title>Changelog &mdash; cclib 1.6.2 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="cclib 1.6.1 documentation" href="index.html"/>
+    <link rel="top" title="cclib 1.6.2 documentation" href="index.html"/>
         <link rel="prev" title="Development parsed data" href="data_dev.html"/> 
 
   
@@ -101,7 +101,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.6.1)</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.6.2)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="data.html#description-of-parsed-data">Description of parsed data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data.html#details-of-current-implementation">Details of current implementation</a></li>
 </ul>
@@ -191,6 +191,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-6-2">Changes in cclib-1.6.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-6-1">Changes in cclib-1.6.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-6">Changes in cclib-1.6</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-5-3">Changes in cclib-1.5.3</a></li>
@@ -254,6 +255,25 @@
             
   <div class="section" id="changelog">
 <span id="index-0"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="changes-in-cclib-1-6-2">
+<h2>Changes in cclib-1.6.2<a class="headerlink" href="#changes-in-cclib-1-6-2" title="Permalink to this headline">¶</a></h2>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li><p>Molden writer now supports ghost atoms (Shiv Upadhyay)</p></li>
+<li><p>Handle comments in XYZ files when reading and writing</p></li>
+<li><p>Updated regression testing framework (Amanda Dumi, Shiv Upadhyay)</p></li>
+<li><p>Updated test file versions to GAMESS-US 2018 (Shiv Upadhyay)</p></li>
+</ul>
+<p><strong>Bugfixes</strong></p>
+<ul class="simple">
+<li><p>Fixed parsing ORCA output with user comments in coordinates (Felix Plasser)</p></li>
+<li><p>Fixed parsing ORCA output with embedding potentials</p></li>
+<li><p>Fixed parsing ORCA output with ROCIS in version 4.1</p></li>
+<li><p>Fixed parsing etenergies and similar attribute in ORCA for excited states</p></li>
+<li><p>Fixed parsing of vibfreqs for ORCA for linear molecules</p></li>
+<li><p>Parsing geometry optimization in ORCA is mode robust wrt line endings</p></li>
+</ul>
+</div>
 <div class="section" id="changes-in-cclib-1-6-1">
 <h2>Changes in cclib-1.6.1<a class="headerlink" href="#changes-in-cclib-1-6-1" title="Permalink to this headline">¶</a></h2>
 <p><strong>Features</strong></p>
@@ -754,7 +774,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.6.1',
+            VERSION:'1.6.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
