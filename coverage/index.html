@@ -1,13 +1,9 @@
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Coverage report</title>
     <link rel="stylesheet" href="style.css" type="text/css">
-    
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery.ba-throttle-debounce.min.js"></script>
     <script type="text/javascript" src="jquery.tablesorter.min.js"></script>
@@ -18,21 +14,17 @@
     </script>
 </head>
 <body class="indexfile">
-
 <div id="header">
     <div class="content">
         <h1>Coverage report:
             <span class="pc_cov">86%</span>
         </h1>
-
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
-
         <form id="filter_container">
             <input id="filter" type="text" value="" placeholder="filter..." />
         </form>
     </div>
 </div>
-
 <div class="help_panel">
     <img id="panel_icon" src="keybd_open.png" alt="Hide keyboard shortcuts" />
     <p class="legend">Hot-keys on this page</p>
@@ -42,594 +34,464 @@
         <span class="key">s</span>
         <span class="key">m</span>
         <span class="key">x</span>
-        
         <span class="key">c</span> &nbsp; change column sorting
     </p>
     </div>
 </div>
-
 <div id="index">
     <table class="index">
         <thead>
-            
             <tr class="tablehead" title="Click to sort">
                 <th class="name left headerSortDown shortkey_n">Module</th>
                 <th class="shortkey_s">statements</th>
                 <th class="shortkey_m">missing</th>
                 <th class="shortkey_x">excluded</th>
-                
                 <th class="right shortkey_c">coverage</th>
             </tr>
         </thead>
-        
         <tfoot>
             <tr class="total">
                 <td class="name left">Total</td>
-                <td>11217</td>
-                <td>1619</td>
+                <td>11227</td>
+                <td>1620</td>
                 <td>0</td>
-                
-                <td class="right" data-ratio="9598 11217">86%</td>
+                <td class="right" data-ratio="9607 11227">86%</td>
             </tr>
         </tfoot>
         <tbody>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib___init___py.html">cclib/__init__.py</a></td>
                 <td>13</td>
                 <td>0</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="13 13">100%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_bridge___init___py.html">cclib/bridge/__init__.py</a></td>
                 <td>11</td>
                 <td>1</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="10 11">91%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_bridge_cclib2biopython_py.html">cclib/bridge/cclib2biopython.py</a></td>
                 <td>16</td>
                 <td>1</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="15 16">94%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_bridge_cclib2openbabel_py.html">cclib/bridge/cclib2openbabel.py</a></td>
-                <td>42</td>
+                <td>45</td>
                 <td>3</td>
                 <td>0</td>
-                
-                <td class="right" data-ratio="39 42">93%</td>
+                <td class="right" data-ratio="42 45">93%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_bridge_cclib2psi4_py.html">cclib/bridge/cclib2psi4.py</a></td>
                 <td>12</td>
                 <td>1</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="11 12">92%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_bridge_cclib2pyquante_py.html">cclib/bridge/cclib2pyquante.py</a></td>
                 <td>12</td>
                 <td>12</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="0 12">0%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_io___init___py.html">cclib/io/__init__.py</a></td>
                 <td>13</td>
                 <td>0</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="13 13">100%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_io_ccio_py.html">cclib/io/ccio.py</a></td>
-                <td>241</td>
+                <td>244</td>
                 <td>68</td>
                 <td>0</td>
-                
-                <td class="right" data-ratio="173 241">72%</td>
+                <td class="right" data-ratio="176 244">72%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_io_cjsonreader_py.html">cclib/io/cjsonreader.py</a></td>
                 <td>34</td>
                 <td>1</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="33 34">97%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_io_cjsonwriter_py.html">cclib/io/cjsonwriter.py</a></td>
                 <td>141</td>
                 <td>9</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="132 141">94%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_io_cmlwriter_py.html">cclib/io/cmlwriter.py</a></td>
                 <td>56</td>
                 <td>44</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="12 56">21%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_io_filereader_py.html">cclib/io/filereader.py</a></td>
                 <td>13</td>
                 <td>1</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="12 13">92%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_io_filewriter_py.html">cclib/io/filewriter.py</a></td>
-                <td>74</td>
-                <td>7</td>
+                <td>78</td>
+                <td>8</td>
                 <td>0</td>
-                
-                <td class="right" data-ratio="67 74">91%</td>
+                <td class="right" data-ratio="70 78">90%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_io_moldenwriter_py.html">cclib/io/moldenwriter.py</a></td>
                 <td>141</td>
                 <td>25</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="116 141">82%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_io_wfxwriter_py.html">cclib/io/wfxwriter.py</a></td>
                 <td>240</td>
                 <td>93</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="147 240">61%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_io_xyzreader_py.html">cclib/io/xyzreader.py</a></td>
                 <td>41</td>
                 <td>1</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="40 41">98%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_io_xyzwriter_py.html">cclib/io/xyzwriter.py</a></td>
                 <td>47</td>
                 <td>5</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="42 47">89%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_method___init___py.html">cclib/method/__init__.py</a></td>
                 <td>13</td>
                 <td>0</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="13 13">100%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_method_calculationmethod_py.html">cclib/method/calculationmethod.py</a></td>
                 <td>24</td>
                 <td>0</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="24 24">100%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_method_cda_py.html">cclib/method/cda.py</a></td>
                 <td>72</td>
                 <td>12</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="60 72">83%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_method_cspa_py.html">cclib/method/cspa.py</a></td>
                 <td>62</td>
                 <td>8</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="54 62">87%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_method_density_py.html">cclib/method/density.py</a></td>
                 <td>47</td>
                 <td>11</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="36 47">77%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_method_electrons_py.html">cclib/method/electrons.py</a></td>
                 <td>21</td>
                 <td>2</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="19 21">90%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_method_fragments_py.html">cclib/method/fragments.py</a></td>
                 <td>93</td>
                 <td>28</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="65 93">70%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_method_lpa_py.html">cclib/method/lpa.py</a></td>
                 <td>69</td>
                 <td>10</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="59 69">86%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_method_mbo_py.html">cclib/method/mbo.py</a></td>
                 <td>73</td>
                 <td>13</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="60 73">82%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_method_moments_py.html">cclib/method/moments.py</a></td>
                 <td>59</td>
                 <td>7</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="52 59">88%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_method_mpa_py.html">cclib/method/mpa.py</a></td>
                 <td>63</td>
                 <td>12</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="51 63">81%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_method_nuclear_py.html">cclib/method/nuclear.py</a></td>
                 <td>132</td>
                 <td>19</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="113 132">86%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_method_opa_py.html">cclib/method/opa.py</a></td>
                 <td>77</td>
                 <td>65</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="12 77">16%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_method_orbitals_py.html">cclib/method/orbitals.py</a></td>
                 <td>20</td>
                 <td>2</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="18 20">90%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_method_population_py.html">cclib/method/population.py</a></td>
                 <td>55</td>
                 <td>5</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="50 55">91%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_method_volume_py.html">cclib/method/volume.py</a></td>
                 <td>137</td>
                 <td>137</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="0 137">0%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser___init___py.html">cclib/parser/__init__.py</a></td>
                 <td>18</td>
                 <td>0</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="18 18">100%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_adfparser_py.html">cclib/parser/adfparser.py</a></td>
                 <td>684</td>
                 <td>15</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="669 684">98%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_daltonparser_py.html">cclib/parser/daltonparser.py</a></td>
                 <td>541</td>
                 <td>5</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="536 541">99%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_data_py.html">cclib/parser/data.py</a></td>
                 <td>125</td>
                 <td>24</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="101 125">81%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_gamessparser_py.html">cclib/parser/gamessparser.py</a></td>
                 <td>781</td>
                 <td>29</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="752 781">96%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_gamessukparser_py.html">cclib/parser/gamessukparser.py</a></td>
                 <td>413</td>
                 <td>6</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="407 413">99%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_gaussianparser_py.html">cclib/parser/gaussianparser.py</a></td>
                 <td>946</td>
                 <td>64</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="882 946">93%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_jaguarparser_py.html">cclib/parser/jaguarparser.py</a></td>
                 <td>378</td>
                 <td>5</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="373 378">99%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_logfileparser_py.html">cclib/parser/logfileparser.py</a></td>
                 <td>256</td>
                 <td>36</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="220 256">86%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_molcasparser_py.html">cclib/parser/molcasparser.py</a></td>
                 <td>388</td>
                 <td>6</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="382 388">98%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_molproparser_py.html">cclib/parser/molproparser.py</a></td>
                 <td>497</td>
                 <td>16</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="481 497">97%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_mopacparser_py.html">cclib/parser/mopacparser.py</a></td>
                 <td>109</td>
                 <td>3</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="106 109">97%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_nwchemparser_py.html">cclib/parser/nwchemparser.py</a></td>
                 <td>605</td>
                 <td>17</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="588 605">97%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_orcaparser_py.html">cclib/parser/orcaparser.py</a></td>
                 <td>850</td>
                 <td>66</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="784 850">92%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_psi3parser_py.html">cclib/parser/psi3parser.py</a></td>
                 <td>180</td>
                 <td>169</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="11 180">6%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_psi4parser_py.html">cclib/parser/psi4parser.py</a></td>
                 <td>562</td>
                 <td>9</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="553 562">98%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_qchemparser_py.html">cclib/parser/qchemparser.py</a></td>
                 <td>803</td>
                 <td>13</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="790 803">98%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_turbomoleparser_py.html">cclib/parser/turbomoleparser.py</a></td>
                 <td>547</td>
                 <td>371</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="176 547">32%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_parser_utils_py.html">cclib/parser/utils.py</a></td>
                 <td>66</td>
                 <td>16</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="50 66">76%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_progress___init___py.html">cclib/progress/__init__.py</a></td>
                 <td>4</td>
                 <td>1</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="3 4">75%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_progress_qt4progress_py.html">cclib/progress/qt4progress.py</a></td>
                 <td>23</td>
                 <td>23</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="0 23">0%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_progress_textprogress_py.html">cclib/progress/textprogress.py</a></td>
                 <td>29</td>
                 <td>23</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="6 29">21%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_scripts___init___py.html">cclib/scripts/__init__.py</a></td>
                 <td>3</td>
                 <td>0</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="3 3">100%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_scripts_ccframe_py.html">cclib/scripts/ccframe.py</a></td>
                 <td>38</td>
                 <td>17</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="21 38">55%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_scripts_ccget_py.html">cclib/scripts/ccget.py</a></td>
                 <td>117</td>
                 <td>45</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="72 117">62%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_scripts_ccwrite_py.html">cclib/scripts/ccwrite.py</a></td>
                 <td>54</td>
                 <td>8</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="46 54">85%</td>
             </tr>
-            
             <tr class="file">
                 <td class="name left"><a href="cclib_scripts_cda_py.html">cclib/scripts/cda.py</a></td>
                 <td>36</td>
                 <td>29</td>
                 <td>0</td>
-                
                 <td class="right" data-ratio="7 36">19%</td>
             </tr>
-            
         </tbody>
     </table>
-
     <p id="no_rows">
         No items found using the specified filter.
     </p>
 </div>
-
 <div id="footer">
     <div class="content">
         <p>
-            <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.4</a>,
-            created at 2019-11-27 04:21
+            <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.0.1</a>,
+            created at 2020-01-05 22:49
         </p>
     </div>
 </div>
-
 </body>
 </html>
