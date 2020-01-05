@@ -815,7 +815,7 @@
     <p id="t762" class="run"><span class="n"><a href="#t762">762</a></span><span class="t">            <span class="nam">self</span><span class="op">.</span><span class="nam">entropy</span> <span class="op">=</span> <span class="nam">float</span><span class="op">(</span><span class="nam">next</span><span class="op">(</span><span class="nam">inputfile</span><span class="op">)</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="op">)</span><span class="op">[</span><span class="num">4</span><span class="op">]</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t763" class="pln"><span class="n"><a href="#t763">763</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t764" class="run"><span class="n"><a href="#t764">764</a></span><span class="t">            <span class="nam">line</span> <span class="op">=</span> <span class="nam">next</span><span class="op">(</span><span class="nam">inputfile</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t765" class="run"><span class="n"><a href="#t765">765</a></span><span class="t">            <span class="key">while</span> <span class="nam">line</span><span class="op">[</span><span class="op">:</span><span class="num">25</span><span class="op">]</span> <span class="op">!=</span> <span class="str">'Final Gibbs free enthalpy'</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t765" class="run"><span class="n"><a href="#t765">765</a></span><span class="t">            <span class="key">while</span> <span class="op">(</span><span class="nam">line</span><span class="op">[</span><span class="op">:</span><span class="num">25</span><span class="op">]</span> <span class="op">!=</span> <span class="str">'Final Gibbs free enthalpy'</span><span class="op">)</span> <span class="key">and</span> <span class="op">(</span><span class="nam">line</span><span class="op">[</span><span class="op">:</span><span class="num">23</span><span class="op">]</span> <span class="op">!=</span> <span class="str">'Final Gibbs free energy'</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t766" class="run"><span class="n"><a href="#t766">766</a></span><span class="t">                <span class="nam">line</span> <span class="op">=</span> <span class="nam">next</span><span class="op">(</span><span class="nam">inputfile</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t767" class="run"><span class="n"><a href="#t767">767</a></span><span class="t">            <span class="nam">self</span><span class="op">.</span><span class="nam">freeenergy</span> <span class="op">=</span> <span class="nam">float</span><span class="op">(</span><span class="nam">line</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="op">)</span><span class="op">[</span><span class="num">5</span><span class="op">]</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t768" class="pln"><span class="n"><a href="#t768">768</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
@@ -1730,7 +1730,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.0.1</a>,
-            created at 2020-01-05 22:53
+            created at 2020-01-05 22:58
         </p>
     </div>
 </div>
