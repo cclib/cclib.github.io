@@ -65,7 +65,7 @@
     `vibdisps`_         cartesian displacement vectors                                   delta angstrom              array of rank 3
     `vibfreqs`_         vibrational frequencies                                          1/cm                        array of rank 1
     `vibirs`_           IR intensities                                                   km/mol                      array of rank 1
-    `vibramans`_        Raman intensities                                                A^4/Da                      array of rank 1
+    `vibramans`_        Raman activities                                                 A^4/Da                      array of rank 1
     `vibsyms`_          symmetries of vibrations                                                                     list of strings
     =================== ================================================================ =========================== =============================== 
 
