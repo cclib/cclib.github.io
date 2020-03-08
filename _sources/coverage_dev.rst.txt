@@ -14,11 +14,14 @@ attributes          ADF                 DALTON              GAMESS              
 `coreelectrons`_    √                   √                   √                   √                   √                   √                   √                   √                   √                   √                   √                   √                   √                   √                   
 `enthalpy`_         T/D                 T/D                 √                   T/D                 √                   T/D                 T/D                 √                   T/D                 T/D                 √                   T/D                 √                   T/D                 
 `entropy`_          T/D                 T/D                 √                   T/D                 √                   T/D                 T/D                 √                   T/D                 T/D                 √                   T/D                 √                   T/D                 
+`etdips`_           T/D                 T/D                 T/D                 T/D                 √                   T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 
 `etenergies`_       √                   √                   √                   T/D                 √                   √                   T/D                 T/D                 T/D                 T/D                 √                   T/D                 √                   T/D                 
+`etmagdips`_        T/D                 T/D                 T/D                 T/D                 √                   T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 
 `etoscs`_           √                   √                   √                   T/D                 √                   √                   T/D                 T/D                 T/D                 T/D                 √                   T/D                 √                   T/D                 
 `etrotats`_         T/D                 T/D                 T/D                 T/D                 √                   T/D                 T/D                 T/D                 T/D                 T/D                 √                   T/D                 N/P                 T/D                 
 `etsecs`_           √                   √                   √                   T/D                 √                   √                   T/D                 T/D                 T/D                 T/D                 √                   T/D                 √                   T/D                 
 `etsyms`_           √                   √                   √                   T/D                 √                   √                   T/D                 T/D                 T/D                 T/D                 √                   T/D                 √                   T/D                 
+`etveldips`_        T/D                 T/D                 T/D                 T/D                 √                   T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 
 `fonames`_          √                   N/A                 N/A                 N/A                 N/A                 N/A                 N/A                 T/D                 T/D                 N/A                 N/A                 T/D                 N/A                 T/D                 
 `fooverlaps`_       √                   N/A                 N/A                 N/A                 N/A                 N/A                 N/A                 T/D                 T/D                 N/A                 N/A                 T/D                 N/A                 T/D                 
 `fragnames`_        √                   N/A                 N/A                 N/A                 N/A                 N/A                 N/A                 T/D                 T/D                 N/A                 N/A                 T/D                 N/A                 T/D                 
@@ -79,11 +82,14 @@ attributes          ADF                 DALTON              GAMESS              
 .. _`coreelectrons`: data_notes.html#coreelectrons
 .. _`enthalpy`: data_notes.html#enthalpy
 .. _`entropy`: data_notes.html#entropy
+.. _`etdips`: data_notes.html#etdips
 .. _`etenergies`: data_notes.html#etenergies
+.. _`etmagdips`: data_notes.html#etmagdips
 .. _`etoscs`: data_notes.html#etoscs
 .. _`etrotats`: data_notes.html#etrotats
 .. _`etsecs`: data_notes.html#etsecs
 .. _`etsyms`: data_notes.html#etsyms
+.. _`etveldips`: data_notes.html#etveldips
 .. _`fonames`: data_notes.html#fonames
 .. _`fooverlaps`: data_notes.html#fooverlaps
 .. _`fragnames`: data_notes.html#fragnames

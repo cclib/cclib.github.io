@@ -16,6 +16,9 @@
     `entropy`_          entropy                                                          hartree/particle            float
     `etenergies`_       energies of electronic transitions                               1/cm                        array of rank 1
     `etoscs`_           oscillator strengths of electronic transitions                                               array of rank 1
+    `etdips`_           electric transition dipoles of electronic transitions            ebohr                       array of rank 2
+    `etveldips`_        velocity-gauge electric transition dipoles of electronic transitionsebohr                       array of rank 2
+    `etmagdips`_        magnetic transition dipoles of electronic transitions            ebohr                       array of rank 2
     `etrotats`_         rotatory strengths of electronic transitions                     ??                          array of rank 1
     `etsecs`_           singly-excited configurations for electronic transitions                                     list of lists
     `etsyms`_           symmetries of electronic transitions                                                         list of string
@@ -81,6 +84,9 @@
 .. _`entropy`: data_notes.html#entropy
 .. _`etenergies`: data_notes.html#etenergies
 .. _`etoscs`: data_notes.html#etoscs
+.. _`etdips`: data_notes.html#etdips
+.. _`etveldips`: data_notes.html#etveldips
+.. _`etmagdips`: data_notes.html#etmagdips
 .. _`etrotats`: data_notes.html#etrotats
 .. _`etsecs`: data_notes.html#etsecs
 .. _`etsyms`: data_notes.html#etsyms
