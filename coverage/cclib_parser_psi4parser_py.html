@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for cclib/parser/psi4parser.py: 98%</title>
+    <title>Coverage for cclib/parser/psi4parser.py: 99%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery.hotkeys.js"></script>
@@ -17,13 +17,13 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>cclib/parser/psi4parser.py</b> :
-            <span class="pc_cov">98%</span>
+            <span class="pc_cov">99%</span>
         </h1>
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
             562 statements &nbsp;
-            <span class="run shortkey_r button_toggle_run">553 run</span>
-            <span class="mis show_mis shortkey_m button_toggle_mis">9 missing</span>
+            <span class="run shortkey_r button_toggle_run">554 run</span>
+            <span class="mis show_mis shortkey_m button_toggle_mis">8 missing</span>
             <span class="exc show_exc shortkey_x button_toggle_exc">0 excluded</span>
         </h2>
     </div>
@@ -169,8 +169,8 @@
     <p id="t116" class="pln"><span class="n"><a href="#t116">116</a></span><span class="t">        <span class="com"># Determine whether or not the reference wavefunction is</span>&nbsp;</span><span class="r"></span></p>
     <p id="t117" class="pln"><span class="n"><a href="#t117">117</a></span><span class="t">        <span class="com"># restricted, unrestricted, or restricted open-shell.</span>&nbsp;</span><span class="r"></span></p>
     <p id="t118" class="run"><span class="n"><a href="#t118">118</a></span><span class="t">        <span class="key">if</span> <span class="nam">line</span><span class="op">.</span><span class="nam">strip</span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="str">"SCF"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t119" class="run"><span class="n"><a href="#t119">119</a></span><span class="t">            <span class="nam">self</span><span class="op">.</span><span class="nam">skip_line</span><span class="op">(</span><span class="nam">inputfile</span><span class="op">,</span> <span class="str">'author list'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t120" class="run"><span class="n"><a href="#t120">120</a></span><span class="t">            <span class="nam">line</span> <span class="op">=</span> <span class="nam">next</span><span class="op">(</span><span class="nam">inputfile</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t119" class="run"><span class="n"><a href="#t119">119</a></span><span class="t">            <span class="key">while</span> <span class="str">"Reference"</span> <span class="key">not</span> <span class="key">in</span> <span class="nam">line</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t120" class="run"><span class="n"><a href="#t120">120</a></span><span class="t">                <span class="nam">line</span> <span class="op">=</span> <span class="nam">next</span><span class="op">(</span><span class="nam">inputfile</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t121" class="run"><span class="n"><a href="#t121">121</a></span><span class="t">            <span class="nam">self</span><span class="op">.</span><span class="nam">reference</span> <span class="op">=</span> <span class="nam">line</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="op">)</span><span class="op">[</span><span class="num">0</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p id="t122" class="pln"><span class="n"><a href="#t122">122</a></span><span class="t">            <span class="com"># Work with a complex reference as if it's real.</span>&nbsp;</span><span class="r"></span></p>
     <p id="t123" class="run"><span class="n"><a href="#t123">123</a></span><span class="t">            <span class="key">if</span> <span class="nam">self</span><span class="op">.</span><span class="nam">reference</span><span class="op">[</span><span class="num">0</span><span class="op">]</span> <span class="op">==</span> <span class="str">'C'</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
@@ -1080,7 +1080,7 @@
     <p id="t1027" class="run"><span class="n"><a href="#t1027">1027</a></span><span class="t">                <span class="nam">self</span><span class="op">.</span><span class="nam">set_attribute</span><span class="op">(</span><span class="str">'vibfreqs'</span><span class="op">,</span> <span class="nam">vibfreqs</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t1028" class="pln"><span class="n"><a href="#t1028">1028</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t1029" class="run"><span class="n"><a href="#t1029">1029</a></span><span class="t">            <span class="key">if</span> <span class="nam">len</span><span class="op">(</span><span class="nam">vibsyms</span><span class="op">)</span> <span class="op">==</span> <span class="nam">n_modes</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t1030" class="mis show_mis"><span class="n"><a href="#t1030">1030</a></span><span class="t">                <span class="nam">self</span><span class="op">.</span><span class="nam">set_attribute</span><span class="op">(</span><span class="str">'vibsyms'</span><span class="op">,</span> <span class="nam">vibsyms</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t1030" class="run"><span class="n"><a href="#t1030">1030</a></span><span class="t">                <span class="nam">self</span><span class="op">.</span><span class="nam">set_attribute</span><span class="op">(</span><span class="str">'vibsyms'</span><span class="op">,</span> <span class="nam">vibsyms</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t1031" class="pln"><span class="n"><a href="#t1031">1031</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t1032" class="run"><span class="n"><a href="#t1032">1032</a></span><span class="t">            <span class="key">if</span> <span class="nam">len</span><span class="op">(</span><span class="nam">vibdisps</span><span class="op">)</span> <span class="op">==</span> <span class="nam">n_modes</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t1033" class="run"><span class="n"><a href="#t1033">1033</a></span><span class="t">                <span class="nam">self</span><span class="op">.</span><span class="nam">set_attribute</span><span class="op">(</span><span class="str">'vibdisps'</span><span class="op">,</span> <span class="nam">vibdisps</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
@@ -1198,7 +1198,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.0.4</a>,
-            created at 2020-03-20 06:28
+            created at 2020-03-20 06:34
         </p>
     </div>
 </div>
