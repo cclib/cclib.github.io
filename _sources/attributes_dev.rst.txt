@@ -50,7 +50,7 @@
     `optdone`_          flags whether an optimization has converged                                                  Boolean
     `optstatus`_        optimization status for each set of atomic coordinates                                       array of rank 1
     `polarizabilities`_ (dipole) polarizabilities, static or dynamic                                                 list of arrays of rank 2
-    `pressure`_         temperature used for Thermochemistry                             atm                         float
+    `pressure`_         pressure used for Thermochemistry                                atm                         float
     `scancoords`_       geometries of each scan step                                     angstroms                   array of rank 3
     `scanenergies`_     energies of potential energy surface                                                         list
     `scannames`_        names of varaibles scanned                                                                   list of strings
