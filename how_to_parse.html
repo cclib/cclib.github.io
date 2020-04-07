@@ -479,11 +479,13 @@ cclib can parse the following attributes from Benzeneselenol.out:
 <p>This script creates complete tables of data from output files in some of the formats supported by <a class="reference external" href="https://pandas.pydata.org/">pandas</a>.
 Since the pandas library is not a dependency of cclib, <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/install.html">it must be installed</a> separately.</p>
 <p>A complete data table can be parsed from many output files by following this format:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ccframe</span> <span class="o">-</span><span class="n">O</span> <span class="o">&lt;</span><span class="n">OutputDest</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">CompChemLogFile</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">CompChemLogFile</span><span class="o">&gt;...</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ccframe</span> <span class="p">[</span><span class="o">--</span><span class="n">force</span><span class="o">|-</span><span class="n">f</span><span class="p">]</span> <span class="o">-</span><span class="n">O</span> <span class="o">&lt;</span><span class="n">OutputDest</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">CompChemLogFile</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">CompChemLogFile</span><span class="o">&gt;...</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>The argument for <code class="docutils literal notranslate"><span class="pre">-O</span></code> indicates the data file to be written and its extension specifies the filetype (e.g. csv, h5/hdf/hdf5, json, pickle/pkl, xlsx).
-Since higher-dimensional attributes (e.g. <code class="docutils literal notranslate"><span class="pre">atomcoords</span></code>) are handled as plain text in some file formats (such as Excel XLSX or CSV), we recommend storing JSON or HDF5 files.</p>
+An error will be thrown if <code class="docutils literal notranslate"><span class="pre">&lt;OutputDest&gt;</span></code> already exists, but you can force overwriting by using the <code class="docutils literal notranslate"><span class="pre">--force</span></code> (or <code class="docutils literal notranslate"><span class="pre">-f</span></code>) flag.
+Since higher-dimensional attributes (e.g. <code class="docutils literal notranslate"><span class="pre">atomcoords</span></code>) are handled as plain text in some file formats (such as Excel XLSX or CSV), we recommend storing JSON or HDF5 files.
+Observe that the output data file is overwritten if it exits already.</p>
 </div>
 </div>
 </div>
