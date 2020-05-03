@@ -67,6 +67,7 @@
     `vibirs`_           IR intensities                                                   km/mol                      array of rank 1
     `vibramans`_        Raman activities                                                 A^4/Da                      array of rank 1
     `vibsyms`_          symmetries of vibrations                                                                     list of strings
+    `zpve`_             zero-point vibrational energy correction                         hartree/particle            float
     =================== ================================================================ =========================== =============================== 
 
 .. _`aonames`: data_notes.html#aonames
@@ -135,3 +136,4 @@
 .. _`vibirs`: data_notes.html#vibirs
 .. _`vibramans`: data_notes.html#vibramans
 .. _`vibsyms`: data_notes.html#vibsyms
+.. _`zpve`: data_notes.html#zpve
