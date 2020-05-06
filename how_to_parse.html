@@ -260,22 +260,33 @@
 <div class="section" id="from-python">
 <h2>From Python<a class="headerlink" href="#from-python" title="Permalink to this headline">¶</a></h2>
 <p>Importing cclib and parsing a file is a few lines of Python code, making it simple to access data from the output file of any supported computational chemistry program. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cclib</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">cclib</span>
 
-<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;logfile.out&quot;</span>
-<span class="n">parser</span> <span class="o">=</span> <span class="n">cclib</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">ccopen</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are </span><span class="si">%i</span><span class="s2"> atoms and </span><span class="si">%i</span><span class="s2"> MOs&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">natom</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">nmo</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;water.out&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">cclib</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">ccopen</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are </span><span class="si">%i</span><span class="s2"> atoms and </span><span class="si">%i</span><span class="s2"> MOs&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">natom</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">nmo</span><span class="p">))</span>
+
+<span class="go">There are 3 atoms and 7 MOs</span>
 </pre></div>
 </div>
 <p>A newer command, <code class="docutils literal notranslate"><span class="pre">ccread</span></code>, combines both the format detection and parsing steps:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cclib</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">cclib</span>
 
-<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;logfile.out&quot;</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">cclib</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">ccread</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are </span><span class="si">%i</span><span class="s2"> atoms and </span><span class="si">%i</span><span class="s2"> MOs&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">natom</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">nmo</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;logfile.out&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">cclib</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">ccread</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are </span><span class="si">%i</span><span class="s2"> atoms and </span><span class="si">%i</span><span class="s2"> MOs&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">natom</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">nmo</span><span class="p">))</span>
+
+<span class="go">There are 3 atoms and 7 MOs</span>
 </pre></div>
 </div>
+<p>The <cite>data</cite> object above contains all the information cclib was able to to parse from the output file, available as attributes on the object:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="go">[(...), &#39;atomcoords&#39;, &#39;atommasses&#39;, &#39;atomnos&#39;, &#39;charge&#39;, (...), &#39;mult&#39;, &#39;natom, &#39;nbasis&#39;, ...]</span>
+</pre></div>
+</div>
+<p>You can find a full list of these attribute on the <a class="reference external" href="data.html">parsed data</a> page.</p>
 </div>
 <div class="section" id="from-command-line">
 <h2>From command line<a class="headerlink" href="#from-command-line" title="Permalink to this headline">¶</a></h2>

@@ -256,7 +256,7 @@
             
   <div class="section" id="parsed-data-notes">
 <span id="index-0"></span><h1>Parsed data notes<a class="headerlink" href="#parsed-data-notes" title="Permalink to this headline">¶</a></h1>
-<p>This is a list of descriptions and notes for all the data attributes currently parsed by cclib, either in the official release (1.6.2) or development branch. In particular, this page contains technical details about the interpretation of attributes, how to produce them in the various programs and examples in some cases. For a summary and details of the current implementation by the different parsers, please see the <a class="reference external" href="data.html">extracted data</a> page and its <a class="reference external" href="data_dev.html">development</a> version.</p>
+<p>This is a list of descriptions and notes for all the data attributes currently parsed by cclib, either in the official release (1.6.2) or development branch. In particular, this page contains technical details about the interpretation of attributes, how to produce them in the various programs and examples in some cases. For a summary and details of the current implementation by the different parsers, please see the <a class="reference external" href="data.html">parsed data</a> page and its <a class="reference external" href="data_dev.html">development</a> version.</p>
 <div class="section" id="aonames">
 <h2>aonames<a class="headerlink" href="#aonames" title="Permalink to this headline">¶</a></h2>
 <p>This attribute contains the atomic orbital names. These are not normalised as the following examples show, although a reasonable attempt is made to get them close to each other. Users will need to know what each orbital is by knowing the basis set inside out, rather than relying on this data. Such is life, as GAMESS does not provide enough information.</p>
@@ -465,7 +465,12 @@
 </div>
 <div class="section" id="homos">
 <span id="index-6"></span><h2>homos<a class="headerlink" href="#homos" title="Permalink to this headline">¶</a></h2>
-<p>A 1D array that holds the indexes of the highest occupied molecular orbitals (HOMOs), which contains one element for restricted and two elements for unrestricted calculations. These indexes can be applied to other attributes describing molecular orbitals, such as <a class="reference internal" href="#moenergies">moenergies</a> and <a class="reference internal" href="#mocoeffs">mocoeffs</a>.</p>
+<p>A 1D array that holds the indexes of the highest occupied molecular orbitals (HOMOs), with one element for restricted and two elements for unrestricted calculations. These indexes can be applied to other attributes describing molecular orbitals, such as <a class="reference internal" href="#moenergies">moenergies</a> and <a class="reference internal" href="#mocoeffs">mocoeffs</a>. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">cclib</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">ccread</span><span class="p">(</span><span class="s1">&#39;water_mp2&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">last_occupied_energy</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">moenergies</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">data</span><span class="o">.</span><span class="n">homos</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>&gt;&gt; <strong>Note:</strong> All indexes in cclib start from zero, as per Python conventions. This applies to the contents of <code class="docutils literal notranslate"><span class="pre">homos</span></code> as well, which means <code class="docutils literal notranslate"><span class="pre">homos[0]</span></code> refers to the <em>index</em> of the HOMO when referencing other attributes and not the number of occupied orbitals.</p>
 </div>
 <div class="section" id="metadata">
 <span id="index-7"></span><h2>metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h2>
@@ -486,7 +491,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">unrestricted</span></code>: A boolean for whether or not the calculation was performed with a unrestricted wavefunction.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">warnings</span></code>: A list of strings, each of which is a warning produced during a calculation.</p></li>
 </ul>
-<p>The implementation and coverage of metadata is currently inconsistent. In the future, metadata may receive its own page similar to <a class="reference external" href="data.html">extracted data</a>.</p>
+<p>The implementation and coverage of metadata is currently inconsistent. In the future, metadata may receive its own page similar to <a href="#id3"><span class="problematic" id="id4">`extracted data`_</span></a>.</p>
 </div>
 <div class="section" id="mocoeffs">
 <h2>mocoeffs<a class="headerlink" href="#mocoeffs" title="Permalink to this headline">¶</a></h2>
@@ -629,7 +634,7 @@
 </table>
 </div></blockquote>
 <ul class="simple">
-<li><p>ADF - the full list can be found <a href="#id3"><span class="problematic" id="id4">`here http://www.scm.com/Doc/Doc2005.01/ADF/ADFUsersGuide/page339.html`_</span></a>.</p></li>
+<li><p>ADF - the full list can be found <a href="#id5"><span class="problematic" id="id6">`here http://www.scm.com/Doc/Doc2005.01/ADF/ADFUsersGuide/page339.html`_</span></a>.</p></li>
 <li><p>GAMESS-UK - to get the list, <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">&quot;data</span> <span class="pre">yr&quot;</span> <span class="pre">input.m</span></code> if you have access to the source. Note that for E, it’s split into “e1+” and “e1-” for instance.</p></li>
 <li><p>Jaguar - to get the list, look at the examples in <code class="docutils literal notranslate"><span class="pre">schrodinger/jaguar-whatever/samples</span></code> if you have access to Jaguar. Note that for E, it’s written as E1pp/Ap, for instance.</p></li>
 <li><p>NWChem - if molecular symmetry is turned off or set to C1, symmetry adaption for orbitals is also deactivated, and can be explicitly turned on with <cite>adapt on</cite> in the SCF block</p></li>
