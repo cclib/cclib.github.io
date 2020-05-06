@@ -53,7 +53,7 @@
 <div id="source">
     <p id="t1" class="pln"><span class="n"><a href="#t1">1</a></span><span class="t"><span class="com"># -*- coding: utf-8 -*-</span>&nbsp;</span><span class="r"></span></p>
     <p id="t2" class="pln"><span class="n"><a href="#t2">2</a></span><span class="t"><span class="com">#</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t3" class="pln"><span class="n"><a href="#t3">3</a></span><span class="t"><span class="com"># Copyright (c) 2018, the cclib development team</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t3" class="pln"><span class="n"><a href="#t3">3</a></span><span class="t"><span class="com"># Copyright (c) 2020, the cclib development team</span>&nbsp;</span><span class="r"></span></p>
     <p id="t4" class="pln"><span class="n"><a href="#t4">4</a></span><span class="t"><span class="com">#</span>&nbsp;</span><span class="r"></span></p>
     <p id="t5" class="pln"><span class="n"><a href="#t5">5</a></span><span class="t"><span class="com"># This file is part of cclib (http://cclib.github.io) and is distributed under</span>&nbsp;</span><span class="r"></span></p>
     <p id="t6" class="pln"><span class="n"><a href="#t6">6</a></span><span class="t"><span class="com"># the terms of the BSD 3-Clause License.</span>&nbsp;</span><span class="r"></span></p>
@@ -1116,7 +1116,7 @@
     <p id="t1063" class="run"><span class="n"><a href="#t1063">1063</a></span><span class="t">                    <span class="nam">self</span><span class="op">.</span><span class="nam">mosyms</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">.</span><span class="nam">extend</span><span class="op">(</span><span class="nam">list</span><span class="op">(</span><span class="nam">map</span><span class="op">(</span><span class="nam">self</span><span class="op">.</span><span class="nam">normalisesym</span><span class="op">,</span> <span class="nam">line</span><span class="op">.</span><span class="nam">split</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t1064" class="pln"><span class="n"><a href="#t1064">1064</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t1065" class="pln"><span class="n"><a href="#t1065">1065</a></span><span class="t">                <span class="com"># Now we have nbasis lines. We will use the same method as in normalise_aonames() before.</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t1066" class="run"><span class="n"><a href="#t1066">1066</a></span><span class="t">                <span class="nam">p</span> <span class="op">=</span> <span class="nam">re</span><span class="op">.</span><span class="nam">compile</span><span class="op">(</span><span class="str">"(\d+)\s*([A-Z][A-Z]?)\s*(\d+)\s*([A-Z]+)"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t1066" class="run"><span class="n"><a href="#t1066">1066</a></span><span class="t">                <span class="nam">p</span> <span class="op">=</span> <span class="nam">re</span><span class="op">.</span><span class="nam">compile</span><span class="op">(</span><span class="str">r"(\d+)\s*([A-Z][A-Z]?)\s*(\d+)\s*([A-Z]+)"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t1067" class="run"><span class="n"><a href="#t1067">1067</a></span><span class="t">                <span class="nam">oldatom</span> <span class="op">=</span> <span class="str">'0'</span>&nbsp;</span><span class="r"></span></p>
     <p id="t1068" class="run"><span class="n"><a href="#t1068">1068</a></span><span class="t">                <span class="nam">i_atom</span> <span class="op">=</span> <span class="num">0</span>  <span class="com"># counter to keep track of n_atoms > 99</span>&nbsp;</span><span class="r"></span></p>
     <p id="t1069" class="run"><span class="n"><a href="#t1069">1069</a></span><span class="t">                <span class="nam">flag_w</span> <span class="op">=</span> <span class="key">True</span>  <span class="com"># flag necessary to keep from adding 100's at wrong time</span>&nbsp;</span><span class="r"></span></p>
@@ -1591,7 +1591,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.1</a>,
-            created at 2020-05-04 17:14
+            created at 2020-05-06 16:56
         </p>
     </div>
 </div>

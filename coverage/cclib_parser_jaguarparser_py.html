@@ -53,7 +53,7 @@
 <div id="source">
     <p id="t1" class="pln"><span class="n"><a href="#t1">1</a></span><span class="t"><span class="com"># -*- coding: utf-8 -*-</span>&nbsp;</span><span class="r"></span></p>
     <p id="t2" class="pln"><span class="n"><a href="#t2">2</a></span><span class="t"><span class="com">#</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t3" class="pln"><span class="n"><a href="#t3">3</a></span><span class="t"><span class="com"># Copyright (c) 2018, the cclib development team</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t3" class="pln"><span class="n"><a href="#t3">3</a></span><span class="t"><span class="com"># Copyright (c) 2020, the cclib development team</span>&nbsp;</span><span class="r"></span></p>
     <p id="t4" class="pln"><span class="n"><a href="#t4">4</a></span><span class="t"><span class="com">#</span>&nbsp;</span><span class="r"></span></p>
     <p id="t5" class="pln"><span class="n"><a href="#t5">5</a></span><span class="t"><span class="com"># This file is part of cclib (http://cclib.github.io) and is distributed under</span>&nbsp;</span><span class="r"></span></p>
     <p id="t6" class="pln"><span class="n"><a href="#t6">6</a></span><span class="t"><span class="com"># the terms of the BSD 3-Clause License.</span>&nbsp;</span><span class="r"></span></p>
@@ -256,7 +256,7 @@
     <p id="t203" class="run"><span class="n"><a href="#t203">203</a></span><span class="t">            <span class="key">if</span> <span class="key">not</span> <span class="nam">hasattr</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="str">"atomcoords"</span><span class="op">)</span> <span class="key">or</span> <span class="nam">line</span><span class="op">[</span><span class="num">1</span><span class="op">:</span><span class="num">21</span><span class="op">]</span> <span class="op">==</span> <span class="str">"Symmetrized geometry"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t204" class="pln"><span class="n"><a href="#t204">204</a></span><span class="t">                <span class="com"># Wipe the "Input geometry" if "Symmetrized geometry" present</span>&nbsp;</span><span class="r"></span></p>
     <p id="t205" class="run"><span class="n"><a href="#t205">205</a></span><span class="t">                <span class="nam">self</span><span class="op">.</span><span class="nam">atomcoords</span> <span class="op">=</span> <span class="op">[</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t206" class="run"><span class="n"><a href="#t206">206</a></span><span class="t">            <span class="nam">p</span> <span class="op">=</span> <span class="nam">re</span><span class="op">.</span><span class="nam">compile</span><span class="op">(</span><span class="str">"(\D+)\d+"</span><span class="op">)</span>  <span class="com"># One/more letters followed by a number</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t206" class="run"><span class="n"><a href="#t206">206</a></span><span class="t">            <span class="nam">p</span> <span class="op">=</span> <span class="nam">re</span><span class="op">.</span><span class="nam">compile</span><span class="op">(</span><span class="str">r"(\D+)\d+"</span><span class="op">)</span>  <span class="com"># One/more letters followed by a number</span>&nbsp;</span><span class="r"></span></p>
     <p id="t207" class="run"><span class="n"><a href="#t207">207</a></span><span class="t">            <span class="nam">atomcoords</span> <span class="op">=</span> <span class="op">[</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p id="t208" class="run"><span class="n"><a href="#t208">208</a></span><span class="t">            <span class="nam">atomnos</span> <span class="op">=</span> <span class="op">[</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p id="t209" class="run"><span class="n"><a href="#t209">209</a></span><span class="t">            <span class="nam">angstrom</span> <span class="op">=</span> <span class="nam">next</span><span class="op">(</span><span class="nam">inputfile</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
@@ -767,7 +767,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.1</a>,
-            created at 2020-05-04 17:14
+            created at 2020-05-06 16:56
         </p>
     </div>
 </div>

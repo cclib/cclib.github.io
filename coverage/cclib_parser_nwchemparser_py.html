@@ -53,7 +53,7 @@
 <div id="source">
     <p id="t1" class="pln"><span class="n"><a href="#t1">1</a></span><span class="t"><span class="com"># -*- coding: utf-8 -*-</span>&nbsp;</span><span class="r"></span></p>
     <p id="t2" class="pln"><span class="n"><a href="#t2">2</a></span><span class="t"><span class="com">#</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t3" class="pln"><span class="n"><a href="#t3">3</a></span><span class="t"><span class="com"># Copyright (c) 2017, the cclib development team</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t3" class="pln"><span class="n"><a href="#t3">3</a></span><span class="t"><span class="com"># Copyright (c) 2020, the cclib development team</span>&nbsp;</span><span class="r"></span></p>
     <p id="t4" class="pln"><span class="n"><a href="#t4">4</a></span><span class="t"><span class="com">#</span>&nbsp;</span><span class="r"></span></p>
     <p id="t5" class="pln"><span class="n"><a href="#t5">5</a></span><span class="t"><span class="com"># This file is part of cclib (http://cclib.github.io) and is distributed under</span>&nbsp;</span><span class="r"></span></p>
     <p id="t6" class="pln"><span class="n"><a href="#t6">6</a></span><span class="t"><span class="com"># the terms of the BSD 3-Clause License.</span>&nbsp;</span><span class="r"></span></p>
@@ -259,7 +259,7 @@
     <p id="t206" class="pln"><span class="n"><a href="#t206">206</a></span><span class="t">        <span class="com"># It also appears that we have to handle cartesian vs. spherical</span>&nbsp;</span><span class="r"></span></p>
     <p id="t207" class="pln"><span class="n"><a href="#t207">207</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t208" class="run"><span class="n"><a href="#t208">208</a></span><span class="t">        <span class="key">if</span> <span class="nam">line</span><span class="op">[</span><span class="num">1</span><span class="op">:</span><span class="num">11</span><span class="op">]</span> <span class="op">==</span> <span class="str">"Summary of"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t209" class="run"><span class="n"><a href="#t209">209</a></span><span class="t">            <span class="nam">match</span> <span class="op">=</span> <span class="nam">re</span><span class="op">.</span><span class="nam">match</span><span class="op">(</span><span class="str">' Summary of "([^\"]*)" -> "([^\"]*)" \((.+)\)'</span><span class="op">,</span> <span class="nam">line</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t209" class="run"><span class="n"><a href="#t209">209</a></span><span class="t">            <span class="nam">match</span> <span class="op">=</span> <span class="nam">re</span><span class="op">.</span><span class="nam">match</span><span class="op">(</span><span class="str">r' Summary of "([^\"]*)" -> "([^\"]*)" \((.+)\)'</span><span class="op">,</span> <span class="nam">line</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t210" class="pln"><span class="n"><a href="#t210">210</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t211" class="run"><span class="n"><a href="#t211">211</a></span><span class="t">            <span class="key">if</span> <span class="nam">match</span> <span class="key">and</span> <span class="nam">match</span><span class="op">.</span><span class="nam">group</span><span class="op">(</span><span class="num">1</span><span class="op">)</span> <span class="op">==</span> <span class="nam">match</span><span class="op">.</span><span class="nam">group</span><span class="op">(</span><span class="num">2</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t212" class="pln"><span class="n"><a href="#t212">212</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
@@ -1150,7 +1150,7 @@
     <p id="t1097" class="pln"><span class="n"><a href="#t1097">1097</a></span><span class="t">        <span class="com"># for matching the shells</span>&nbsp;</span><span class="r"></span></p>
     <p id="t1098" class="run"><span class="n"><a href="#t1098">1098</a></span><span class="t">        <span class="nam">table</span> <span class="op">=</span> <span class="nam">utils</span><span class="op">.</span><span class="nam">PeriodicTable</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t1099" class="run"><span class="n"><a href="#t1099">1099</a></span><span class="t">        <span class="nam">elements</span> <span class="op">=</span> <span class="op">[</span><span class="nam">table</span><span class="op">.</span><span class="nam">element</span><span class="op">[</span><span class="nam">x</span><span class="op">]</span> <span class="key">for</span> <span class="nam">x</span> <span class="key">in</span> <span class="nam">self</span><span class="op">.</span><span class="nam">atomnos</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t1100" class="run"><span class="n"><a href="#t1100">1100</a></span><span class="t">        <span class="nam">pattern</span> <span class="op">=</span> <span class="nam">re</span><span class="op">.</span><span class="nam">compile</span><span class="op">(</span><span class="str">"(\ds)+(\dp)*(\dd)*(\df)*(\dg)*"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t1100" class="run"><span class="n"><a href="#t1100">1100</a></span><span class="t">        <span class="nam">pattern</span> <span class="op">=</span> <span class="nam">re</span><span class="op">.</span><span class="nam">compile</span><span class="op">(</span><span class="str">r"(\ds)+(\dp)*(\dd)*(\df)*(\dg)*"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t1101" class="pln"><span class="n"><a href="#t1101">1101</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t1102" class="run"><span class="n"><a href="#t1102">1102</a></span><span class="t">        <span class="nam">labels</span> <span class="op">=</span> <span class="op">{</span><span class="op">}</span>&nbsp;</span><span class="r"></span></p>
     <p id="t1103" class="run"><span class="n"><a href="#t1103">1103</a></span><span class="t">        <span class="nam">labels</span><span class="op">[</span><span class="str">'s'</span><span class="op">]</span> <span class="op">=</span> <span class="op">[</span><span class="str">"%iS"</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
@@ -1217,7 +1217,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.1</a>,
-            created at 2020-05-04 17:14
+            created at 2020-05-06 16:56
         </p>
     </div>
 </div>

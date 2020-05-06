@@ -53,7 +53,7 @@
 <div id="source">
     <p id="t1" class="pln"><span class="n"><a href="#t1">1</a></span><span class="t"><span class="com"># -*- coding: utf-8 -*-</span>&nbsp;</span><span class="r"></span></p>
     <p id="t2" class="pln"><span class="n"><a href="#t2">2</a></span><span class="t"><span class="com">#</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t3" class="pln"><span class="n"><a href="#t3">3</a></span><span class="t"><span class="com"># Copyright (c) 2018, the cclib development team</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t3" class="pln"><span class="n"><a href="#t3">3</a></span><span class="t"><span class="com"># Copyright (c) 2020, the cclib development team</span>&nbsp;</span><span class="r"></span></p>
     <p id="t4" class="pln"><span class="n"><a href="#t4">4</a></span><span class="t"><span class="com">#</span>&nbsp;</span><span class="r"></span></p>
     <p id="t5" class="pln"><span class="n"><a href="#t5">5</a></span><span class="t"><span class="com"># This file is part of cclib (http://cclib.github.io) and is distributed under</span>&nbsp;</span><span class="r"></span></p>
     <p id="t6" class="pln"><span class="n"><a href="#t6">6</a></span><span class="t"><span class="com"># the terms of the BSD 3-Clause License.</span>&nbsp;</span><span class="r"></span></p>
@@ -295,7 +295,7 @@
     <p id="t242" class="run"><span class="n"><a href="#t242">242</a></span><span class="t">            <span class="nam">mocoeffs</span> <span class="op">=</span> <span class="op">[</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p id="t243" class="pln"><span class="n"><a href="#t243">243</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t244" class="run"><span class="n"><a href="#t244">244</a></span><span class="t">            <span class="key">while</span> <span class="key">not</span> <span class="nam">line</span><span class="op">.</span><span class="nam">strip</span><span class="op">(</span><span class="op">)</span><span class="op">.</span><span class="nam">startswith</span><span class="op">(</span><span class="str">'$'</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t245" class="run"><span class="n"><a href="#t245">245</a></span><span class="t">                <span class="nam">info</span> <span class="op">=</span> <span class="nam">re</span><span class="op">.</span><span class="nam">match</span><span class="op">(</span><span class="str">".*eigenvalue=(?P&lt;moenergy>[0-9D\.+-]{20})\s+nsaos=(?P&lt;count>\d+).*"</span><span class="op">,</span> <span class="nam">line</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t245" class="run"><span class="n"><a href="#t245">245</a></span><span class="t">                <span class="nam">info</span> <span class="op">=</span> <span class="nam">re</span><span class="op">.</span><span class="nam">match</span><span class="op">(</span><span class="str">r".*eigenvalue=(?P&lt;moenergy>[0-9D\.+-]{20})\s+nsaos=(?P&lt;count>\d+).*"</span><span class="op">,</span> <span class="nam">line</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t246" class="run"><span class="n"><a href="#t246">246</a></span><span class="t">                <span class="nam">eigenvalue</span> <span class="op">=</span> <span class="nam">utils</span><span class="op">.</span><span class="nam">float</span><span class="op">(</span><span class="nam">info</span><span class="op">.</span><span class="nam">group</span><span class="op">(</span><span class="str">'moenergy'</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t247" class="run"><span class="n"><a href="#t247">247</a></span><span class="t">                <span class="nam">orbital_energy</span> <span class="op">=</span> <span class="nam">utils</span><span class="op">.</span><span class="nam">convertor</span><span class="op">(</span><span class="nam">eigenvalue</span><span class="op">,</span> <span class="str">'hartree'</span><span class="op">,</span> <span class="str">'eV'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t248" class="run"><span class="n"><a href="#t248">248</a></span><span class="t">                <span class="nam">moenergies</span><span class="op">.</span><span class="nam">append</span><span class="op">(</span><span class="nam">orbital_energy</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
@@ -945,7 +945,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.1</a>,
-            created at 2020-05-04 17:10
+            created at 2020-05-06 16:53
         </p>
     </div>
 </div>
