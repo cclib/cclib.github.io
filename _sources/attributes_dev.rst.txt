@@ -54,7 +54,7 @@
     `scancoords`_       geometries of each scan step                                     angstroms                   array of rank 3
     `scanenergies`_     energies of potential energy surface                                                         list
     `scannames`_        names of varaibles scanned                                                                   list of strings
-    `scanparm`_         values of parameters in potential energy surface                                             list of tuples
+    `scanparm`_         values of parameters in potential energy surface                                             list of lists
     `scfenergies`_      molecular electronic energies after SCF (Hartree-Fock, DFT)      eV                          array of rank 1
     `scftargets`_       targets for convergence of the SCF                                                           array of rank 2
     `scfvalues`_        current values for convergence of the SCF                                                    list of arrays of rank 2

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; cclib 1.6.2 documentation</title>
+  <title>Overview &mdash; cclib 1.6.3 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="cclib 1.6.2 documentation" href="#"/>
+    <link rel="top" title="cclib 1.6.3 documentation" href="#"/>
         <link rel="next" title="How to install" href="how_to_install.html"/>
         <link rel="prev" title="Table of Contents" href="contents.html"/> 
 
@@ -102,7 +102,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.6.2)</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.6.3)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="data.html#description-of-parsed-data">Description of parsed data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data.html#details-of-current-implementation">Details of current implementation</a></li>
 </ul>
@@ -141,6 +141,12 @@
 <li class="toctree-l2"><a class="reference internal" href="data_notes.html#nbasis">nbasis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_notes.html#nmo">nmo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_notes.html#optdone">optdone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#scancoords">scancoords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_notes.html#scanenergies">scanenergies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_notes.html#scannames">scannames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_notes.html#scanparm">scanparm</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="data_notes.html#scfenergies">scfenergies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_notes.html#scftargets">scftargets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_notes.html#scfvalues">scfvalues</a></li>
@@ -271,7 +277,7 @@ The goals of cclib are centered around the reuse of data obtained from these pro
 </ul>
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>The current version is <strong>cclib 1.6.2</strong> (see the <a class="reference external" href="changelog.html">changelog</a> for what’s new). The following programs are supported and systematically tested at the versions given in parentheses:</p>
+<p>The current version is <strong>cclib 1.6.3</strong> (see the <a class="reference external" href="changelog.html">changelog</a> for what’s new). The following programs are supported and systematically tested at the versions given in parentheses:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.scm.com/product/adf/">ADF</a> (versions 2007 and 2013)</p></li>
 <li><p><a class="reference external" href="http://daltonprogram.org">DALTON</a> (versions 2013 and 2015)</p></li>
@@ -297,7 +303,7 @@ The goals of cclib are centered around the reuse of data obtained from these pro
 </div>
 <div class="section" id="how-to-use-cclib">
 <h2>How to use cclib<a class="headerlink" href="#how-to-use-cclib" title="Permalink to this headline">¶</a></h2>
-<p>You can download the <a class="reference external" href="https://github.com/cclib/cclib/releases/download/v1.6/cclib-1.6.2.zip">source package for cclib 1.6.2</a> or the <a class="reference external" href="https://github.com/cclib/cclib/archive/master.zip">current development version</a> (from the <a class="reference external" href="https://github.com/cclib/cclib">GitHub repository</a>). For information on packages available in various Linux distributions, installing the source code and requirements, as well as basic usage, the <a class="reference external" href="how_to_install.html">How to install</a> is a good place to start.</p>
+<p>You can download the <a class="reference external" href="https://github.com/cclib/cclib/releases/download/v1.3/cclib-1.6.3.zip">source package for cclib 1.6.3</a> or the <a class="reference external" href="https://github.com/cclib/cclib/archive/master.zip">current development version</a> (from the <a class="reference external" href="https://github.com/cclib/cclib">GitHub repository</a>). For information on packages available in various Linux distributions, installing the source code and requirements, as well as basic usage, the <a class="reference external" href="how_to_install.html">How to install</a> is a good place to start.</p>
 <p>If you need further help, find a bug, need new features or have any question, please send email to the <a class="reference external" href="https://lists.sourceforge.net/lists/listinfo/cclib-users">mailing list</a> or submit an issue to the <a class="reference external" href="https://github.com/cclib/cclib/issues">tracker</a>.</p>
 </div>
 <div class="section" id="about-cclib">
@@ -351,7 +357,7 @@ The goals of cclib are centered around the reuse of data obtained from these pro
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.6.2',
+            VERSION:'1.6.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
