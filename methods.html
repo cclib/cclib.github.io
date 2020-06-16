@@ -159,6 +159,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#lowdin-population-analysis">Löwdin Population Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bickelhaupt-population-analysis">Bickelhaupt Population Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Custom fragments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Custom progress</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#density-matrix-calculation">Density Matrix calculation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mayer-s-bond-orders">Mayer’s Bond Orders</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#charge-decomposition-analysis">Charge Decomposition Analysis</a><ul>
@@ -367,6 +372,54 @@
 <span class="n">m</span> <span class="o">=</span> <span class="n">LPA</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 <span class="n">m</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+<div class="section" id="bickelhaupt-population-analysis">
+<span id="index-4"></span><h2>Bickelhaupt Population Analysis<a class="headerlink" href="#bickelhaupt-population-analysis" title="Permalink to this headline">¶</a></h2>
+<p>The Bickelhaupt class available from cclib.method performs Bickelhaupt population analysis that has been proposed in <em>Organometallics</em> 1996, 15, 13, 2923–2931. <a class="reference external" href="https://pubs.acs.org/doi/abs/10.1021/om950966x">doi:10.1021/om950966x</a></p>
+<p>The contribution of the a-th atomic orbital to the i-th molecular orbital in this method is written in terms of the molecular orbital coefficients, c, and the overlap matrix, S:</p>
+<div class="math notranslate nohighlight">
+\[\Phi_{ai,\alpha} = \sum_b w_{ab,\alpha} c_{ai,\alpha} c_{bi,\alpha} S_{ab}\]</div>
+<p>where the weights <span class="math notranslate nohighlight">\(w_{ab}\)</span> that are applied on the Mulliken atomic orbital contributions are defined as following when the coefficients of the molecular orbitals are substituted into equation 11 in the original article.</p>
+<div class="math notranslate nohighlight">
+\[w_{ab,\alpha} = 2 \frac{\sum_k c_{ak,\alpha}^2}{\sum_i c_{ai,\alpha}^2 + \sum_j c_{bj,\alpha}^2}\]</div>
+<p>In case of unrestricted calculations, <span class="math notranslate nohighlight">\(\alpha\)</span> charges and <span class="math notranslate nohighlight">\(\beta\)</span> charges are each determined to obtain total charge. In restricted calculations, <span class="math notranslate nohighlight">\(\alpha\)</span> subscript can be ignored since the coefficients are equivalent for both spin orbitals.</p>
+<p>The weights are introduced to replace the somewhat arbitrary partitioning of off-diagonal charges in the Mulliken population analysis, which divides the off-diagonal charges identically to both atoms. Bickelhaupt population analysis instead divides the off-diagonal elements based on the relative magnitude of diagonal elements.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Bickelhaupt</span>
+<span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">ccopen</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Bickelhaupt</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>After the calculate() method is called, the following attributes are available:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">aoresults</span></code>: a three dimensional array with spin, molecular orbital, and atomic orbitals as the axes, so that <code class="docutils literal notranslate"><span class="pre">aoresults[0][45][0]</span></code> gives the contribution of the 1st atomic orbital to the 46th alpha/restricted molecular orbital,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fragresults</span></code>: a three dimensional array with spin, molecular orbital, and atoms as the axes, so that <code class="docutils literal notranslate"><span class="pre">fragresults[1][23][4]</span></code> gives the contribution of the 5th fragment orbitals to the 24th beta molecular orbital)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fragcharges</span></code>: a vector with the number of (partial) electrons in each fragment, so that <code class="docutils literal notranslate"><span class="pre">fragcharges[2]</span></code> gives the number of electrons in the 3rd fragment.</p></li>
+</ul>
+<div class="section" id="id3">
+<h3>Custom fragments<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>The calculate method chooses atoms as the fragments by default, and optionally accepts a list of lists containing the atomic orbital numbers (e.g. <code class="docutils literal notranslate"><span class="pre">[[0,</span> <span class="pre">1,</span> <span class="pre">2],</span> <span class="pre">[3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6],</span> <span class="pre">...]</span></code>) of arbitrary fragments. Calling it in this way is useful if one is more interested in the contributions of groups of atoms or even certain orbitals or orbital groups, such as metal d, to the molecular orbitals. In this case, fragresults and fragcharges reflect the chosen groups of atomic orbitals instead of atoms.</p>
+</div>
+<div class="section" id="id4">
+<h3>Custom progress<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>The Bickelhaupt class also can take a progress class as an argument so that the progress of the calculation can be monitored:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Bickelhaupt</span>
+<span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
+<span class="kn">from</span> <span class="nn">cclib.progress</span> <span class="kn">import</span> <span class="n">TextProgress</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">progress</span> <span class="o">=</span> <span class="n">TextProgress</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">ccopen</span><span class="p">(</span><span class="s2">&quot;mycalc.out&quot;</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">progress</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">Bickelhaupt</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">progress</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="density-matrix-calculation">
