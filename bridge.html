@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; cclib 1.6.3 documentation</title>
+  <title>Bridges to other packages &mdash; cclib 1.6.3 documentation</title>
   
 
   
@@ -33,7 +33,9 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="cclib 1.6.3 documentation" href="index.html"/> 
+    <link rel="top" title="cclib 1.6.3 documentation" href="index.html"/>
+        <link rel="next" title="Development" href="development.html"/>
+        <link rel="prev" title="Calculation methods" href="methods.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -72,7 +74,7 @@
         
           
           
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="index.html#summary">Summary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#how-to-use-cclib">How to use cclib</a></li>
@@ -177,10 +179,10 @@
 <li class="toctree-l2"><a class="reference internal" href="methods.html#accessing-additional-methods-through-bridge">Accessing additional methods through bridge</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="bridge.html">Bridges to other packages</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bridge.html#horton">horton</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="bridge.html#becke-population-analysis">Becke Population Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bridge.html#hirshfeld-population-analysis">Hirshfeld Population Analysis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bridges to other packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#horton">horton</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#becke-population-analysis">Becke Population Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hirshfeld-population-analysis">Hirshfeld Population Analysis</a></li>
 </ul>
 </li>
 </ul>
@@ -259,11 +261,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="contents.html">Docs</a> &raquo;</li>
       
-    <li>&lt;no title&gt;</li>
+    <li>Bridges to other packages</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/cclib/cclib/blob/master/doc/sphinx/attributes_dev.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/cclib/cclib/blob/master/doc/sphinx/bridge.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -272,12 +274,107 @@
 </div>
           <div role="main" class="document">
             
-  <blockquote>
-<div></div></blockquote>
+  <div class="section" id="bridges-to-other-packages">
+<span id="index-0"></span><h1>Bridges to other packages<a class="headerlink" href="#bridges-to-other-packages" title="Permalink to this headline">¶</a></h1>
+<p>The following bridges in cclib allow using the parsed data to perform further analysis using other packages.</p>
+<div class="section" id="horton">
+<span id="index-1"></span><h2>horton<a class="headerlink" href="#horton" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://theochem.github.io/horton/2.1.1/">Horton</a> bridge in cclib supports conversion of cclib’s ccData object to horton’s IOData object and vice versa. This bridge is useful in performing additional population analyses using the data parsed using cclib.
+Before invoking the bridge function, ccData object should be prepared first by reading in previous calculations, following the procedures introduced in <a class="reference external" href="how_to_parse.html">how to parse</a> section.
+Then, <code class="docutils literal notranslate"><span class="pre">ccData</span></code> object can be passed into the bridge function <code class="docutils literal notranslate"><span class="pre">makehorton</span></code>. Following code block is an example that performs the conversion:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.bridge.cclib2horton</span> <span class="kn">import</span> <span class="n">makehorton</span>
+<span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">ccopen</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="n">ht</span> <span class="o">=</span> <span class="n">makehorton</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Converted IOData object can be used to run further analyses by referring to <a class="reference external" href="http://theochem.github.io/horton/2.1.1/">horton documentation</a>.</p>
+<div class="section" id="becke-population-analysis">
+<h3>Becke Population Analysis<a class="headerlink" href="#becke-population-analysis" title="Permalink to this headline">¶</a></h3>
+<p>An example code below demonstrates how Becke charges can be calculated based on the script available on <a class="reference external" href="https://theochem.github.io/horton/2.1.0/user_postproc_aim.html#python-interface-to-the-partitioning-code">Python interface</a> section in horton documentation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.method.density</span> <span class="kn">import</span> <span class="n">Density</span>
+<span class="kn">from</span> <span class="nn">cclib.bridge.cclib2horton</span> <span class="kn">import</span> <span class="n">makehorton</span>
+<span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
+
+<span class="kn">from</span> <span class="nn">horton</span> <span class="kn">import</span> <span class="n">BeckeMolGrid</span><span class="p">,</span> <span class="n">getgobasis</span><span class="p">,</span> <span class="n">BeckeWPart</span>
+<span class="kn">from</span> <span class="nn">horton.matrix.dense</span> <span class="kn">import</span> <span class="n">DenseTwoIndex</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">ccopen</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="n">ht</span> <span class="o">=</span> <span class="n">makehorton</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+<span class="c1"># Calculate density matrix using cclib</span>
+<span class="n">dens</span> <span class="o">=</span> <span class="n">Density</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">dens</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+<span class="n">den</span> <span class="o">=</span> <span class="n">DenseTwoIndex</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">orb_alpha</span><span class="p">))</span>
+<span class="n">den</span><span class="o">.</span><span class="n">_array</span> <span class="o">=</span> <span class="n">dens</span><span class="o">.</span><span class="n">density</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">dens</span><span class="o">.</span><span class="n">density</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Create integration grid for calculating Becke charges</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">BeckeMolGrid</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">pseudo_numbers</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;only&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define Gaussian basis set</span>
+<span class="n">gob</span> <span class="o">=</span> <span class="n">get_gobasis</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="s1">&#39;STO-3G&#39;</span><span class="p">)</span>
+
+<span class="c1"># Partition charges</span>
+<span class="n">wpart</span> <span class="o">=</span> <span class="n">BeckeWPart</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">pseudo_numbers</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">moldens</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">wpart</span><span class="o">.</span><span class="n">do_charges</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wpart</span><span class="p">[</span><span class="s1">&#39;charges&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hirshfeld-population-analysis">
+<h3>Hirshfeld Population Analysis<a class="headerlink" href="#hirshfeld-population-analysis" title="Permalink to this headline">¶</a></h3>
+<p>An example code below demonstrates how Hirshfeld charges can be calculated based on the script available on <a class="reference external" href="https://theochem.github.io/horton/2.1.0/user_postproc_aim.html#python-interface-to-the-partitioning-code">Python interface</a> section in horton documentation.
+To calculate partial charges that require pro-atomic densities, follow the steps in <a href="#id3"><span class="problematic" id="id4">`Building proatomic database`_</span></a> section in horton documentation.
+Then read in the densities as below to calculate Hirshfeld or Hirshfeld-like charges:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.method.density</span> <span class="kn">import</span> <span class="n">Density</span>
+<span class="kn">from</span> <span class="nn">cclib.bridge.cclib2horton</span> <span class="kn">import</span> <span class="n">makehorton</span>
+<span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
+
+<span class="kn">from</span> <span class="nn">horton</span> <span class="kn">import</span> <span class="n">BeckeMolGrid</span><span class="p">,</span> <span class="n">getgobasis</span><span class="p">,</span> <span class="n">HirshfeldWPart</span>
+<span class="kn">from</span> <span class="nn">horton.matrix.dense</span> <span class="kn">import</span> <span class="n">DenseTwoIndex</span>
+<span class="kn">from</span> <span class="nn">horton.part.proatomdb</span> <span class="kn">import</span> <span class="n">ProAtomDB</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">ccopen</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="n">ht</span> <span class="o">=</span> <span class="n">makehorton</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+<span class="c1"># Calculate density matrix using cclib</span>
+<span class="n">dens</span> <span class="o">=</span> <span class="n">Density</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">dens</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+<span class="n">den</span> <span class="o">=</span> <span class="n">DenseTwoIndex</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">orb_alpha</span><span class="p">))</span>
+<span class="n">den</span><span class="o">.</span><span class="n">_array</span> <span class="o">=</span> <span class="n">dens</span><span class="o">.</span><span class="n">density</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">dens</span><span class="o">.</span><span class="n">density</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Create integration grid</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">BeckeMolGrid</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">pseudo_numbers</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;only&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define Gaussian basis set</span>
+<span class="n">gob</span> <span class="o">=</span> <span class="n">get_gobasis</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="s1">&#39;STO-3G&#39;</span><span class="p">)</span>
+
+<span class="c1"># Read in pro-atomic density database</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">ProAtomDB</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s1">&#39;atoms.h5&#39;</span><span class="p">)</span>
+
+<span class="c1"># Partition charges</span>
+<span class="n">wpart</span> <span class="o">=</span> <span class="n">HirshfeldWPart</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">pseudo_numbers</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">moldens</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span>
+<span class="n">wpart</span><span class="o">.</span><span class="n">do_charges</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wpart</span><span class="p">[</span><span class="s1">&#39;charges&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 
 
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="development.html" class="btn btn-neutral float-right" title="Development" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="methods.html" class="btn btn-neutral" title="Calculation methods" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
