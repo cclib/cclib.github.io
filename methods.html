@@ -176,6 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#notes">Notes</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#bader-s-qtaim">Bader’s QTAIM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#accessing-additional-methods-through-bridge">Accessing additional methods through bridge</a></li>
 </ul>
 </li>
@@ -526,8 +527,54 @@ Charge decomposition analysis of molecule.log
 </ul>
 </div>
 </div>
+<div class="section" id="bader-s-qtaim">
+<span id="index-5"></span><h2>Bader’s QTAIM<a class="headerlink" href="#bader-s-qtaim" title="Permalink to this headline">¶</a></h2>
+<p>Bader’s QTAIM charges define the border between the atoms in the molecule as a surface where each point on the surface has zero flux. In other words, the points on the surface of the Bader spaces satisfy the equation <span class="math notranslate nohighlight">\(\nabla \rho (r) \cdot n(r) = 0\)</span>. In cclib, numerical calculation of QTAIM charges through the algorithm proposed in <a class="reference external" href="http://theory.cm.utexas.edu/henkelman/code/bader/download/henkelman06_354.pdf">[Henkelman2006]</a>  is implemented.</p>
+<p>Calculating the Bader’s QTAIM charges in cclib follow similar steps as other population analysis methods. The following code provides an example of how QTAIM charges can be obtained.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Bader</span>
+<span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Volume</span>
+<span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
+<span class="kn">from</span> <span class="nn">cclib.progress</span> <span class="kn">import</span> <span class="n">TextProgress</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">progress</span> <span class="o">=</span> <span class="n">TextProgress</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">ccopen</span><span class="p">(</span><span class="s2">&quot;mycalc.out&quot;</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">progress</span><span class="p">)</span>
+
+<span class="c1"># Inputs for Volume object below are origin, top corner, and spacing</span>
+<span class="c1"># represented in Cartesian coordinates and in angstroms.</span>
+<span class="n">vol</span> <span class="o">=</span> <span class="n">Volume</span><span class="p">((</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">Bader</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">vol</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>After the calculate() method is called, the following attributes are available:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fragresults</span></code>: a three dimensional array x, y, and z coordinates from the Volume object as the axes, so that <code class="docutils literal notranslate"><span class="pre">fragresults[1][2][3]</span></code> gives the Bader space (in integers starting from 1) that the grid space in (0, 1, 2) position belongs to.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">matches</span></code>: a vector with the Bader space (integers starting from 1) that an atom is matched with.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fragcharges</span></code>: a vector with the number of (partial) electrons in each atom, so that <code class="docutils literal notranslate"><span class="pre">fragcharges[2]</span></code> gives the number of electrons in the 3rd atom.</p></li>
+</ul>
+<p>Since some computational chemistry packages support writing out charge densities as cube files during calculations, it is highly recommended to do so especially for larger systems.
+To calculate Bader charges from a cube file, a <code class="docutils literal notranslate"><span class="pre">Volume</span></code> object should be prepared by reading in a cube file and should be passed into a Bader object as shown below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">volume</span>
+<span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Bader</span>
+<span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
+<span class="kn">from</span> <span class="nn">cclib.progress</span> <span class="kn">import</span> <span class="n">TextProgress</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">progress</span> <span class="o">=</span> <span class="n">TextProgress</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">ccopen</span><span class="p">(</span><span class="s2">&quot;mycalc.out&quot;</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">progress</span><span class="p">)</span>
+
+<span class="c1"># Read in from cube file</span>
+<span class="n">vol</span> <span class="o">=</span> <span class="n">volume</span><span class="o">.</span><span class="n">read_from_cube</span><span class="p">(</span><span class="s2">&quot;mycalc.cube&quot;</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">Bader</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">vol</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="accessing-additional-methods-through-bridge">
-<span id="index-5"></span><h2>Accessing additional methods through bridge<a class="headerlink" href="#accessing-additional-methods-through-bridge" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>Accessing additional methods through bridge<a class="headerlink" href="#accessing-additional-methods-through-bridge" title="Permalink to this headline">¶</a></h2>
 <p>Some other population analyses methods including Hirshfeld partial charges and Iterative Stockholder charges can be calculated using bridge functions implemented in cclib. For more information, refer to <a class="reference external" href="bridge.html">bridge</a> section of the documentation.</p>
 </div>
 </div>
