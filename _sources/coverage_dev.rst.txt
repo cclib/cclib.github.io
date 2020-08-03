@@ -12,6 +12,7 @@ attributes          ADF                 DALTON              GAMESS              
 `ccenergies`_       N/A                 √                   √                   T/D                 √                   T/D                 √                   √                   T/D                 √                   √                   √                   √                   √                   
 `charge`_           √                   √                   √                   √                   √                   √                   √                   √                   √                   √                   √                   √                   √                   T/D                 
 `coreelectrons`_    √                   √                   √                   √                   √                   √                   √                   √                   √                   √                   √                   √                   √                   √                   
+`dispersionenergies`_T/D                 √                   √                   T/D                 √                   T/D                 T/D                 T/D                 T/D                 √                   √                   √                   √                   T/D                 
 `enthalpy`_         T/D                 T/D                 √                   T/D                 √                   T/D                 T/D                 √                   T/D                 T/D                 √                   T/D                 √                   T/D                 
 `entropy`_          T/D                 T/D                 √                   T/D                 √                   T/D                 T/D                 √                   T/D                 T/D                 √                   T/D                 √                   T/D                 
 `etdips`_           T/D                 T/D                 T/D                 T/D                 √                   T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 
@@ -81,6 +82,7 @@ attributes          ADF                 DALTON              GAMESS              
 .. _`ccenergies`: data_notes.html#ccenergies
 .. _`charge`: data_notes.html#charge
 .. _`coreelectrons`: data_notes.html#coreelectrons
+.. _`dispersionenergies`: data_notes.html#dispersionenergies
 .. _`enthalpy`: data_notes.html#enthalpy
 .. _`entropy`: data_notes.html#entropy
 .. _`etdips`: data_notes.html#etdips
