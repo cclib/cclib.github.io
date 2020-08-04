@@ -21,8 +21,8 @@
         </h1>
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
-            89 statements &nbsp;
-            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">83 run</button>
+            86 statements &nbsp;
+            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">80 run</button>
             <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">6 missing</button>
             <button type="button" class="exc show_exc shortkey_x button_toggle_exc" title="Toggle lines excluded">0 excluded</button>
         </h2>
@@ -266,19 +266,17 @@
     <p id="t213" class="run"><span class="n"><a href="#t213">213</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">fragcharges</span> <span class="op">=</span> <span class="nam">numpy</span><span class="op">.</span><span class="nam">zeros</span><span class="op">(</span><span class="nam">len</span><span class="op">(</span><span class="nam">self</span><span class="op">.</span><span class="nam">data</span><span class="op">.</span><span class="nam">atomcoords</span><span class="op">[</span><span class="op">-</span><span class="num">1</span><span class="op">]</span><span class="op">)</span><span class="op">,</span> <span class="str">"d"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t214" class="pln"><span class="n"><a href="#t214">214</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t215" class="run"><span class="n"><a href="#t215">215</a></span><span class="t">        <span class="key">for</span> <span class="nam">atom_index</span><span class="op">,</span> <span class="nam">baderarea_index</span> <span class="key">in</span> <span class="nam">enumerate</span><span class="op">(</span><span class="nam">self</span><span class="op">.</span><span class="nam">matches</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t216" class="pln"><span class="n"><a href="#t216">216</a></span><span class="t">            <span class="com"># turn off all other grid points</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t217" class="run"><span class="n"><a href="#t217">217</a></span><span class="t">            <span class="nam">chargedensity</span> <span class="op">=</span> <span class="nam">copy</span><span class="op">.</span><span class="nam">deepcopy</span><span class="op">(</span><span class="nam">self</span><span class="op">.</span><span class="nam">chgdensity</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t218" class="run"><span class="n"><a href="#t218">218</a></span><span class="t">            <span class="nam">mask</span> <span class="op">=</span> <span class="nam">self</span><span class="op">.</span><span class="nam">fragresults</span> <span class="op">==</span> <span class="nam">baderarea_index</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t219" class="run"><span class="n"><a href="#t219">219</a></span><span class="t">            <span class="nam">chargedensity</span><span class="op">.</span><span class="nam">data</span> <span class="op">*=</span> <span class="nam">mask</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t220" class="run"><span class="n"><a href="#t220">220</a></span><span class="t">            <span class="nam">self</span><span class="op">.</span><span class="nam">fragcharges</span><span class="op">[</span><span class="nam">atom_index</span><span class="op">]</span> <span class="op">=</span> <span class="nam">chargedensity</span><span class="op">.</span><span class="nam">integrate</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t221" class="pln"><span class="n"><a href="#t221">221</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t222" class="run"><span class="n"><a href="#t222">222</a></span><span class="t">        <span class="key">return</span> <span class="key">True</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t216" class="run"><span class="n"><a href="#t216">216</a></span><span class="t">            <span class="nam">self</span><span class="op">.</span><span class="nam">fragcharges</span><span class="op">[</span><span class="nam">atom_index</span><span class="op">]</span> <span class="op">=</span> <span class="nam">self</span><span class="op">.</span><span class="nam">chgdensity</span><span class="op">.</span><span class="nam">integrate</span><span class="op">(</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t217" class="pln"><span class="n"><a href="#t217">217</a></span><span class="t">                <span class="nam">weights</span><span class="op">=</span><span class="op">(</span><span class="nam">self</span><span class="op">.</span><span class="nam">fragresults</span> <span class="op">==</span> <span class="nam">baderarea_index</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t218" class="pln"><span class="n"><a href="#t218">218</a></span><span class="t">            <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t219" class="pln"><span class="n"><a href="#t219">219</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p id="t220" class="run"><span class="n"><a href="#t220">220</a></span><span class="t">        <span class="key">return</span> <span class="key">True</span>&nbsp;</span><span class="r"></span></p>
 </div>
 <div id="footer">
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.2.1</a>,
-            created at 2020-08-04 13:58 +0000
+            created at 2020-08-04 14:10 +0000
         </p>
     </div>
 </div>
