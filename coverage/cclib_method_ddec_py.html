@@ -267,7 +267,7 @@
     <p id="t214" class="pln"><span class="n"><a href="#t214">214</a></span><span class="t">            <span class="key">else</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t215" class="pln"><span class="n"><a href="#t215">215</a></span><span class="t">                <span class="com"># `steps` not incremented in this case</span>&nbsp;</span><span class="r"></span></p>
     <p id="t216" class="pln"><span class="n"><a href="#t216">216</a></span><span class="t">                <span class="com"># First update kappa based on equation 93</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t217" class="mis show_mis"><span class="n"><a href="#t217">217</a></span><span class="t">                <span class="nam">kappa_new</span> <span class="op">=</span> <span class="nam">self</span><span class="op">.</span><span class="nam">_kappa</span> <span class="op">-</span> <span class="nam">self</span><span class="op">.</span><span class="nam">N_A</span><span class="op">[</span><span class="nam">cycle</span><span class="op">]</span> <span class="op">/</span> <span class="nam">self</span><span class="op">.</span><span class="nam">u_A</span><span class="op">[</span><span class="nam">cycle</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t217" class="mis show_mis"><span class="n"><a href="#t217">217</a></span><span class="t">                <span class="nam">kappa_new</span> <span class="op">=</span> <span class="nam">self</span><span class="op">.</span><span class="nam">_kappa</span> <span class="op">-</span> <span class="nam">self</span><span class="op">.</span><span class="nam">N_A</span><span class="op">[</span><span class="op">-</span><span class="num">1</span><span class="op">]</span> <span class="op">/</span> <span class="nam">self</span><span class="op">.</span><span class="nam">u_A</span><span class="op">[</span><span class="op">-</span><span class="num">1</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p id="t218" class="mis show_mis"><span class="n"><a href="#t218">218</a></span><span class="t">                <span class="nam">self</span><span class="op">.</span><span class="nam">_kappa</span> <span class="op">=</span> <span class="op">[</span><span class="nam">x</span> <span class="key">if</span> <span class="nam">x</span> <span class="op">></span> <span class="num">0</span> <span class="key">else</span> <span class="num">0.0</span> <span class="key">for</span> <span class="nam">x</span> <span class="key">in</span> <span class="nam">kappa_new</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p id="t219" class="pln"><span class="n"><a href="#t219">219</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t220" class="pln"><span class="n"><a href="#t220">220</a></span><span class="t">            <span class="com"># Update weights (w_A) using equation 96 in doi: 10.1039/c6ra04656h</span>&nbsp;</span><span class="r"></span></p>
@@ -962,7 +962,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.2.1</a>,
-            created at 2020-09-03 03:41 +0000
+            created at 2020-09-03 04:47 +0000
         </p>
     </div>
 </div>

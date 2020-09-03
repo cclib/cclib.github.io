@@ -196,7 +196,7 @@
     <p id="t143" class="pln"><span class="n"><a href="#t143">143</a></span><span class="t">                        <span class="com"># when one or more directions indicate max grad (of 0), prioritize</span>&nbsp;</span><span class="r"></span></p>
     <p id="t144" class="pln"><span class="n"><a href="#t144">144</a></span><span class="t">                        <span class="com"># to include all points in the Bader space</span>&nbsp;</span><span class="r"></span></p>
     <p id="t145" class="run"><span class="n"><a href="#t145">145</a></span><span class="t">                        <span class="key">if</span> <span class="nam">directions</span><span class="op">[</span><span class="num">0</span><span class="op">]</span> <span class="op">==</span> <span class="op">[</span><span class="num">1</span><span class="op">,</span> <span class="num">1</span><span class="op">,</span> <span class="num">1</span><span class="op">]</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t146" class="mis show_mis"><span class="n"><a href="#t146">146</a></span><span class="t">                            <span class="nam">next_direction</span> <span class="op">=</span> <span class="op">[</span><span class="nam">ind</span> <span class="op">-</span> <span class="num">1</span> <span class="key">for</span> <span class="nam">ind</span> <span class="key">in</span> <span class="nam">direction</span><span class="op">[</span><span class="num">1</span><span class="op">]</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t146" class="mis show_mis"><span class="n"><a href="#t146">146</a></span><span class="t">                            <span class="nam">next_direction</span> <span class="op">=</span> <span class="op">[</span><span class="nam">ind</span> <span class="op">-</span> <span class="num">1</span> <span class="key">for</span> <span class="nam">ind</span> <span class="key">in</span> <span class="nam">directions</span><span class="op">[</span><span class="num">1</span><span class="op">]</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p id="t147" class="pln"><span class="n"><a href="#t147">147</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t148" class="run"><span class="n"><a href="#t148">148</a></span><span class="t">                    <span class="nam">listcoord</span><span class="op">.</span><span class="nam">append</span><span class="op">(</span><span class="op">(</span><span class="nam">xindex</span><span class="op">,</span> <span class="nam">yindex</span><span class="op">,</span> <span class="nam">zindex</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t149" class="run"><span class="n"><a href="#t149">149</a></span><span class="t">                    <span class="nam">bader_candidate_index</span> <span class="op">=</span> <span class="nam">self</span><span class="op">.</span><span class="nam">fragresults</span><span class="op">[</span>&nbsp;</span><span class="r"></span></p>
@@ -276,7 +276,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.2.1</a>,
-            created at 2020-09-03 03:41 +0000
+            created at 2020-09-03 04:47 +0000
         </p>
     </div>
 </div>
