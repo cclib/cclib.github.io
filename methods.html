@@ -577,7 +577,7 @@ To calculate Bader charges from a cube file, a <code class="docutils literal not
 </div>
 <div class="section" id="ddec6">
 <span id="index-6"></span><h2>DDEC6<a class="headerlink" href="#ddec6" title="Permalink to this headline">¶</a></h2>
-<p>DDEC6 charges are stockholder-like charge partitioning method introduced in <a class="reference external" href="https://doi.org/10.1039/C6RA04656H">[Manz2016]</a>. Proatom densities should be provided for DDEC6 method. Proatom densities generated using <a class="reference external" href="http://theochem.github.io/horton/2.1.1/">horton</a> can be passed on as an argument for the constructor of the DDEC6 object. The DDEC6 algorithm requires many numerical integrations so a fine grid is necessary to obtain accurate results. Calculating the electron density on a fine grid using a Volume object is slow, therefore we recommend that electron densities are imported from cube files.</p>
+<p>DDEC6 is a Stockholder-like charge partitioning method introduced in <a class="reference external" href="https://doi.org/10.1039/C6RA04656H">[Manz2016]</a>. Proatom densities should be provided for DDEC6 method. Proatom densities generated <a class="footnote-reference brackets" href="#proatom" id="id5">1</a> using <a class="reference external" href="http://theochem.github.io/horton/2.1.1/">horton</a> can be passed on as an argument for the constructor of the DDEC6 object. The DDEC6 algorithm requires many numerical integrations so a fine grid is necessary to obtain accurate results. Calculating the electron density on a fine grid using a Volume object is slow, therefore we recommend that electron densities are imported from cube files.</p>
 <p>Because a lot of numerical integrations are present in DDEC6 algorithm, fine grid is necessary to obtain satisfying results.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">DDEC6</span>
 <span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Volume</span>
@@ -610,7 +610,7 @@ To calculate Bader charges from a cube file, a <code class="docutils literal not
 <span id="index-7"></span><h2>Hirshfeld Population Analysis<a class="headerlink" href="#hirshfeld-population-analysis" title="Permalink to this headline">¶</a></h2>
 <p>Hirshfeld Population Analysis is the most basic charge partitioning method among stockholder-type methods and was introduced initially in <a class="reference external" href="https://doi.org/10.1007/BF00549096">[Hirshfeld1977]</a>.
 In Hirshfeld method, proatom densities, which are charge densities of neutral atoms that comprise the given molecule, are used to calculate the weights that will be applied to partition charge densities on each grid point.
-Proatom densities can be generated using <a class="reference external" href="http://theochem.github.io/horton/2.1.1/">horton</a> and can be passed on as an argument for the constructor of the Hirshfeld object. For Hirshfeld calculations, it is recommended that electron densities are imported from cube files.</p>
+Proatom densities can be generated <a class="footnote-reference brackets" href="#proatom" id="id7">1</a> using <a class="reference external" href="http://theochem.github.io/horton/2.1.1/">horton</a> and can be passed on as an argument for the constructor of the Hirshfeld object. For Hirshfeld calculations, it is recommended that electron densities are imported from cube files.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Hirshfeld</span>
 <span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Volume</span>
 <span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
@@ -640,6 +640,12 @@ Proatom densities can be generated using <a class="reference external" href="htt
 <div class="section" id="accessing-additional-methods-through-bridge">
 <span id="index-8"></span><h2>Accessing additional methods through bridge<a class="headerlink" href="#accessing-additional-methods-through-bridge" title="Permalink to this headline">¶</a></h2>
 <p>Some other population analyses methods including Hirshfeld partial charges and Iterative Stockholder charges can be calculated using bridge functions implemented in cclib. For more information, refer to <a class="reference external" href="bridge.html">bridge</a> section of the documentation.</p>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="proatom"><span class="brackets">1</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id7">2</a>)</span></dt>
+<dd><p>To generate proatom densities from horton using Psi4, after generating Psi4 input files, add <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">*.molden</span> <span class="pre">atom.default.molden</span></code> on line 25 of <code class="docutils literal notranslate"><span class="pre">run_psi4.sh</span></code> before executing the script.</p>
+</dd>
+</dl>
 </div>
 </div>
 
