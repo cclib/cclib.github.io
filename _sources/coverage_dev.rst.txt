@@ -65,9 +65,11 @@ attributes          ADF                 DALTON              GAMESS              
 `transprop`_        T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 √                   T/D                 T/D                 T/D                 
 `vibanharms`_       T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 
 `vibdisps`_         √                   √                   √                   √                   √                   √                   √                   √                   T/D                 T/D                 √                   √                   √                   √                   
+`vibfconsts`_       T/D                 T/D                 T/D                 T/D                 √                   √                   T/D                 T/D                 T/D                 T/D                 T/D                 √                   √                   T/D                 
 `vibfreqs`_         √                   √                   √                   √                   √                   √                   √                   √                   T/D                 T/D                 √                   √                   √                   √                   
 `vibirs`_           √                   √                   √                   √                   √                   √                   √                   √                   T/D                 T/D                 √                   T/D                 √                   √                   
 `vibramans`_        T/D                 √                   √                   √                   √                   T/D                 T/D                 T/D                 T/D                 T/D                 √                   T/D                 √                   T/D                 
+`vibrmasses`_       T/D                 T/D                 √                   T/D                 √                   √                   T/D                 √                   T/D                 T/D                 T/D                 √                   √                   √                   
 `vibsyms`_          T/D                 √                   T/D                 T/D                 √                   √                   √                   T/D                 T/D                 T/D                 T/D                 √                   T/D                 √                   
 `zpve`_             T/D                 T/D                 T/D                 T/D                 √                   T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 T/D                 
 =================== =================== =================== =================== =================== =================== =================== =================== =================== =================== =================== =================== =================== =================== =================== 
@@ -135,8 +137,10 @@ attributes          ADF                 DALTON              GAMESS              
 .. _`transprop`: data_notes.html#transprop
 .. _`vibanharms`: data_notes.html#vibanharms
 .. _`vibdisps`: data_notes.html#vibdisps
+.. _`vibfconsts`: data_notes.html#vibfconsts
 .. _`vibfreqs`: data_notes.html#vibfreqs
 .. _`vibirs`: data_notes.html#vibirs
 .. _`vibramans`: data_notes.html#vibramans
+.. _`vibrmasses`: data_notes.html#vibrmasses
 .. _`vibsyms`: data_notes.html#vibsyms
 .. _`zpve`: data_notes.html#zpve

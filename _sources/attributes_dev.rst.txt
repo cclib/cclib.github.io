@@ -66,8 +66,10 @@ Couldn't find cython becke routine
     `vibanharms`_       vibrational anharmonicity constants                              1/cm                        array of rank 2
     `vibdisps`_         cartesian displacement vectors                                   delta angstrom              array of rank 3
     `vibfreqs`_         vibrational frequencies                                          1/cm                        array of rank 1
+    `vibfconsts`_       force constants of vibrations                                    mDyne/angstrom              array of rank 1
     `vibirs`_           IR intensities                                                   km/mol                      array of rank 1
     `vibramans`_        Raman activities                                                 A^4/Da                      array of rank 1
+    `vibrmasses`_       reduced masses of vibrations                                     daltons                     array of rank 1
     `vibsyms`_          symmetries of vibrations                                                                     list of strings
     `zpve`_             zero-point vibrational energy correction                         hartree/particle            float
     =================== ================================================================ =========================== =============================== 
@@ -136,7 +138,9 @@ Couldn't find cython becke routine
 .. _`vibanharms`: data_notes.html#vibanharms
 .. _`vibdisps`: data_notes.html#vibdisps
 .. _`vibfreqs`: data_notes.html#vibfreqs
+.. _`vibfconsts`: data_notes.html#vibfconsts
 .. _`vibirs`: data_notes.html#vibirs
 .. _`vibramans`: data_notes.html#vibramans
+.. _`vibrmasses`: data_notes.html#vibrmasses
 .. _`vibsyms`: data_notes.html#vibsyms
 .. _`zpve`: data_notes.html#zpve

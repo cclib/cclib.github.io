@@ -151,6 +151,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#scftargets">scftargets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#scfvalues">scfvalues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#vibdisps">vibdisps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vibfconsts">vibfconsts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vibrmasses">vibrmasses</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="methods.html">Calculation methods</a><ul>
@@ -772,6 +774,14 @@ The energy convergence criterion (keyword <code class="docutils literal notransl
 <div class="section" id="vibdisps">
 <h2>vibdisps<a class="headerlink" href="#vibdisps" title="Permalink to this headline">¶</a></h2>
 <p>The attribute <code class="docutils literal notranslate"><span class="pre">vibdisps</span></code> stores the Cartesian displacement vectors from the output of a vibrational frequency calculation. It is a rank 3 array having dimensions <code class="docutils literal notranslate"><span class="pre">M</span> <span class="pre">x</span> <span class="pre">N</span> <span class="pre">x</span> <span class="pre">3</span></code>, where <code class="docutils literal notranslate"><span class="pre">M</span></code> is the number of normal modes and <code class="docutils literal notranslate"><span class="pre">N</span></code> is the number of atoms. <code class="docutils literal notranslate"><span class="pre">M</span></code> is typically <code class="docutils literal notranslate"><span class="pre">3N-6</span></code> (<code class="docutils literal notranslate"><span class="pre">3N-5</span></code> for linear molecules).</p>
+</div>
+<div class="section" id="vibfconsts">
+<h2>vibfconsts<a class="headerlink" href="#vibfconsts" title="Permalink to this headline">¶</a></h2>
+<p>The attribute <code class="docutils literal notranslate"><span class="pre">vibrmasses</span></code> stores the force constants in <span class="math notranslate nohighlight">\(\mathrm{Å^4/Da}\)</span> from vibrational frequency calculation. It is a rank 1 array having dimension <code class="docutils literal notranslate"><span class="pre">M</span></code>, where <code class="docutils literal notranslate"><span class="pre">M</span></code> is the number of normal modes.</p>
+</div>
+<div class="section" id="vibrmasses">
+<h2>vibrmasses<a class="headerlink" href="#vibrmasses" title="Permalink to this headline">¶</a></h2>
+<p>The attribute <code class="docutils literal notranslate"><span class="pre">vibrmasses</span></code> stores the reduced masses in Daltons (Da) from vibrational frequency calculation. It is a rank 1 array having dimension <code class="docutils literal notranslate"><span class="pre">M</span></code>, where <code class="docutils literal notranslate"><span class="pre">M</span></code> is the number of normal modes.</p>
 </div>
 </div>
 
