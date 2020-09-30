@@ -128,6 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#gbasis">gbasis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#geotargets">geotargets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#geovalues">geovalues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grads">grads</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#hessian">hessian</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#homos">homos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#metadata">metadata</a></li>
@@ -483,6 +484,11 @@
 <p>These are the current values for the criteria used to determine whether a geometry has converged in the course of a geometry optimisation. It is an array of dimensions <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">n</span></code>, where <code class="docutils literal notranslate"><span class="pre">m</span></code> is the number of geometry optimisation iterations and <code class="docutils literal notranslate"><span class="pre">n</span></code> the number of target criteria.</p>
 <p>Note that many programs print atomic coordinates before and after a geometry optimisation, which means that there will not necessarily be <code class="docutils literal notranslate"><span class="pre">m</span></code> elements in <a class="reference internal" href="#atomcoords">atomcoords</a>.</p>
 <p>If the optimisation has finished successfully, the values in the last row should be smaller than the values in <a class="reference internal" href="#geotargets">geotargets</a> (unless the convergence criteria require otherwise).</p>
+</div>
+<div class="section" id="grads">
+<h2>grads<a class="headerlink" href="#grads" title="Permalink to this headline">¶</a></h2>
+<p>The attribute <code class="docutils literal notranslate"><span class="pre">grads</span></code> contains the atom forces (gradients) coordinates as taken from the output file. This is an array of rank 3, with a shape (n,m,3) where n is 1 for a single point calculation and &gt;=1 for a geometry optimisation and m is the number of atoms. The orientation of <code class="docutils literal notranslate"><span class="pre">grads</span></code> is equal to that of <a class="reference internal" href="#atomcoords">atomcoords</a>.</p>
+<p><strong>Gaussian</strong>: Gaussian calculation prints grads in the input orientaion. The calculation with symmetry outputs <code class="docutils literal notranslate"><span class="pre">atomcoords</span></code> and other values in standard orientation, and we converet <code class="docutils literal notranslate"><span class="pre">grads</span></code> to that in standard orientation. The calculation without symmetry (e.g. with <code class="docutils literal notranslate"><span class="pre">Symmetry=None</span></code> kyword) outputs outputs <code class="docutils literal notranslate"><span class="pre">atomcoords</span></code> and other values, and we don’t convert <code class="docutils literal notranslate"><span class="pre">grads</span></code>.</p>
 </div>
 <div class="section" id="hessian">
 <h2>hessian<a class="headerlink" href="#hessian" title="Permalink to this headline">¶</a></h2>
