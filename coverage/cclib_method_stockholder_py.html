@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for cclib/method/stockholder.py: 81%</title>
+    <title>Coverage for cclib/method/stockholder.py: 80%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery.hotkeys.js"></script>
@@ -17,13 +17,13 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>cclib/method/stockholder.py</b> :
-            <span class="pc_cov">81%</span>
+            <span class="pc_cov">80%</span>
         </h1>
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
             93 statements &nbsp;
-            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">75 run</button>
-            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">18 missing</button>
+            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">74 run</button>
+            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">19 missing</button>
             <button type="button" class="exc show_exc shortkey_x button_toggle_exc" title="Toggle lines excluded">0 excluded</button>
         </h2>
     </div>
@@ -210,8 +210,8 @@
     <p id="t157" class="run"><span class="n"><a href="#t157">157</a></span><span class="t">                    <span class="nam">gridmax</span> <span class="op">=</span> <span class="nam">convertor</span><span class="op">(</span><span class="nam">float</span><span class="op">(</span><span class="nam">gridmax</span><span class="op">)</span><span class="op">,</span> <span class="str">"bohr"</span><span class="op">,</span> <span class="str">"Angstrom"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t158" class="run"><span class="n"><a href="#t158">158</a></span><span class="t">                    <span class="nam">gridn</span> <span class="op">=</span> <span class="nam">int</span><span class="op">(</span><span class="nam">gridn</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t159" class="pln"><span class="n"><a href="#t159">159</a></span><span class="t">                    <span class="com"># Convert byte to string in Python3</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t160" class="run"><span class="n"><a href="#t160">160</a></span><span class="t">                    <span class="key">if</span> <span class="nam">sys</span><span class="op">.</span><span class="nam">version</span><span class="op">[</span><span class="num">0</span><span class="op">]</span> <span class="op">==</span> <span class="str">"3"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t161" class="run"><span class="n"><a href="#t161">161</a></span><span class="t">                        <span class="nam">gridtype</span> <span class="op">=</span> <span class="nam">gridtype</span><span class="op">.</span><span class="nam">decode</span><span class="op">(</span><span class="str">"UTF-8"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t160" class="run"><span class="n"><a href="#t160">160</a></span><span class="t">                    <span class="key">if</span> <span class="nam">sys</span><span class="op">.</span><span class="nam">version</span><span class="op">[</span><span class="num">0</span><span class="op">]</span> <span class="op">==</span> <span class="str">"3"</span> <span class="key">and</span> <span class="nam">isinstance</span><span class="op">(</span><span class="nam">gridtype</span><span class="op">,</span> <span class="nam">bytes</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t161" class="mis show_mis"><span class="n"><a href="#t161">161</a></span><span class="t">                        <span class="nam">gridtype</span> <span class="op">=</span> <span class="nam">gridtype</span><span class="op">.</span><span class="nam">decode</span><span class="op">(</span><span class="str">"UTF-8"</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t162" class="pln"><span class="n"><a href="#t162">162</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t163" class="pln"><span class="n"><a href="#t163">163</a></span><span class="t">                    <span class="com"># First verify that it is one of recognized grids</span>&nbsp;</span><span class="r"></span></p>
     <p id="t164" class="run"><span class="n"><a href="#t164">164</a></span><span class="t">                    <span class="key">assert</span> <span class="nam">gridtype</span> <span class="key">in</span> <span class="op">[</span>&nbsp;</span><span class="r"></span></p>
@@ -286,7 +286,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.3</a>,
-            created at 2020-10-25 02:47 +0000
+            created at 2020-11-05 04:54 +0000
         </p>
     </div>
 </div>
