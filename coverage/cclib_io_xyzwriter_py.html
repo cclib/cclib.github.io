@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for cclib/io/xyzwriter.py: 89%</title>
+    <title>Coverage for cclib/io/xyzwriter.py: 91%</title>
     <link rel="icon" sizes="32x32" href="favicon_32.png">
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -18,13 +18,13 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>cclib/io/xyzwriter.py</b> :
-            <span class="pc_cov">89%</span>
+            <span class="pc_cov">91%</span>
         </h1>
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
             47 statements &nbsp;
-            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">42 run</button>
-            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">5 missing</button>
+            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">43 run</button>
+            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">4 missing</button>
             <button type="button" class="exc show_exc shortkey_x button_toggle_exc" title="Toggle lines excluded">0 excluded</button>
         </h2>
     </div>
@@ -135,7 +135,7 @@
     <p id="t81" class="pln"><span class="n"><a href="#t81">81</a></span><span class="t">        <span class="str">"""Create an XYZ file of the geometry at the given index."""</span>&nbsp;</span><span class="r"></span></p>
     <p id="t82" class="pln"><span class="n"><a href="#t82">82</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t83" class="run"><span class="n"><a href="#t83">83</a></span><span class="t">        <span class="nam">atomcoords</span> <span class="op">=</span> <span class="nam">self</span><span class="op">.</span><span class="nam">ccdata</span><span class="op">.</span><span class="nam">atomcoords</span><span class="op">[</span><span class="nam">index</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t84" class="run"><span class="n"><a href="#t84">84</a></span><span class="t">        <span class="nam">existing_comment</span> <span class="op">=</span> <span class="str">""</span> <span class="key">if</span> <span class="key">not</span> <span class="nam">self</span><span class="op">.</span><span class="nam">ccdata</span><span class="op">.</span><span class="nam">metadata</span><span class="op">[</span><span class="str">"comments"</span><span class="op">]</span> <span class="xx">\</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t84" class="run"><span class="n"><a href="#t84">84</a></span><span class="t">        <span class="nam">existing_comment</span> <span class="op">=</span> <span class="str">""</span> <span class="key">if</span> <span class="str">"comments"</span> <span class="key">not</span> <span class="key">in</span> <span class="nam">self</span><span class="op">.</span><span class="nam">ccdata</span><span class="op">.</span><span class="nam">metadata</span> <span class="xx">\</span>&nbsp;</span><span class="r"></span></p>
     <p id="t85" class="pln"><span class="n"><a href="#t85">85</a></span><span class="t">            <span class="key">else</span> <span class="nam">self</span><span class="op">.</span><span class="nam">ccdata</span><span class="op">.</span><span class="nam">metadata</span><span class="op">[</span><span class="str">"comments"</span><span class="op">]</span><span class="op">[</span><span class="nam">index</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p id="t86" class="pln"><span class="n"><a href="#t86">86</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t87" class="pln"><span class="n"><a href="#t87">87</a></span><span class="t">        <span class="com"># Create a comment derived from the filename and the index.</span>&nbsp;</span><span class="r"></span></p>
@@ -152,7 +152,7 @@
     <p id="t98" class="run"><span class="n"><a href="#t98">98</a></span><span class="t">        <span class="key">if</span> <span class="nam">existing_comment</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t99" class="run"><span class="n"><a href="#t99">99</a></span><span class="t">            <span class="nam">comment</span> <span class="op">=</span> <span class="str">"{} [{}]"</span><span class="op">.</span><span class="nam">format</span><span class="op">(</span><span class="nam">existing_comment</span><span class="op">,</span> <span class="nam">comment</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t100" class="pln"><span class="n"><a href="#t100">100</a></span><span class="t">        <span class="key">else</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t101" class="mis show_mis"><span class="n"><a href="#t101">101</a></span><span class="t">            <span class="nam">comment</span> <span class="op">=</span> <span class="str">"[{}]"</span><span class="op">.</span><span class="nam">format</span><span class="op">(</span><span class="nam">comment</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t101" class="run"><span class="n"><a href="#t101">101</a></span><span class="t">            <span class="nam">comment</span> <span class="op">=</span> <span class="str">"[{}]"</span><span class="op">.</span><span class="nam">format</span><span class="op">(</span><span class="nam">comment</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t102" class="pln"><span class="n"><a href="#t102">102</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t103" class="run"><span class="n"><a href="#t103">103</a></span><span class="t">        <span class="nam">atom_template</span> <span class="op">=</span> <span class="str">'{:3s} {:15.10f} {:15.10f} {:15.10f}'</span>&nbsp;</span><span class="r"></span></p>
     <p id="t104" class="run"><span class="n"><a href="#t104">104</a></span><span class="t">        <span class="nam">block</span> <span class="op">=</span> <span class="op">[</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
@@ -166,7 +166,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.3.1</a>,
-            created at 2020-12-22 16:23 +0000
+            created at 2020-12-23 02:27 +0000
         </p>
     </div>
 </div>
