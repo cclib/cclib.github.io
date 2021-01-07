@@ -1,78 +1,77 @@
-Couldn't find cython becke routine
-    =================== ================================================================ =========================== =============================== 
-    Name                Description                                                      Units                       Data type                       
-    =================== ================================================================ =========================== =============================== 
-    `aonames`_          atomic orbital names                                                                         list of strings
-    `aooverlaps`_       atomic orbital overlap matrix                                                                array of rank 2
-    `atombasis`_        indices of atomic orbitals on each atom                                                      list of lists
-    `atomcharges`_      atomic partial charges                                                                       dict of arrays of rank 1
-    `atomcoords`_       atom coordinates                                                 angstroms                   array of rank 3
-    `atommasses`_       atom masses                                                      daltons                     array of rank 1
-    `atomnos`_          atomic numbers                                                                               array of rank 1
-    `atomspins`_        atomic spin densities                                                                        dict of arrays of rank 1
-    `ccenergies`_       molecular energies with Coupled-Cluster corrections              eV                          array of rank 2
-    `charge`_           net charge of the system                                                                     integer
-    `coreelectrons`_    number of core electrons in atom pseudopotentials                                            array of rank 1
-    `dispersionenergies`_a molecular dispersion energy corrections                        eV                          array of rank 1
-    `enthalpy`_         sum of electronic and thermal enthalpies                         hartree/particle            float
-    `entropy`_          entropy                                                          hartree/particle            float
-    `etenergies`_       energies of electronic transitions                               1/cm                        array of rank 1
-    `etoscs`_           oscillator strengths of electronic transitions                                               array of rank 1
-    `etdips`_           electric transition dipoles of electronic transitions            ebohr                       array of rank 2
-    `etveldips`_        velocity-gauge electric transition dipoles of electronic transitionsebohr                       array of rank 2
-    `etmagdips`_        magnetic transition dipoles of electronic transitions            ebohr                       array of rank 2
-    `etrotats`_         rotatory strengths of electronic transitions                     ??                          array of rank 1
-    `etsecs`_           singly-excited configurations for electronic transitions                                     list of lists
-    `etsyms`_           symmetries of electronic transitions                                                         list of string
-    `freeenergy`_       sum of electronic and thermal free energies                      hartree/particle            float
-    `fonames`_          fragment orbital names                                                                       list of strings
-    `fooverlaps`_       fragment orbital overlap matrix                                                              array of rank 2
-    `fragnames`_        names of fragments                                                                           list of strings
-    `frags`_            indices of atoms in a fragment                                                               list of lists
-    `gbasis`_           coefficients and exponents of Gaussian basis functions                                       PyQuante format
-    `geotargets`_       targets for convergence of geometry optimization                                             array of rank 1
-    `geovalues`_        current values for convergence of geometry optmization                                       array of rank 1
-    `grads`_            current values of forces (gradients) in geometry optimization                                array of rank 3
-    `hessian`_          elements of the force constant matrix                                                        array of rank 1
-    `homos`_            molecular orbital indices of HOMO(s)                                                         array of rank 1
-    `metadata`_         various metadata about the package and computation                                           dict
-    `mocoeffs`_         molecular orbital coefficients                                                               list of arrays of rank 2
-    `moenergies`_       molecular orbital energies                                       eV                          list of arrays of rank 1
-    `moments`_          molecular multipole moments                                      a.u.                        list of arrays[]
-    `mosyms`_           orbital symmetries                                                                           list of lists
-    `mpenergies`_       molecular electronic energies with Møller-Plesset corrections    eV                          array of rank 2
-    `mult`_             multiplicity of the system                                                                   integer
-    `natom`_            number of atoms                                                                              integer
-    `nbasis`_           number of basis functions                                                                    integer
-    `nmo`_              number of molecular orbitals                                                                 integer
-    `nocoeffs`_         natural orbital coefficients                                                                 array of rank 2
-    `nooccnos`_         natural orbital occupation numbers                                                           array of rank 1
-    `nsocoeffs`_        natural spin orbital coefficients                                                            list of array of rank 2
-    `nsooccnos`_        natural spin orbital occupation numbers                                                      list of array of rank 1
-    `optdone`_          flags whether an optimization has converged                                                  Boolean
-    `optstatus`_        optimization status for each set of atomic coordinates                                       array of rank 1
-    `polarizabilities`_ (dipole) polarizabilities, static or dynamic                                                 list of arrays of rank 2
-    `pressure`_         pressure used for Thermochemistry                                atm                         float
-    `scancoords`_       geometries of each scan step                                     angstroms                   array of rank 3
-    `scanenergies`_     energies of potential energy surface                                                         list
-    `scannames`_        names of varaibles scanned                                                                   list of strings
-    `scanparm`_         values of parameters in potential energy surface                                             list of lists
-    `scfenergies`_      molecular electronic energies after SCF (Hartree-Fock, DFT)      eV                          array of rank 1
-    `scftargets`_       targets for convergence of the SCF                                                           array of rank 2
-    `scfvalues`_        current values for convergence of the SCF                                                    list of arrays of rank 2
-    `temperature`_      temperature used for Thermochemistry                             kelvin                      float
-    `time`_             time in molecular dynamics and other trajectories                fs                          array of rank 1
-    `transprop`_        all absorption and emission spectra (dictionary {name:           etoscs                      etenergies
-    `vibanharms`_       vibrational anharmonicity constants                              1/cm                        array of rank 2
-    `vibdisps`_         cartesian displacement vectors                                   delta angstrom              array of rank 3
-    `vibfreqs`_         vibrational frequencies                                          1/cm                        array of rank 1
-    `vibfconsts`_       force constants of vibrations                                    mDyne/angstrom              array of rank 1
-    `vibirs`_           IR intensities                                                   km/mol                      array of rank 1
-    `vibramans`_        Raman activities                                                 A^4/Da                      array of rank 1
-    `vibrmasses`_       reduced masses of vibrations                                     daltons                     array of rank 1
-    `vibsyms`_          symmetries of vibrations                                                                     list of strings
-    `zpve`_             zero-point vibrational energy correction                         hartree/particle            float
-    =================== ================================================================ =========================== =============================== 
+    ===================== ==================================================================== ================ ======================== 
+    Name                  Description                                                          Units            Data type                
+    ===================== ==================================================================== ================ ======================== 
+    `aonames`_            atomic orbital names                                                                  list of strings
+    `aooverlaps`_         atomic orbital overlap matrix                                                         array of rank 2
+    `atombasis`_          indices of atomic orbitals on each atom                                               list of lists
+    `atomcharges`_        atomic partial charges                                                                dict of arrays of rank 1
+    `atomcoords`_         atom coordinates                                                     angstroms        array of rank 3
+    `atommasses`_         atom masses                                                          daltons          array of rank 1
+    `atomnos`_            atomic numbers                                                                        array of rank 1
+    `atomspins`_          atomic spin densities                                                                 dict of arrays of rank 1
+    `ccenergies`_         molecular energies with Coupled-Cluster corrections                  eV               array of rank 2
+    `charge`_             net charge of the system                                                              integer
+    `coreelectrons`_      number of core electrons in atom pseudopotentials                                     array of rank 1
+    `dispersionenergies`_ a molecular dispersion energy corrections                            eV               array of rank 1
+    `enthalpy`_           sum of electronic and thermal enthalpies                             hartree/particle float
+    `entropy`_            entropy                                                              hartree/particle float
+    `etenergies`_         energies of electronic transitions                                   1/cm             array of rank 1
+    `etoscs`_             oscillator strengths of electronic transitions                                        array of rank 1
+    `etdips`_             electric transition dipoles of electronic transitions                ebohr            array of rank 2
+    `etveldips`_          velocity-gauge electric transition dipoles of electronic transitions ebohr            array of rank 2
+    `etmagdips`_          magnetic transition dipoles of electronic transitions                ebohr            array of rank 2
+    `etrotats`_           rotatory strengths of electronic transitions                         ??               array of rank 1
+    `etsecs`_             singly-excited configurations for electronic transitions                              list of lists
+    `etsyms`_             symmetries of electronic transitions                                                  list of string
+    `freeenergy`_         sum of electronic and thermal free energies                          hartree/particle float
+    `fonames`_            fragment orbital names                                                                list of strings
+    `fooverlaps`_         fragment orbital overlap matrix                                                       array of rank 2
+    `fragnames`_          names of fragments                                                                    list of strings
+    `frags`_              indices of atoms in a fragment                                                        list of lists
+    `gbasis`_             coefficients and exponents of Gaussian basis functions                                PyQuante format
+    `geotargets`_         targets for convergence of geometry optimization                                      array of rank 1
+    `geovalues`_          current values for convergence of geometry optmization                                array of rank 1
+    `grads`_              current values of forces (gradients) in geometry optimization                         array of rank 3
+    `hessian`_            elements of the force constant matrix                                                 array of rank 1
+    `homos`_              molecular orbital indices of HOMO(s)                                                  array of rank 1
+    `metadata`_           various metadata about the package and computation                                    dict
+    `mocoeffs`_           molecular orbital coefficients                                                        list of arrays of rank 2
+    `moenergies`_         molecular orbital energies                                           eV               list of arrays of rank 1
+    `moments`_            molecular multipole moments                                          a.u.             list of arrays[]
+    `mosyms`_             orbital symmetries                                                                    list of lists
+    `mpenergies`_         molecular electronic energies with Møller-Plesset corrections        eV               array of rank 2
+    `mult`_               multiplicity of the system                                                            integer
+    `natom`_              number of atoms                                                                       integer
+    `nbasis`_             number of basis functions                                                             integer
+    `nmo`_                number of molecular orbitals                                                          integer
+    `nocoeffs`_           natural orbital coefficients                                                          array of rank 2
+    `nooccnos`_           natural orbital occupation numbers                                                    array of rank 1
+    `nsocoeffs`_          natural spin orbital coefficients                                                     list of array of rank 2
+    `nsooccnos`_          natural spin orbital occupation numbers                                               list of array of rank 1
+    `optdone`_            flags whether an optimization has converged                                           Boolean
+    `optstatus`_          optimization status for each set of atomic coordinates                                array of rank 1
+    `polarizabilities`_   (dipole) polarizabilities, static or dynamic                                          list of arrays of rank 2
+    `pressure`_           pressure used for Thermochemistry                                    atm              float
+    `scancoords`_         geometries of each scan step                                         angstroms        array of rank 3
+    `scanenergies`_       energies of potential energy surface                                                  list
+    `scannames`_          names of varaibles scanned                                                            list of strings
+    `scanparm`_           values of parameters in potential energy surface                                      list of lists
+    `scfenergies`_        molecular electronic energies after SCF (Hartree-Fock, DFT)          eV               array of rank 1
+    `scftargets`_         targets for convergence of the SCF                                                    array of rank 2
+    `scfvalues`_          current values for convergence of the SCF                                             list of arrays of rank 2
+    `temperature`_        temperature used for Thermochemistry                                 kelvin           float
+    `time`_               time in molecular dynamics and other trajectories                    fs               array of rank 1
+    `transprop`_          all absorption and emission spectra (dictionary {name:               etoscs           etenergies
+    `vibanharms`_         vibrational anharmonicity constants                                  1/cm             array of rank 2
+    `vibdisps`_           cartesian displacement vectors                                       delta angstrom   array of rank 3
+    `vibfreqs`_           vibrational frequencies                                              1/cm             array of rank 1
+    `vibfconsts`_         force constants of vibrations                                        mDyne/angstrom   array of rank 1
+    `vibirs`_             IR intensities                                                       km/mol           array of rank 1
+    `vibramans`_          Raman activities                                                     A^4/Da           array of rank 1
+    `vibrmasses`_         reduced masses of vibrations                                         daltons          array of rank 1
+    `vibsyms`_            symmetries of vibrations                                                              list of strings
+    `zpve`_               zero-point vibrational energy correction                             hartree/particle float
+    ===================== ==================================================================== ================ ======================== 
 
 .. _`aonames`: data_notes.html#aonames
 .. _`aooverlaps`: data_notes.html#aooverlaps
