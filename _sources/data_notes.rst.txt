@@ -69,7 +69,7 @@ Currently, cclib parses Mulliken, Löwdin, NPA and CHELPG charges, whose respect
 
 In practice, these may differ somewhat from the values cclib calculates in the various `calculation methods`_.
 
-**Molpro**: use the ``pop`` command (see http://www.molpro.net/info/2015.1/doc/manual/node515.html).
+**Molpro**: use the ``pop`` command (see https://www.molpro.net/manual/doku.php?id=properties_and_expectation_values&s[]=population&s[]=analysis#calling_the_population_analysis_program_pop).
 
 .. _`calculation methods`: methods.html
 
@@ -183,7 +183,7 @@ The difficulty in handling the basis for a molecule with symmetry and the availa
 gbasis
 ------
 
-This attribute stores information about the Gaussian basis functions that were used in the calculation, per atom using the same conventions as `PyQuante <http://pyquante.sf.net>`_. Specifically, ``gbasis`` is a list of lists iterating over atoms and Gaussian basis functions. The elements (basis functions) are tuples of length 2 consisting of orbital type (e.g. 'S', 'P' or 'D') and a list (per contracted GTO) of tuples of size 2 consisting of the exponent and coefficient. Confused? Well, here's ``gbasis`` for a molecule consisting of a single C atom with a STO-3G basis:
+This attribute stores information about the Gaussian basis functions that were used in the calculation, per atom using the same conventions as `PyQuante <http://pyquante.sourceforge.net/>`_. Specifically, ``gbasis`` is a list of lists iterating over atoms and Gaussian basis functions. The elements (basis functions) are tuples of length 2 consisting of orbital type (e.g. 'S', 'P' or 'D') and a list (per contracted GTO) of tuples of size 2 consisting of the exponent and coefficient. Confused? Well, here's ``gbasis`` for a molecule consisting of a single C atom with a STO-3G basis:
 
 .. code-block:: python
 
@@ -209,16 +209,16 @@ This attribute stores information about the Gaussian basis functions that were u
 
 For D and F functions there is an important distinction between pure (5D, 7F) or Cartesian (6D, 10F) functions. PyQuante can only handle Cartesian functions, but we should extract this information in any case, and perhaps work to extend the PyQuante basis set format to include this.
 
-**Gaussian**: the `GFINPUT`_ keyword should normally be used (`GFPRINT`_ gives equivalent information in a different format and is supported in cclib after v1.2).
+**Gaussian**: the `GFINPUT`_ keyword should normally be used (`GFPRINT`_ gives equivalent information in a different format).
 
 **GAMESS/GAMESS-UK**: no special keywords are required, but the basis is only available for symmetry inequivalent atoms. There does not seem to be any way to get GAMESS to say which atoms are related through symmetry. As a result, if you want to get basis set info for every atom, you need to reduce the symmetry to C1.
 
-**Jaguar**: for more information see manual (for example at http://yfaat.ch.huji.ac.il/jaguar-help/mand.html#114223)
+**Jaguar**: for more information see manual (for example at https://web.archive.org/web/20141117001641/http://yfaat.ch.huji.ac.il/jaguar-help/mand.html)
 
 **ORCA**: include ``Print[ P_Basis ] 2`` in the ``output`` block
 
-.. _`GFINPUT`: http://www.gaussian.com/g_tech/g_ur/k_gfinput.htm
-.. _`GFPRINT`: http://www.gaussian.com/g_tech/g_ur/k_gfprint.htm
+.. _`GFINPUT`: https://gaussian.com/gfinput/
+.. _`GFPRINT`: https://gaussian.com/gfprint/
 
 .. index::
     single: geometry optimisation; geotargets (attribute)
@@ -237,7 +237,7 @@ In some special cases, the values in ``geotargets`` will be `numpy.inf`_.
     - maximum gradient below TOL * 1/4,
     - average gradient below TOL * 1/6.
 
-.. _`GAMESS-UK manual section on controlling optimisation`: http://www.cfs.dl.ac.uk/docs/html/part4/node14.html 
+.. _`GAMESS-UK manual section on controlling optimisation`: https://web.archive.org/web/20190809095414/http://www.cfs.dl.ac.uk/docs/html/part4/node14.html
 
 **Jaguar** has several geometry convergence criteria,
 
@@ -251,9 +251,9 @@ Note that a value for gconv7 is not available until the second iteration, so it 
 
 **Molpro** has custom convergence criteria, as described in the `manual <Molpro manual convergence_>`_:
 
-    The standard MOLPRO convergence criterion requires the maximum component of the gradient to be less then :math:`3 \cdot 10^{-4}` [a.u.] and the maximum energy change to be less than :math:`1 \cdot 10^{-6}` [H] or the maximum component of the gradient to be less then $ 3 \cdot 10^{-4}$ [a.u.] and the maximum component of the step to be less then :math:`3 \cdot 10^{-4}` [a.u.].
+    The standard MOLPRO convergence criterion requires the maximum component of the gradient to be less than :math:`3 \cdot 10^{-4}` [a.u.] and the maximum energy change to be less than :math:`1 \cdot 10^{-6}` [H] or the maximum component of the gradient to be less than :math:`3 \cdot 10^{-4}` [a.u.] and the maximum component of the step to be less than :math:`3 \cdot 10^{-4}` [a.u.].
 
-.. _Molpro manual convergence: https://www.molpro.net/info/2012.1/doc/manual/node592.html
+.. _Molpro manual convergence: https://www.molpro.net/manual/doku.php?id=geometry_optimization_optg#options_to_modify_convergence_criteria
 
 **ORCA** tracks the change in energy as well as RMS and maximum gradients and displacements. As of version 3.0, an optimisation is considered converged when all the tolerances are met, and there are four exceptions:
 
@@ -264,9 +264,9 @@ Note that a value for gconv7 is not available until the second iteration, so it 
 
 **Psi** normally tracks five different values, as described `in the documentation`_, but their use various depending on the strategy employed. The default strategy (QCHEM) check whether the maximum force is converged and if the maximum energy change or displacement is converged. Additionally, to aid with flat potential energy surfaces, convergence is as assumed when the root mean square force converged to 0.01 of its default target. Note that Psi print values even for targets that are not being used -- in these cases the targets are parsed as `numpy.inf`_ so that they can still be used (any value will be converged).
 
-.. _`in the documentation`: http://sirius.chem.vt.edu/psi4manual/latest/optking.html
+.. _`in the documentation`: https://psicode.org/psi4manual/master/optking.html#convergence-criteria
 
-.. _`numpy.inf`: http://docs.scipy.org/doc/numpy-1.8.1/user/misc.html#ieee-754-floating-point-special-values
+.. _`numpy.inf`: https://numpy.org/doc/stable/user/misc.html#ieee-754-floating-point-special-values
 
 .. index::
     single: geomtry optimisation; geovalues (attribute)
@@ -282,15 +282,15 @@ If the optimisation has finished successfully, the values in the last row should
 
 
 grads
----------
-The attribute ``grads`` contains the atom forces (gradients) coordinates as taken from the output file. This is an array of rank 3, with a shape (n,m,3) where n is 1 for a single point calculation and >=1 for a geometry optimisation and m is the number of atoms. The orientation of ``grads`` is equal to that of `atomcoords`_.
+-----
+The attribute ``grads`` contains the forces on the atoms, that is, the negative gradient of the energy with respect to atomic coordinates in atomic units (Hartree / Bohr). ``grads`` is an array of rank 3, with dimensions `n x m x 3` where `n` is 1 for a single point calculation and `>=1` for a geometry optimisation, `m` is the number of atoms and the last dimension contains the x, y and z components of the gradient. The orientation of ``grads`` corresponds to that of `atomcoords`_.
 
-**Gaussian**: Gaussian calculation prints grads in the input orientaion. The calculation with symmetry outputs ``atomcoords`` and other values in standard orientation, and we converet ``grads`` to that in standard orientation. The calculation without symmetry (e.g. with ``Symmetry=None`` kyword) outputs outputs ``atomcoords`` and other values, and we don't convert ``grads``.
+**Gaussian**: In calculations that include point-group symmetry, ``grads`` is converted to standard orientation to match the orientation of ``atomcoords`` and other quantities. Because of this, the ``grads`` group will differ from that printed in the output file by Gaussian (which is always in the input orientation). Calculations without symmetry (that is, with the ``Symmetry=None`` keyword) yield everything in the input orientation and in those cases ``grads`` should match exactly what is printed in the output file.
 
 hessian
 -------
 
-An array of rank 1 that contains the elements of the `hessian <http://en.wikipedia.org/wiki/Hessian_matrix>`_ or force constant matrix. Only the lower triangular part of the 3Nx3N matrix is stored (this may change in the future, maybe also only the unweighted matrix will be parsed).
+An array of rank 2 that contains the elements of the `hessian <https://en.wikipedia.org/wiki/Hessian_matrix>`_ or force constant matrix. The full symmetric ``3N x 3N`` matrix is stored.
 
 .. index::
     single: molecular orbitals; homos (attribute)
@@ -318,6 +318,7 @@ A dictionary containing metadata_ (data about data) for the calculation. Current
 * ``basis_set``: A string with the name of the basis set, if it is printed anywhere as a standard name.
 * ``coord_type``: For the ``coords`` field, a string for the representation of stored coordinates. Currently, it is one of ``xyz``, ``int``/``internal``, or ``gzmat``.
 * ``coords``: A list of lists with shape ``[natoms, 4]`` which contains the input coordinates (those found in the input file). The first column is the atomic symbol as a string, and the next three columns are floats. This is useful as many programs reorient coordinates for symmetry reasons.
+* ``cpu_time``: A list of datetime.timedeltas containing the CPU time of each calculation in the output.  
 * ``functional``: A string with the name of the density functional used.
 * ``info``: A list of strings, each of which is an information or log message produced during a calculation.
 * ``input_file_contents``: A string containing the entire input file, if it is echoed back during the calculation.
@@ -326,8 +327,11 @@ A dictionary containing metadata_ (data about data) for the calculation. Current
 * ``methods``: A list of strings containing each method used in order. Currently, the list may contain ``HF``, ``DFT``, ``LMP2``/``DF-MP2``/``MP2``, ``MP3``, ``MP4``, ``CCSD``, and/or ``CCSD(T)``/``CCSD-T``.
 * ``package``: A string with the name of the quantum chemistry program used.
 * ``package_version``: A string representation of the package version. It is formatted to allow comparison using relational operators.
+* ``symmetry_detected``: A string representing the full or largest point group detected by the program.
+* ``symmetry_used``: A string representing the point group used by the program for the calculation. This may be different from ``symmetry_detected`` if the full point group is non-abelian and the program can only take advantage of abelian groups. For example, when performing a calculation on benzene with symmetry turned on, ``symmetry_detected`` may be ``d6h``, but ``symmetry_used`` is most likely ``d2h``, since D2h is the largest abelian subgroup of D6h.
 * ``success``: A boolean for whether or not the calculation completed properly.
 * ``unrestricted``: A boolean for whether or not the calculation was performed with a unrestricted wavefunction.
+* ``wall_time``: A list of datetime.timedeltas containing the wall time of each calculation in the output.  
 * ``warnings``: A list of strings, each of which is a warning produced during a calculation.
 
 The implementation and coverage of metadata is currently inconsistent. In the future, metadata may receive its own page similar to `extracted data`_.
@@ -362,7 +366,7 @@ A list of rank 1 arrays containing the molecular orbital energies in eV. The lis
 
 **Jaguar**: the first ten virtual orbitals are printed by default. In order to print more, use the ``ipvirt`` keyword, with ``ipvirt=-1`` printing all virtual orbitals.
 
-.. _`FORMAT HIGH`: http://www.cfs.dl.ac.uk/docs/html/part3/node8.html#SECTION00083000000000000000
+.. _`FORMAT HIGH`: https://web.archive.org/web/20190809100513/http://www.cfs.dl.ac.uk/docs/html/part3/node8.html
 
 .. index::
     single: properties; moments (attribute)
@@ -470,6 +474,11 @@ Commands to get information on all orbitals:
 
 .. _Jaguar manual nmo: http://www.pdc.kth.se/doc/jaguar4.1/html/manual/mang.html#644675
 
+nmrtensors
+----------
+
+A dictionary where the keys zero-index the atomic center for which the chemical shielding tensor is calculated, and the values are themselves dictionaries containing the keys ``total``, ``paramagnetic``, and ``diamagnetic``. These correspond to the total chemical shielding tensor and its separation into paramagnetic and diamagnetic components, where :math:`\sigma_{K}^{\textrm{tot}} = \sigma_{K}^{\textrm{para}} + \sigma_{K}^{\textrm{dia}}` for a nucleus :math:`K`.  Each tensor is represented as a 3-by-3 NumPy array. If no breakdown for paramagnetic and diamagnetic contributions to the chemical shielding is available, then only the ``total`` key will be present.
+
 optdone
 -------
 
@@ -540,13 +549,13 @@ For intermediate steps in a geometry optimisation the situation is more complica
 
 where ``old criteria`` is the initial value or from the previous geometry cycle, ``grdmax`` is the maximum gradient from the last geometry step and ``accint`` is the current integration accuracy.
 
-.. _`CONVERGE subkey of the SCF block`: http://www.scm.com/Doc/Doc2014/ADF/ADFUsersGuide/page235.html#keyscheme%20INTEGRATION
+.. _`CONVERGE subkey of the SCF block`: https://www.scm.com/doc/ADF/Input/SCF.html#main-options
 
 **GAMESS**: Two criteria are, the maximum and root-mean-square (RMS) density matrix change, are used with a default starting value of 5.0E-05. It seems these values can change over the course of a geometry optimisation. ROHF calculations use SQCDF instead of the standard RMS change.
 
 **GAMESS-UK**: According to `the manual <GAMESS-UK manual convergence_>`_, convergence is determined by convergence of density matrix elements. The default value for SCF is 1E-5, but it appears to be 1E-7 for geoopts.
 
-.. _`GAMESS-UK manual convergence`: http://www.cfs.dl.ac.uk/docs/html/part4/node6.html
+.. _`GAMESS-UK manual convergence`: https://web.archive.org/web/20190809100922/http://www.cfs.dl.ac.uk/docs/html/part4/node6.html
 
 **Gaussian**: normally three criteria are used.
 
@@ -564,7 +573,7 @@ The attribute ``scfvalues`` is a list of arrays of dimension ``n x m`` (one elem
 
 **Gaussian**: requires the `route section`_ to start with #P
 
-.. _`route section`: http://www.gaussian.com/g_tech/g_ur/k_route.htm
+.. _`route section`: https://gaussian.com/route/
 
 **GAMESS-UK**: convergence information is printed only for the first optimisation step by default, but can be forced at all steps by adding ``IPRINT SCF`` to the input file.
 
@@ -574,12 +583,12 @@ vibdisps
 The attribute ``vibdisps`` stores the Cartesian displacement vectors from the output of a vibrational frequency calculation. It is a rank 3 array having dimensions ``M x N x 3``, where ``M`` is the number of normal modes and ``N`` is the number of atoms. ``M`` is typically ``3N-6`` (``3N-5`` for linear molecules).
 
 vibfconsts
---------
+----------
 
 The attribute ``vibrmasses`` stores the force constants in :math:`\mathrm{Å^4/Da}` from vibrational frequency calculation. It is a rank 1 array having dimension ``M``, where ``M`` is the number of normal modes.
 
 vibrmasses
---------
+----------
 
 The attribute ``vibrmasses`` stores the reduced masses in Daltons (Da) from vibrational frequency calculation. It is a rank 1 array having dimension ``M``, where ``M`` is the number of normal modes.
 
