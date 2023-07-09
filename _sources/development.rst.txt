@@ -31,7 +31,7 @@ We follow a typical GitHub collaborative model, relying on `forks and pull reque
 
 * `Creating your own fork`_ of cclib in order to develop
 * `Creating a pull request`_ to contribute your changes
-* Reviewing and merging open pull requests (by someone else)
+* Reviewing and merging open pull requests into master
 * Using `issues`_ to plan and prioritize future work
 
 .. _`forks and pull requests`: https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
@@ -41,6 +41,8 @@ We follow a typical GitHub collaborative model, relying on `forks and pull reque
 
 Here are some general guidelines for developers who are contributing code:
 
+* All contributions should be reviewed by at least one core developer
+* Contributions from a core developer need to be reviewed by another core developer
 * Run and review the unit tests (see below) before submitting a pull request.
 * There should normally not be more failed tests than before your changes.
 * For larger changes or features that take some time to implement, `using branches`_ is recommended.
@@ -159,18 +161,24 @@ Websites related to cclib
 Developers
 ==========
 
-Besides input from a number of people `listed in the repository`_, the following developers have contributed code to cclib (in alphabetical order):
+Besides input from a number of people `listed in the repository`_, the following are core developers (in alphabetical order):
 
 * `Eric Berquist`_
+* `Minsik Cho`_
+* `Amanda Dumi`_
+* `Geoff Hutchison`_
 * `Karol M. Langner`_
-* `Noel O'Boyle`_
-* Christopher Rowley
-* Adam Tenderholt
+* `Noel O'Boyle`_ (retired)
+* `Adam Tenderholt`_
 * `Shiv Upadhyay`_
 
 .. _`listed in the repository`: https://github.com/cclib/cclib/blob/master/THANKS
 
 .. _`Eric Berquist`: https://github.com/berquist
+.. _`Minsik Cho`: https://github.com/mscho527
+.. _`Amanda Dumi`: https://github.com/amandadumi
+.. _`Geoff Hutchison`: https://github.com/ghutchis
 .. _`Karol M. Langner`: https://github.com/langner
-.. _`Noel O'Boyle`: https://noel.redbrick.dcu.ie/
+.. _`Noel O'Boyle`: https://github.com/baoilleach
+.. _`Adam Tenderholt`: https://github.com/ATenderholt
 .. _`Shiv Upadhyay`: https://github.com/shivupa
