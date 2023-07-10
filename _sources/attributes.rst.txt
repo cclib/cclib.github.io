@@ -12,7 +12,7 @@
     `ccenergies`_         molecular energies with Coupled-Cluster corrections                  eV               array of rank 2
     `charge`_             net charge of the system                                                              integer
     `coreelectrons`_      number of core electrons in atom pseudopotentials                                     array of rank 1
-    `dispersionenergies`_ a molecular dispersion energy corrections                            eV               array of rank 1
+    `dispersionenergies`_ dispersion energy corrections                                        eV               array of rank 1
     `enthalpy`_           sum of electronic and thermal enthalpies                             hartree/particle float
     `entropy`_            entropy (float, hartree/                                                              particle*kelvin
     `etenergies`_         energies of electronic transitions                                   1/cm             array of rank 1
