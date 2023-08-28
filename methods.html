@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculation methods &mdash; cclib 1.7.2 documentation</title>
+  <title>Calculation methods &mdash; cclib 1.8 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/increase_max_width.css" type="text/css" />
@@ -51,7 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_install.html">How to install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_parse.html">How to parse and write</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.7.2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.8)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_notes.html">Parsed data notes</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Calculation methods</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#c-squared-population-analysis-cspa">C squared population analysis (CSPA)</a><ul>
@@ -477,6 +477,17 @@ Proatom densities can be generated <a class="footnote-reference brackets" href="
 <span id="index-8"></span><h2>Nuclear Properties<a class="headerlink" href="#nuclear-properties" title="Permalink to this heading"></a></h2>
 <p>This method calculates various properties of nuclei based on the parsed data.</p>
 <p>Calculate the nuclear repulsion energy using the snippet below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cclib</span>
+<span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Nuclear</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">cclib</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">ccopen</span><span class="p">(</span><span class="s2">&quot;test.log&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<span class="n">nuclear</span> <span class="o">=</span> <span class="n">Nuclear</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">nre</span> <span class="o">=</span> <span class="n">nuclear</span><span class="o">.</span><span class="n">repulsion_energy</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nre</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="accessing-additional-methods-through-bridge">
 <h2>Accessing additional methods through bridge<a class="headerlink" href="#accessing-additional-methods-through-bridge" title="Permalink to this heading"></a></h2>

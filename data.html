@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parsed data (version 1.7.2) &mdash; cclib 1.7.2 documentation</title>
+  <title>Parsed data (version 1.8) &mdash; cclib 1.8 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/increase_max_width.css" type="text/css" />
@@ -50,7 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_install.html">How to install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_parse.html">How to parse and write</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Parsed data (version 1.7.2)</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Parsed data (version 1.8)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#description-of-parsed-data">Description of parsed data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#details-of-current-implementation">Details of current implementation</a></li>
 </ul>
@@ -77,7 +77,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="contents.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Parsed data (version 1.7.2)</li>
+      <li class="breadcrumb-item active">Parsed data (version 1.8)</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/cclib/cclib/blob/master/doc/sphinx/data.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -88,8 +88,8 @@
            <div itemprop="articleBody">
              
   <section id="parsed-data-version-release">
-<h1>Parsed data (version 1.7.2)<a class="headerlink" href="#parsed-data-version-release" title="Permalink to this heading"></a></h1>
-<p>This is a list of all the data parsed by the current official release of cclib (namely version 1.7.2). For the same list for the development version, see <a class="reference external" href="data_dev.html">development parsed data</a>. For details and miscellaneous notes on these attributes, see the <a class="reference external" href="data_notes.html">data notes</a> page.</p>
+<h1>Parsed data (version 1.8)<a class="headerlink" href="#parsed-data-version-release" title="Permalink to this heading"></a></h1>
+<p>This is a list of all the data parsed by the current official release of cclib (namely version 1.8). For the same list for the development version, see <a class="reference external" href="data_dev.html">development parsed data</a>. For details and miscellaneous notes on these attributes, see the <a class="reference external" href="data_notes.html">data notes</a> page.</p>
 <section id="description-of-parsed-data">
 <h2>Description of parsed data<a class="headerlink" href="#description-of-parsed-data" title="Permalink to this heading"></a></h2>
 <p>Click the attribute name in the table below to go the notes and specifications for a particular attribute. All arrays are Numpy arrays of type ‘d’ (if containing floats) or ‘i’ (if containing integers).</p>
@@ -323,45 +323,55 @@
 <td></td>
 <td><p>dict of dicts of array of rank 2</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#nocoeffs">nocoeffs</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#nmrcouplingtensors">nmrcouplingtensors</a></p></td>
+<td><p>Nuclear magnetic resonance spin-spin coupling tensors</p></td>
+<td></td>
+<td><p>dict of dicts of array of rank 2</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#nocoeffs">nocoeffs</a></p></td>
 <td><p>natural orbital coefficients</p></td>
 <td></td>
 <td><p>array of rank 2</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#nooccnos">nooccnos</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#nooccnos">nooccnos</a></p></td>
 <td><p>natural orbital occupation numbers</p></td>
 <td></td>
 <td><p>array of rank 1</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#nsocoeffs">nsocoeffs</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#nsocoeffs">nsocoeffs</a></p></td>
 <td><p>natural spin orbital coefficients</p></td>
 <td></td>
 <td><p>list of array of rank 2</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#nsooccnos">nsooccnos</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#nsooccnos">nsooccnos</a></p></td>
 <td><p>natural spin orbital occupation numbers</p></td>
 <td></td>
 <td><p>list of array of rank 1</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#optdone">optdone</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#optdone">optdone</a></p></td>
 <td><p>flags whether an optimization has converged</p></td>
 <td></td>
 <td><p>Boolean</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#optstatus">optstatus</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#optstatus">optstatus</a></p></td>
 <td><p>optimization status for each set of atomic coordinates</p></td>
 <td></td>
 <td><p>array of rank 1</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#polarizabilities">polarizabilities</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#polarizabilities">polarizabilities</a></p></td>
 <td><p>(dipole) polarizabilities, static or dynamic</p></td>
 <td></td>
 <td><p>list of arrays of rank 2</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#pressure">pressure</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#pressure">pressure</a></p></td>
 <td><p>pressure used for Thermochemistry</p></td>
 <td><p>atm</p></td>
 <td><p>float</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#rotconsts">rotconsts</a></p></td>
+<td><p>rotational constants</p></td>
+<td><p>GHz</p></td>
+<td><p>array of rank 2</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="data_notes.html#scancoords">scancoords</a></p></td>
 <td><p>geometries of each scan step</p></td>
@@ -473,6 +483,7 @@
 <th class="head"><p>DALTON</p></th>
 <th class="head"><p>FChk</p></th>
 <th class="head"><p>GAMESS</p></th>
+<th class="head"><p>GAMESSDAT</p></th>
 <th class="head"><p>GAMESSUK</p></th>
 <th class="head"><p>Gaussian</p></th>
 <th class="head"><p>Jaguar</p></th>
@@ -492,6 +503,7 @@
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -509,6 +521,7 @@
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -530,6 +543,7 @@
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
@@ -541,8 +555,9 @@
 <tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#atomcharges">atomcharges</a></p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
-<td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -571,25 +586,28 @@
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>√</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#atommasses">atommasses</a></p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
-<td><p>T/D</p></td>
+<td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="data_notes.html#atomnos">atomnos</a></p></td>
+<td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -612,6 +630,7 @@
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -629,6 +648,7 @@
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
@@ -645,6 +665,7 @@
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -673,12 +694,14 @@
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>√</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#dispersionenergies">dispersionenergies</a></p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
@@ -697,12 +720,13 @@
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
-<td><p>√</p></td>
-<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
@@ -713,6 +737,7 @@
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
@@ -729,6 +754,7 @@
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
@@ -748,6 +774,7 @@
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
@@ -765,6 +792,7 @@
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -774,13 +802,14 @@
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
-<td><p>T/D</p></td>
+<td><p>√</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#etoscs">etoscs</a></p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -794,6 +823,7 @@
 <td><p>√</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="data_notes.html#etrotats">etrotats</a></p></td>
+<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -816,6 +846,7 @@
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
@@ -832,6 +863,7 @@
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -850,6 +882,7 @@
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -866,6 +899,7 @@
 <td><p>N/A</p></td>
 <td><p>T/D</p></td>
 <td><p>N/A</p></td>
+<td><p>T/D</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
@@ -883,6 +917,7 @@
 <td><p>N/A</p></td>
 <td><p>T/D</p></td>
 <td><p>N/A</p></td>
+<td><p>T/D</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
@@ -900,6 +935,7 @@
 <td><p>N/A</p></td>
 <td><p>T/D</p></td>
 <td><p>N/A</p></td>
+<td><p>T/D</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
@@ -917,6 +953,7 @@
 <td><p>N/A</p></td>
 <td><p>T/D</p></td>
 <td><p>N/A</p></td>
+<td><p>T/D</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
@@ -935,6 +972,7 @@
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -951,6 +989,7 @@
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -968,6 +1007,7 @@
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -985,6 +1025,7 @@
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -1003,12 +1044,13 @@
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
-<td><p>T/D</p></td>
+<td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -1016,8 +1058,9 @@
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#hessian">hessian</a></p></td>
 <td><p>T/D</p></td>
-<td><p>T/D</p></td>
-<td><p>T/D</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -1025,13 +1068,14 @@
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
-<td><p>T/D</p></td>
+<td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="data_notes.html#homos">homos</a></p></td>
+<td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -1064,10 +1108,12 @@
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>√</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="data_notes.html#mocoeffs">mocoeffs</a></p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
+<td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -1087,6 +1133,7 @@
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -1106,6 +1153,7 @@
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
@@ -1121,6 +1169,7 @@
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -1138,6 +1187,7 @@
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -1155,6 +1205,7 @@
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -1183,8 +1234,10 @@
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>√</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#nbasis">nbasis</a></p></td>
+<td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -1211,6 +1264,7 @@
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -1218,7 +1272,8 @@
 <td><p>√</p></td>
 <td><p>√</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#nmrtensors">nmrtensors</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#nmrcouplingtensors">nmrcouplingtensors</a></p></td>
+<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -1235,44 +1290,29 @@
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#nocoeffs">nocoeffs</a></p></td>
-<td><p>T/D</p></td>
-<td><p>T/D</p></td>
-<td><p>T/D</p></td>
-<td><p>√</p></td>
-<td><p>T/D</p></td>
-<td><p>√</p></td>
+<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#nmrtensors">nmrtensors</a></p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
-<td><p>T/D</p></td>
-<td><p>T/D</p></td>
-<td><p>T/D</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#nooccnos">nooccnos</a></p></td>
-<td><p>T/D</p></td>
-<td><p>T/D</p></td>
-<td><p>T/D</p></td>
-<td><p>√</p></td>
-<td><p>√</p></td>
-<td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
+<td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#nsocoeffs">nsocoeffs</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#nocoeffs">nocoeffs</a></p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
+<td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
@@ -1286,7 +1326,26 @@
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#nsooccnos">nsooccnos</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#nooccnos">nooccnos</a></p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>√</p></td>
+<td><p>T/D</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#nsocoeffs">nsocoeffs</a></p></td>
+<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -1303,11 +1362,30 @@
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#optdone">optdone</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#nsooccnos">nsooccnos</a></p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>√</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#optdone">optdone</a></p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -1320,7 +1398,8 @@
 <td><p>√</p></td>
 <td><p>√</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#optstatus">optstatus</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#optstatus">optstatus</a></p></td>
+<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -1337,11 +1416,12 @@
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#polarizabilities">polarizabilities</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#polarizabilities">polarizabilities</a></p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
-<td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
@@ -1354,24 +1434,44 @@
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#pressure">pressure</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#pressure">pressure</a></p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
-<td><p>T/D</p></td>
-<td><p>√</p></td>
-<td><p>√</p></td>
-<td><p>√</p></td>
-<td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>T/D</p></td>
+<td><p>√</p></td>
+<td><p>T/D</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#rotconsts">rotconsts</a></p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>√</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
+<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="data_notes.html#scancoords">scancoords</a></p></td>
+<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -1394,6 +1494,7 @@
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -1411,6 +1512,7 @@
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -1423,6 +1525,7 @@
 <td><p>T/D</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#scanparm">scanparm</a></p></td>
+<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -1455,12 +1558,14 @@
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>√</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#scftargets">scftargets</a></p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -1478,6 +1583,7 @@
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -1495,6 +1601,7 @@
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
@@ -1513,6 +1620,7 @@
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -1525,6 +1633,7 @@
 <td><p>T/D</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#transprop">transprop</a></p></td>
+<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -1557,19 +1666,21 @@
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
+<td><p>T/D</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#vibdisps">vibdisps</a></p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
-<td><p>T/D</p></td>
-<td><p>√</p></td>
-<td><p>√</p></td>
-<td><p>√</p></td>
-<td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
 <td><p>T/D</p></td>
+<td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -1578,6 +1689,7 @@
 <tr class="row-even"><td><p><a class="reference external" href="data_notes.html#vibfconsts">vibfconsts</a></p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
+<td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -1595,8 +1707,9 @@
 <tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#vibfreqs">vibfreqs</a></p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
-<td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -1612,25 +1725,27 @@
 <tr class="row-even"><td><p><a class="reference external" href="data_notes.html#vibirs">vibirs</a></p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
-<td><p>T/D</p></td>
-<td><p>√</p></td>
-<td><p>√</p></td>
-<td><p>√</p></td>
-<td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
 <td><p>T/D</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#vibramans">vibramans</a></p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
-<td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>T/D</p></td>
@@ -1646,8 +1761,9 @@
 <tr class="row-even"><td><p><a class="reference external" href="data_notes.html#vibrmasses">vibrmasses</a></p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
-<td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
@@ -1663,6 +1779,7 @@
 <tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#vibsyms">vibsyms</a></p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
 <td><p>T/D</p></td>
@@ -1682,6 +1799,7 @@
 <td><p>√</p></td>
 <td><p>T/D</p></td>
 <td><p>√</p></td>
+<td><p>T/D</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>
 <td><p>√</p></td>

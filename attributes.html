@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; cclib 1.7.2 documentation</title>
+  <title>&lt;no title&gt; &mdash; cclib 1.8 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/increase_max_width.css" type="text/css" />
@@ -48,7 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_install.html">How to install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_parse.html">How to parse and write</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.7.2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.8)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_notes.html">Parsed data notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="methods.html">Calculation methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bridge.html">Bridges to other packages</a></li>
@@ -311,45 +311,55 @@
 <td></td>
 <td><p>dict of dicts of array of rank 2</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#nocoeffs">nocoeffs</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#nmrcouplingtensors">nmrcouplingtensors</a></p></td>
+<td><p>Nuclear magnetic resonance spin-spin coupling tensors</p></td>
+<td></td>
+<td><p>dict of dicts of array of rank 2</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#nocoeffs">nocoeffs</a></p></td>
 <td><p>natural orbital coefficients</p></td>
 <td></td>
 <td><p>array of rank 2</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#nooccnos">nooccnos</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#nooccnos">nooccnos</a></p></td>
 <td><p>natural orbital occupation numbers</p></td>
 <td></td>
 <td><p>array of rank 1</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#nsocoeffs">nsocoeffs</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#nsocoeffs">nsocoeffs</a></p></td>
 <td><p>natural spin orbital coefficients</p></td>
 <td></td>
 <td><p>list of array of rank 2</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#nsooccnos">nsooccnos</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#nsooccnos">nsooccnos</a></p></td>
 <td><p>natural spin orbital occupation numbers</p></td>
 <td></td>
 <td><p>list of array of rank 1</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#optdone">optdone</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#optdone">optdone</a></p></td>
 <td><p>flags whether an optimization has converged</p></td>
 <td></td>
 <td><p>Boolean</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#optstatus">optstatus</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#optstatus">optstatus</a></p></td>
 <td><p>optimization status for each set of atomic coordinates</p></td>
 <td></td>
 <td><p>array of rank 1</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#polarizabilities">polarizabilities</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#polarizabilities">polarizabilities</a></p></td>
 <td><p>(dipole) polarizabilities, static or dynamic</p></td>
 <td></td>
 <td><p>list of arrays of rank 2</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#pressure">pressure</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="data_notes.html#pressure">pressure</a></p></td>
 <td><p>pressure used for Thermochemistry</p></td>
 <td><p>atm</p></td>
 <td><p>float</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="data_notes.html#rotconsts">rotconsts</a></p></td>
+<td><p>rotational constants</p></td>
+<td><p>GHz</p></td>
+<td><p>array of rank 2</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="data_notes.html#scancoords">scancoords</a></p></td>
 <td><p>geometries of each scan step</p></td>

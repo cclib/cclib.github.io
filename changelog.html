@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Changelog &mdash; cclib 1.7.2 documentation</title>
+  <title>Changelog &mdash; cclib 1.8 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/increase_max_width.css" type="text/css" />
@@ -49,13 +49,14 @@
 <li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_install.html">How to install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_parse.html">How to parse and write</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.7.2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.8)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_notes.html">Parsed data notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="methods.html">Calculation methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bridge.html">Bridges to other packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_dev.html">Development parsed data</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-8">Changes in cclib-1.8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-7-2">Changes in cclib-1.7.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-7-1">Changes in cclib-1.7.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-7">Changes in cclib-1.7</a></li>
@@ -114,6 +115,76 @@
              
   <section id="changelog">
 <span id="index-0"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this heading"></a></h1>
+<section id="changes-in-cclib-1-8">
+<h2>Changes in cclib-1.8<a class="headerlink" href="#changes-in-cclib-1-8" title="Permalink to this heading"></a></h2>
+<p><strong>Features</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>[GSoC 2023] New language bindings: Julia (Victor Hugo Cano Gil, #1053, <a class="reference external" href="https://github.com/cclib/Cclib.jl">https://github.com/cclib/Cclib.jl</a>)</p></li>
+<li><p>[GSoC 2023] New parser: NBO (Weronika Zak, #1230, #1233, #1244)</p></li>
+<li><p>[GSoC 2023] New parser: GAMESS <a href="#id1"><span class="problematic" id="id2">*</span></a>.dat (Weronika Zak, #1208, #1214, #1229)</p></li>
+<li><p>New attribute: nmrcouplingtensors for NMR spin-spin couplings, initially from ORCA (#125, #1191)</p></li>
+<li><p>New attribute: rotconsts for rotational constants, initially from Gaussian (Mark Payne, #1054)</p></li>
+<li><p>New method: compute CM5 charges (Sai Murali Karthik Putcha, #676, #852, #1136)</p></li>
+<li><p>Support parsing atomcoords for more DALTON calculation types (#641, #1237)</p></li>
+<li><p>Be less restrictive in parsed data attributes required for Open Babel bridge (#641, #1236)</p></li>
+<li><p>Support parsing implicit solvation parameters from Gaussian, ORCA, QChem, and Turbomole (#1171, #1217, #1232)</p></li>
+<li><p>Support parsing excited state method from Gaussian, ORCA, and Turbomole (#1171, #1219)</p></li>
+<li><p>Support parsing post-HF excited states from ORCA (#1168)</p></li>
+<li><p>Support parsing Hessian from DALTON, GAMESS, NWChem, and Psi4 (#1199, #1200, #1201, #1202)</p></li>
+<li><p>Support parsing Psi4 1.7 (Dustin Wheeler, #1185, #1210)</p></li>
+<li><p>Support writing vibrational frequency attributes to MOLDEN (#1127, #1132)</p></li>
+<li><p>Support writing natural orbitals instead of canonical MOs to MOLDEN (#948)</p></li>
+<li><p>Support parsing Hirshfeld and CM5 charges from Gaussian, ORCA, and QChem (#1137)</p></li>
+<li><p>Support parsing CCSD(T) energies from ORCA and Psi4 (#1194, #1195)</p></li>
+<li><p>Support parsing NWChem 7.0 (#1131, #1133, #1188)</p></li>
+<li><p>Support parsing atommasses and vibdisps from NWChem (#1131, #1198)</p></li>
+<li><p>Support parsing Hartree-Fock and semiempirical excited states from ORCA (#1187, #1189)</p></li>
+<li><p>Support parsing etsyms from ORCA (#1166)</p></li>
+<li><p>Support parsing timing information from Gaussian, ORCA, and Turbomole (#1167)</p></li>
+<li><p>Support parsing methods and basis set from ORCA (#1170)</p></li>
+<li><p>Support parsing excited state using in geometry optimization from Gaussian (#1149, #1151)</p></li>
+<li><p>Support parsing etmagdips from Turbomole (#1139)</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Bugfixes</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Fix edge case of XYZ files being interpreted as Turbomole outputs (#1207, #1238)</p></li>
+<li><p>Fix units for calculating nuclear repulsion energy (migatt, #1241, #1242, #1243)</p></li>
+<li><p>Fix infrastructure for reading CJSON (#1222, #1234)</p></li>
+<li><p>Fix edge cases when parsing certain Turbomole outputs (#1174, #1197, #1220, #1222)</p></li>
+<li><p>Fix precision in parsing Hirshfeld charges from ORCA (#1209, #1213)</p></li>
+<li><p>Fix parsing Hessian from formatted checkpoint files (#1204)</p></li>
+<li><p>Fix parsing etoscs for ORCA calculations with spin-orbit coupling (#1172)</p></li>
+<li><p>Fix parsing mocoeffs with non-standard population printing from Gaussian (#1162, #1169)</p></li>
+<li><p>Fix possible infinite loop in DDEC6 method (#1165)</p></li>
+<li><p>Improve checking of mpenergies in Gaussian (#1163, #1164)</p></li>
+<li><p>Fix sign of atomcharges in NWChem (#1156)</p></li>
+<li><p>Update core developers in documentation (#1144)</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Developer facing changes</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Update copyright years to 2023 (#1245, #1246)</p></li>
+<li><p>Be more flexible in extend_attribute (Weronika Zak, #1224, #1228)</p></li>
+<li><p>Fix automatically updating both cclib.github.io and cclib.readthedocs.io and testing docs build (#709, #1154, #1158, #1203, #1216, #1223, #1227)</p></li>
+<li><p>Initial Black and isort configuration (#1211)</p></li>
+<li><p>Support development using Dev Containers (#1212)</p></li>
+<li><p>Use raw string in regular expression (#1206)</p></li>
+<li><p>More comprehensive testing of coupled cluster energies (#1196)</p></li>
+<li><p>Continue migration from unittest to pytest (#1181, #1182, #1183, #1184, #1186)</p></li>
+<li><p>Add type annotations to most functions and methods (#1179)</p></li>
+<li><p>More idiomatic checking of None (#991, #1178)</p></li>
+<li><p>Fix installation of pyquante2 in cclib environments (#1176)</p></li>
+<li><p>Test Python 3.9 and 3.10 (#1175)</p></li>
+<li><p>Increase minimum supported Python version to 3.7 (#1157, #1159, #1160, #1161)</p></li>
+<li><p>Modularize atomcharges testing (#1152)</p></li>
+<li><p>Update code coverage Action version (#1095)</p></li>
+</ul>
+</div></blockquote>
+</section>
 <section id="changes-in-cclib-1-7-2">
 <h2>Changes in cclib-1.7.2<a class="headerlink" href="#changes-in-cclib-1-7-2" title="Permalink to this heading"></a></h2>
 <p><strong>Features</strong></p>
