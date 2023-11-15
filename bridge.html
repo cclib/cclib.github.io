@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d13700ae"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -91,10 +91,10 @@
            <div itemprop="articleBody">
              
   <section id="bridges-to-other-packages">
-<span id="index-0"></span><h1>Bridges to other packages<a class="headerlink" href="#bridges-to-other-packages" title="Permalink to this heading"></a></h1>
+<span id="index-0"></span><h1>Bridges to other packages<a class="headerlink" href="#bridges-to-other-packages" title="Link to this heading"></a></h1>
 <p>The following bridges in cclib allow using the parsed data to perform further analysis using other packages.</p>
 <section id="horton">
-<span id="index-1"></span><h2>horton<a class="headerlink" href="#horton" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><h2>horton<a class="headerlink" href="#horton" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="http://theochem.github.io/horton/2.1.1/">Horton</a> bridge in cclib supports conversion of cclib’s ccData object to horton’s IOData object and vice versa. This bridge is useful in performing additional population analyses using the data parsed using cclib.
 Before invoking the bridge function, ccData object should be prepared first by reading in previous calculations, following the procedures introduced in <a class="reference external" href="how_to_parse.html">how to parse</a> section.
 Then, <code class="docutils literal notranslate"><span class="pre">ccData</span></code> object can be passed into the bridge function <code class="docutils literal notranslate"><span class="pre">makehorton</span></code>. Following code block is an example that performs the conversion:</p>
@@ -107,7 +107,7 @@ Then, <code class="docutils literal notranslate"><span class="pre">ccData</span>
 </div>
 <p>Converted IOData object can be used to run further analyses by referring to <a class="reference external" href="http://theochem.github.io/horton/2.1.1/">horton documentation</a>.</p>
 <section id="becke-population-analysis">
-<h3>Becke Population Analysis<a class="headerlink" href="#becke-population-analysis" title="Permalink to this heading"></a></h3>
+<h3>Becke Population Analysis<a class="headerlink" href="#becke-population-analysis" title="Link to this heading"></a></h3>
 <p>An example code below demonstrates how Becke charges can be calculated based on the script available on <a class="reference external" href="https://theochem.github.io/horton/2.1.0/user_postproc_aim.html#python-interface-to-the-partitioning-code">Python interface</a> section in horton documentation.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.method.density</span> <span class="kn">import</span> <span class="n">Density</span>
 <span class="kn">from</span> <span class="nn">cclib.bridge.cclib2horton</span> <span class="kn">import</span> <span class="n">makehorton</span>
@@ -139,7 +139,7 @@ Then, <code class="docutils literal notranslate"><span class="pre">ccData</span>
 </div>
 </section>
 <section id="hirshfeld-population-analysis">
-<h3>Hirshfeld Population Analysis<a class="headerlink" href="#hirshfeld-population-analysis" title="Permalink to this heading"></a></h3>
+<h3>Hirshfeld Population Analysis<a class="headerlink" href="#hirshfeld-population-analysis" title="Link to this heading"></a></h3>
 <p>An example code below demonstrates how Hirshfeld charges can be calculated based on the script available on <a class="reference external" href="https://theochem.github.io/horton/2.1.0/user_postproc_aim.html#python-interface-to-the-partitioning-code">Python interface</a> section in horton documentation.
 To calculate partial charges that require pro-atomic densities, follow the steps in <a class="reference external" href="https://theochem.github.io/horton/2.1.0/user_postproc_aim.html#horton-atomdb-py-build-a-pro-atom-database">Building proatomic database</a> section in horton documentation.
 Then read in the densities as below to calculate Hirshfeld or Hirshfeld-like charges:</p>

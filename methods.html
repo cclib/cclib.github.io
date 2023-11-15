@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d13700ae"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -114,10 +114,10 @@
            <div itemprop="articleBody">
              
   <section id="calculation-methods">
-<span id="index-0"></span><h1>Calculation methods<a class="headerlink" href="#calculation-methods" title="Permalink to this heading"></a></h1>
+<span id="index-0"></span><h1>Calculation methods<a class="headerlink" href="#calculation-methods" title="Link to this heading"></a></h1>
 <p>The following methods in cclib allow further analysis of calculation output.</p>
 <section id="c-squared-population-analysis-cspa">
-<span id="index-1"></span><h2>C squared population analysis (CSPA)<a class="headerlink" href="#c-squared-population-analysis-cspa" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><h2>C squared population analysis (CSPA)<a class="headerlink" href="#c-squared-population-analysis-cspa" title="Link to this heading"></a></h2>
 <p><strong>CSPA</strong> can be used to determine and interpret the electron density of a molecule. The contribution of the a-th atomic orbital to the i-th molecular orbital can be written in terms of the molecular orbital coefficients:</p>
 <div class="math notranslate nohighlight">
 \[\Phi_{ai} = \frac{c^2_{ai}}{\sum_k c^2_{ki}}\]</div>
@@ -138,7 +138,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">fragcharges</span></code> is a NumPy array[1] with the number of (partial) electrons in each atom (<code class="docutils literal notranslate"><span class="pre">atomcharges[2]</span></code> gives the number of electrons on the 3rd atom)</p></li>
 </ul>
 <section id="custom-fragments">
-<h3>Custom fragments<a class="headerlink" href="#custom-fragments" title="Permalink to this heading"></a></h3>
+<h3>Custom fragments<a class="headerlink" href="#custom-fragments" title="Link to this heading"></a></h3>
 <p>Calling the calculate method without an argument treats each atom as a fragment in the population analysis. An optional argument can be passed - a list of lists - containing the atomic orbital numbers to be included in each fragment. Calling with this additional argument is useful if one is more interested in the contributions of certain orbitals, such as metal d, to the molecular orbitals. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.io</span> <span class="kn">import</span> <span class="n">ccread</span>
 <span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">CSPA</span>
@@ -153,7 +153,7 @@
 </div>
 </section>
 <section id="custom-progress">
-<h3>Custom progress<a class="headerlink" href="#custom-progress" title="Permalink to this heading"></a></h3>
+<h3>Custom progress<a class="headerlink" href="#custom-progress" title="Link to this heading"></a></h3>
 <p>The CSPA class also can take a progress class as an argument so that the progress of the calculation can be monitored:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">CSPA</span>
 <span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">Gaussian</span>
@@ -172,7 +172,7 @@
 </section>
 </section>
 <section id="mulliken-population-analysis-mpa">
-<span id="index-2"></span><h2>Mulliken population analysis (MPA)<a class="headerlink" href="#mulliken-population-analysis-mpa" title="Permalink to this heading"></a></h2>
+<span id="index-2"></span><h2>Mulliken population analysis (MPA)<a class="headerlink" href="#mulliken-population-analysis-mpa" title="Link to this heading"></a></h2>
 <p>MPA can be used to determine and interpret the electron density of a molecule. The contribution of the a-th atomic orbital to the i-th molecular orbital in this method is written in terms of the molecular orbital coefficients, c, and the overlap matrix, S:</p>
 <div class="math notranslate nohighlight">
 \[\Phi_{ai} = \sum_b c_{ai} c_{bi} S_{ab}\]</div>
@@ -194,11 +194,11 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">fragcharges</span></code>: a vector with the number of (partial) electrons in each fragment, so that <code class="docutils literal notranslate"><span class="pre">fragcharges[2]</span></code> gives the number of electrons in the 3rd fragment.</p></li>
 </ul>
 <section id="id1">
-<h3>Custom fragments<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<h3>Custom fragments<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <p>The calculate method chooses atoms as the fragments by default, and optionally accepts a list of lists containing the atomic orbital numbers (e.g. <code class="docutils literal notranslate"><span class="pre">[[0,</span> <span class="pre">1,</span> <span class="pre">2],</span> <span class="pre">[3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6],</span> <span class="pre">...]</span></code>) of arbitrary fragments. Calling it in this way is useful if one is more interested in the contributions of groups of atoms or even certain orbitals or orbital groups, such as metal d, to the molecular orbitals. In this case, fragresults and fragcharges reflect the chosen groups of atomic orbitals instead of atoms.</p>
 </section>
 <section id="id2">
-<h3>Custom progress<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<h3>Custom progress<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <p>The Mulliken class also can take a progress class as an argument so that the progress of the calculation can be monitored:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">MPA</span>
 <span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
@@ -215,7 +215,7 @@
 </section>
 </section>
 <section id="lowdin-population-analysis">
-<span id="index-3"></span><h2>Löwdin Population Analysis<a class="headerlink" href="#lowdin-population-analysis" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>Löwdin Population Analysis<a class="headerlink" href="#lowdin-population-analysis" title="Link to this heading"></a></h2>
 <p>The LPA class available from cclib.method performs Löwdin population analysis and can be used as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 
@@ -229,7 +229,7 @@
 </div>
 </section>
 <section id="bickelhaupt-population-analysis">
-<span id="index-4"></span><h2>Bickelhaupt Population Analysis<a class="headerlink" href="#bickelhaupt-population-analysis" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>Bickelhaupt Population Analysis<a class="headerlink" href="#bickelhaupt-population-analysis" title="Link to this heading"></a></h2>
 <p>The Bickelhaupt class available from cclib.method performs Bickelhaupt population analysis that has been proposed in <em>Organometallics</em> 1996, 15, 13, 2923–2931. <a class="reference external" href="https://pubs.acs.org/doi/abs/10.1021/om950966x">doi:10.1021/om950966x</a></p>
 <p>The contribution of the a-th atomic orbital to the i-th molecular orbital in this method is written in terms of the molecular orbital coefficients, c, and the overlap matrix, S:</p>
 <div class="math notranslate nohighlight">
@@ -256,11 +256,11 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">fragcharges</span></code>: a vector with the number of (partial) electrons in each fragment, so that <code class="docutils literal notranslate"><span class="pre">fragcharges[2]</span></code> gives the number of electrons in the 3rd fragment.</p></li>
 </ul>
 <section id="id3">
-<h3>Custom fragments<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<h3>Custom fragments<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <p>The calculate method chooses atoms as the fragments by default, and optionally accepts a list of lists containing the atomic orbital numbers (e.g. <code class="docutils literal notranslate"><span class="pre">[[0,</span> <span class="pre">1,</span> <span class="pre">2],</span> <span class="pre">[3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6],</span> <span class="pre">...]</span></code>) of arbitrary fragments. Calling it in this way is useful if one is more interested in the contributions of groups of atoms or even certain orbitals or orbital groups, such as metal d, to the molecular orbitals. In this case, fragresults and fragcharges reflect the chosen groups of atomic orbitals instead of atoms.</p>
 </section>
 <section id="id4">
-<h3>Custom progress<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<h3>Custom progress<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <p>The Bickelhaupt class also can take a progress class as an argument so that the progress of the calculation can be monitored:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Bickelhaupt</span>
 <span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
@@ -277,7 +277,7 @@
 </section>
 </section>
 <section id="density-matrix-calculation">
-<h2>Density Matrix calculation<a class="headerlink" href="#density-matrix-calculation" title="Permalink to this heading"></a></h2>
+<h2>Density Matrix calculation<a class="headerlink" href="#density-matrix-calculation" title="Link to this heading"></a></h2>
 <p>The Density class from cclib.method can be used to calculate the density matrix:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.parser</span> <span class="kn">import</span> <span class="n">ccopen</span>
 <span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Density</span>
@@ -292,7 +292,7 @@
 <p>After <code class="docutils literal notranslate"><span class="pre">calculate()</span></code> is called, the density attribute is available. It is simply a NumPy array with three axes. The first axis is for the spin contributions, and the second and third axes are for the density matrix, which follows the standard definition.</p>
 </section>
 <section id="mayer-s-bond-orders">
-<h2>Mayer’s Bond Orders<a class="headerlink" href="#mayer-s-bond-orders" title="Permalink to this heading"></a></h2>
+<h2>Mayer’s Bond Orders<a class="headerlink" href="#mayer-s-bond-orders" title="Link to this heading"></a></h2>
 <p>This method calculates the Mayer’s bond orders for a given molecule:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 
@@ -309,7 +309,7 @@
 <p>After <code class="docutils literal notranslate"><span class="pre">calculate()</span></code> is called, the fragresults attribute is available, which is a NumPy array of rank 3. The first axis is for contributions of each spin to the MBO, while the second and third correspond to the indices of the atoms.</p>
 </section>
 <section id="charge-decomposition-analysis">
-<h2>Charge Decomposition Analysis<a class="headerlink" href="#charge-decomposition-analysis" title="Permalink to this heading"></a></h2>
+<h2>Charge Decomposition Analysis<a class="headerlink" href="#charge-decomposition-analysis" title="Link to this heading"></a></h2>
 <p>The Charge Decomposition Analysis (CDA) as developed by Gernot Frenking et al. is used to study the donor-acceptor interactions of a molecule in terms of two user-specified fragments.</p>
 <p>The CDA class available from cclib.method performs this analysis:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.io</span> <span class="kn">import</span> <span class="n">ccopen</span>
@@ -356,7 +356,7 @@ Charge decomposition analysis of molecule.log
 </pre></div>
 </div>
 <section id="notes">
-<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this heading"></a></h3>
+<h3>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Only molecular orbitals with non-zero occupancy will have a non-zero value.</p></li>
 <li><p>The absolute values of the calculated terms have no physical meaning and only the relative magnitudes, especially for the donation and back donation terms, are of any real value (Frenking, et al.)</p></li>
@@ -366,7 +366,7 @@ Charge decomposition analysis of molecule.log
 </section>
 </section>
 <section id="bader-s-qtaim">
-<span id="index-5"></span><h2>Bader’s QTAIM<a class="headerlink" href="#bader-s-qtaim" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Bader’s QTAIM<a class="headerlink" href="#bader-s-qtaim" title="Link to this heading"></a></h2>
 <p>Bader’s QTAIM charges define the border between the atoms in the molecule as a surface where each point on the surface has zero flux. In other words, the points on the surface of the Bader spaces satisfy the equation <span class="math notranslate nohighlight">\(\nabla \rho (r) \cdot n(r) = 0\)</span>. In cclib, numerical calculation of QTAIM charges through the algorithm proposed in <a class="reference external" href="http://theory.cm.utexas.edu/henkelman/code/bader/download/henkelman06_354.pdf">[Henkelman2006]</a>  is implemented.</p>
 <p>Calculating the Bader’s QTAIM charges in cclib follow similar steps as other population analysis methods. The following code provides an example of how QTAIM charges can be obtained.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">Bader</span>
@@ -412,7 +412,7 @@ To calculate Bader charges from a cube file, a <code class="docutils literal not
 </div>
 </section>
 <section id="ddec6">
-<span id="index-6"></span><h2>DDEC6<a class="headerlink" href="#ddec6" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>DDEC6<a class="headerlink" href="#ddec6" title="Link to this heading"></a></h2>
 <p>DDEC6 is a Stockholder-like charge partitioning method introduced in <a class="reference external" href="https://doi.org/10.1039/C6RA04656H">[Manz2016]</a>. Proatom densities should be provided for DDEC6 method. Proatom densities generated <a class="footnote-reference brackets" href="#proatom" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> using <a class="reference external" href="http://theochem.github.io/horton/2.1.1/">horton</a> can be passed on as an argument for the constructor of the DDEC6 object. The DDEC6 algorithm requires many numerical integrations so a fine grid is necessary to obtain accurate results. Calculating the electron density on a fine grid using a Volume object is slow, therefore we recommend that electron densities are imported from cube files.</p>
 <p>Because a lot of numerical integrations are present in DDEC6 algorithm, fine grid is necessary to obtain satisfying results.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.method</span> <span class="kn">import</span> <span class="n">DDEC6</span>
@@ -443,7 +443,7 @@ To calculate Bader charges from a cube file, a <code class="docutils literal not
 </ul>
 </section>
 <section id="hirshfeld-population-analysis">
-<span id="index-7"></span><h2>Hirshfeld Population Analysis<a class="headerlink" href="#hirshfeld-population-analysis" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Hirshfeld Population Analysis<a class="headerlink" href="#hirshfeld-population-analysis" title="Link to this heading"></a></h2>
 <p>Hirshfeld Population Analysis is the most basic charge partitioning method among stockholder-type methods and was introduced initially in <a class="reference external" href="https://doi.org/10.1007/BF00549096">[Hirshfeld1977]</a>.
 In Hirshfeld method, proatom densities, which are charge densities of neutral atoms that comprise the given molecule, are used to calculate the weights that will be applied to partition charge densities on each grid point.
 Proatom densities can be generated <a class="footnote-reference brackets" href="#proatom" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> using <a class="reference external" href="http://theochem.github.io/horton/2.1.1/">horton</a> and can be passed on as an argument for the constructor of the Hirshfeld object. For Hirshfeld calculations, it is recommended that electron densities are imported from cube files.</p>
@@ -474,7 +474,7 @@ Proatom densities can be generated <a class="footnote-reference brackets" href="
 </ul>
 </section>
 <section id="nuclear-properties">
-<span id="index-8"></span><h2>Nuclear Properties<a class="headerlink" href="#nuclear-properties" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Nuclear Properties<a class="headerlink" href="#nuclear-properties" title="Link to this heading"></a></h2>
 <p>This method calculates various properties of nuclei based on the parsed data.</p>
 <p>Calculate the nuclear repulsion energy using the snippet below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cclib</span>
@@ -490,7 +490,7 @@ Proatom densities can be generated <a class="footnote-reference brackets" href="
 </div>
 </section>
 <section id="accessing-additional-methods-through-bridge">
-<h2>Accessing additional methods through bridge<a class="headerlink" href="#accessing-additional-methods-through-bridge" title="Permalink to this heading"></a></h2>
+<h2>Accessing additional methods through bridge<a class="headerlink" href="#accessing-additional-methods-through-bridge" title="Link to this heading"></a></h2>
 <p>Some other population analyses methods including Hirshfeld partial charges and Iterative Stockholder charges can be calculated using bridge functions implemented in cclib. For more information, refer to <a class="reference external" href="bridge.html">bridge</a> section of the documentation.</p>
 <p class="rubric">Footnotes</p>
 <aside class="footnote-list brackets">

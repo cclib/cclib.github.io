@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d13700ae"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -96,10 +96,10 @@
            <div itemprop="articleBody">
              
   <section id="how-to-parse-and-write">
-<h1>How to parse and write<a class="headerlink" href="#how-to-parse-and-write" title="Permalink to this heading"></a></h1>
+<h1>How to parse and write<a class="headerlink" href="#how-to-parse-and-write" title="Link to this heading"></a></h1>
 <p>This page outlines the various ways cclib can be used to parse and write logfiles, and provides several examples to get you started.</p>
 <section id="from-python">
-<h2>From Python<a class="headerlink" href="#from-python" title="Permalink to this heading"></a></h2>
+<h2>From Python<a class="headerlink" href="#from-python" title="Link to this heading"></a></h2>
 <p>Importing cclib and parsing a file is a few lines of Python code, making it simple to access data from the output file of any supported computational chemistry program. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">cclib</span>
 
@@ -130,7 +130,7 @@
 <p>You can find a full list of these attribute on the <a class="reference external" href="data.html">parsed data</a> page.</p>
 </section>
 <section id="from-command-line">
-<h2>From command line<a class="headerlink" href="#from-command-line" title="Permalink to this heading"></a></h2>
+<h2>From command line<a class="headerlink" href="#from-command-line" title="Link to this heading"></a></h2>
 <p>The cclib package provides four scripts to parse and write data: <code class="docutils literal notranslate"><span class="pre">ccget</span></code>, <code class="docutils literal notranslate"><span class="pre">ccwrite</span></code>, <code class="docutils literal notranslate"><span class="pre">cda</span></code>, and <code class="docutils literal notranslate"><span class="pre">ccframe</span></code>.</p>
 <ol class="arabic simple">
 <li><p><strong>ccget</strong> is used to parse attribute data from output files.</p></li>
@@ -140,7 +140,7 @@
 </ol>
 <p>This page describes how to use the ccget, ccwrite and ccframe scripts to obtain data from output files.</p>
 <section id="ccget">
-<h3>ccget<a class="headerlink" href="#ccget" title="Permalink to this heading"></a></h3>
+<h3>ccget<a class="headerlink" href="#ccget" title="Link to this heading"></a></h3>
 <p>The data types that can be parsed from the output file depends on the type of computation being conducted. The name of the output file used to show example usage is <code class="docutils literal notranslate"><span class="pre">Benzeneselenol.out</span></code>.</p>
 <p>Data type can be parsed from the output file by following this format:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ccget</span> <span class="o">&lt;</span><span class="n">attribute</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">attribute</span><span class="o">&gt;</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">CompChemLogFile</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">CompChemLogFile</span><span class="o">&gt;</span><span class="p">]</span>
@@ -189,7 +189,7 @@ geotargets:
 </li>
 </ol>
 <section id="chaining-of-attributes">
-<h4>Chaining of attributes<a class="headerlink" href="#chaining-of-attributes" title="Permalink to this heading"></a></h4>
+<h4>Chaining of attributes<a class="headerlink" href="#chaining-of-attributes" title="Link to this heading"></a></h4>
 <p>ccget provides the user with the option to chain attributes to obtain more than one type of data with a command call. The attributes can be chained in any particular order. A few chained examples are provided below.</p>
 <ol class="arabic">
 <li><p>Molecular Orbitals and Multiplicity</p>
@@ -227,7 +227,7 @@ vibfreqs:
 </section>
 </section>
 <section id="ccwrite">
-<h3>ccwrite<a class="headerlink" href="#ccwrite" title="Permalink to this heading"></a></h3>
+<h3>ccwrite<a class="headerlink" href="#ccwrite" title="Link to this heading"></a></h3>
 <p>The same Benzeneselenol.out file used in the previous examples will be used as the input file for ccwrite. When the ccwrite script is used with a valid input, it prints out the valid attributes that can be parsed from the file.</p>
 <p>Command line format:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ccwrite</span> <span class="o">&lt;</span><span class="n">OutputFileFormat</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">CompChemLogFile</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">CompChemLogFile</span><span class="o">&gt;</span><span class="p">]</span>
@@ -327,7 +327,7 @@ cclib can parse the following attributes from Benzeneselenol.out:
 </div>
 </section>
 <section id="ccframe">
-<h3>ccframe<a class="headerlink" href="#ccframe" title="Permalink to this heading"></a></h3>
+<h3>ccframe<a class="headerlink" href="#ccframe" title="Link to this heading"></a></h3>
 <p>This script creates complete tables of data from output files in some of the formats supported by <a class="reference external" href="https://pandas.pydata.org/">pandas</a>.
 Since the pandas library is not a dependency of cclib, <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/install.html">it must be installed</a> separately.</p>
 <p>A complete data table can be parsed from many output files by following this format:</p>
