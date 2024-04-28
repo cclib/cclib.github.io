@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Changelog &mdash; cclib 1.8 documentation</title>
+  <title>Changelog &mdash; cclib 1.8.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/increase_max_width.css?v=eea1f72d" />
@@ -16,7 +16,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=d13700ae"></script>
+        <script src="_static/documentation_options.js?v=1166ed6b"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -37,7 +37,7 @@
             cclib
           </a>
               <div class="version">
-                1.7
+                1.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -51,13 +51,14 @@
 <li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_install.html">How to install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_parse.html">How to parse and write</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.8)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.8.1)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_notes.html">Parsed data notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="methods.html">Calculation methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bridge.html">Bridges to other packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_dev.html">Development parsed data</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-8-1">Changes in cclib-1.8.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-8">Changes in cclib-1.8</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-7-2">Changes in cclib-1.7.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changes-in-cclib-1-7-1">Changes in cclib-1.7.1</a></li>
@@ -117,6 +118,47 @@
              
   <section id="changelog">
 <span id="index-0"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading"></a></h1>
+<section id="changes-in-cclib-1-8-1">
+<h2>Changes in cclib-1.8.1<a class="headerlink" href="#changes-in-cclib-1-8-1" title="Link to this heading"></a></h2>
+<p><strong>Features</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>New parser: xTB (Andrew S. Rosen, Omri Abarbanel, #789, #1129, #1296)</p></li>
+<li><p>Support parsing number of CPUs and memory used for Gaussian, ORCA, and Turbomole (#1271, #1277)</p></li>
+<li><p>New attributes for the NBO parser (Weronika Zak, #1012, #1251)</p></li>
+<li><p>Remove obsolete Qt4Progress (#1285, #1315)</p></li>
+<li><p>Only keep the Sphinx version of the changelog (#1254, #1352)</p></li>
+<li><p>Stop using Read the Docs (#1267, #1312)</p></li>
+<li><p>Don’t require specific versions of PySCF and Biopython optional dependencies (#1344)</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Bugfixes</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Fix parsing aooverlaps from GAMESS (#1278)</p></li>
+<li><p>Fix ORCA excited states sometimes not being printed identically across sections (#1276)</p></li>
+<li><p>Make writing ASE objects more robust to missing cclib attributes (Andrew S. Rosen, #1299, #1300)</p></li>
+<li><p>Fix writing freeenergy to ASE objects (Andrew S. Rosen, #1319, #1320)</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Developer facing changes</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Completely migrate from <code class="docutils literal notranslate"><span class="pre">unittest</span></code> to <code class="docutils literal notranslate"><span class="pre">pytest</span></code> (#648, #649, #766, #1309, #1346)</p></li>
+<li><p>Apply and enforce ruff for code formatting using pre-commit (Anselm Hahn, #536, #1122, #1303, #1306, #1307, #1310)</p></li>
+<li><p>Migrate to <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> from <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> for package installation (#833, #1180, #1311, #1327, #1328, #1382)</p></li>
+<li><p>Handle nested dictionaries in setting attributes (Weronika Zak, #1257, #1258)</p></li>
+<li><p>Update developer guidelines (#1355)</p></li>
+<li><p>Drop 3.7 and add 3.11 to test suite (#1305)</p></li>
+<li><p>Automate versioning and pushing releases to PyPI (#1363, #1373, #1374)</p></li>
+<li><p>Add Dependabot for keeping GitHub Actions up to date (#1329, #1337)</p></li>
+<li><p>Update copyright years to 2024 with pre-commit enforcement (#1349)</p></li>
+<li><p>Remove obsolete UTF-8 pragmas in Python files (#1350)</p></li>
+<li><p>Fix warning about missing file for a Q-Chem regression test (#1338)</p></li>
+<li><p>Continuous integration fixes for pyquante2 (#997, #1263, #1301, #1304)</p></li>
+</ul>
+</div></blockquote>
+</section>
 <section id="changes-in-cclib-1-8">
 <h2>Changes in cclib-1.8<a class="headerlink" href="#changes-in-cclib-1-8" title="Link to this heading"></a></h2>
 <p><strong>Features</strong></p>
@@ -230,8 +272,8 @@
 </ul>
 <p><strong>Bugfixes</strong></p>
 <ul class="simple">
-<li><p>Improved parsing and testing enthalpy and freeenergy (Felipe Schneider)</p></li>
-<li><p>Fixed parsing ONION output for Gaussian (Elliot Farrar)</p></li>
+<li><p>Improved parsing and testing enthalpy and freeenergy (Felipe S. S. Schneider)</p></li>
+<li><p>Fixed parsing ONIOM output for Gaussian (Elliot Farrar)</p></li>
 <li><p>Fixed parsing of GAMESS logfiles with more than 100 SCF iterations (simonaxelrod)</p></li>
 <li><p>Fixed parsing of very long (10K+) ORCA logfiles (Alex Maldonado)</p></li>
 <li><p>Fixed parsing of Turbomole outputs that don’t compute SCF energies (Oliver Lee)</p></li>
@@ -357,7 +399,7 @@
 <ul class="simple">
 <li><p>New parser: cclib can now parse Molcas files (Kunal Sharma)</p></li>
 <li><p>New parser: cclib can now parse Turbomole files (Christopher Rowley, Kunal Sharma)</p></li>
-<li><p>New script: ccframe writes data table files from logfiles (Felipe Schneider)</p></li>
+<li><p>New script: ccframe writes data table files from logfiles (Felipe S. S. Schneider)</p></li>
 <li><p>New method: stoichiometry builds the chemical formula of a system (Jaime Rodríguez-Guerra)</p></li>
 <li><p>Support package version in metadata for most parsers</p></li>
 <li><p>Support time attribute and BOMD output in Gaussian, NWChem, ORCA and QChem</p></li>
@@ -569,7 +611,7 @@
 <li><p>Ignore Unicode errors in logfiles</p></li>
 <li><p>Handle Gaussian jobs with terse output (basis set count not reported)</p></li>
 <li><p>Handle Gaussian jobs using IndoGuess (Scott McKechnie)</p></li>
-<li><p>Handle Gaussian file with irregular ONION gradients (Tamilmani S)</p></li>
+<li><p>Handle Gaussian file with irregular ONIOM gradients (Tamilmani S)</p></li>
 <li><p>Handle ORCA file with SCF convergence issue (Melchor Sanchez)</p></li>
 <li><p>Handle Gaussian file with problematic IRC output (Clyde Fare)</p></li>
 <li><p>Handle ORCA file with AM1 output (Julien Idé)</p></li>
@@ -797,7 +839,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2014-2021, cclib Development Team.</p>
+    <p>&#169; Copyright 2014-2024, cclib Development Team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

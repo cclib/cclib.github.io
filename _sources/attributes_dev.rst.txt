@@ -51,7 +51,7 @@ Couldn't find cython becke routine
     `nooccnos`_           natural orbital occupation numbers                                                    array of rank 1
     `nsocoeffs`_          natural spin orbital coefficients                                                     list of array of rank 2
     `nsooccnos`_          natural spin orbital occupation numbers                                               list of array of rank 1
-    `optdone`_            flags whether an optimization has converged                                           List
+    `optdone`_            flags whether an optimization has converged                                           list of int
     `optstatus`_          optimization status for each set of atomic coordinates                                array of rank 1
     `polarizabilities`_   (dipole) polarizabilities, static or dynamic                                          list of arrays of rank 2
     `pressure`_           pressure used for Thermochemistry                                    atm              float

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bridges to other packages &mdash; cclib 1.8 documentation</title>
+  <title>Bridges to other packages &mdash; cclib 1.8.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/increase_max_width.css?v=eea1f72d" />
@@ -16,7 +16,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=d13700ae"></script>
+        <script src="_static/documentation_options.js?v=1166ed6b"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -38,7 +38,7 @@
             cclib
           </a>
               <div class="version">
-                1.7
+                1.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -52,7 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_install.html">How to install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_parse.html">How to parse and write</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.8)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.8.1)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_notes.html">Parsed data notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="methods.html">Calculation methods</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Bridges to other packages</a><ul>
@@ -97,7 +97,7 @@
 <p>The following bridges in cclib allow using the parsed data to perform further analysis using other packages.</p>
 <section id="horton">
 <span id="index-1"></span><h2>horton<a class="headerlink" href="#horton" title="Link to this heading"></a></h2>
-<p><a class="reference external" href="http://theochem.github.io/horton/2.1.1/">Horton</a> bridge in cclib supports conversion of cclib’s ccData object to horton’s IOData object and vice versa. This bridge is useful in performing additional population analyses using the data parsed using cclib.
+<p>The horton bridge in cclib supports conversion of cclib’s ccData object to horton’s IOData object and vice versa. This bridge is useful in performing additional population analyses using the data parsed using cclib.
 Before invoking the bridge function, ccData object should be prepared first by reading in previous calculations, following the procedures introduced in <a class="reference external" href="how_to_parse.html">how to parse</a> section.
 Then, <code class="docutils literal notranslate"><span class="pre">ccData</span></code> object can be passed into the bridge function <code class="docutils literal notranslate"><span class="pre">makehorton</span></code>. Following code block is an example that performs the conversion:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cclib.bridge.cclib2horton</span> <span class="kn">import</span> <span class="n">makehorton</span>
@@ -192,7 +192,7 @@ Then read in the densities as below to calculate Hirshfeld or Hirshfeld-like cha
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2014-2021, cclib Development Team.</p>
+    <p>&#169; Copyright 2014-2024, cclib Development Team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

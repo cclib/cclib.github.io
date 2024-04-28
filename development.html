@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Development &mdash; cclib 1.8 documentation</title>
+  <title>Development &mdash; cclib 1.8.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/increase_max_width.css?v=eea1f72d" />
@@ -16,7 +16,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=d13700ae"></script>
+        <script src="_static/documentation_options.js?v=1166ed6b"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -39,7 +39,7 @@
             cclib
           </a>
               <div class="version">
-                1.7
+                1.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -53,23 +53,33 @@
 <li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_install.html">How to install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_parse.html">How to parse and write</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.8)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.8.1)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_notes.html">Parsed data notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="methods.html">Calculation methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bridge.html">Bridges to other packages</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Development</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#basic-instructions">Basic instructions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#cloning-cclib-from-github">Cloning cclib from GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation-and-running-tests">Installation and running tests</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#guidelines">Guidelines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#releasing-a-new-version">Releasing a new version</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#unit-tests">Unit tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-a-new-attribute">Adding a new attribute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-a-new-unit-test">Adding a new unit test</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adding-a-new-program-version">Adding a new program version</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#regression-tests">Regression tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#regression-tests">Regression tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-a-new-regression-test">Adding a new regression test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#code-conventions">Code conventions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#websites-related-to-cclib">Websites related to cclib</a></li>
@@ -111,10 +121,22 @@
 <p>The default cclib files distributed with a release, as described in <a class="reference external" href="how_to_install.html">How to install</a>, do not include any unit tests and logfiles necessary to run those tests. This section covers how to download the full source along with all test data and scripts, and how to use these for development and testing.</p>
 <section id="cloning-cclib-from-github">
 <h3>Cloning cclib from GitHub<a class="headerlink" href="#cloning-cclib-from-github" title="Link to this heading"></a></h3>
-<p>cclib is hosted by the fantastic people at <a class="reference external" href="https://github.com">GitHub</a> (previously at <a class="reference external" href="https://sourceforge.net">Sourceforge</a>) in a <a class="reference external" href="https://git-scm.com">git</a> repository. You can download a <a class="reference external" href="https://github.com/cclib/cclib/archive/master.zip">zipped archive</a> of the current development version (called <cite>master</cite>) for installation and testing or browse the available <a class="reference external" href="https://github.com/cclib/cclib/releases">releases</a>. In order to contribute any changes, however, you will need to create a local copy of the repository:</p>
+<p>cclib is hosted by the fantastic people at <a class="reference external" href="https://github.com">GitHub</a> in a <a class="reference external" href="https://git-scm.com">git</a> repository. You can download a <a class="reference external" href="https://github.com/cclib/cclib/archive/master.zip">zipped archive</a> of the current development version (called <code class="docutils literal notranslate"><span class="pre">master</span></code>) for installation and testing or browse the available <a class="reference external" href="https://github.com/cclib/cclib/releases">releases</a>. In order to contribute any changes, however, you will need to create a local copy of the repository:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/cclib/cclib.git
 </pre></div>
 </div>
+<p>If you would like to contribute fixes, it is more likely that you want to fork the repository (see guidelines below) and clone that.</p>
+</section>
+<section id="installation-and-running-tests">
+<h3>Installation and running tests<a class="headerlink" href="#installation-and-running-tests" title="Link to this heading"></a></h3>
+<p>Once you have a copy of cclib,</p>
+<ol class="arabic simple">
+<li><p>Create a virtual environment using a either <a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a> or <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#creating-environments">conda</a> then activate it</p></li>
+<li><p>Install cclib in development mode with all dependencies: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/location/of/cclib;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">'.[dev]'</span></code></p></li>
+<li><p>To run unit tests, <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pytest</span></code></p></li>
+<li><p>To run regression tests, <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pytest</span> <span class="pre">test/regression.py</span></code> (requires <a class="reference external" href="https://github.com/cclib/cclib/blob/07590622dbd571c31f8b874697ce024908345d9a/data/regression_download.sh">cclib-data download</a>)</p></li>
+</ol>
+<p>You may not be interested in running all tests because they take too much time (some calculation methods), require a dependency not immediately available (primarily Psi4), or simply aren’t relevant for the code you’ll touch. Call <a class="reference external" href="https://docs.pytest.org/en/latest/how-to/usage.html">pytest</a> with the <code class="docutils literal notranslate"><span class="pre">-k</span></code> flag to select a subset of tests. Using the <code class="docutils literal notranslate"><span class="pre">--co</span></code> flag will show the names of matching tests without actually running them.</p>
 </section>
 <section id="guidelines">
 <h3>Guidelines<a class="headerlink" href="#guidelines" title="Link to this heading"></a></h3>
@@ -122,7 +144,7 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">Creating your own fork</a> of cclib in order to develop</p></li>
 <li><p><a class="reference external" href="https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">Creating a pull request</a> to contribute your changes</p></li>
-<li><p>Reviewing and merging open pull requests into master</p></li>
+<li><p>Reviewing and merging open pull requests (PRs) into the main branch</p></li>
 <li><p>Using <a class="reference external" href="https://github.com/cclib/cclib/issues">issues</a> to plan and prioritize future work</p></li>
 </ul>
 <p>Here are some general guidelines for developers who are contributing code:</p>
@@ -137,7 +159,27 @@
 <section id="releasing-a-new-version">
 <h3>Releasing a new version<a class="headerlink" href="#releasing-a-new-version" title="Link to this heading"></a></h3>
 <p>The release cycle of cclib is irregular, with new versions being created as deemed necessary after significant changes or new features. We roughly follow semantic versioning with respect to the <a class="reference external" href="data.html">parsed attributes</a>.</p>
-<p>When creating a new release on GitHub, the typical procedure might include the following steps:</p>
+<p>When creating a new release on GitHub, start by creating a new issue based on the following template that provides a high-level overview of the steps to take.</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>This is to track the work to be done for release v1.8.1:
+
+<span class="k">- [ ]</span> Migrate non-urgent issues/PRs to the 2.0 label ([2.0 list](https://github.com/cclib/cclib/issues?q=is%3Aopen+is%3Aissue+milestone%3Av2.0))
+<span class="k">- [ ]</span> Close out remaining PRs and issues ([PRs](https://github.com/cclib/cclib/pulls?q=is%3Aopen+is%3Apr+milestone%3Av1.8.1), [<span class="nt">issues</span>](<span class="na">https://github.com/cclib/cclib/issues?q=is%3Aopen+is%3Aissue+milestone%3Av1.8.1</span>))
+<span class="k">- [ ]</span> Create <span class="sb">`release-1.8.1`</span> branch ([branch](https://github.com/cclib/cclib/tree/release-1.8.1))
+<span class="k">- [ ]</span> Bump version, update changelog, docs and other files (TODO)
+<span class="k">- [ ]</span> Create a v1.8.1 tag for the release
+<span class="k">- [ ]</span> Update release tag to HEAD on release branch
+<span class="k">- [ ]</span> Create a draft release from the v1.8.1 tag
+<span class="k">- [ ]</span> Attach source tar and zip archives to release on GitHub
+<span class="k">- [ ]</span> When ready, publish the draft release (https://github.com/cclib/cclib/releases/tag/v1.8.1)
+<span class="k">- [ ]</span> Upload new version to PyPI (https://pypi.org/project/cclib/1.8.1/)
+<span class="k">- [ ]</span> Make sure conda picks up the change (https://github.com/conda-forge/cclib-feedstock/pull/TODO)
+<span class="k">- [ ]</span> Update Zenodo if a major or minor version (https://zenodo.org/record/TODO)
+<span class="k">- [ ]</span> Make sure Zenodo parts of documentation get updated (https://github.com/cclib/cclib/pull/TODO)
+<span class="k">- [ ]</span> Merge the <span class="sb">`release-1.8.1`</span> branch back into master (https://github.com/cclib/cclib/pull/TODO)
+<span class="k">- [ ]</span> Send email to MLs
+</pre></div>
+</div>
+<p>An example of a past finished release is <a class="reference external" href="https://github.com/cclib/cclib/issues/1249">1.8</a>.</p>
 <ul class="simple">
 <li><p>Update the <a class="reference external" href="https://github.com/cclib/cclib/blob/master/CHANGELOG">CHANGELOG</a>, <a class="reference external" href="https://github.com/cclib/cclib/blob/master/ANNOUNCE">ANNOUNCE</a> and any other files that might change content with the new version</p></li>
 <li><p>Make sure that <a class="reference external" href="https://github.com/cclib/cclib/blob/master/setup.py">setup.py</a> has the right version number, as well as __version__ in <a class="reference external" href="https://github.com/cclib/cclib/blob/master/cclib/__init__.py">__init__.py</a> and any other relevant files</p></li>
@@ -170,6 +212,36 @@
 <li><p>Møller–Plesset and coupled cluster energies for water (STO-3G basis set)</p></li>
 <li><p>static polarizabilities for tryptophan (RHF/STO-3G)</p></li>
 </ul>
+<p>In addition to the above unit tests for data, there are also unit tests for each bridge, calculation method, IO format, and helper utilities, all located inside the <a class="reference external" href="https://github.com/cclib/cclib/tree/master/test">tests</a> directory, with each category receiving its own subdirectory.</p>
+<section id="adding-a-new-attribute">
+<h4>Adding a new attribute<a class="headerlink" href="#adding-a-new-attribute" title="Link to this heading"></a></h4>
+<p>Definitions of attributes (<code class="docutils literal notranslate"><span class="pre">mocoeffs</span></code>, <code class="docutils literal notranslate"><span class="pre">natom</span></code>, etc.) are located inside the <a class="reference external" href="https://github.com/cclib/cclib/blob/0aff0e0d4791f88483c90a63a62e2768794588e9/cclib/parser/data.py#L21">ccdata</a> class. Use existing attributes for guidance.</p>
+<ol class="arabic simple">
+<li><p>Add a line containing the attribute name, a short description of the attribute, the type and shape (if not a scalar quantity) of the attribute, and relevant units to the docstring.</p></li>
+<li><p>Add an <a class="reference external" href="https://github.com/cclib/cclib/blob/0aff0e0d4791f88483c90a63a62e2768794588e9/cclib/parser/data.py#L108">entry</a> for the code representation of an attribute.</p></li>
+<li><p>Some attributes require additional processing into certain container or data types; <a class="reference external" href="https://github.com/cclib/cclib/blob/0aff0e0d4791f88483c90a63a62e2768794588e9/cclib/parser/data.py#L191">available processing rules and their descriptions</a> are below the attribute entries.</p></li>
+</ol>
+<p>Without these modifications, saving the parsed attribute will appear to work inside the parser, but will be filtered out by <code class="docutils literal notranslate"><span class="pre">ccData.setattributes</span></code> before the <code class="docutils literal notranslate"><span class="pre">ccData</span></code> instance is returned. (This also means that arbitrary attributes can be set on and used from <code class="docutils literal notranslate"><span class="pre">self</span></code> inside a parser and they will be automatically cleaned up.)</p>
+<p>Once the above is complete, and the new attribute is parsed and saved inside at least one parser, a new unit test should be added.</p>
+</section>
+<section id="adding-a-new-unit-test">
+<h4>Adding a new unit test<a class="headerlink" href="#adding-a-new-unit-test" title="Link to this heading"></a></h4>
+<p>Navigate to the relevant subdirectory of the <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory. All filenames containing unit tests must start with <code class="docutils literal notranslate"><span class="pre">test</span></code>. Generally, each file containing an implementation in the cclib source has a matching test file. The exception is parsers, for which there are some program-specific tests, but most relevant are the <code class="docutils literal notranslate"><span class="pre">data</span></code> tests that are grouped by attribute.</p>
+<p>Examples of how unit tests are written are those for <a class="reference external" href="https://github.com/cclib/cclib/blob/master/test/method/testpopulation.py">population methods</a> or the <a class="reference external" href="https://github.com/cclib/cclib/blob/master/test/io/testmoldenwriter.py">MOLDEN writer</a>.</p>
+<ul class="simple">
+<li><p>A class whose name ends in <code class="docutils literal notranslate"><span class="pre">Test</span></code> is used to hold test methods. Many test files only contain a single test class, but others contain multiple, usually specialized for a specific program or method. An example is having a basic <code class="docutils literal notranslate"><span class="pre">PopulationTest</span></code> but more specific <code class="docutils literal notranslate"><span class="pre">GaussianBickelhauptTest</span></code> and <code class="docutils literal notranslate"><span class="pre">GaussianMPA</span></code> classes for checking the results specific to Bickelhaupt and Mulliken population analyses.</p></li>
+<li><p>Each method in a test class is meant for testing a single logical piece of functionality. Common checks are for whether or not the dimensions of calculated quantities are consistent and for certain chemical or physical invariants to hold, such as the total charge from a population analysis summing to the total formal charge of a system.</p></li>
+</ul>
+<p>Adding a unit test for a new attribute or new methods on an existing data unit test class requires all of the above with the addition of:</p>
+<ul class="simple">
+<li><p>An entry in the <a class="reference external" href="https://github.com/cclib/cclib/blob/master/test/testdata">testdata</a> file that matches the output for a program at a specific version with the test class the output should be used with. An output may be used with multiple tests and a test may be used for many different outputs: there are no restrictions.</p></li>
+<li><p>Each method should, after <code class="docutils literal notranslate"><span class="pre">self</span></code>, take an argument called <code class="docutils literal notranslate"><span class="pre">data</span></code> that corresponds to a parsed <code class="docutils literal notranslate"><span class="pre">ccData</span></code> instance.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> is a pytest fixture; other test classes may have their own local fixtures defined. All cclib-specific but general fixtures are located in the <a class="reference external" href="https://github.com/cclib/cclib/blob/master/test/conftest.py">pytest runtime configuration</a>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
 <section id="adding-a-new-program-version">
 <h4>Adding a new program version<a class="headerlink" href="#adding-a-new-program-version" title="Link to this heading"></a></h4>
 <p>There are a few conventions when adding a new supported program version to the unit tests:
@@ -180,15 +252,39 @@
 <section id="regression-tests">
 <span id="index-2"></span><h3>Regression tests<a class="headerlink" href="#regression-tests" title="Link to this heading"></a></h3>
 <p>Regression tests ensure that bugs, once fixed, stay fixed. These are real-life files that at some point broke a cclib parser and are stored in folders like <code class="docutils literal notranslate"><span class="pre">data/regression/Jaguar/Jaguar6.4</span></code>. The files associated with regression tests are not stored together with the source code as they are often quite large. A separate repository on GitHub, <a class="reference external" href="https://github.com/cclib/cclib-data">cclib-data</a>, is used to track these files, and we do not distribute them with any releases.</p>
-<p>For every bug found in the parsers, there should be a corresponding regression test that tests if this bug stays fixed. The process is automated by <a class="reference external" href="https://github.com/cclib/cclib/blob/master/test/regression.py">regression.py</a>, which runs through all of our test data, both the basic data and regression files, opens them, tries to parse, and runs any relevant regression tests defined for that file. New regression tests are added by creating a function <code class="docutils literal notranslate"><span class="pre">testMyFileName_out</span></code> according to the examples at the start of <a class="reference external" href="https://github.com/cclib/cclib/blob/master/test/regression.py">regression.py</a>.</p>
+<p>For every bug found in the parsers, there should be a corresponding regression test that tests if this bug stays fixed. The process is automated by <a class="reference external" href="https://github.com/cclib/cclib/blob/master/test/regression.py">regression.py</a>, which runs through all of our test data, both the basic data and regression files, opens them, tries to parse, and runs any relevant regression tests defined for that file.</p>
 <p>Using both the unit and regression tests, the line-by-line <a class="reference external" href="coverage/index.html">test coverage</a> shows which parts of cclib are touched by at least one test. When adding new features and tests, the GitHub Actions <a class="reference external" href="https://github.com/cclib/cclib/blob/master/.github/scripts/run_pytest.bash">testing script</a> can be run locally to generate the HTML coverage pages and ensure that the tests exercise the feature code.</p>
+<section id="adding-a-new-regression-test">
+<h4>Adding a new regression test<a class="headerlink" href="#adding-a-new-regression-test" title="Link to this heading"></a></h4>
+<p>A regression test consists of one or more output files and optionally a test function or class.</p>
+<p>New regression tests are added by creating entries in <a class="reference external" href="https://github.com/cclib/cclib-data/blob/master/regressionfiles.yaml">regressionfiles.yaml</a>. There are three kinds of tests:</p>
+<ul class="simple">
+<li><p>A regression may be parsed, but specific attributes on the regression are not checked: no test function or class is added.</p></li>
+<li><p>A regression may be parsed and also explicitly tested.</p></li>
+<li><p>A regression may be explicitly tested but not parsed (this is uncommon).</p></li>
+</ul>
+<p>More details, such as where to place regression data, how to control parsing, and what to name the optional tests are available in the <a class="reference external" href="https://github.com/cclib/cclib/blob/07590622dbd571c31f8b874697ce024908345d9a/test/conftest.py#L43">pytest config</a> and at the top of <a class="reference external" href="https://github.com/cclib/cclib-data/blob/master/regressionfiles.yaml">regressionfiles.yaml</a>.</p>
+</section>
+</section>
+</section>
+<section id="code-conventions">
+<h2>Code conventions<a class="headerlink" href="#code-conventions" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>All aspects of code formatting are handled automatically by a combination of <a class="reference external" href="https://pycqa.github.io/isort/">isort</a> and <a class="reference external" href="https://docs.astral.sh/ruff/">ruff</a>.  Formatting is enforced by running <a class="reference external" href="https://pre-commit.com/">pre-commit</a> on all PRs.  We encourage contributors to also run pre-commit locally.
+* Non-functional changes to code are ideally in separate PRs.  This makes PRs quicker to review and merge.</p></li>
+<li><p>Print output is controlled via Python’s standard logging library and levels.  Any output that might be presentable to the user, from detecting that there may have been a problem with the calculation to general debug-type printing, should use the logger with an appropriate log level.  Be generous with logging rather than erring on the side of caution.  See <a class="reference external" href="https://github.com/cclib/cclib/issues/237">this issue</a> for historical information.</p></li>
+<li><p>Setting parsed attributes inside a parser’s <code class="docutils literal notranslate"><span class="pre">extract</span></code> method is fundamentally identical to setting attributes on a basic Python object (<code class="docutils literal notranslate"><span class="pre">self.myattr</span> <span class="pre">=</span> <span class="pre">thing</span></code>).</p></li>
+</ul>
+<section id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h3>
+<p>All new functions should contain a docstring in <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">NumPy style</a>.  A docstring should focus on the user-facing interaction and purpose of a function rather than any implementation details.  Additional code comments may also be necessary; <a class="reference external" href="http://antirez.com/news/124">here</a> are some general guidelines for writing code comments.</p>
+<p>Larger features, such as adding a new parser, method, or bridge, may also warrant additional high-level documentation in these pages.  Please reach out to us about this if you have questions, or we may ask for some as part of discussion on an issue or PR.</p>
 </section>
 </section>
 <section id="websites-related-to-cclib">
 <h2>Websites related to cclib<a class="headerlink" href="#websites-related-to-cclib" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>The official <a class="reference external" href="https://github.com/cclib">cclib organization on github</a></p></li>
-<li><p>The <a class="reference external" href="https://sourceforge.net/projects/cclib/">cclib project page on Sourceforge</a> (inactive now)</p></li>
 <li><p>The <a class="reference external" href="https://github.com/cclib/cclib/actions">cclib page for GitHub Actions</a></p></li>
 <li><p>The <a class="reference external" href="https://pypi.org/project/cclib/">cclib entry on PyPI</a></p></li>
 <li><p>The <a class="reference external" href="https://libraries.io/pypi/cclib">cclib entry on libraries.io</a></p></li>
@@ -206,6 +302,7 @@
 <li><p><a class="reference external" href="https://github.com/langner">Karol M. Langner</a></p></li>
 <li><p><a class="reference external" href="https://github.com/oliver-s-lee">Oliver Lee</a></p></li>
 <li><p><a class="reference external" href="https://github.com/baoilleach">Noel O’Boyle</a> (retired)</p></li>
+<li><p><a class="reference external" href="https://github.com/schneiderfelipe">Felipe S. S. Schneider</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ATenderholt">Adam Tenderholt</a> (retired)</p></li>
 <li><p><a class="reference external" href="https://github.com/shivupa">Shiv Upadhyay</a></p></li>
 </ul>
@@ -223,7 +320,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2014-2021, cclib Development Team.</p>
+    <p>&#169; Copyright 2014-2024, cclib Development Team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

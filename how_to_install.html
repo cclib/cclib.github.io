@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How to install &mdash; cclib 1.8 documentation</title>
+  <title>How to install &mdash; cclib 1.8.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/increase_max_width.css?v=eea1f72d" />
@@ -16,7 +16,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=d13700ae"></script>
+        <script src="_static/documentation_options.js?v=1166ed6b"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -38,7 +38,7 @@
             cclib
           </a>
               <div class="version">
-                1.7
+                1.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -59,7 +59,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_parse.html">How to parse and write</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.8)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Parsed data (version 1.8.1)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_notes.html">Parsed data notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="methods.html">Calculation methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bridge.html">Bridges to other packages</a></li>
@@ -160,15 +160,15 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 <section id="manual-download-and-install">
 <h2>Manual download and install<a class="headerlink" href="#manual-download-and-install" title="Link to this heading"></a></h2>
 <dl class="simple">
-<dt>The source code of the newest release of cclib (version 1.8) is distributed as:</dt><dd><ul class="simple">
-<li><p>A .zip file: <a class="reference external" href="https://github.com/cclib/cclib/releases/download/v1.8/cclib-1.8.zip">https://github.com/cclib/cclib/releases/download/v1.8/cclib-1.8.zip</a></p></li>
-<li><p>A .tar.gz file: <a class="reference external" href="https://github.com/cclib/cclib/releases/download/v1.8/cclib-1.8.tar.gz">https://github.com/cclib/cclib/releases/download/v1.8/cclib-1.8.tar.gz</a></p></li>
-<li><p>Windows binary installers (see the <a class="reference external" href="https://github.com/cclib/cclib/releases/tag/v1.7">newest release page</a>)</p></li>
+<dt>The source code of the newest release of cclib (version 1.8.1) is distributed as:</dt><dd><ul class="simple">
+<li><p>A .zip file: <a class="reference external" href="https://github.com/cclib/cclib/releases/download/v1.8.1/cclib-1.8.1.zip">https://github.com/cclib/cclib/releases/download/v1.8.1/cclib-1.8.1.zip</a></p></li>
+<li><p>A .tar.gz file: <a class="reference external" href="https://github.com/cclib/cclib/releases/download/v1.8.1/cclib-1.8.1.tar.gz">https://github.com/cclib/cclib/releases/download/v1.8.1/cclib-1.8.1.tar.gz</a></p></li>
+<li><p>Windows binary installers (see the <a class="reference external" href="https://github.com/cclib/cclib/releases/tag/v1.8.1">newest release page</a>)</p></li>
 </ul>
 </dd>
 </dl>
 <p>On Windows, if you choose to download the .exe files instead, you can install simply by double-clicking on the file. To uninstall, use the “Add and Remove Programs” menu in the Control Panel.</p>
-<p>None of these files include the tests and logfiles used for testing. In order to download all tests, we also provide source archives on the <a class="reference external" href="https://github.com/cclib/cclib/releases/tag/v1.7">newest release page</a>.</p>
+<p>None of these files include the tests and logfiles used for testing. In order to download all tests, we also provide source archives on the <a class="reference external" href="https://github.com/cclib/cclib/releases/tag/v1.8.1">newest release page</a>.</p>
 <p>If you are using the .zip or .tar.gz files, extract the contents of the file at an appropriate location, which we will call INSTALLDIR. Open a command prompt and change directory to INSTALLDIR. Next, run the following commands to install cclib:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>setup.py<span class="w"> </span>build
 python<span class="w"> </span>setup.py<span class="w"> </span>install<span class="w"> </span><span class="c1"># (as root)</span>
@@ -197,7 +197,7 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 <li><p>Read the list and specifications of the <a class="reference external" href="data.html">parsed data</a> and related <a class="reference external" href="data_notes.html">data notes</a></p></li>
 <li><p>Test the program using the test data files included in the full source distribution</p></li>
 <li><p>Run the unit and regression tests in the test directory (<code class="docutils literal notranslate"><span class="pre">testall.py</span></code> and <code class="docutils literal notranslate"><span class="pre">regression.py</span></code>)</p></li>
-<li><p>Send any questions to the cclib-users mailing list at <a class="reference external" href="https://sourceforge.net/projects/cclib/lists/cclib-users">https://sourceforge.net/projects/cclib/lists/cclib-users</a>.</p></li>
+<li><p>Send any questions to the cclib-users mailing list at <a class="reference external" href="https://groups.google.com/g/cclib">https://groups.google.com/g/cclib</a>.</p></li>
 <li><p>Write some computational chemistry algorithms using information parsed from cclib and donate the code to the project</p></li>
 </ul>
 </div></blockquote>
@@ -215,7 +215,7 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2014-2021, cclib Development Team.</p>
+    <p>&#169; Copyright 2014-2024, cclib Development Team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
