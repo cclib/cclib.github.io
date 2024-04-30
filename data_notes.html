@@ -266,7 +266,7 @@
 </section>
 <section id="etenergies">
 <h2>etenergies<a class="headerlink" href="#etenergies" title="Link to this heading"></a></h2>
-<p>This is a rank 1 array that contains the energies of electronic transitions from a reference state to the excited states of the molecule, in <code class="docutils literal notranslate"><span class="pre">cm&lt;sup&gt;-1&lt;/sup&gt;</span></code>. There should be as many elements to this array as there are excited states calculated. Any type of excited state calculation should provide output that can be parsed into this attribute.</p>
+<p>This is a rank 1 array that contains the energies of electronic transitions from a reference state to the excited states of the molecule, in hartree. There should be as many elements to this array as there are excited states calculated. Any type of excited state calculation should provide output that can be parsed into this attribute.</p>
 </section>
 <section id="etoscs">
 <h2>etoscs<a class="headerlink" href="#etoscs" title="Link to this heading"></a></h2>
@@ -440,7 +440,7 @@
 </section>
 <section id="moenergies">
 <span id="index-8"></span><h2>moenergies<a class="headerlink" href="#moenergies" title="Link to this heading"></a></h2>
-<p>A list of rank 1 arrays containing the molecular orbital energies in eV. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations.</p>
+<p>A list of rank 1 arrays containing the molecular orbital energies in hartree. The list is of length 1 for restricted calculations, but length 2 for unrestricted calculations.</p>
 <p><strong>GAMESS-UK</strong>: similar to <a class="reference internal" href="#mocoeffs">mocoeffs</a>, the directive <a class="reference external" href="https://web.archive.org/web/20190809100513/http://www.cfs.dl.ac.uk/docs/html/part3/node8.html">FORMAT HIGH</a> needs to be used if you want all of the eigenvalues printed.</p>
 <p><strong>Jaguar</strong>: the first ten virtual orbitals are printed by default. In order to print more, use the <code class="docutils literal notranslate"><span class="pre">ipvirt</span></code> keyword, with <code class="docutils literal notranslate"><span class="pre">ipvirt=-1</span></code> printing all virtual orbitals.</p>
 </section>
@@ -613,7 +613,7 @@
 </section>
 <section id="scanenergies">
 <h2>scanenergies<a class="headerlink" href="#scanenergies" title="Link to this heading"></a></h2>
-<p>A list containing the energies at each point of the scan. As with <a class="reference internal" href="#scancoords">scancoords</a>, <code class="docutils literal notranslate"><span class="pre">scanenergies</span></code> is only equivalent to <code class="docutils literal notranslate"><span class="pre">{scf,mp,cc}energies</span></code> in the case of an unrelaxed scan of the scf, mp, and/or cc potential energy surface.</p>
+<p>A list containing the energies at each point of the scan. As with <a class="reference internal" href="#scancoords">scancoords</a>, <code class="docutils literal notranslate"><span class="pre">scanenergies</span></code> is only equivalent to <code class="docutils literal notranslate"><span class="pre">{scf,mp,cc}energies</span></code> in the case of an unrelaxed scan of the SCF, MP, and/or CC potential energy surface.</p>
 </section>
 <section id="scannames">
 <h2>scannames<a class="headerlink" href="#scannames" title="Link to this heading"></a></h2>
@@ -625,7 +625,7 @@
 </section>
 <section id="scfenergies">
 <h2>scfenergies<a class="headerlink" href="#scfenergies" title="Link to this heading"></a></h2>
-<p>An array containing the converged SCF energies of the calculation, in eV. For an optimisation log file, there will be as many elements in this array as there were optimisation steps.</p>
+<p>An array containing the converged SCF energies of the calculation, in hartree. For an optimisation log file, there will be as many elements in this array as there were optimisation steps.</p>
 <p>If a dispersion correction of any form was used, it is part of the SCF energy and, in the event that it is separable, such as with D3 and similar empirical corrections, it is also available separately under <a class="reference internal" href="#dispersionenergies">dispersionenergies</a>.</p>
 <p>If any other corrections were present in calculating the SCF energy, in particular perturbative, empirical, or “single-shot” corrections, assume that they are <em>not</em> present in <code class="docutils literal notranslate"><span class="pre">scfenergies</span></code>.  Corrections included self-consistently, such as from implicit solvation models, should be present.  Check the parsed result carefully and, when in doubt, ask on the issue tracker.</p>
 <p><strong>Molpro</strong>: typically prints output about geometry optimisation in a separate logfile. So, both that and the initial output need to be passed to the cclib parser.</p>

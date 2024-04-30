@@ -10,13 +10,13 @@ Couldn't find cython becke routine
     `atommasses`_         atom masses                                                          daltons          array of rank 1
     `atomnos`_            atomic numbers                                                                        array of rank 1
     `atomspins`_          atomic spin densities                                                                 dict of arrays of rank 1
-    `ccenergies`_         molecular energies with Coupled-Cluster corrections                  eV               array of rank 2
+    `ccenergies`_         molecular energies with Coupled-Cluster corrections                  hartree          array of rank 2
     `charge`_             net charge of the system                                                              integer
     `coreelectrons`_      number of core electrons in atom pseudopotentials                                     array of rank 1
-    `dispersionenergies`_ dispersion energy corrections                                        eV               array of rank 1
+    `dispersionenergies`_ dispersion energy corrections                                        hartree          array of rank 1
     `enthalpy`_           sum of electronic and thermal enthalpies                             hartree/particle float
     `entropy`_            entropy (float, hartree/                                                              particle*kelvin
-    `etenergies`_         energies of electronic transitions                                   1/cm             array of rank 1
+    `etenergies`_         energies of electronic transitions                                   hartree          array of rank 1
     `etoscs`_             oscillator strengths of electronic transitions                                        array of rank 1
     `etdips`_             electric transition dipoles of electronic transitions                ebohr            array of rank 2
     `etveldips`_          velocity-gauge electric transition dipoles of electronic transitions ebohr            array of rank 2
@@ -37,10 +37,10 @@ Couldn't find cython becke routine
     `homos`_              molecular orbital indices of HOMO(s)                                                  array of rank 1
     `metadata`_           various metadata about the package and computation                                    dict
     `mocoeffs`_           molecular orbital coefficients                                                        list of arrays of rank 2
-    `moenergies`_         molecular orbital energies                                           eV               list of arrays of rank 1
+    `moenergies`_         molecular orbital energies                                           hartree          list of arrays of rank 1
     `moments`_            molecular multipole moments                                          a.u.             list of arrays[]
     `mosyms`_             orbital symmetries                                                                    list of lists
-    `mpenergies`_         molecular electronic energies with Møller-Plesset corrections        eV               array of rank 2
+    `mpenergies`_         molecular electronic energies with Møller-Plesset corrections        hartree          array of rank 2
     `mult`_               multiplicity of the system                                                            integer
     `natom`_              number of atoms                                                                       integer
     `nbasis`_             number of basis functions                                                             integer
@@ -60,7 +60,7 @@ Couldn't find cython becke routine
     `scanenergies`_       energies of potential energy surface                                                  list
     `scannames`_          names of variables scanned                                                            list of strings
     `scanparm`_           values of parameters in potential energy surface                                      list of tuples
-    `scfenergies`_        molecular electronic energies after SCF (Hartree-Fock, DFT)          eV               array of rank 1
+    `scfenergies`_        molecular electronic energies after SCF (Hartree-Fock, DFT)          hartree          array of rank 1
     `scftargets`_         targets for convergence of the SCF                                                    array of rank 2
     `scfvalues`_          current values for convergence of the SCF                                             list of arrays of rank 2
     `temperature`_        temperature used for Thermochemistry                                 kelvin           float
