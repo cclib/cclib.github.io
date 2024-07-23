@@ -91,6 +91,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#nmo">nmo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nmrtensors">nmrtensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#optdone">optdone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optstatus">optstatus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#scancoords">scancoords</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#scanenergies">scanenergies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#scannames">scannames</a></li>
@@ -606,6 +607,19 @@
 <section id="optdone">
 <h2>optdone<a class="headerlink" href="#optdone" title="Link to this heading"></a></h2>
 <p>A list that indexes which elements of <a class="reference internal" href="#atomcoords">atomcoords</a> represent converged geometries.</p>
+</section>
+<section id="optstatus">
+<h2>optstatus<a class="headerlink" href="#optstatus" title="Link to this heading"></a></h2>
+<p>A list of integers representing the status of each step in an optimisation. The possible optimisation statuses are defined in bit value notation to allow for coding for multiple states and are given by:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OPT_UNKNOWN</span> <span class="pre">=</span> <span class="pre">0b000</span> <span class="pre">=</span> <span class="pre">0</span></code> is the default and means optimisation is in progress.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OPT_NEW</span> <span class="pre">=</span> <span class="pre">0b001</span> <span class="pre">=</span> <span class="pre">1</span></code> is set for every new optimisation (e.g. PES, IRCs, etc.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OPT_DONE</span> <span class="pre">=</span> <span class="pre">0b010</span> <span class="pre">=</span> <span class="pre">2</span></code> is set for the last step of an optimisation that converged.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OPT_UNCONVERGED</span> <span class="pre">=</span> <span class="pre">0b100</span> <span class="pre">=</span> <span class="pre">4</span></code> is set for every unconverged step (e.g. should be mutually exclusive with <code class="docutils literal notranslate"><span class="pre">OPT_DONE</span></code>)</p></li>
+</ul>
+</div></blockquote>
+<p>So, to robustly check if step <code class="docutils literal notranslate"><span class="pre">i</span></code> has converged, one should check <code class="docutils literal notranslate"><span class="pre">data.optstatus[i]</span> <span class="pre">&amp;</span> <span class="pre">OPT_DONE</span></code> instead of <code class="docutils literal notranslate"><span class="pre">data.optstatus[i]</span> <span class="pre">==</span> <span class="pre">OPT_DONE</span></code>.</p>
 </section>
 <section id="scancoords">
 <h2>scancoords<a class="headerlink" href="#scancoords" title="Link to this heading"></a></h2>
