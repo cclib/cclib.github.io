@@ -150,18 +150,16 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt<span class="w"> </span>install<span class="w"> </span>cclib
 </pre></div>
 </div>
-<p>There are in fact multiple packages, <a class="reference external" href="https://packages.debian.org/bullseye/python3-cclib">python3-cclib</a> containing the Python module, and <a class="reference external" href="https://packages.debian.org/bullseye/cclib">cclib</a> which installs the user scripts and depends on the Python module. If you also need to also install the unittests and logfiles we distribute, you will need to install the <a class="reference external" href="https://packages.debian.org/bullseye/cclib-data">cclib-data</a> package from the non-free repositories (due to license issues). Because of distribution release cycles, package manager versions of cclib may be out of date compared to the PyPI version.</p>
+<p>There are in fact multiple packages, <a class="reference external" href="https://packages.debian.org/bookworm/python3-cclib">python3-cclib</a> containing the Python module, and <a class="reference external" href="https://packages.debian.org/bookworm/cclib">cclib</a> which installs the user scripts and depends on the Python module. If you also need to also install the unittests and logfiles we distribute, you will need to install the <a class="reference external" href="https://packages.debian.org/bookworm/cclib-data">cclib-data</a> package from the non-free repositories (due to license issues). Because of distribution release cycles, package manager versions of cclib may be out of date compared to the PyPI version.</p>
 </section>
 <section id="manual-download-and-install">
 <h2>Manual download and install<a class="headerlink" href="#manual-download-and-install" title="Link to this heading"></a></h2>
-<dl class="simple">
-<dt>The source code of the newest release of cclib (version 1.8.1) is distributed as:</dt><dd><ul class="simple">
+<p>The source code of the newest release of cclib (version 1.8.1) is distributed as:</p>
+<ul class="simple">
 <li><p>A .zip file: <a class="reference external" href="https://github.com/cclib/cclib/releases/download/v1.8.1/cclib-1.8.1.zip">https://github.com/cclib/cclib/releases/download/v1.8.1/cclib-1.8.1.zip</a></p></li>
 <li><p>A .tar.gz file: <a class="reference external" href="https://github.com/cclib/cclib/releases/download/v1.8.1/cclib-1.8.1.tar.gz">https://github.com/cclib/cclib/releases/download/v1.8.1/cclib-1.8.1.tar.gz</a></p></li>
 <li><p>Windows binary installers (see the <a class="reference external" href="https://github.com/cclib/cclib/releases/tag/v1.8.1">newest release page</a>)</p></li>
 </ul>
-</dd>
-</dl>
 <p>On Windows, if you choose to download the .exe files instead, you can install simply by double-clicking on the file. To uninstall, use the “Add and Remove Programs” menu in the Control Panel.</p>
 <p>None of these files include the tests and logfiles used for testing. In order to download all tests, we also provide source archives on the <a class="reference external" href="https://github.com/cclib/cclib/releases/tag/v1.8.1">newest release page</a>.</p>
 <p>If you are using the .zip or .tar.gz files, extract the contents of the file at an appropriate location, which we will call INSTALLDIR. Open a command prompt and change directory to INSTALLDIR. Next, run the following commands to install cclib:</p>

@@ -239,9 +239,17 @@
 </section>
 <section id="adding-a-new-program-version">
 <h4>Adding a new program version<a class="headerlink" href="#adding-a-new-program-version" title="Link to this heading"></a></h4>
-<p>There are a few conventions when adding a new supported program version to the unit tests:
-* Two different recent versions are typically used in the unit tests. If there already are two, move the older version(s) the regression suite (see below).
-* When adding files for the new version, first copy the corresponding files for the last version already in cclib. Afterwards, check in files from the new program version as changes to the copied files. This procedure makes it easy to look at the differences introduced with the new version in git clients.</p>
+<p>There are a few conventions when adding a new supported program version to the unit tests:</p>
+<ul class="simple">
+<li><p>Two different recent versions are typically used in the unit tests. If there already are two, move the older version(s) the regression suite (see below).</p></li>
+<li><p>When adding files for the new version:</p>
+<ol class="arabic simple">
+<li><p>Make a commit that copies the corresponding files from the last version already in cclib to the new directory.</p></li>
+<li><p>Make a commit that replaces these files with those for the actual new version. This procedure makes it easy to look at the differences introduced with the new version in git clients.</p></li>
+<li><p>See <a class="reference external" href="https://github.com/cclib/cclib/pull/575/commits">https://github.com/cclib/cclib/pull/575/commits</a> for an example.</p></li>
+</ol>
+</li>
+</ul>
 </section>
 </section>
 <section id="regression-tests">
@@ -251,7 +259,7 @@
 <p>Using both the unit and regression tests, the line-by-line <a class="reference external" href="coverage/index.html">test coverage</a> shows which parts of cclib are touched by at least one test. When adding new features and tests, the GitHub Actions <a class="reference external" href="https://github.com/cclib/cclib/blob/master/.github/scripts/run_pytest.bash">testing script</a> can be run locally to generate the HTML coverage pages and ensure that the tests exercise the feature code.</p>
 <section id="adding-a-new-regression-test">
 <h4>Adding a new regression test<a class="headerlink" href="#adding-a-new-regression-test" title="Link to this heading"></a></h4>
-<p>A regression test consists of one or more output files and optionally a test function or class.</p>
+<p>A regression test consists of one or more output files and optionally a test function and/or multiple test classes.</p>
 <p>New regression tests are added by creating entries in <a class="reference external" href="https://github.com/cclib/cclib-data/blob/master/regressionfiles.yaml">regressionfiles.yaml</a>. There are three kinds of tests:</p>
 <ul class="simple">
 <li><p>A regression may be parsed, but specific attributes on the regression are not checked: no test function or class is added.</p></li>
