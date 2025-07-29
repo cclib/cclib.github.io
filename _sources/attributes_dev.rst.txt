@@ -30,7 +30,7 @@
     `frags`_              indices of atoms in a fragment                                                        list of lists
     `gbasis`_             coefficients and exponents of Gaussian basis functions                                PyQuante format
     `geotargets`_         targets for convergence of geometry optimization                                      array of rank 1
-    `geovalues`_          current values for convergence of geometry optmization                                array of rank 1
+    `geovalues`_          current values for convergence of geometry optimization                               array of rank 1
     `grads`_              current values of forces (gradients) in geometry optimization                         array of rank 3
     `hessian`_            elements of the force constant matrix                                                 array of rank 1
     `homos`_              molecular orbital indices of HOMO(s)                                                  array of rank 1
