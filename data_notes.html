@@ -85,6 +85,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#nbasis">nbasis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nmo">nmo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nmrtensors">nmrtensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nmrcouplingtensors">nmrcouplingtensors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#optdone">optdone</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#optstatus">optstatus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#scancoords">scancoords</a></li>
@@ -598,7 +599,68 @@
 </section>
 <section id="nmrtensors">
 <h2>nmrtensors<a class="headerlink" href="#nmrtensors" title="Link to this heading"></a></h2>
-<p>A dictionary where the keys zero-index the atomic center for which the chemical shielding tensor is calculated, and the values are themselves dictionaries containing the keys <code class="docutils literal notranslate"><span class="pre">total</span></code>, <code class="docutils literal notranslate"><span class="pre">paramagnetic</span></code>, and <code class="docutils literal notranslate"><span class="pre">diamagnetic</span></code>. These correspond to the total chemical shielding tensor and its separation into paramagnetic and diamagnetic components, where <span class="math notranslate nohighlight">\(\sigma_{K}^{\textrm{tot}} = \sigma_{K}^{\textrm{para}} + \sigma_{K}^{\textrm{dia}}\)</span> for a nucleus <span class="math notranslate nohighlight">\(K\)</span>.  Each tensor is represented as a 3-by-3 NumPy array. If no breakdown for paramagnetic and diamagnetic contributions to the chemical shielding is available, then only the <code class="docutils literal notranslate"><span class="pre">total</span></code> key will be present.</p>
+<p>A dictionary where the keys zero-index the atomic center for which the chemical shielding tensor is calculated, and the values are themselves dictionaries containing the keys <code class="docutils literal notranslate"><span class="pre">total</span></code> and <code class="docutils literal notranslate"><span class="pre">isotropic</span></code>, and optionally <code class="docutils literal notranslate"><span class="pre">paramagnetic</span></code>, and <code class="docutils literal notranslate"><span class="pre">diamagnetic</span></code>. <code class="docutils literal notranslate"><span class="pre">total</span></code>, <code class="docutils literal notranslate"><span class="pre">paramagnetic</span></code> and <code class="docutils literal notranslate"><span class="pre">diamagnetic</span></code> correspond to the total chemical shielding tensor and its separation into paramagnetic and diamagnetic components, where <span class="math notranslate nohighlight">\(\sigma_{K}^{\textrm{tot}} = \sigma_{K}^{\textrm{para}} + \sigma_{K}^{\textrm{dia}}\)</span> for a nucleus <span class="math notranslate nohighlight">\(K\)</span>.  Each tensor is represented as a 3-by-3 NumPy array. If no breakdown for paramagnetic and diamagnetic contributions to the chemical shielding is available, then <code class="docutils literal notranslate"><span class="pre">paramagnetic</span></code> and <code class="docutils literal notranslate"><span class="pre">diamagnetic</span></code> will be absent. <code class="docutils literal notranslate"><span class="pre">isotropic</span></code> contains the total isotropic shielding value for the atom, which corresponds to the mean of the eigenvalues of the <code class="docutils literal notranslate"><span class="pre">total</span></code> tensor. All values are in ppm.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="c1"># Atomic index.</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;diamagnetic&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([[</span><span class="mf">267.113</span><span class="p">,</span>  <span class="o">-</span><span class="mf">0.561</span><span class="p">,</span>   <span class="mf">0.</span>   <span class="p">],</span>
+                              <span class="p">[</span> <span class="o">-</span><span class="mf">0.693</span><span class="p">,</span> <span class="mf">260.076</span><span class="p">,</span>   <span class="mf">0.</span>   <span class="p">],</span>
+                              <span class="p">[</span>  <span class="mf">0.</span>   <span class="p">,</span>   <span class="mf">0.</span>   <span class="p">,</span> <span class="mf">244.893</span><span class="p">]]</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;isotropic&#39;</span><span class="p">:</span> <span class="mf">114.114</span><span class="p">,</span>
+        <span class="s1">&#39;paramagnetic&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">217.434</span><span class="p">,</span>    <span class="mf">5.104</span><span class="p">,</span>    <span class="mf">0.</span>   <span class="p">],</span>
+                               <span class="p">[</span>   <span class="mf">7.253</span><span class="p">,</span> <span class="o">-</span><span class="mf">179.952</span><span class="p">,</span>    <span class="mf">0.</span>   <span class="p">],</span>
+                               <span class="p">[</span>   <span class="mf">0.</span>   <span class="p">,</span>   <span class="o">-</span><span class="mf">0.</span>   <span class="p">,</span>  <span class="o">-</span><span class="mf">32.354</span><span class="p">]]</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;total&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([[</span> <span class="mf">49.679</span><span class="p">,</span>   <span class="mf">4.542</span><span class="p">,</span>   <span class="mf">0.</span>   <span class="p">],</span>
+                        <span class="p">[</span>  <span class="mf">6.56</span> <span class="p">,</span>  <span class="mf">80.124</span><span class="p">,</span>   <span class="mf">0.</span>   <span class="p">],</span>
+                        <span class="p">[</span>  <span class="mf">0.</span>   <span class="p">,</span>  <span class="o">-</span><span class="mf">0.</span>   <span class="p">,</span> <span class="mf">212.538</span><span class="p">]]</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+    <span class="c1"># ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="nmrcouplingtensors">
+<h2>nmrcouplingtensors<a class="headerlink" href="#nmrcouplingtensors" title="Link to this heading"></a></h2>
+<p>A dictionary of spin-spin coupling tensors. The keys of <code class="docutils literal notranslate"><span class="pre">nmrcouplingtensors</span></code> are each a pair of atomic indices, indicating the atoms between which the coupling is taking place, and the values are themselves dictionaries containing pairs of atomic isotopes as keys, where the ordering of the isotopes matches that of the atomic indices. The values of the isotope dictionaries are a third layer of dictionaries, where the keys represent different contributions to the coupling tensor, and the values are the tensors themselves as a 3-by-3 NumPy array. The available tensor types depends on what is available in the calculation, but may include <code class="docutils literal notranslate"><span class="pre">fermi</span></code>, <code class="docutils literal notranslate"><span class="pre">spin-dipolar-fermi</span></code>, <code class="docutils literal notranslate"><span class="pre">diamagnetic</span></code>, <code class="docutils literal notranslate"><span class="pre">paramagnetic</span></code>, and <code class="docutils literal notranslate"><span class="pre">spin-dipolar</span></code>. The <code class="docutils literal notranslate"><span class="pre">total</span></code> spin tensor is always available. Additionally, the <code class="docutils literal notranslate"><span class="pre">isotropic</span></code> key contains the total isotropic coupling value for the atom pair. All values are in Hz, and include the atomic g-factors (the J matrix).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="c1"># Atomic pair.</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">):</span> <span class="p">{</span>
+        <span class="c1"># Istopes, here two C13 atoms.</span>
+        <span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">13</span><span class="p">):</span> <span class="p">{</span>
+            <span class="s1">&#39;diamagnetic&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([[</span> <span class="mf">0.4902</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1273</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.</span>    <span class="p">],</span>
+                                <span class="p">[</span><span class="o">-</span><span class="mf">0.1273</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2556</span><span class="p">,</span>  <span class="mf">0.</span>    <span class="p">],</span>
+                                <span class="p">[</span> <span class="mf">0.</span>    <span class="p">,</span> <span class="o">-</span><span class="mf">0.</span>    <span class="p">,</span> <span class="o">-</span><span class="mf">0.1391</span><span class="p">]]</span>
+            <span class="p">),</span>
+            <span class="s1">&#39;fermi&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([[</span><span class="mf">7.44</span><span class="p">,</span> <span class="mf">0.</span>  <span class="p">,</span> <span class="mf">0.</span>  <span class="p">],</span>
+                            <span class="p">[</span><span class="mf">0.</span>  <span class="p">,</span> <span class="mf">7.44</span><span class="p">,</span> <span class="mf">0.</span>  <span class="p">],</span>
+                            <span class="p">[</span><span class="mf">0.</span>  <span class="p">,</span> <span class="mf">0.</span>  <span class="p">,</span> <span class="mf">7.44</span><span class="p">]]</span>
+            <span class="p">),</span>
+            <span class="s1">&#39;isotropic&#39;</span><span class="p">:</span> <span class="mf">9.485</span><span class="p">,</span>
+            <span class="s1">&#39;paramagnetic&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([[</span> <span class="mf">1.188</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.2805</span><span class="p">,</span>  <span class="mf">0.</span>    <span class="p">],</span>
+                                <span class="p">[</span><span class="o">-</span><span class="mf">0.2804</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5528</span><span class="p">,</span>  <span class="mf">0.</span>    <span class="p">],</span>
+                                <span class="p">[</span><span class="o">-</span><span class="mf">0.</span>    <span class="p">,</span>  <span class="mf">0.</span>    <span class="p">,</span> <span class="o">-</span><span class="mf">0.0408</span><span class="p">]]</span>
+            <span class="p">),</span>
+            <span class="s1">&#39;spin-dipolar&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([[</span> <span class="mf">0.7239</span><span class="p">,</span>  <span class="mf">0.0401</span><span class="p">,</span>  <span class="mf">0.</span>    <span class="p">],</span>
+                                <span class="p">[</span> <span class="mf">0.0398</span><span class="p">,</span>  <span class="mf">1.1012</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.</span>    <span class="p">],</span>
+                                <span class="p">[</span><span class="o">-</span><span class="mf">0.</span>    <span class="p">,</span>  <span class="mf">0.</span>    <span class="p">,</span>  <span class="mf">3.6195</span><span class="p">]]</span>
+            <span class="p">),</span>
+            <span class="s1">&#39;spin-dipolar-fermi&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([[</span> <span class="mf">1.9809</span><span class="p">,</span>  <span class="mf">0.0177</span><span class="p">,</span>  <span class="mf">0.</span>    <span class="p">],</span>
+                                        <span class="p">[</span> <span class="mf">0.0177</span><span class="p">,</span>  <span class="mf">2.2309</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.</span>    <span class="p">],</span>
+                                        <span class="p">[</span> <span class="mf">0.</span>    <span class="p">,</span> <span class="o">-</span><span class="mf">0.</span>    <span class="p">,</span> <span class="o">-</span><span class="mf">4.2119</span><span class="p">]]</span>
+            <span class="p">),</span>
+            <span class="s1">&#39;total&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([[</span><span class="mf">11.8229</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3499</span><span class="p">,</span>  <span class="mf">0.</span>    <span class="p">],</span>
+                            <span class="p">[</span><span class="o">-</span><span class="mf">0.3501</span><span class="p">,</span>  <span class="mf">9.9637</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.</span>    <span class="p">],</span>
+                            <span class="p">[</span><span class="o">-</span><span class="mf">0.</span>    <span class="p">,</span>  <span class="mf">0.</span>    <span class="p">,</span>  <span class="mf">6.6676</span><span class="p">]]</span>
+            <span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1"># ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 <section id="optdone">
 <h2>optdone<a class="headerlink" href="#optdone" title="Link to this heading"></a></h2>
