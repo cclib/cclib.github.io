@@ -123,15 +123,15 @@ Then, <code class="docutils literal notranslate"><span class="pre">ccData</span>
 <span class="n">den</span><span class="o">.</span><span class="n">_array</span> <span class="o">=</span> <span class="n">dens</span><span class="o">.</span><span class="n">density</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">dens</span><span class="o">.</span><span class="n">density</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="c1"># Create integration grid for calculating Becke charges</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="n">BeckeMolGrid</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">pseudo_numbers</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;only&#39;</span><span class="p">)</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">BeckeMolGrid</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">pseudo_numbers</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'only'</span><span class="p">)</span>
 
 <span class="c1"># Define Gaussian basis set</span>
-<span class="n">gob</span> <span class="o">=</span> <span class="n">get_gobasis</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="s1">&#39;STO-3G&#39;</span><span class="p">)</span>
+<span class="n">gob</span> <span class="o">=</span> <span class="n">get_gobasis</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="s1">'STO-3G'</span><span class="p">)</span>
 
 <span class="c1"># Partition charges</span>
 <span class="n">wpart</span> <span class="o">=</span> <span class="n">BeckeWPart</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">pseudo_numbers</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">moldens</span><span class="p">,</span> <span class="n">local</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">wpart</span><span class="o">.</span><span class="n">do_charges</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wpart</span><span class="p">[</span><span class="s1">&#39;charges&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wpart</span><span class="p">[</span><span class="s1">'charges'</span><span class="p">])</span>
 </pre></div>
 </div>
 </section>
@@ -158,18 +158,18 @@ Then read in the densities as below to calculate Hirshfeld or Hirshfeld-like cha
 <span class="n">den</span><span class="o">.</span><span class="n">_array</span> <span class="o">=</span> <span class="n">dens</span><span class="o">.</span><span class="n">density</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">dens</span><span class="o">.</span><span class="n">density</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="c1"># Create integration grid</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="n">BeckeMolGrid</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">pseudo_numbers</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;only&#39;</span><span class="p">)</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">BeckeMolGrid</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">pseudo_numbers</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'only'</span><span class="p">)</span>
 
 <span class="c1"># Define Gaussian basis set</span>
-<span class="n">gob</span> <span class="o">=</span> <span class="n">get_gobasis</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="s1">&#39;STO-3G&#39;</span><span class="p">)</span>
+<span class="n">gob</span> <span class="o">=</span> <span class="n">get_gobasis</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="s1">'STO-3G'</span><span class="p">)</span>
 
 <span class="c1"># Read in pro-atomic density database</span>
-<span class="n">db</span> <span class="o">=</span> <span class="n">ProAtomDB</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s1">&#39;atoms.h5&#39;</span><span class="p">)</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">ProAtomDB</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s1">'atoms.h5'</span><span class="p">)</span>
 
 <span class="c1"># Partition charges</span>
 <span class="n">wpart</span> <span class="o">=</span> <span class="n">HirshfeldWPart</span><span class="p">(</span><span class="n">ht</span><span class="o">.</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="n">ht</span><span class="o">.</span><span class="n">pseudo_numbers</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">moldens</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span>
 <span class="n">wpart</span><span class="o">.</span><span class="n">do_charges</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wpart</span><span class="p">[</span><span class="s1">&#39;charges&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wpart</span><span class="p">[</span><span class="s1">'charges'</span><span class="p">])</span>
 </pre></div>
 </div>
 </section>
